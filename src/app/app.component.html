@@ -1,22 +1,21 @@
 <div class="nav-side-menu">
   <div class="brand">Menu</div>
+  <input class="form-control col-md-12" type="text" [(ngModel)]="menuText" placeholder="Buscar">
+  <hr>
   <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
 
-      <div class="menu-list">
+  <div class="menu-list">
 
-          <ul id="menu-content" class="menu-content collapse out" *ngFor="let menu of lstMenus" >
+    <ul id="menu-content" class="menu-content collapse out" *ngFor="let menu of lstMenus|filter:menuText">
 
-              <li  data-toggle="collapse" [attr.data-target] = "'#'+menu.id" class="collapsed active">
-                <a href="#"><i class="{{menu.icon_1}}"></i> {{menu.title_1}} <span class="arrow right"></span></a>
-              </li>
+      <li data-toggle="collapse" [attr.data-target]="'#'+menu.id" class="collapsed active">
+        <a href="#"><i class="{{menu.icon}}"></i> {{menu.title}} <span class="arrow right"></span></a>
+      </li>
 
-              <ul class="sub-menu collapse" id="{{menu.id}}">
-                  <li class="active"><a href="#">RFT-H1</a></li>
-                  <li><a href="#">RFT-H2</a></li>
-                  <li><a href="#">BTB-H1</a></li>
-                  <li><a href="#">BTB-H2</a></li>
-              </ul>
+      <ul class="sub-menu collapse" id="{{menu.id}}">
+        <li *ngFor="let sub_menu of menu.sub_menu" class="active"><a href="#">{{sub_menu.title}}</a></li>
+      </ul>
 
-          </ul>
-   </div>
+    </ul>
+  </div>
 </div>

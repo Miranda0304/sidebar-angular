@@ -8,11 +8,9 @@ import { menu_json } from './menu-json/menu-json';
   styleUrls: ['./app.component.scss']
 })
 
-export class AppComponent {
-  title = 'Sidebar';
-
+export class AppComponent {;
   lstMenus = {};
-
+  menuText;
 
   constructor(){
     console.log("Constructor");
@@ -23,6 +21,5 @@ export class AppComponent {
   ngOnInit() {
    console.log("ONIT");
   }
-
   
 }
