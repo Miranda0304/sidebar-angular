@@ -19,7 +19,7 @@ export class AppComponent {;
   }
 
   ngOnInit() {
-   console.log("ONIT");
+   console.log("ONIT2");
   }
   
 }
