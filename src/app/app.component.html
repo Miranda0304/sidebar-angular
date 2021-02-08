@@ -6,7 +6,7 @@
 
           <ul id="menu-content" class="menu-content collapse out" *ngFor="let menu of lstMenus" >
 
-              <li  data-toggle="collapse" data-target="#{{menu.id}}" class="collapsed active">
+              <li  data-toggle="collapse" [attr.data-target] = "'#'+menu.id" class="collapsed active">
                 <a href="#"><i class="{{menu.icon_1}}"></i> {{menu.title_1}} <span class="arrow right"></span></a>
               </li>
 
