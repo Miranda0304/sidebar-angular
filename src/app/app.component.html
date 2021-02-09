@@ -8,14 +8,36 @@
 
     <ul id="menu-content" class="menu-content collapse out" *ngFor="let menu of lstMenus|filter:menuText">
 
-      <li data-toggle="collapse" [attr.data-target]="'#'+menu.id" class="collapsed active">
+      <li data-toggle="collapse" [attr.data-target]="'#'+menu.id" class="collapsed">
         <a href="#"><i class="{{menu.icon}}"></i> {{menu.title}} <span class="arrow right"></span></a>
       </li>
 
       <ul class="sub-menu collapse" id="{{menu.id}}">
-        <li *ngFor="let sub_menu of menu.sub_menu" class="active"><a href="#">{{sub_menu.title}}</a></li>
+        <!-- <li *ngFor="let sub_menu of menu.sub_menu" class="active"><a href="#">{{sub_menu.title}}</a></li> -->
+
+        <div class="nav-side-menu">
+          <hr>
+          <div class="menu-list">
+            <ul id="menu-content" class="menu-content collapse out" *ngFor="let sub_menu of menu.sub_menu">
+              <li data-toggle="collapse" [attr.data-target]="'#'+sub_menu.id" class="collapsed active">
+                <a href="#"><i class="{{sub_menu.icon}}"></i> {{sub_menu.title}} </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
       </ul>
 
     </ul>
+
   </div>
 </div>
+
+<style>
+  .sub-menu {
+    top: 0;
+    position: fixed;
+    left: 20%;
+  }
+
+</style>

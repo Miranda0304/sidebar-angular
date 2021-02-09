@@ -11,6 +11,7 @@ import { menu_json } from './menu-json/menu-json';
 export class AppComponent {;
   lstMenus = {};
   menuText;
+  isActive = false;
 
   constructor(){
     console.log("Constructor");
