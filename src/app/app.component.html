@@ -1,15 +1,18 @@
+
 <div class="nav-side-menu">
   <div class="brand">Menu</div>
-  <input class="form-control col-md-12" type="text" [(ngModel)]="menuText" placeholder="Buscar">
+  <input class="form-control col-md-12" id="input-search-menu" type="text" [(ngModel)]="menuText" placeholder="Buscar">
   <hr>
   <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
 
+
+
   <div class="menu-list">
 
-    <ul id="menu-content" class="menu-content collapse out" *ngFor="let menu of lstMenus|filter:menuText">
+    <ul id="menu-content" class="menu-content collapse" *ngFor="let menu of lstMenus|filter:menuText">
 
       <li data-toggle="collapse" [attr.data-target]="'#'+menu.id" class="collapsed">
-        <a href="#"><i class="{{menu.icon}}"></i> {{menu.title}} <span class="arrow right"></span></a>
+        <a href="#"><i class="{{menu.icon}}" id="icon"></i> {{menu.title}} <span class="folder"></span></a>
       </li>
 
       <ul class="sub-menu collapse" id="{{menu.id}}">
@@ -18,10 +21,12 @@
         <div class="nav-side-menu">
           <hr>
           <div class="menu-list">
-            <ul id="menu-content" class="menu-content collapse out" *ngFor="let sub_menu of menu.sub_menu">
+            <ul id="menu-content" class="menu-content collapse" *ngFor="let sub_menu of menu.sub_menu">
               <li data-toggle="collapse" [attr.data-target]="'#'+sub_menu.id" class="collapsed active">
-                <a href="#"><i class="{{sub_menu.icon}}"></i> {{sub_menu.title}} </a>
+                <a href="#"><i class="{{sub_menu.icon}}" id="icon"></i> {{sub_menu.title}} <span
+                    class="folder"></span></a>
               </li>
+
             </ul>
           </div>
         </div>
@@ -32,12 +37,3 @@
 
   </div>
 </div>
-
-<style>
-  .sub-menu {
-    top: 0;
-    position: fixed;
-    left: 20%;
-  }
-
-</style>
