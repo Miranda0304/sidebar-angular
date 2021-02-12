@@ -1,0 +1,112 @@
+  <div class="nav-side-menu">
+    <div class="brand">Menu</div>
+    <input class="form-control col-md-12" id="input-search-menu" type="text" [(ngModel)]="menuText"
+      placeholder="Buscar">
+    <hr>
+    <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
+
+    <!-- Primer Nivel -->
+    <div class="menu-list">
+      <ul id="menu-content" class="menu-content collapse" *ngFor="let menu of lstMenus|filter:menuText">
+        <li data-toggle="collapse" [attr.data-target]="'#'+menu.id" class="collapsed">
+          <a [routerLink]="[menu.path]" routerLinkActive="router-link-active" ><i class="{{menu.icon}}" id="icon"></i> {{menu.title}} <span class="folder"></span></a>
+        </li>
+
+        
+        <!-- <ul class="menu-02 collapse" id="{{menu.id}}">
+          <div class="nav-side-menu">
+            <hr>
+            <div class="menu-list">
+              <ul id="menu-content" class="menu-content collapse" *ngFor="let menu_02 of menu.menu_02">
+                <li data-toggle="collapse" [attr.data-target]="'#'+menu_02.id" class="collapsed active">
+                  <a href="#"><i class="{{menu_02.icon}}" id="icon"></i> {{menu_02.title}} <span
+                      class="folder"></span></a>
+                </li>
+
+                
+                <ul class="menu-03 collapse" id="{{menu_02.id}}">
+                  <div class="nav-side-menu">
+                    <hr>
+                    <div class="menu-list">
+                      <ul id="menu-content" class="menu-content collapse" *ngFor="let menu_03 of menu_02.menu_03">
+                        <li data-toggle="collapse" [attr.data-target]="'#'+menu_03.id" class="collapsed active">
+                          <a href="#"><i class="{{menu_03.icon}}" id="icon"></i> {{menu_03.title}} <span
+                              class="folder"></span></a>
+                        </li>
+
+                        
+                        <ul class="menu-04 collapse" id="{{menu_03.id}}">
+                          <div class="nav-side-menu">
+                            <hr>
+                            <div class="menu-list">
+                              <ul id="menu-content" class="menu-content collapse"
+                                *ngFor="let menu_04 of menu_03.menu_04">
+                                <li data-toggle="collapse" [attr.data-target]="'#'+menu_04.id" class="collapsed active">
+                                  <a href="#"><i class="{{menu_04.icon}}" id="icon"></i> {{menu_04.title}} <span
+                                      class="folder"></span></a>
+                                </li>
+
+                                
+                                <ul class="menu-05 collapse" id="{{menu_04.id}}">
+                                  <div class="nav-side-menu">
+                                    <hr>
+                                    <div class="menu-list">
+                                      <ul id="menu-content" class="menu-content collapse"
+                                        *ngFor="let menu_05 of menu_04.menu_05">
+                                        <li data-toggle="collapse" [attr.data-target]="'#'+menu_05.id"
+                                          class="collapsed active">
+                                          <a href="#"><i class="{{menu_05.icon}}" id="icon"></i>
+                                            {{menu_05.title}} <span class="folder"></span></a>
+                                        </li>
+
+                                        
+                                        <ul class="menu-06 collapse" id="{{menu_05.id}}">
+                                          <div class="nav-side-menu">
+                                            <hr>
+                                            <div class="menu-list">
+                                              <ul id="menu-content" class="menu-content collapse"
+                                                *ngFor="let menu_06 of menu_05.menu_06">
+                                                <li data-toggle="collapse" [attr.data-target]="'#'+menu_06.id"
+                                                  class="collapsed active">
+                                                  <a href="#"><i class="{{menu_06.icon}}" id="icon"></i>
+                                                    {{menu_06.title}} <span class="folder"></span></a>
+                                                </li>
+
+                                                
+
+
+
+                                              </ul>
+                                            </div>
+                                          </div>
+                                        </ul>
+
+
+                                      </ul>
+                                    </div>
+                                  </div>
+                                </ul>
+
+
+                              </ul>
+                            </div>
+                          </div>
+                        </ul>
+
+
+                      </ul>
+                    </div>
+                  </div>
+                </ul>
+
+
+              </ul>
+            </div>
+          </div>
+        </ul> -->
+
+      </ul>
+    </div>
+
+
+  </div>

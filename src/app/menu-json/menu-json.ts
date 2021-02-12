@@ -3,7 +3,8 @@ export const menu_json = [
   {
     id: "id_users_menu",
     icon: "fa fa-address-book",
-    title: "Usuarios",
+    title: "Home",
+    path: 'home',
     menu_02: [
       {
         id: "id_user_menu_02_01",
@@ -51,12 +52,12 @@ export const menu_json = [
           {
             id: "id_user_menu_03_03",
             icon: "fa fa-commenting",
-            title: "Ver usuarios"
+            title: "Ver usuarios 2"
           },
           {
             id: "id_user_menu_03_04",
             icon: "fa fa-commenting",
-            title: "Crear usuario"
+            title: "Crear usuario 2"
           }
         ]
       }
@@ -66,7 +67,8 @@ export const menu_json = [
   {
     id: "menu_2",
     icon: "fa fa-car",
-    title: "Menu 2",
+    title: "Expedient",
+    path: 'expedient',
     menu_02: [
       {
         id: "sub_menu_2",
@@ -159,5 +161,4 @@ export const menu_json = [
       }
     ]
   }
-
 ]
