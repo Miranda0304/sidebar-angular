@@ -1,22 +1,28 @@
-$oscuro : #2E353D;
+$fondo : #eee;
+$fondoOscuro: #ddd; 
+$borde: #ccc;
+$letras : black;
+
 .nav-side-menu {
   overflow: auto;
   font-family: verdana;
   font-size: 13px;
   font-weight: 200;
-  background-color: $oscuro;
+  background-color: $fondo;
   position: fixed;
   top: 0px;
   width: 20%;
   height: 100%;
-  color: #E1FFFF;
+  color: $letras;
+  border: 1px solid $borde;
 }
 .brand {
-  background-color: #23282E;
+  background-color: $fondoOscuro;
   line-height: 50px;
   display: block;
   text-align: center;
   font-size: 18px;
+  border: 1px solid $borde;
 }
 #input-search-menu {}
 .toggle-btn {
@@ -31,7 +37,7 @@ $oscuro : #2E353D;
 .nav-side-menu li a {
   font-size: 14px;
   text-decoration: none;
-  color: #E1FFFF;
+  color: $letras;
 }
 .menu-list ul,
 .menu-list li {
