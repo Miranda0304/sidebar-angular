@@ -30,7 +30,6 @@ export class AppComponent {
 
     this.animationState = 'in';
 
-
     let menu = document.querySelector(`#${menu_id}`);
     let sider = document.querySelector(`#${menu_id}`);
 
