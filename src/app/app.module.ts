@@ -9,14 +9,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SidebarComponent } from './shared/sidebar/sidebar.component';
 import { HomeComponent } from './views/home/home.component'
 import { APP_ROUTING } from './app.routes';
-import { ExpedientComponent } from './views/expedient/expedient.component'
+import { ExpedientComponent } from './views/expedient/expedient.component';
+import { InfobarComponent } from './shared/infobar/infobar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SidebarComponent,
     HomeComponent,
-    ExpedientComponent
+    ExpedientComponent,
+    InfobarComponent
   ],
   imports: [
     BrowserModule,

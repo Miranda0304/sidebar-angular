@@ -1,20 +1,22 @@
 $fondo : #eee;
-$fondoOscuro: #ddd; 
-$borde: #ccc;
+$fondoOscuro: #ddd;
+$borde : #ccc;
 $letras : black;
 
 .nav-side-menu {
+  transition: all 0.3s;
   overflow: auto;
   font-family: verdana;
-  font-size: 13px;
-  font-weight: 200;
   background-color: $fondo;
-  position: fixed;
-  top: 0px;
-  width: 20%;
-  height: 100%;
+  width: 100%;
+  min-height: 100%;
   color: $letras;
   border: 1px solid $borde;
+}
+.active{
+  color: red;
+  background-color: rgb(212, 207, 207);
+  border-radius: 10px;
 }
 .brand {
   background-color: $fondoOscuro;
@@ -24,21 +26,27 @@ $letras : black;
   font-size: 18px;
   border: 1px solid $borde;
 }
+
 #input-search-menu {}
+
 .toggle-btn {
   display: none;
 }
+
 .menu-list {
   padding: 15px;
 }
+
 .menu-content {
   display: block;
 }
+
 .nav-side-menu li a {
   font-size: 14px;
   text-decoration: none;
   color: $letras;
 }
+
 .menu-list ul,
 .menu-list li {
   list-style: none;
@@ -46,11 +54,11 @@ $letras : black;
   margin: 0px;
   line-height: 35px;
   cursor: pointer;
+
   .collapsed {
     .folder:before {
       font-family: FontAwesome;
       content: "\f114";
-      display: inline-block;
       padding-left: 10px;
       padding-right: 10px;
       vertical-align: middle;
@@ -58,24 +66,22 @@ $letras : black;
     }
   }
 }
+
 .menu-list ul :not(collapsed) .folder:before,
 .menu-list li :not(collapsed) .folder:before {
   font-family: FontAwesome;
   content: "\f07c";
-  display: inline-block;
   padding-left: 10px;
   padding-right: 10px;
   vertical-align: middle;
   float: right;
 }
+
 .menu-list li:hover,
 .menu-listli:hover {
   background-color: #ffffff69;
 }
-#icon {
-  padding-left: 10px;
-  padding-right: 20px;
-}
+
 
 .menu-02 {
   top: 0;
