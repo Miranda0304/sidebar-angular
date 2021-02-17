@@ -1,36 +1,69 @@
-<div class="nav-side-menu">
+<!-- <div class="nav-side-menu">
   <div class="brand">Menu</div>
   <input class="form-control col-md-12" id="input-search-menu" type="text" [(ngModel)]="menuText" placeholder="Buscar">
   <hr>
   <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
 
-  <!-- Primer Nivel -->
   <div class="menu-list">
     <ul id="menu-content" class="menu-content collapse" *ngFor="let menu of lstMenus|filter:menuText">
       <li routerLinkActive="active" data-toggle="collapse" [attr.data-target]="'#'+menu.id" class="collapsed">
         <a [routerLink]="[menu.path]" ><i class="{{menu.icon}}" id="icon"></i>
           {{menu.title}} <span class="folder"></span></a>
       </li>
-
-<!-- 
-      <ul class="menu-02 collapse" id="{{menu.id}}">
-          <div class="nav-side-menu">
-            <hr>
-            <div class="menu-list">
-              <ul id="menu-content" class="menu-content collapse" *ngFor="let menu_02 of menu.menu_02">
-                <li data-toggle="collapse" [attr.data-target]="'#'+menu_02.id" class="collapsed">
-                  <a href="#"><i class="{{menu_02.icon}}" id="icon"></i> {{menu_02.title}} <span
-                      class="folder"></span></a>
-                </li>
-
-
-              </ul>
-            </div>
-          </div>
-        </ul> -->
-
     </ul>
   </div>
 
 
+</div> -->
+
+<div class="col-md-2" style="background-color: gray;">
+  <ul>
+    <li><a href="">1</a></li>
+    <li><a href="">2</a></li>
+    <li><a href="">3</a></li>
+    <li><a href="">4</a></li>
+    <li><a href="">5</a></li>
+    <li><a href="">6</a></li>
+  </ul>  
+</div>
+<div class="col-md-2" style="background-color: wheat;">
+  <ul>
+    <li><a href="">1</a></li>
+    <li><a href="">2</a></li>
+    <li><a href="">3</a></li>
+    <li><a href="">4</a></li>
+    <li><a href="">5</a></li>
+    <li><a href="">6</a></li>
+  </ul>  
+</div>
+<div class="col-md-2" style="background-color: gray;">
+  <ul>
+    <li><a href="">1</a></li>
+    <li><a href="">2</a></li>
+    <li><a href="">3</a></li>
+    <li><a href="">4</a></li>
+    <li><a href="">5</a></li>
+    <li><a href="">6</a></li>
+  </ul>  
+</div>
+<div class="col-md-2" style="background-color: wheat;">
+  <ul>
+    <li><a href="">1</a></li>
+    <li><a href="">2</a></li>
+    <li><a href="">3</a></li>
+    <li><a href="">4</a></li>
+    <li><a href="">5</a></li>
+    <li><a href="">6</a></li>
+  </ul>  
+</div>
+
+<div class="col-md-2" style="background-color: gray;">
+  <ul>
+    <li><a href="">1</a></li>
+    <li><a href="">2</a></li>
+    <li><a href="">3</a></li>
+    <li><a href="">4</a></li>
+    <li><a href="">5</a></li>
+    <li><a href="">6</a></li>
+  </ul>  
 </div>
