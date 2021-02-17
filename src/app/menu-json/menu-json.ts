@@ -111,8 +111,8 @@ export const menu_json = [
   {
     id: "id_users_menu2",
     icon: "fa fa-car",
-    title: "Home",
-    path: 'home',
+    title: "Expedient",
+    path: 'expedient',
     menu_02: [
       {
         id: "id_user_menu2_02_01",
@@ -219,8 +219,8 @@ export const menu_json = [
   {
     id: "id_users_menu3",
     icon: "fa fa-address-book",
-    title: "Home",
-    path: 'home',
+    title: "Users",
+    path: 'users',
     menu_02: [
       {
         id: "id_user_menu3_02_01",

@@ -28,7 +28,7 @@ export class AppComponent {
         { id: 2.2, title: 'Exped 2.2', path: 'expedient', icon: 'fa fa-address-book-o' }
       ]
     },
-    { id: 3, title: 'Home', path: 'home', icon: 'fa fa-address-book' },
+    { id: 3, title: 'User', path: 'users', icon: 'fa fa-address-book' },
     { id: 4, title: 'Expedient', path: 'expedient', icon: 'fa fa-address-book' },
     { id: 5, title: 'Home', path: 'home', icon: 'fa fa-address-book' },
   ];
