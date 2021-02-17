@@ -10,7 +10,7 @@
         <div class="my-2 col-md-2">Menu </div> <div class="col-md-2"><i class="fa fa-outdent" aria-hidden="true"></i></div>
         <input class="form-control col-md-12" type="text" [(ngModel)]="menuText" placeholder="Buscar">
         <hr>
-        <ul *ngFor="let menu of lstMenus">
+        <ul *ngFor="let menu of list_menu_level_01">
           <li class="{{menu.icon}}" routerLinkActive="active">
             <a (click)="openSubMenu(menu.id, 2)" [routerLink]="[menu.path]">{{menu.title}}</a>
           </li>
@@ -22,7 +22,7 @@
         <div class="my-2">HOME</div>
         <input class="form-control col-md-12" type="text" [(ngModel)]="menuText" placeholder="Buscar">
         <hr>
-        <ul *ngFor="let sub of list">
+        <ul *ngFor="let sub of list_menu_level_02">
           <li routerLinkActive="active">
             <a (click)="openSubMenu(sub.id, 3)" [routerLink]="[sub.path]">{{sub.title}}</a>
           </li>
@@ -34,7 +34,7 @@
         <div class="my-2">HOME</div>
         <input class="form-control col-md-12" type="text" [(ngModel)]="menuText" placeholder="Buscar">
         <hr>
-        <ul *ngFor="let sub of list2">
+        <ul *ngFor="let sub of list_menu_level_03">
           <li routerLinkActive="active">
             <a (click)="openSubMenu(sub.id, 4)" [routerLink]="[sub.path]">{{sub.title}}</a>
           </li>
