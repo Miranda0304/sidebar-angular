@@ -1,12 +1,13 @@
 .component-container {
-  height: 100vh;
+  height: 99.9vh;
   // white-space: nowrap;
 }
 
 .menus-container {
+  padding: 0px;
+  border-radius: 20px;
   white-space: nowrap;
   display: inline-flex;
-  background-color: gray;
   box-sizing: content-box;
   max-width: 200% !important;
 }
@@ -20,15 +21,28 @@
 
 .active {
   background-color: white;
+  border-radius: 10px;
+  height: 20%;
+  text-align: center;
+  width: 100%;
 }
 
-.left {
+.my-font-style{
+  font-size: 18px;
+  background-color: rgb(212, 207, 207);
+  border: 1px solid #17a2b8;
+  border-radius: 20px;
   list-style-type: none;
   margin: 0;
   padding: 10px;
+}
+
+.left {
+  
+  
   overflow: hidden;
   float: left;
-  width: 16.3vw;
+  width: 16.6vw;
 }
 
 li {

@@ -1,251 +1,146 @@
 export const menu_json = [
   //###################### MAIN MENU //######################
   {
-    id: "id_users_menu",
-    icon: "fa fa-address-book",
-    title: "Home",
-    path: 'home',
-    menu_02: [
-      {
-        id: "id_user_menu_02_01",
-        icon: "fa fa-crop",
-        title: "Ver usuarios",
-        menu_03: [
-          {
-            id: "id_user_menu_03_01",
-            icon: "fa fa-commenting",
-            title: "Usuarios 1",
-            menu_04: [
-              {
-                id: "id_user_menu_04_01",
-                icon: "fa fa-eraser",
-                title: "Usuarios 1",
-                menu_05: [
-                  {
-                    id: "id_user_menu_05_01",
-                    icon: "fa fa-deaf",
-                    title: "Usuarios 1",
-                    menu_06: [
-                      {
-                        id: "id_user_menu_06_01",
-                        icon: "fa fa-credit-card-alt",
-                        title: "Usuarios 1",
-                      }
-                    ]
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            id: "id_user_menu_02_02",
-            icon: "fa fa-commenting",
-            title: "Usuarios 2",
-            menu_03: [
-              {
-                id: "id_user_menu_03_01",
-                icon: "fa fa-commenting",
-                title: "Usuarios 1",
-                menu_04: [
-                  {
-                    id: "id_user_menu_04_01",
-                    icon: "fa fa-eraser",
-                    title: "Usuarios 1",
-                    menu_05: [
-                      {
-                        id: "id_user_menu_05_01",
-                        icon: "fa fa-deaf",
-                        title: "Usuarios 1",
-                        menu_06: [
-                          {
-                            id: "id_user_menu_06_01",
-                            icon: "fa fa-credit-card-alt",
-                            title: "Usuarios 1",
-                          }
-                        ]
-                      }
-                    ]
-                  }
-                ]
-              }
-            ]
-          }
-        ]
-      },
-      {
-        id: "id_user_menu_03_02",
-        icon: "fa fa-crop",
-        title: "Crear usuario",
-        menu_03: [
-          {
-            id: "id_user_menu_03_03",
-            icon: "fa fa-commenting",
-            title: "Ver usuarios 2",
-            menu_04: [
-              {
-                id: "id_user_menu_04_01",
-                icon: "fa fa-eraser",
-                title: "Usuarios 1",
-                menu_05: [
-                  {
-                    id: "id_user_menu_05_01",
-                    icon: "fa fa-deaf",
-                    title: "Usuarios 1",
-                    menu_06: [
-                      {
-                        id: "id_user_menu_06_01",
-                        icon: "fa fa-credit-card-alt",
-                        title: "Usuarios 1"
-                      }
-                    ]
-                  }
-                ]
-              }
-            ]
-          }
-        ]
-      }
-    ],
+    id: "id_home_menu_01",
+    icon: "fa fa-home",
+    title: "Home°°",
+    path: 'home'
   },
   //###################### SECOND MENU //######################
   {
-    id: "id_users_menu2",
-    icon: "fa fa-car",
-    title: "Expedient",
+    id: "id_expedient_menu_02",
+    icon: "fa fa-book",
+    title: "Expediente",
     path: 'expedient',
     menu_02: [
       {
-        id: "id_user_menu2_02_01",
-        icon: "fa fa-car",
-        title: "Ver usuarios",
+        id: "id_expedient_menu_02_01",
+        icon: "fa fa-book",
+        title: "Expediente 1",
+        path: 'expedient1',
         menu_03: [
           {
-            id: "id_user_menu2_03_01",
-            icon: "fa fa-car",
-            title: "Usuarios 1",
+            id: "id_expedient_menu_03_01",
+            icon: "fa fa-book",
+            title: "Expediente 4",
+            path: 'expedient4',
             menu_04: [
               {
-                id: "id_user_menu2_04_01",
-                icon: "fa fa-car",
-                title: "Usuarios 1",
+                id: "id_expedient_menu_04_01",
+                icon: "fa fa-book",
+                title: "Expediente 6",
+                path: 'expedient6',
                 menu_05: [
                   {
-                    id: "id_user_menu2_05_01",
-                    icon: "fa fa-deaf",
-                    title: "Usuarios 1",
+                    id: "id_expedient_menu_05_01",
+                    icon: "fa fa-book",
+                    title: "Expediente 9",
+                    path: 'expedient9',
                     menu_06: [
                       {
-                        id: "id_user_menu2_06_01",
-                        icon: "fa fa-credit-card-alt",
-                        title: "Usuarios 1",
+                        id: "id_expedient_menu_06_01",
+                        icon: "fa fa-book",
+                        title: "Expediente 10°°",
+                        path: 'expedient10',
                       }
                     ]
                   }
                 ]
+              },
+              {
+                id: "id_expedient_menu_04_02",
+                icon: "fa fa-book",
+                title: "Expediente 7°°",
+                path: 'expedient7',
               }
             ]
           },
           {
-            id: "id_user_menu2_02_02",
-            icon: "fa fa-commenting",
-            title: "Usuarios 2",
-            menu_03: [
+            id: "id_expedient_menu_03_02",
+            icon: "fa fa-book",
+            title: "Expediente 5",
+            path: 'expedient5',
+            menu_04: [
               {
-                id: "id_user_menu2_03_01",
-                icon: "fa fa-commenting",
-                title: "Usuarios 1",
-                menu_04: [
-                  {
-                    id: "id_user_menu2_04_01",
-                    icon: "fa fa-eraser",
-                    title: "Usuarios 1",
-                    menu_05: [
-                      {
-                        id: "id_user_menu2_05_01",
-                        icon: "fa fa-deaf",
-                        title: "Usuarios 1",
-                        menu_06: [
-                          {
-                            id: "id_user_menu2_06_01",
-                            icon: "fa fa-credit-card-alt",
-                            title: "Usuarios 1",
-                          }
-                        ]
-                      }
-                    ]
-                  }
-                ]
+                id: "id_expedient_menu_04_01",
+                icon: "fa fa-book",
+                title: "Expediente 8°°",
+                path: 'expedient8',
+              },
+              {
+                id: "id_expedient_menu_04_02",
+                icon: "fa fa-book",
+                title: "Expediente 11°°",
+                path: 'expedient11',
               }
             ]
           }
         ]
       },
       {
-        id: "id_user_menu2_03_02",
-        icon: "fa fa-crop",
-        title: "Crear usuario",
+        id: "id_expedient_menu_02_02",
+        icon: "fa fa-book",
+        title: "Expediente 2",
+        path: 'expedient2',
         menu_03: [
           {
-            id: "id_user_menu2_03_03",
-            icon: "fa fa-commenting",
-            title: "Ver usuarios 2",
-            menu_04: [
-              {
-                id: "id_user_menu2_04_01",
-                icon: "fa fa-eraser",
-                title: "Usuarios 1",
-                menu_05: [
-                  {
-                    id: "id_user_menu2_05_01",
-                    icon: "fa fa-deaf",
-                    title: "Usuarios 1",
-                    menu_06: [
-                      {
-                        id: "id_user_menu2_06_01",
-                        icon: "fa fa-credit-card-alt",
-                        title: "Usuarios 1"
-                      }
-                    ]
-                  }
-                ]
-              }
-            ]
+            id: "id_expedient_menu_03_01",
+            icon: "fa fa-book",
+            title: "Expediente 12°°",
+            path: 'expedient12'
+          },
+          {
+            id: "id_expedient_menu_03_02",
+            icon: "fa fa-book",
+            title: "Expediente 13°°",
+            path: 'expedient13'
           }
         ]
+      },
+      {
+        id: "id_expedient_menu_02_03",
+        icon: "fa fa-book",
+        title: "Expediente 3°°",
+        path: 'expedient3',
       }
     ],
   },
   //###################### THIRD MENU //######################
   {
-    id: "id_users_menu3",
-    icon: "fa fa-address-book",
-    title: "Users",
+    id: "id_user_menu_01",
+    icon: "fa fa-user-circle-o",
+    title: "Usuarios",
     path: 'users',
     menu_02: [
       {
-        id: "id_user_menu3_02_01",
-        icon: "fa fa-crop",
-        title: "Ver usuarios",
+        id: "id_user_menu_02_01",
+        icon: "fa fa-book",
+        title: "Usuario 1",
+        path: 'users1',
         menu_03: [
           {
-            id: "id_user_menu3_03_01",
-            icon: "fa fa-commenting",
-            title: "Usuarios 1",
+            id: "id_user_menu_03_01",
+            icon: "fa fa-book",
+            title: "Usuario 4",
+            path: 'users4',
             menu_04: [
               {
-                id: "id_user_menu3_04_01",
-                icon: "fa fa-eraser",
-                title: "Usuarios 1",
+                id: "id_user_menu_04_01",
+                icon: "fa fa-book",
+                title: "Usuario 6",
+                path: 'users6',
                 menu_05: [
                   {
-                    id: "id_user_menu3_05_01",
-                    icon: "fa fa-deaf",
-                    title: "Usuarios 1",
+                    id: "id_user_menu_05_01",
+                    icon: "fa fa-book",
+                    title: "Usuario 7",
+                    path: 'users7',
                     menu_06: [
                       {
-                        id: "id_user_menu3_06_01",
-                        icon: "fa fa-credit-card-alt",
-                        title: "Usuarios 1",
+                        id: "id_user_menu_06_01",
+                        icon: "fa fa-book",
+                        title: "Usuario 8°°",
+                        path: 'users8',
                       }
                     ]
                   }
@@ -254,127 +149,119 @@ export const menu_json = [
             ]
           },
           {
-            id: "id_user_menu3_02_02",
-            icon: "fa fa-commenting",
-            title: "Usuarios 2",
-            menu_03: [
-              {
-                id: "id_user_menu3_03_01",
-                icon: "fa fa-commenting",
-                title: "Usuarios 1",
-                menu_04: [
-                  {
-                    id: "id_user_menu3_04_01",
-                    icon: "fa fa-eraser",
-                    title: "Usuarios 1",
-                    menu_05: [
-                      {
-                        id: "id_user_menu3_05_01",
-                        icon: "fa fa-deaf",
-                        title: "Usuarios 1",
-                        menu_06: [
-                          {
-                            id: "id_user_menu3_06_01",
-                            icon: "fa fa-credit-card-alt",
-                            title: "Usuarios 1",
-                          }
-                        ]
-                      }
-                    ]
-                  }
-                ]
-              }
-            ]
+            id: "id_user_menu_03_02",
+            icon: "fa fa-book",
+            title: "Usuario 5°°",
+            path: 'users5'
           }
         ]
       },
       {
-        id: "id_user_menu3_03_02",
-        icon: "fa fa-crop",
-        title: "Crear usuario",
+        id: "id_user_menu_02_02",
+        icon: "fa fa-book",
+        title: "Usuario 2",
+        path: 'users2',
         menu_03: [
           {
-            id: "id_user_menu3_03_03",
-            icon: "fa fa-commenting",
-            title: "Ver usuarios 2",
-            menu_04: [
-              {
-                id: "id_user_menu3_04_01",
-                icon: "fa fa-eraser",
-                title: "Usuarios 1",
-                menu_05: [
-                  {
-                    id: "id_user_menu3_05_01",
-                    icon: "fa fa-deaf",
-                    title: "Usuarios 1",
-                    menu_06: [
-                      {
-                        id: "id_user_menu3_06_01",
-                        icon: "fa fa-credit-card-alt",
-                        title: "Usuarios 1"
-                      }
-                    ]
-                  }
-                ]
-              }
-            ]
+            id: "id_user_menu_03_01",
+            icon: "fa fa-book",
+            title: "Expediente 12°°",
+            path: 'expedient12'
+          },
+          {
+            id: "id_user_menu_03_02",
+            icon: "fa fa-book",
+            title: "Expediente 13°°",
+            path: 'expedient13'
           }
         ]
+      },
+      {
+        id: "id_user_menu_02_03",
+        icon: "fa fa-book",
+        title: "Usuario 3°°",
+        path: 'users3',
       }
     ],
   },
   //###################### FOURTH MENU //######################
   {
-    id: "id_users_menu4",
-    icon: "fa fa-pencil",
-    title: "Home",
-    path: 'home',
+    id: "id_attached_menu_01",
+    icon: "fa fa-paperclip",
+    title: "Adjuntos",
+    path: 'attached',
     menu_02: [
       {
-        id: "id_user_menu4_02_01",
-        icon: "fa fa-pencil",
-        title: "Ver usuarios"
-      },
-      {
-        id: "id_user_menu4_03_02",
-        icon: "fa fa-pencil",
-        title: "Crear usuario",
+        id: "id_attached_menu_02_01",
+        icon: "fa fa-paperclip",
+        title: "Adjunto 1",
+        path: 'attached1',
         menu_03: [
           {
-            id: "id_user_menu4_03_03",
-            icon: "fa fa-commenting",
-            title: "Ver usuarios 2",
+            id: "id_attached_menu_03_01",
+            icon: "fa fa-paperclip",
+            title: "Adjuntos 3",
+            path: 'attached3',
             menu_04: [
               {
-                id: "id_user_menu4_04_01",
-                icon: "fa fa-pencil",
-                title: "Usuarios 1",
-                menu_05: [
-                  {
-                    id: "id_user_menu4_05_01",
-                    icon: "fa fa-pencil",
-                    title: "Usuarios 1",
-                    menu_06: [
-                      {
-                        id: "id_user_menu4_06_01",
-                        icon: "fa fa-credit-card-alt",
-                        title: "Usuarios 1"
-                      }
-                    ]
-                  }
-                ]
+                id: "id_attached_menu_04_01",
+                icon: "fa fa-paperclip",
+                title: "Adjuntos 4°°",
+                path: 'attached4'
               }
             ]
           }
         ]
+      },
+      {
+        id: "id_attached_menu_02_02",
+        icon: "fa fa-paperclip",
+        title: "Adjunto 2°°",
+        path: 'attached2'
       }
-    ],
+    ]
   },
   //###################### FIVE MENU //######################
   {
-    id: "id_users_menu5",
-    icon: "fa fa-coffee",
-    title: "Home",
-    path: 'home'
-  }
+    id: "id_information_menu_01",
+    icon: "fa fa-info-circle",
+    title: "Información",
+    path: 'information',
+    menu_02: [
+      {
+        id: "id_information_menu_02_01",
+        icon: "fa fa-info-circle",
+        title: "Información 1°°",
+        path: 'information1',
+      },
+      {
+        id: "id_information_menu_02_02",
+        icon: "fa fa-info-circle",
+        title: "Información 2",
+        path: 'information2',
+        menu_03: [
+          {
+            id: "id_information_menu_03_01",
+            icon: "fa fa-info-circle",
+            title: "Información 3",
+            path: 'information3',
+            menu_04: [
+              {
+                id: "id_information_menu_05_01",
+                icon: "fa fa-info-circle",
+                title: "Información 5°°",
+                path: 'information5',
+              }
+            ]
+          },
+          {
+            id: "id_information_menu_03_02",
+            icon: "fa fa-info-circle",
+            title: "Información 4°°",
+            path: 'information4',
+          }
+        ]
+      }
+    ]
+  },
 ]

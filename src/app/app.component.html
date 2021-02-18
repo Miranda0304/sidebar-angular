@@ -1,10 +1,10 @@
 <div class="d-flex component-container">
 
+  <!-- Views Sidebar menu -->
   <div class="col col-md-auto menus-container" *ngIf="visibleMenu == true">
 
     <!-- first level -->
-    <div class="left animated fadeIn">
-
+    <div class="left my-font-style animated fadeIn">
       <div class="my-2">Menu 1</div>
       <input class="form-control col-md-12" type="text" [(ngModel)]="menuText1" placeholder="Buscar">
       <hr>
@@ -16,7 +16,7 @@
     </div>
 
     <!-- second level -->
-    <div class="left animated fadeIn" *ngIf="lstVisible[0].isVisible == true">
+    <div class="left my-font-style animated fadeIn" *ngIf="lstVisible[0].isVisible == true">
       <div class="my-2">Menu 2</div>
       <input class="form-control col-md-12" type="text" [(ngModel)]="menuText2" placeholder="Buscar">
       <hr>
@@ -28,7 +28,7 @@
     </div>
 
     <!-- third level -->
-    <div class="left animated fadeIn" *ngIf="lstVisible[1].isVisible == true">
+    <div class="left my-font-style animated fadeIn" *ngIf="lstVisible[1].isVisible == true">
       <div class="my-2">Menu 3</div>
       <input class="form-control col-md-12" type="text" [(ngModel)]="menuText3" placeholder="Buscar">
       <hr>
@@ -40,7 +40,7 @@
     </div>
 
     <!-- fourth level -->
-    <div class="left animated fadeIn" *ngIf="lstVisible[2].isVisible == true">
+    <div class="left my-font-style animated fadeIn" *ngIf="lstVisible[2].isVisible == true">
       <div class="my-2">Menu 4</div>
       <input class="form-control col-md-12" type="text" [(ngModel)]="menuText4" placeholder="Buscar">
       <hr>
@@ -52,7 +52,7 @@
     </div>
 
     <!-- fifth level -->
-    <div class="left animated fadeIn" *ngIf="lstVisible[3].isVisible == true">
+    <div class="left my-font-style animated fadeIn" *ngIf="lstVisible[3].isVisible == true">
       <div class="my-2">Menu 5</div>
       <input class="form-control col-md-12" type="text" [(ngModel)]="menuText5" placeholder="Buscar">
       <hr>
@@ -64,7 +64,7 @@
     </div>
 
     <!-- sixth level -->
-    <div class="left animated fadeIn" *ngIf="lstVisible[4].isVisible == true">
+    <div class="left my-font-style animated fadeIn" *ngIf="lstVisible[4].isVisible == true">
       <div class="my-2">Menu 6</div>
       <input class="form-control col-md-12" type="text" [(ngModel)]="menuText6" placeholder="Buscar">
       <hr>
@@ -77,14 +77,17 @@
 
 
   </div>
+
+  <!-- Button Collapse -->
   <button class=" btn btn-info fa fa-outdent" id="btn_collaps_all" (click)="collapse_all()" aria-hidden="true"></button>
+
   <!-- Views container -->
-  <div class="col my-3 mx-3">
+  <div class="col col-xs-auto my-3 mx-3">
     <router-outlet></router-outlet>
   </div>
 
   <!-- View infobar -->
-  <div class="col-md-2 offset-md-12">
+  <div class="col-md-2 offset-md-12" style="background-color: #138496;">
     <app-infobar></app-infobar>
   </div>
 

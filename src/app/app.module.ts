@@ -14,6 +14,10 @@ import { InfobarComponent } from './shared/infobar/infobar.component';
 import { UsersComponent } from './views/users/users.component';
 import { AttachedComponent } from './views/attached/attached.component';
 import { InformationComponent } from './views/information/information.component';
+import { ExpedientAuxComponent } from './views/expedient-aux/expedient-aux.component';
+import { UsersAuxComponent } from './views/users-aux/users-aux.component';
+import { AttachedAuxComponent } from './views/attached-aux/attached-aux.component';
+import { InformationAuxComponent } from './views/information-aux/information-aux.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +28,11 @@ import { InformationComponent } from './views/information/information.component'
     InfobarComponent,
     UsersComponent,
     AttachedComponent,
-    InformationComponent
+    InformationComponent,
+    ExpedientAuxComponent,
+    UsersAuxComponent,
+    AttachedAuxComponent,
+    InformationAuxComponent
   ],
   imports: [
     BrowserModule,

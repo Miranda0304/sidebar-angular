@@ -30,7 +30,7 @@ export class AppComponent {
     { level: 3, isVisible: false },
     { level: 4, isVisible: false },
     { level: 5, isVisible: false },
-    { level: 6, isVisible: false }
+    { level: 6, isVisible: false },
   ]
 
 
@@ -75,9 +75,10 @@ export class AppComponent {
         this.lstVisible.map(x => x.level <= level_to_open ? x.isVisible = true : x.isVisible = false) : this.lstVisible.map(x => x.level < level_to_open ? x.isVisible = true : x.isVisible = false);
 
     }
+
   }
 
-  collapse_all(){
+  collapse_all() {
     this.visibleMenu = !this.visibleMenu;
   }
 
