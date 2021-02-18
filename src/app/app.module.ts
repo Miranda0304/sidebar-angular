@@ -12,6 +12,8 @@ import { APP_ROUTING } from './app.routes';
 import { ExpedientComponent } from './views/expedient/expedient.component';
 import { InfobarComponent } from './shared/infobar/infobar.component';
 import { UsersComponent } from './views/users/users.component';
+import { AttachedComponent } from './views/attached/attached.component';
+import { InformationComponent } from './views/information/information.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { UsersComponent } from './views/users/users.component';
     HomeComponent,
     ExpedientComponent,
     InfobarComponent,
-    UsersComponent
+    UsersComponent,
+    AttachedComponent,
+    InformationComponent
   ],
   imports: [
     BrowserModule,
