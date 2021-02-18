@@ -1,51 +1,83 @@
-<div class="d-flex component-container" style="border: 1px solid black; overflow: auto;">
+<div class="d-flex component-container">
 
-  <div class="col col-md-auto" style="background-color: gray;">
+  <div class="col col-md-auto menus-container" *ngIf="visibleMenu == true">
 
-    <div class="sidemenu-container">
+    <!-- first level -->
+    <div class="left animated fadeIn">
 
-      <!-- first level -->
-      <div class="left level-1 animated fadeIn">
-       
-        <div class="my-2 col-md-2">Menu </div> <div class="col-md-2"><i class="fa fa-outdent" aria-hidden="true"></i></div>
-        <input class="form-control col-md-12" type="text" [(ngModel)]="menuText" placeholder="Buscar">
-        <hr>
-        <ul *ngFor="let menu of lstMenus">
-          <li class="{{menu.icon}}" routerLinkActive="active">
-            <a (click)="openSubMenu(menu.id, 2)" [routerLink]="[menu.path]">{{menu.title}}</a>
-          </li>
-        </ul>
-      </div>
+      <div class="my-2">Menu 1</div>
+      <input class="form-control col-md-12" type="text" [(ngModel)]="menuText1" placeholder="Buscar">
+      <hr>
+      <ul *ngFor="let menu of list_menu_level_01|filter:menuText1">
+        <li class="{{menu.icon}}" routerLinkActive="active">
+          <a (click)="openSubMenu(menu.id, 2)" [routerLink]="[menu.path]">{{menu.title}}</a>
+        </li>
+      </ul>
+    </div>
 
-      <!-- second level -->
-      <div class="left level-2 animated fadeIn" *ngIf="lstVisible[0].isVisible == true">
-        <div class="my-2">HOME</div>
-        <input class="form-control col-md-12" type="text" [(ngModel)]="menuText" placeholder="Buscar">
-        <hr>
-        <ul *ngFor="let sub of list">
-          <li routerLinkActive="active">
-            <a (click)="openSubMenu(sub.id, 3)" [routerLink]="[sub.path]">{{sub.title}}</a>
-          </li>
-        </ul>
-      </div>
+    <!-- second level -->
+    <div class="left animated fadeIn" *ngIf="lstVisible[0].isVisible == true">
+      <div class="my-2">Menu 2</div>
+      <input class="form-control col-md-12" type="text" [(ngModel)]="menuText2" placeholder="Buscar">
+      <hr>
+      <ul *ngFor="let menu02 of list_menu_level_02|filter:menuText2">
+        <li class="{{menu02.icon}}" routerLinkActive="active">
+          <a (click)="openSubMenu(menu02.id, 3)" [routerLink]="[menu02.path]">{{menu02.title}}</a>
+        </li>
+      </ul>
+    </div>
 
-      <!-- third level -->
-      <div class="left level-3 animated fadeIn" *ngIf="lstVisible[1].isVisible == true">
-        <div class="my-2">HOME</div>
-        <input class="form-control col-md-12" type="text" [(ngModel)]="menuText" placeholder="Buscar">
-        <hr>
-        <ul *ngFor="let sub of list2">
-          <li routerLinkActive="active">
-            <a (click)="openSubMenu(sub.id, 4)" [routerLink]="[sub.path]">{{sub.title}}</a>
-          </li>
-        </ul>
-      </div>
+    <!-- third level -->
+    <div class="left animated fadeIn" *ngIf="lstVisible[1].isVisible == true">
+      <div class="my-2">Menu 3</div>
+      <input class="form-control col-md-12" type="text" [(ngModel)]="menuText3" placeholder="Buscar">
+      <hr>
+      <ul *ngFor="let menu03 of list_menu_level_03|filter:menuText3">
+        <li class="{{menu03.icon}}" routerLinkActive="active">
+          <a (click)="openSubMenu(menu03.id, 4)" [routerLink]="[menu03.path]">{{menu03.title}}</a>
+        </li>
+      </ul>
+    </div>
 
+    <!-- fourth level -->
+    <div class="left animated fadeIn" *ngIf="lstVisible[2].isVisible == true">
+      <div class="my-2">Menu 4</div>
+      <input class="form-control col-md-12" type="text" [(ngModel)]="menuText4" placeholder="Buscar">
+      <hr>
+      <ul *ngFor="let menu04 of list_menu_level_04|filter:menuText4">
+        <li class="{{menu04.icon}}" routerLinkActive="active">
+          <a (click)="openSubMenu(menu04.id, 5)" [routerLink]="[menu04.path]">{{menu04.title}}</a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- fifth level -->
+    <div class="left animated fadeIn" *ngIf="lstVisible[3].isVisible == true">
+      <div class="my-2">Menu 5</div>
+      <input class="form-control col-md-12" type="text" [(ngModel)]="menuText5" placeholder="Buscar">
+      <hr>
+      <ul *ngFor="let menu05 of list_menu_level_05|filter:menuText5">
+        <li class="{{menu05.icon}}" routerLinkActive="active">
+          <a (click)="openSubMenu(menu05.id, 6)" [routerLink]="[menu05.path]">{{menu05.title}}</a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- sixth level -->
+    <div class="left animated fadeIn" *ngIf="lstVisible[4].isVisible == true">
+      <div class="my-2">Menu 6</div>
+      <input class="form-control col-md-12" type="text" [(ngModel)]="menuText6" placeholder="Buscar">
+      <hr>
+      <ul *ngFor="let menu06 of list_menu_level_06|filter:menuText6">
+        <li class="{{menu06.icon}}" routerLinkActive="active">
+          <a (click)="openSubMenu(menu06.id, 7)" [routerLink]="[menu06.path]">{{menu06.title}}</a>
+        </li>
+      </ul>
     </div>
 
 
   </div>
-
+  <button class=" btn btn-info fa fa-outdent" id="btn_collaps_all" (click)="collapse_all()" aria-hidden="true"></button>
   <!-- Views container -->
   <div class="col my-3 mx-3">
     <router-outlet></router-outlet>

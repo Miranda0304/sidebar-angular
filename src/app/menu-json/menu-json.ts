@@ -333,68 +333,7 @@ export const menu_json = [
       {
         id: "id_user_menu4_02_01",
         icon: "fa fa-pencil",
-        title: "Ver usuarios",
-        menu_03: [
-          {
-            id: "id_user_menu4_03_01",
-            icon: "fa fa-pencil",
-            title: "Usuarios 1",
-            menu_04: [
-              {
-                id: "id_user_menu4_04_01",
-                icon: "fa fa-pencil",
-                title: "Usuarios 1",
-                menu_05: [
-                  {
-                    id: "id_user_menu4_05_01",
-                    icon: "fa fa-pencil",
-                    title: "Usuarios 1",
-                    menu_06: [
-                      {
-                        id: "id_user_menu4_06_01",
-                        icon: "fa fa-pencil",
-                        title: "Usuarios 1",
-                      }
-                    ]
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            id: "id_user_menu4_02_02",
-            icon: "fa fa-pencil",
-            title: "Usuarios 2",
-            menu_03: [
-              {
-                id: "id_user_menu4_03_01",
-                icon: "fa fa-pencil",
-                title: "Usuarios 1",
-                menu_04: [
-                  {
-                    id: "id_user_menu4_04_01",
-                    icon: "fa fa-pencil",
-                    title: "Usuarios 1",
-                    menu_05: [
-                      {
-                        id: "id_user_menu4_05_01",
-                        icon: "fa fa-pencil",
-                        title: "Usuarios 1",
-                        menu_06: [
-                          {
-                            id: "id_user_menu4_06_01",
-                            icon: "fa fa-pencil",
-                            title: "Usuarios 1",
-                          }
-                        ]
-                      }
-                    ]
-                  }
-                ]
-              }
-            ]
-          }
-        ]
+        title: "Ver usuarios"
       },
       {
         id: "id_user_menu4_03_02",
