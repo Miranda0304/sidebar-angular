@@ -1,6 +1,21 @@
 .component-container {
   height: 100vh;
-  border: 1px solid red;
+  // white-space: nowrap;
+}
+
+.menus-container {
+  white-space: nowrap;
+  display: inline-flex;
+  background-color: gray;
+  box-sizing: content-box;
+  max-width: 200% !important;
+}
+
+#btn_collaps_all {
+  text-align: center;
+  height: 3%;
+  float: right;
+  cursor: pointer;
 }
 
 .active {
@@ -10,13 +25,14 @@
 .left {
   list-style-type: none;
   margin: 0;
-  padding: 0;
+  padding: 10px;
   overflow: hidden;
   float: left;
+  width: 16.3vw;
 }
 
 li {
-  width: 100%;
+  width: 90%;
 }
 
 li a {
