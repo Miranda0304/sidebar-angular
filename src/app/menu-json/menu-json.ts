@@ -10,37 +10,37 @@ export const menu_json = [
   {
     id: "id_expedient_menu_02",
     icon: "fa fa-book",
-    title: "Expediente",
+    title: "Expedient",
     path: 'expedient',
     menu_02: [
       {
         id: "id_expedient_menu_02_01",
         icon: "fa fa-book",
-        title: "Expediente 1",
+        title: "Expedient 1",
         path: 'expedient1',
         menu_03: [
           {
             id: "id_expedient_menu_03_01",
             icon: "fa fa-book",
-            title: "Expediente 4",
+            title: "Expedient 4",
             path: 'expedient4',
             menu_04: [
               {
                 id: "id_expedient_menu_04_01",
                 icon: "fa fa-book",
-                title: "Expediente 6",
+                title: "Expedient 6",
                 path: 'expedient6',
                 menu_05: [
                   {
                     id: "id_expedient_menu_05_01",
                     icon: "fa fa-book",
-                    title: "Expediente 9",
+                    title: "Expedient 9",
                     path: 'expedient9',
                     menu_06: [
                       {
                         id: "id_expedient_menu_06_01",
                         icon: "fa fa-book",
-                        title: "Expediente 10°°",
+                        title: "Expedient 10°°",
                         path: 'expedient10',
                       }
                     ]
@@ -50,7 +50,7 @@ export const menu_json = [
               {
                 id: "id_expedient_menu_04_02",
                 icon: "fa fa-book",
-                title: "Expediente 7°°",
+                title: "Expedient 7°°",
                 path: 'expedient7',
               }
             ]
@@ -58,19 +58,19 @@ export const menu_json = [
           {
             id: "id_expedient_menu_03_02",
             icon: "fa fa-book",
-            title: "Expediente 5",
+            title: "Expedient 5",
             path: 'expedient5',
             menu_04: [
               {
                 id: "id_expedient_menu_04_01",
                 icon: "fa fa-book",
-                title: "Expediente 8°°",
+                title: "Expedient 8°°",
                 path: 'expedient8',
               },
               {
                 id: "id_expedient_menu_04_02",
                 icon: "fa fa-book",
-                title: "Expediente 11°°",
+                title: "Expedient 11°°",
                 path: 'expedient11',
               }
             ]
@@ -80,19 +80,19 @@ export const menu_json = [
       {
         id: "id_expedient_menu_02_02",
         icon: "fa fa-book",
-        title: "Expediente 2",
+        title: "Expedient 2",
         path: 'expedient2',
         menu_03: [
           {
             id: "id_expedient_menu_03_01",
             icon: "fa fa-book",
-            title: "Expediente 12°°",
+            title: "Expedient 12°°",
             path: 'expedient12'
           },
           {
             id: "id_expedient_menu_03_02",
             icon: "fa fa-book",
-            title: "Expediente 13°°",
+            title: "Expedient 13°°",
             path: 'expedient13'
           }
         ]
@@ -100,7 +100,7 @@ export const menu_json = [
       {
         id: "id_expedient_menu_02_03",
         icon: "fa fa-book",
-        title: "Expediente 3°°",
+        title: "Expedient 3°°",
         path: 'expedient3',
       }
     ],
@@ -109,37 +109,37 @@ export const menu_json = [
   {
     id: "id_user_menu_01",
     icon: "fa fa-user-circle-o",
-    title: "Usuarios",
+    title: "Users",
     path: 'users',
     menu_02: [
       {
         id: "id_user_menu_02_01",
         icon: "fa fa-book",
-        title: "Usuario 1",
+        title: "Usser 1",
         path: 'users1',
         menu_03: [
           {
             id: "id_user_menu_03_01",
             icon: "fa fa-book",
-            title: "Usuario 4",
+            title: "User 4",
             path: 'users4',
             menu_04: [
               {
                 id: "id_user_menu_04_01",
                 icon: "fa fa-book",
-                title: "Usuario 6",
+                title: "User 6",
                 path: 'users6',
                 menu_05: [
                   {
                     id: "id_user_menu_05_01",
                     icon: "fa fa-book",
-                    title: "Usuario 7",
+                    title: "User 7",
                     path: 'users7',
                     menu_06: [
                       {
                         id: "id_user_menu_06_01",
                         icon: "fa fa-book",
-                        title: "Usuario 8°°",
+                        title: "User 8°°",
                         path: 'users8',
                       }
                     ]
@@ -151,7 +151,7 @@ export const menu_json = [
           {
             id: "id_user_menu_03_02",
             icon: "fa fa-book",
-            title: "Usuario 5°°",
+            title: "User 5°°",
             path: 'users5'
           }
         ]
@@ -159,19 +159,19 @@ export const menu_json = [
       {
         id: "id_user_menu_02_02",
         icon: "fa fa-book",
-        title: "Usuario 2",
+        title: "User 2",
         path: 'users2',
         menu_03: [
           {
             id: "id_user_menu_03_01",
             icon: "fa fa-book",
-            title: "Expediente 12°°",
+            title: "Expedient 12°°",
             path: 'expedient12'
           },
           {
             id: "id_user_menu_03_02",
             icon: "fa fa-book",
-            title: "Expediente 13°°",
+            title: "Expedient 13°°",
             path: 'expedient13'
           }
         ]
@@ -179,7 +179,7 @@ export const menu_json = [
       {
         id: "id_user_menu_02_03",
         icon: "fa fa-book",
-        title: "Usuario 3°°",
+        title: "User 3°°",
         path: 'users3',
       }
     ],
@@ -188,25 +188,25 @@ export const menu_json = [
   {
     id: "id_attached_menu_01",
     icon: "fa fa-paperclip",
-    title: "Adjuntos",
+    title: "Attached",
     path: 'attached',
     menu_02: [
       {
         id: "id_attached_menu_02_01",
         icon: "fa fa-paperclip",
-        title: "Adjunto 1",
+        title: "Attached 1",
         path: 'attached1',
         menu_03: [
           {
             id: "id_attached_menu_03_01",
             icon: "fa fa-paperclip",
-            title: "Adjuntos 3",
+            title: "Attached 3",
             path: 'attached3',
             menu_04: [
               {
                 id: "id_attached_menu_04_01",
                 icon: "fa fa-paperclip",
-                title: "Adjuntos 4°°",
+                title: "Attached 4°°",
                 path: 'attached4'
               }
             ]
@@ -216,7 +216,7 @@ export const menu_json = [
       {
         id: "id_attached_menu_02_02",
         icon: "fa fa-paperclip",
-        title: "Adjunto 2°°",
+        title: "Attached 2°°",
         path: 'attached2'
       }
     ]
@@ -225,31 +225,31 @@ export const menu_json = [
   {
     id: "id_information_menu_01",
     icon: "fa fa-info-circle",
-    title: "Información",
+    title: "Information",
     path: 'information',
     menu_02: [
       {
         id: "id_information_menu_02_01",
         icon: "fa fa-info-circle",
-        title: "Información 1°°",
+        title: "Information 1°°",
         path: 'information1',
       },
       {
         id: "id_information_menu_02_02",
         icon: "fa fa-info-circle",
-        title: "Información 2",
+        title: "Information 2",
         path: 'information2',
         menu_03: [
           {
             id: "id_information_menu_03_01",
             icon: "fa fa-info-circle",
-            title: "Información 3",
+            title: "Information 3",
             path: 'information3',
             menu_04: [
               {
                 id: "id_information_menu_05_01",
                 icon: "fa fa-info-circle",
-                title: "Información 5°°",
+                title: "Information 5°°",
                 path: 'information5',
               }
             ]
@@ -257,7 +257,7 @@ export const menu_json = [
           {
             id: "id_information_menu_03_02",
             icon: "fa fa-info-circle",
-            title: "Información 4°°",
+            title: "Information 4°°",
             path: 'information4',
           }
         ]

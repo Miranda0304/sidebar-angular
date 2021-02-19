@@ -3,10 +3,11 @@ $fondoOscuro: #ddd;
 $borde : #ccc;
 $letras : black;
 
+
 .nav-side-menu {
   transition: all 0.3s;
   overflow: auto;
-  font-family: verdana;
+  font-family: Trebuchet MS;
   background-color: $fondo;
   width: 100%;
   min-height: 100%;
@@ -14,15 +15,16 @@ $letras : black;
   border: 1px solid $borde;
 }
 .active{
-  color: red;
+  color: $borde;
   background-color: rgb(212, 207, 207);
-  border-radius: 10px;
+  border-radius: 1px;
+
 }
 .brand {
   background-color: $fondoOscuro;
   line-height: 50px;
   display: block;
-  text-align: center;
+  text-align: left;
   font-size: 18px;
   border: 1px solid $borde;
 }
@@ -57,7 +59,7 @@ $letras : black;
 
   .collapsed {
     .folder:before {
-      font-family: FontAwesome;
+      font-family: Trebuchet MS;
       content: "\f114";
       padding-left: 10px;
       padding-right: 10px;
@@ -69,7 +71,7 @@ $letras : black;
 
 .menu-list ul :not(collapsed) .folder:before,
 .menu-list li :not(collapsed) .folder:before {
-  font-family: FontAwesome;
+  font-family: Trebuchet MS;
   content: "\f07c";
   padding-left: 10px;
   padding-right: 10px;

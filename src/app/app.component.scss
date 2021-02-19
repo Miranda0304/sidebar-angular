@@ -5,7 +5,7 @@
 
 .menus-container {
   padding: 0px;
-  border-radius: 20px;
+  border-radius: 1px;
   white-space: nowrap;
   display: inline-flex;
   box-sizing: content-box;
@@ -20,18 +20,18 @@
 }
 
 .active {
-  background-color: white;
-  border-radius: 10px;
+  background-color: rgb(238, 234, 234);
+  border-radius: 1px;
   height: 20%;
-  text-align: center;
+  text-align: left;
   width: 100%;
 }
 
 .my-font-style{
   font-size: 18px;
   background-color: rgb(212, 207, 207);
-  border: 1px solid #17a2b8;
-  border-radius: 20px;
+  border: 1px solid #dddd;
+  border-radius: 1px;
   list-style-type: none;
   margin: 0;
   padding: 10px;
@@ -51,7 +51,7 @@ li {
 
 li a {
   color: black;
-  text-align: center;
+  text-align: left;
   padding: 16px;
   text-decoration: none;
 }

@@ -1,0 +1,26 @@
+$fondo : #eee;
+$fondoOscuro: #ddd;
+$borde : #ccc;
+$letras : black;
+
+.body {
+    background-color: $fondoOscuro;
+}
+
+.list-group-infobar{
+    background-color: $fondoOscuro;
+}
+
+h5 {
+    color: $letras;
+    font-size: 5;
+    font-family: sans-serif;
+    text-align:center;
+}
+
+.list-group-item{
+    color: $letras;
+    font-size: 2;
+    font-family: sans-serif;
+    text-align:center;
+}
