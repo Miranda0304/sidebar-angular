@@ -33,9 +33,16 @@ export class AppComponent {
     { level: 6, isVisible: false },
   ]
 
-
+ lstAux = [];
   constructor() {
     this.list_menu_level_01 = menu_json;
+    this.lstAux = menu_json;
+    console.log(this.lstAux);
+
+    Object.keys(this.lstAux).forEach(element => {
+
+      console.log(element);
+    });
   }
 
   openSubMenu(menu_id: number, level_to_open: number) {

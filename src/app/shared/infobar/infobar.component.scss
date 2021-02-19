@@ -1,14 +1,13 @@
 $fondo : #eee;
-$fondoOscuro: #ddd;
+$fondoOscuro: rgba(139, 139, 139, 0.123);
 $borde : #ccc;
 $letras : black;
 
-.body {
-    background-color: $fondoOscuro;
-}
 
 .list-group-infobar{
     background-color: $fondoOscuro;
+    border-radius: 5px;
+    border: 1px solid gray;
 }
 
 h5 {

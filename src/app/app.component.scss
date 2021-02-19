@@ -5,7 +5,7 @@
 
 .menus-container {
   padding: 0px;
-  border-radius: 1px;
+  border-radius: 10px;
   white-space: nowrap;
   display: inline-flex;
   box-sizing: content-box;
@@ -21,25 +21,24 @@
 
 .active {
   background-color: rgb(238, 234, 234);
-  border-radius: 1px;
+  border-radius: 10px;
   height: 20%;
-  text-align: left;
+  text-align: center;
   width: 100%;
+  
 }
 
 .my-font-style{
   font-size: 18px;
   background-color: rgb(212, 207, 207);
   border: 1px solid #dddd;
-  border-radius: 1px;
+  border-radius: 10px;
   list-style-type: none;
   margin: 0;
   padding: 10px;
 }
 
 .left {
-  
-  
   overflow: hidden;
   float: left;
   width: 16.6vw;
