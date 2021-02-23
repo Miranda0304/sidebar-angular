@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { form_expedient1 } from "../../forms/form-expedient1";
+import { form_expedient1 } from "../../forms-json/form-expedient1";
 
 @Component({
   selector: 'app-expedient1',
