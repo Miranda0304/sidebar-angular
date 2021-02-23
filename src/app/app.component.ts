@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser'
+import { element } from 'protractor';
 import { menu_json } from './menu-json/menu-json';
 
 @Component({
@@ -25,68 +26,93 @@ export class AppComponent {
   list_menu_level_06 = [];
 
   visibleMenu = true;
+  
   lstVisible = [
     { level: 2, isVisible: false },
     { level: 3, isVisible: false },
     { level: 4, isVisible: false },
     { level: 5, isVisible: false },
     { level: 6, isVisible: false },
+    { level: 7, isVisible: false },
   ]
 
- lstAux = [];
   constructor() {
     this.list_menu_level_01 = menu_json;
-    this.lstAux = menu_json;
-    console.log(this.lstAux);
+    this.list_menu_level_01 = this.changeKeysList(this.list_menu_level_01);
+  }
 
-    Object.keys(this.lstAux).forEach(element => {
+  renameKey = (object, key, newKey) => {
+    const clonedObj = Object.assign({}, object);
+    const targetKey = clonedObj[key];
+    delete clonedObj[key];
+    clonedObj[newKey] = targetKey;
+    return clonedObj;
+  };
 
-      console.log(element);
+  changeKeysList(list_menu = []) {
+    let newLst = [];
+    list_menu.forEach((element) => {
+      let keys = Object.keys(element)
+      keys.forEach((key, idx) => {
+        element = this.renameKey(element, key, `item${idx}`)
+      });
+      newLst.push(element)
     });
+    return newLst;
   }
 
   openSubMenu(menu_id: number, level_to_open: number) {
 
     if (level_to_open == 2) {
-      this.list_menu_level_02 = this.list_menu_level_01.filter(x => x.id == menu_id).map(x => x.menu_02)[0]
+      this.list_menu_level_02 = this.list_menu_level_01.filter(x => x.item0 == menu_id).map(x => x.item4)[0]
+      this.list_menu_level_02 = this.changeKeysList(this.list_menu_level_02);
 
-      this.list_menu_level_02 != undefined ?
+      this.list_menu_level_02.length > 0 ?
         this.lstVisible.map(x => x.level <= level_to_open ? x.isVisible = true : x.isVisible = false) : this.lstVisible.map(x => x.level < level_to_open ? x.isVisible = true : x.isVisible = false);
 
     }
     if (level_to_open == 3) {
-      this.list_menu_level_03 = this.list_menu_level_02.filter(x => x.id == menu_id).map(x => x.menu_03)[0]
+      this.list_menu_level_03 = this.list_menu_level_02.filter(x => x.item0 == menu_id).map(x => x.item4)[0]
+      this.list_menu_level_03 = this.changeKeysList(this.list_menu_level_03);
 
-      this.list_menu_level_03 != undefined ?
+      this.list_menu_level_03.length > 0 ?
         this.lstVisible.map(x => x.level <= level_to_open ? x.isVisible = true : x.isVisible = false) : this.lstVisible.map(x => x.level < level_to_open ? x.isVisible = true : x.isVisible = false);
 
     }
     if (level_to_open == 4) {
-      this.list_menu_level_04 = this.list_menu_level_03.filter(x => x.id == menu_id).map(x => x.menu_04)[0]
+      this.list_menu_level_04 = this.list_menu_level_03.filter(x => x.item0 == menu_id).map(x => x.item4)[0]
+      this.list_menu_level_04 = this.changeKeysList(this.list_menu_level_04);
 
-      this.list_menu_level_04 != undefined ?
+      this.list_menu_level_04.length > 0 ?
         this.lstVisible.map(x => x.level <= level_to_open ? x.isVisible = true : x.isVisible = false) : this.lstVisible.map(x => x.level < level_to_open ? x.isVisible = true : x.isVisible = false);
 
     }
     if (level_to_open == 5) {
-      this.list_menu_level_05 = this.list_menu_level_04.filter(x => x.id == menu_id).map(x => x.menu_05)[0]
+      this.list_menu_level_05 = this.list_menu_level_04.filter(x => x.item0 == menu_id).map(x => x.item4)[0]
+      this.list_menu_level_05 = this.changeKeysList(this.list_menu_level_05);
 
-      this.list_menu_level_05 != undefined ?
+      this.list_menu_level_05.length > 0 ?
         this.lstVisible.map(x => x.level <= level_to_open ? x.isVisible = true : x.isVisible = false) : this.lstVisible.map(x => x.level < level_to_open ? x.isVisible = true : x.isVisible = false);
 
     }
     if (level_to_open == 6) {
-      this.list_menu_level_06 = this.list_menu_level_05.filter(x => x.id == menu_id).map(x => x.menu_06)[0]
+      this.list_menu_level_06 = this.list_menu_level_05.filter(x => x.item0 == menu_id).map(x => x.item4)[0]
+      this.list_menu_level_06 = this.changeKeysList(this.list_menu_level_06);
 
-      this.list_menu_level_06 != undefined ?
+      this.list_menu_level_06.length > 0 ?
         this.lstVisible.map(x => x.level <= level_to_open ? x.isVisible = true : x.isVisible = false) : this.lstVisible.map(x => x.level < level_to_open ? x.isVisible = true : x.isVisible = false);
 
     }
-
+    setTimeout(() => {
+      window.scroll(10000, 0);
+    }, 0.1);
   }
 
   collapse_all() {
     this.visibleMenu = !this.visibleMenu;
+    setTimeout(() => {
+      window.scroll(10000, 0);
+    }, 1);
   }
 
 }

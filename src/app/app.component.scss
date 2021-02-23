@@ -25,32 +25,49 @@
   height: 20%;
   text-align: center;
   width: 100%;
-  
+
 }
 
-.my-font-style{
-  font-size: 18px;
+.style-col {
   background-color: rgb(212, 207, 207);
   border: 1px solid #dddd;
   border-radius: 10px;
   list-style-type: none;
   margin: 0;
   padding: 10px;
-}
-
-.left {
-  overflow: hidden;
-  float: left;
-  width: 16.6vw;
+  text-align: center;
 }
 
 li {
-  width: 90%;
+  width: 100%;
+  list-style: none;
+}
+
+ul{
+  line-height: 2.5;
 }
 
 li a {
+  font-size: 18px;
+  width: 100%;
   color: black;
   text-align: left;
-  padding: 16px;
   text-decoration: none;
+}
+
+
+li a label {
+ width: 9vw;
+}
+
+
+.redux{
+  width: 8vw !important;
+  li a label {
+   display: none;
+   }
+
+   ul li span{
+     font-size: 40px;
+   }
 }
