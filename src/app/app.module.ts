@@ -18,6 +18,7 @@ import { ExpedientAuxComponent } from './views/expedient-aux/expedient-aux.compo
 import { UsersAuxComponent } from './views/users-aux/users-aux.component';
 import { AttachedAuxComponent } from './views/attached-aux/attached-aux.component';
 import { InformationAuxComponent } from './views/information-aux/information-aux.component';
+import { Expedient1Component } from './views/expedient1/expedient1.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { InformationAuxComponent } from './views/information-aux/information-aux
     ExpedientAuxComponent,
     UsersAuxComponent,
     AttachedAuxComponent,
-    InformationAuxComponent
+    InformationAuxComponent,
+    Expedient1Component
   ],
   imports: [
     BrowserModule,

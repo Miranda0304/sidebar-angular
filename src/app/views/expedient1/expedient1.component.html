@@ -1,0 +1,61 @@
+<h1>Form</h1>
+<form>
+  <div class="row">
+    <!-- nf for -->
+    <div class="form-group {{form.size_col}}" *ngFor="let form of lstForms">
+
+      <ng-container [ngSwitch]="true">
+
+        <!-- Text -->
+        <ng-container *ngSwitchCase="form.field_type === 'text'">
+          <label *ngIf="form.have_label == true">{{form.label_title}}</label>
+          <input type="text" class="{{form.field_class}}" id="{{form.field_id}}"
+            placeholder="{{form.placeholder_name}}">
+        </ng-container>
+
+        <!-- Textarea -->
+        <ng-container *ngSwitchCase="form.field_type === 'textarea'">
+          <label *ngIf="form.have_label == true">{{form.label_title}}</label>
+          <textarea class="{{form.field_class}}" id="{{form.field_id}}"
+            placeholder="{{form.placeholder_name}}"></textarea>
+        </ng-container>
+
+        <!-- Checkbox -->
+        <ng-container *ngSwitchCase="form.field_type === 'checkbox'">
+          <div class="form-check">
+            <label class="form-check-label">
+              <input type="checkbox" class="{{form.field_class}}" id="{{form.field_id}}"
+                name="{{form.placeholder_name}}">
+              {{form.label_title}}
+            </label>
+          </div>
+        </ng-container>
+
+        <!-- Radiobutton -->
+        <ng-container *ngSwitchCase="form.field_type === 'radiobutton'">
+          <div class="form-check">
+            <label class="form-check-label">
+              <input type="radio" class="{{form.field_class}}" id="{{form.field_id}}"
+                placeholder="{{form.placeholder_name}}" name="{{form.placeholder_name}}">
+              {{form.label_title}}
+            </label>
+          </div>
+        </ng-container>
+
+        <!-- Button -->
+        <ng-container *ngSwitchCase="form.field_type === 'button'">
+          <button class="{{form.field_class}}"><label
+              *ngIf="form.have_label == true">{{form.label_title}}</label></button>
+        </ng-container>
+
+        <ng-container *ngSwitchCase="form.field_type === 'hr'">
+          <label *ngIf="form.have_label == true">{{form.label_title}}</label>
+          <hr>
+        </ng-container>
+
+      </ng-container>
+
+
+    </div>
+  </div>
+</form>

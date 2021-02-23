@@ -8,13 +8,14 @@ import { ExpedientAuxComponent } from './views/expedient-aux/expedient-aux.compo
 import { UsersAuxComponent } from './views/users-aux/users-aux.component';
 import { AttachedAuxComponent } from './views/attached-aux/attached-aux.component';
 import { InformationAuxComponent } from './views/information-aux/information-aux.component';
+import { Expedient1Component } from './views/expedient1/expedient1.component';
 
 
 const APP_ROUTES: Routes = [
     {path: 'home', component: HomeComponent},
 
-    {path: 'expedient', component: ExpedientComponent},
-    {path: 'expedient1', component: ExpedientAuxComponent},
+    {path: 'expedient', component: Expedient1Component},
+    {path: 'expedient1', component: ExpedientComponent},
     {path: 'expedient2', component: ExpedientComponent},
     {path: 'expedient3', component: ExpedientAuxComponent},
     {path: 'expedient4', component: ExpedientComponent},
