@@ -48,6 +48,7 @@
               *ngIf="form.have_label == true">{{form.label_title}}</label></button>
         </ng-container>
 
+        <!-- Line hr -->
         <ng-container *ngSwitchCase="form.field_type === 'hr'">
           <label *ngIf="form.have_label == true">{{form.label_title}}</label>
           <hr>

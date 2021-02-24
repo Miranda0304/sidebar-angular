@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-
+import { InfobarService } from "../../services/inforbar_visible/visible.service";
 
 @Component({
   selector: 'app-home',
@@ -8,12 +8,12 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  @Output() infobarVisible = new EventEmitter<any>();
-
-  constructor() { }
+  constructor(private _serviceInfobar: InfobarService) { 
+    this._serviceInfobar.isVisible(true);
+  }
 
   ngOnInit(): void {
-    this.infobarVisible.emit(true);
+
   }
 
 }

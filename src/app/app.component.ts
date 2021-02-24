@@ -1,7 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser'
-import { element } from 'protractor';
-import { menu_json } from './menu-json/menu-json';
+import { InfobarService } from "./services/inforbar_visible/visible.service";
 
 @Component({
   selector: 'app-root',
@@ -12,9 +10,15 @@ import { menu_json } from './menu-json/menu-json';
 export class AppComponent {
 
   visibleMenu = true
-  visibleInfobar = true;
+  isVisibleInfobar = false;
 
-  constructor() { }
+  constructor(private _serviceInfobar: InfobarService) {
+
+    this._serviceInfobar.readStatusInfobar.subscribe((data) => {
+      this.isVisibleInfobar = data;
+    });
+
+  }
 
   collapse_all() {
     this.visibleMenu = !this.visibleMenu;
@@ -23,10 +27,4 @@ export class AppComponent {
     }, 1);
   }
 
-  getBoolean(isVisible: boolean) {
-    this.visibleInfobar = isVisible;
-    console.log("Component");
-    console.log(this.visibleInfobar);
-  }
-  
 }

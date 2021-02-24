@@ -12,7 +12,7 @@
   </div>
 
   <!-- View infobar -->
-  <app-infobar id="infobar-container" (infobarVisible)="getBoolean($event)" class="col-md-2 offset-md-12">
+  <app-infobar id="infobar-container" class="col-md-2 offset-md-12" *ngIf="isVisibleInfobar == true">
   </app-infobar>
 
 </div>

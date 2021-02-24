@@ -20,6 +20,9 @@ import { InformationAuxComponent } from './views/information-aux/information-aux
 import { Expedient1Component } from './views/expedient1/expedient1.component';
 import { SidebarComponent } from './shared/sidebar/sidebar.component';
 
+//Services
+import { InfobarService } from "./services/inforbar_visible/visible.service";
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,7 +48,9 @@ import { SidebarComponent } from './shared/sidebar/sidebar.component';
     Ng2SearchPipeModule,
     BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [
+    InfobarService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { InfobarService } from "../../services/inforbar_visible/visible.service";
 
 @Component({
   selector: 'app-expedient-aux',
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ExpedientAuxComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _serviceInfobar: InfobarService) { 
+    this._serviceInfobar.isVisible(false);
+  }
 
   ngOnInit(): void {
   }
