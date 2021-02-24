@@ -18,6 +18,7 @@ import { UsersAuxComponent } from './views/users-aux/users-aux.component';
 import { AttachedAuxComponent } from './views/attached-aux/attached-aux.component';
 import { InformationAuxComponent } from './views/information-aux/information-aux.component';
 import { Expedient1Component } from './views/expedient1/expedient1.component';
+import { SidebarComponent } from './shared/sidebar/sidebar.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { Expedient1Component } from './views/expedient1/expedient1.component';
     UsersAuxComponent,
     AttachedAuxComponent,
     InformationAuxComponent,
-    Expedient1Component
+    Expedient1Component,
+    SidebarComponent
   ],
   imports: [
     BrowserModule,
