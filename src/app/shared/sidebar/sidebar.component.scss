@@ -54,8 +54,13 @@ li a label {
 }
 
 .redux {
-  width: 8vw !important;
+  width: 4vw !important;
 
+  ul {
+    line-height: 2.5;
+    float: right;
+  }
+  
   li a label {
     display: none;
   }
