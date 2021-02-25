@@ -15,24 +15,21 @@
 .active {
   background-color: rgb(238, 234, 234);
   border-radius: 10px;
-  height: 20%;
-  text-align: center;
-  width: 100%;
-
 }
 
 .style-col {
+  overflow: auto;
+  overflow-x: hidden;
   background-color: rgb(212, 207, 207);
   border: 1px solid #dddd;
   border-radius: 10px;
   list-style-type: none;
   margin: 0;
   padding: 10px;
-  // text-align: center;
+  text-align: center;
 }
 
 li {
-  width: 100%;
   list-style: none;
 }
 
@@ -42,9 +39,8 @@ ul {
 
 li a {
   font-size: 18px;
-  width: 100%;
   color: black;
-  text-align: left;
+  // text-align: left;
   text-decoration: none;
 }
 
@@ -54,13 +50,13 @@ li a label {
 }
 
 .redux {
-  width: 4vw !important;
+  width: 4rem !important;
 
   ul {
     line-height: 2.5;
-    float: right;
+
   }
-  
+
   li a label {
     display: none;
   }

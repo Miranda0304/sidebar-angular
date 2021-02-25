@@ -1,18 +1,18 @@
 <div class="d-flex component-container">
 
   <!-- Views Sidebar menu -->
-  <app-sidebar class="col col-md-auto menus-container" *ngIf="visibleMenu == true"></app-sidebar>
+  <app-sidebar class="col col-md-auto sidebar-container" *ngIf="visibleMenu == true"></app-sidebar>
 
   <!-- Button Collapse -->
   <button class=" btn btn-info fa fa-outdent" id="btn_collaps_all" (click)="collapse_all()" aria-hidden="true"></button>
 
   <!-- Views container -->
-  <div class="col col-xs-auto my-3 mx-1">
+  <div class="col col-xs-auto my-3 mx-1 work-area-container">
     <router-outlet></router-outlet>
   </div>
 
   <!-- View infobar -->
-  <app-infobar id="infobar-container" class="col-md-2 offset-md-12" *ngIf="isVisibleInfobar == true">
+  <app-infobar class="col-md-2 offset-md-12 infobar-container" *ngIf="isVisibleInfobar == true">
   </app-infobar>
 
 </div>

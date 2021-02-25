@@ -4,7 +4,7 @@
     <!-- nf for -->
     <div class="form-group {{form.size_col}}" *ngFor="let form of lstForms">
 
-      <ng-container [ngSwitch]="true">
+      <ng-container [ngSwitch]="lstForms.length > 0">
 
         <!-- Text -->
         <ng-container *ngSwitchCase="form.field_type === 'text'">

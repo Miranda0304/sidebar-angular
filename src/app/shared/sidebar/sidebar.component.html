@@ -4,7 +4,7 @@
   <input class="form-control col-md-12" type="text" font="Serif" [(ngModel)]="menuText1" placeholder="Search">
   <hr>
   <div>
-    <ul>
+    <ul class="list-group">
       <li *ngFor="let menu of list_menu_level_01|filter:menuText1" title="{{menu.item2}}" routerLinkActive="active">
         <a (click)="openSubMenu(menu.item0, 2)" [routerLink]="[menu.item3]">
           <span class="{{menu.item1}}"></span>
@@ -22,7 +22,7 @@
   <input class="form-control col-md-12" type="text" font="Serif" [(ngModel)]="menuText2" placeholder="Search">
   <hr>
   <div>
-    <ul>
+    <ul class="list-group">
       <li *ngFor="let menu of list_menu_level_02|filter:menuText2" title="{{menu.item2}}" routerLinkActive="active">
         <a (click)="openSubMenu(menu.item0, 3)" [routerLink]="[menu.item3]">
           <span class="{{menu.item1}}"></span>
@@ -40,7 +40,7 @@
   <input class="form-control col-md-12" type="text" font="Serif" [(ngModel)]="menuText3" placeholder="Search">
   <hr>
   <div>
-    <ul>
+    <ul class="list-group">
       <li *ngFor="let menu of list_menu_level_03|filter:menuText3" title="{{menu.item2}}" routerLinkActive="active">
         <a (click)="openSubMenu(menu.item0, 4)" [routerLink]="[menu.item3]">
           <span class="{{menu.item1}}"></span>
@@ -58,7 +58,7 @@
   <input class="form-control col-md-12" type="text" font="Serif" [(ngModel)]="menuText4" placeholder="Search">
   <hr>
   <div>
-    <ul>
+    <ul class="list-group">
       <li *ngFor="let menu of list_menu_level_04|filter:menuText4" title="{{menu.item2}}" routerLinkActive="active">
         <a (click)="openSubMenu(menu.item0, 5)" [routerLink]="[menu.item3]">
           <span class="{{menu.item1}}"></span>
@@ -76,7 +76,7 @@
   <input class="form-control col-md-12" type="text" font="Serif" [(ngModel)]="menuText5" placeholder="Search">
   <hr>
   <div>
-    <ul>
+    <ul class="list-group">
       <li *ngFor="let menu of list_menu_level_05|filter:menuText5" title="{{menu.item2}}" routerLinkActive="active">
         <a (click)="openSubMenu(menu.item0, 6)" [routerLink]="[menu.item3]">
           <span class="{{menu.item1}}"></span>
@@ -94,7 +94,7 @@
   <input class="form-control col-md-12" type="text" font="Serif" [(ngModel)]="menuText6" placeholder="Search">
   <hr>
   <div>
-    <ul>
+    <ul class="list-group">
       <li *ngFor="let menu of list_menu_level_06|filter:menuText6" title="{{menu.item2}}" routerLinkActive="active">
         <a (click)="openSubMenu(menu.item0, 7)" [routerLink]="[menu.item3]">
           <span class="{{menu.item1}}"></span>
@@ -104,21 +104,3 @@
     </ul>
   </div>
 </div>
-
-<!-- first level -->
-<!-- <div [className]="lstVisible[0].isVisible ? 'redux left my-font-style animated '  : 'left my-font-style animated '">
-        <div class="my-2 title-menu">Menu 1</div>
-        <input class="form-control col-md-12" type="text" font="Serif" [(ngModel)]="menuText1" placeholder="Search">
-        <hr>
-        <div>
-          <ul *ngFor="let menu of list_menu_level_01|filter:menuText1" title="{{menu.item2}}">
-            <li routerLinkActive="active" [routerLink]="[menu.item3]">
-              <a (click)="openSubMenu(menu.item0, 2)" [routerLink]="[menu.item3]">
-                <span class="{{menu.item1}}"></span>
-                <label >{{menu.item2}}</label>
-              </a>
-            </li>
-          </ul>
-        </div>
-  
-      </div> -->
