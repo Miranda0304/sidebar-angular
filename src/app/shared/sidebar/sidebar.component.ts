@@ -105,7 +105,7 @@ export class SidebarComponent implements OnInit {
     }
     setTimeout(() => {
       window.scroll(10000, 0);
-    }, 0.1);
+    }, 1);
   }
 
 }
