@@ -1,7 +1,9 @@
 <div class="d-flex component-container">
 
   <!-- Views Sidebar menu -->
-  <app-sidebar class="col col-md-auto sidebar-container" *ngIf="visibleMenu == true"></app-sidebar>
+  <app-sidebar
+    [ngClass]="visibleMenu ? 'col col-md-auto sidebar-container' : 'col col-md-auto sidebar-container sidebar-hide'">
+  </app-sidebar>
 
   <!-- Button Collapse -->
   <button class=" btn btn-info fa fa-outdent" id="btn_collaps_all" (click)="collapse_all()" aria-hidden="true"></button>

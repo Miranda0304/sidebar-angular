@@ -12,17 +12,17 @@
   max-width: 200% !important;
 }
 
-.work-area-container{
+.work-area-container {
   overflow: auto;
 }
 
 #btn_collaps_all {
-  text-align: center;
-  height: 3%;
-  float: right;
-  cursor: pointer;
+  height: 4%;
 }
 
+.sidebar-hide {
+  display: none;
+}
 
 .infobar-container {
   overflow: auto;
