@@ -2,55 +2,51 @@
 <form>
   <div class="row">
     <!-- nf for -->
-    <div class="form-group {{form.size_col}}" *ngFor="let form of lstForms">
+    <div class="form-group {{form.item1}}" *ngFor="let form of lstForms">
 
       <ng-container [ngSwitch]="lstForms.length > 0">
 
         <!-- Text -->
-        <ng-container *ngSwitchCase="form.field_type === 'text'">
-          <label *ngIf="form.have_label == true">{{form.label_title}}</label>
-          <input type="text" class="{{form.field_class}}" id="{{form.field_id}}"
-            placeholder="{{form.placeholder_name}}">
+        <ng-container *ngSwitchCase="form.item4 === 'text'">
+          <label *ngIf="form.item2 == true">{{form.item3}}</label>
+          <input type="text" class="{{form.item6}}" id="{{form.item5}}" placeholder="{{form.item7}}">
         </ng-container>
 
         <!-- Textarea -->
-        <ng-container *ngSwitchCase="form.field_type === 'textarea'">
-          <label *ngIf="form.have_label == true">{{form.label_title}}</label>
-          <textarea class="{{form.field_class}}" id="{{form.field_id}}"
-            placeholder="{{form.placeholder_name}}"></textarea>
+        <ng-container *ngSwitchCase="form.item4 === 'textarea'">
+          <label *ngIf="form.item2 == true">{{form.item3}}</label>
+          <textarea class="{{form.item6}}" id="{{form.item5}}" placeholder="{{form.item7}}"></textarea>
         </ng-container>
 
         <!-- Checkbox -->
-        <ng-container *ngSwitchCase="form.field_type === 'checkbox'">
+        <ng-container *ngSwitchCase="form.item4 === 'checkbox'">
           <div class="form-check">
             <label class="form-check-label">
-              <input type="checkbox" class="{{form.field_class}}" id="{{form.field_id}}"
-                name="{{form.placeholder_name}}">
-              {{form.label_title}}
+              <input type="checkbox" class="{{form.item6}}" id="{{form.item5}}" name="{{form.item7}}">
+              {{form.item3}}
             </label>
           </div>
         </ng-container>
 
         <!-- Radiobutton -->
-        <ng-container *ngSwitchCase="form.field_type === 'radiobutton'">
+        <ng-container *ngSwitchCase="form.item4 === 'radiobutton'">
           <div class="form-check">
             <label class="form-check-label">
-              <input type="radio" class="{{form.field_class}}" id="{{form.field_id}}"
-                placeholder="{{form.placeholder_name}}" name="{{form.placeholder_name}}">
-              {{form.label_title}}
+              <input type="radio" class="{{form.item6}}" id="{{form.item5}}" placeholder="{{form.item7}}"
+                name="{{form.item7}}">
+              {{form.item3}}
             </label>
           </div>
         </ng-container>
 
         <!-- Button -->
-        <ng-container *ngSwitchCase="form.field_type === 'button'">
-          <button class="{{form.field_class}}"><label
-              *ngIf="form.have_label == true">{{form.label_title}}</label></button>
+        <ng-container *ngSwitchCase="form.item4 === 'button'">
+          <button class="{{form.item6}}"><label *ngIf="form.item2 == true">{{form.item3}}</label></button>
         </ng-container>
 
         <!-- Line hr -->
-        <ng-container *ngSwitchCase="form.field_type === 'hr'">
-          <label *ngIf="form.have_label == true">{{form.label_title}}</label>
+        <ng-container *ngSwitchCase="form.item4 === 'hr'">
+          <label *ngIf="form.item2 == true">{{form.item3}}</label>
           <hr>
         </ng-container>
 
