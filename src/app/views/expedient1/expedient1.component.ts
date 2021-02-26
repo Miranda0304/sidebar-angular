@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { form_expedient1 } from "../../forms-json/form-expedient1";
 import { InfobarService } from "../../services/inforbar_visible/visible.service";
+import { ObjectsService } from "../../services/objects_methods/objects.service";
 
 @Component({
   selector: 'app-expedient1',
@@ -11,33 +12,13 @@ export class Expedient1Component implements OnInit {
 
   lstForms = [];
 
-  constructor(private _serviceInfobar: InfobarService) {
+  constructor(private _serviceInfobar: InfobarService, private _serviceObjects: ObjectsService) {
     this._serviceInfobar.isVisible(false);
-    this.lstForms = this.changeKeysList(form_expedient1)
+    this.lstForms = this._serviceObjects.changeAllKeys(form_expedient1)
   }
 
   ngOnInit(): void {
   }
-  
-  renameKey = (object, key, newKey) => {
-    const clonedObj = Object.assign({}, object);
-    const targetKey = clonedObj[key];
-    delete clonedObj[key];
-    clonedObj[newKey] = targetKey;
-    return clonedObj;
-  };
 
-  changeKeysList(list_array = []) {
-    let newLst = [];
-    let keys = Object.keys(list_array[0])
-
-    list_array.forEach((element) => {
-      keys.forEach((key, idx) => {
-        element = this.renameKey(element, key, `item${idx}`)
-      });
-      newLst.push(element)
-    });
-    return newLst;
-  }
 
 }

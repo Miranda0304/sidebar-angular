@@ -22,6 +22,7 @@ import { SidebarComponent } from './shared/sidebar/sidebar.component';
 
 //Services
 import { InfobarService } from "./services/inforbar_visible/visible.service";
+import { ObjectsService } from "./services/objects_methods/objects.service";
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { InfobarService } from "./services/inforbar_visible/visible.service";
     BrowserAnimationsModule
   ],
   providers: [
-    InfobarService
+    InfobarService,
+    ObjectsService
   ],
   bootstrap: [AppComponent]
 })
