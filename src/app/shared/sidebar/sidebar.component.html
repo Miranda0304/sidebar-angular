@@ -1,13 +1,13 @@
 <!-- First Level -->
-<div [className]="lstVisible[0].isVisible ? 'col-md-auto style-col redux' : 'col-md-auto style-col'">
+<div [className]="lstVisible[0].isVisible? 'col-md-auto style-col redux' : 'col-md-auto style-col'">
   <div class="my-2 title-menu"></div>
   <hr>
   <div>
     <ul class="list-group">
-      <li *ngFor="let menu of list_menu_level_01|filter:searcherText" title="{{menu.item2}}" routerLinkActive="active">
-        <a (click)="openSubMenu(menu.item0, 2)" [routerLink]="[menu.item3]">
-          <span class="{{menu.item1}}"></span>
-          <label>{{menu.item2}}</label>
+      <li *ngFor="let menu of list_menu_level_01|filter:searcherText" title="{{menu.title}}" routerLinkActive="active">
+        <a (click)="openSubMenu(menu.id, 2)" [routerLink]="[menu.path]">
+          <span class="{{menu.icon}}"></span>
+          <label>{{menu.title}}</label>
         </a>
       </li>
     </ul>
@@ -21,10 +21,10 @@
   <hr>
   <div>
     <ul class="list-group">
-      <li *ngFor="let menu of list_menu_level_02|filter:searcherText" title="{{menu.item2}}" routerLinkActive="active">
-        <a (click)="openSubMenu(menu.item0, 3)" [routerLink]="[menu.item3]">
-          <span class="{{menu.item1}}"></span>
-          <label>{{menu.item2}}</label>
+      <li *ngFor="let menu of list_menu_level_02|filter:searcherText" title="{{menu.title}}" routerLinkActive="active">
+        <a (click)="openSubMenu(menu.id, 3)" [routerLink]="[menu.path]">
+          <span class="{{menu.icon}}"></span>
+          <label>{{menu.title}}</label>
         </a>
       </li>
     </ul>
@@ -38,10 +38,10 @@
   <hr>
   <div>
     <ul class="list-group">
-      <li *ngFor="let menu of list_menu_level_03|filter:searcherText" title="{{menu.item2}}" routerLinkActive="active">
-        <a (click)="openSubMenu(menu.item0, 4)" [routerLink]="[menu.item3]">
-          <span class="{{menu.item1}}"></span>
-          <label>{{menu.item2}}</label>
+      <li *ngFor="let menu of list_menu_level_03|filter:searcherText" title="{{menu.title}}" routerLinkActive="active">
+        <a (click)="openSubMenu(menu.id, 4)" [routerLink]="[menu.path]">
+          <span class="{{menu.icon}}"></span>
+          <label>{{menu.title}}</label>
         </a>
       </li>
     </ul>
@@ -55,10 +55,10 @@
   <hr>
   <div>
     <ul class="list-group">
-      <li *ngFor="let menu of list_menu_level_04|filter:searcherText" title="{{menu.item2}}" routerLinkActive="active">
-        <a (click)="openSubMenu(menu.item0, 5)" [routerLink]="[menu.item3]">
-          <span class="{{menu.item1}}"></span>
-          <label>{{menu.item2}}</label>
+      <li *ngFor="let menu of list_menu_level_04|filter:searcherText" title="{{menu.title}}" routerLinkActive="active">
+        <a (click)="openSubMenu(menu.id, 5)" [routerLink]="[menu.path]">
+          <span class="{{menu.icon}}"></span>
+          <label>{{menu.title}}</label>
         </a>
       </li>
     </ul>
@@ -72,10 +72,10 @@
   <hr>
   <div>
     <ul class="list-group">
-      <li *ngFor="let menu of list_menu_level_05|filter:searcherText" title="{{menu.item2}}" routerLinkActive="active">
-        <a (click)="openSubMenu(menu.item0, 6)" [routerLink]="[menu.item3]">
-          <span class="{{menu.item1}}"></span>
-          <label>{{menu.item2}}</label>
+      <li *ngFor="let menu of list_menu_level_05|filter:searcherText" title="{{menu.title}}" routerLinkActive="active">
+        <a (click)="openSubMenu(menu.id, 6)" [routerLink]="[menu.path]">
+          <span class="{{menu.icon}}"></span>
+          <label>{{menu.title}}</label>
         </a>
       </li>
     </ul>
@@ -89,10 +89,10 @@
   <hr>
   <div>
     <ul class="list-group">
-      <li *ngFor="let menu of list_menu_level_06|filter:searcherText" title="{{menu.item2}}" routerLinkActive="active">
-        <a (click)="openSubMenu(menu.item0, 7)" [routerLink]="[menu.item3]">
-          <span class="{{menu.item1}}"></span>
-          <label>{{menu.item2}}</label>
+      <li *ngFor="let menu of list_menu_level_06|filter:searcherText" title="{{menu.title}}" routerLinkActive="active">
+        <a (click)="openSubMenu(menu.id, 7)" [routerLink]="[menu.path]">
+          <span class="{{menu.icon}}"></span>
+          <label>{{menu.title}}</label>
         </a>
       </li>
     </ul>
