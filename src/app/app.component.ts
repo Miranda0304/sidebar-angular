@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { InfobarService } from "./services/inforbar_visible/visible.service";
 
 @Component({
@@ -8,7 +8,7 @@ import { InfobarService } from "./services/inforbar_visible/visible.service";
 })
 
 export class AppComponent {
-
+  globalSearcher: string;
   visibleMenu = true
   isVisibleInfobar = false;
 

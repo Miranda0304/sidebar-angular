@@ -19,6 +19,7 @@ import { AttachedAuxComponent } from './views/attached-aux/attached-aux.componen
 import { InformationAuxComponent } from './views/information-aux/information-aux.component';
 import { Expedient1Component } from './views/expedient1/expedient1.component';
 import { SidebarComponent } from './shared/sidebar/sidebar.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 //Services
 import { InfobarService } from "./services/inforbar_visible/visible.service";
@@ -47,7 +48,8 @@ import { ObjectsService } from "./services/objects_methods/objects.service";
     FormsModule,
     CommonModule,
     Ng2SearchPipeModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ReactiveFormsModule
   ],
   providers: [
     InfobarService,

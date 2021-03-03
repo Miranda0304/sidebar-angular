@@ -1,7 +1,17 @@
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Buscar" [(ngModel)]="globalSearcher"
+        aria-label="Search">
+    </form>
+  </div>
+</nav>
+
 <div class="d-flex component-container">
 
   <!-- Views Sidebar menu -->
-  <app-sidebar
+  <app-sidebar [searcherText]="globalSearcher"
     [ngClass]="visibleMenu ? 'col col-md-auto sidebar-container' : 'col col-md-auto sidebar-container sidebar-hide'">
   </app-sidebar>
 

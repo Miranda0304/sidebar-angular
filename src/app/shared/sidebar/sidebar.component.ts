@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { menu_json } from '../../menu-json/menu-json';
 import { ObjectsService } from "../../services/objects_methods/objects.service";
 
@@ -9,13 +9,8 @@ import { ObjectsService } from "../../services/objects_methods/objects.service";
 })
 export class SidebarComponent implements OnInit {
 
-  //Searchers
-  menuText1 = "";
-  menuText2 = "";
-  menuText3 = "";
-  menuText4 = "";
-  menuText5 = "";
-  menuText6 = "";
+  //Searcher
+  @Input() searcherText = "";
 
   //Lists
   list_menu_level_01 = [];
@@ -36,12 +31,12 @@ export class SidebarComponent implements OnInit {
   ]
 
   constructor(private _serviceObjects: ObjectsService) {
-    this.list_menu_level_01 = menu_json;
+    this.list_menu_level_01 = menu_json.data;
     this.list_menu_level_01 = this._serviceObjects.changeAllKeys(this.list_menu_level_01);
+   
   }
 
   ngOnInit(): void {
-
   }
 
   openSubMenu(menu_id: number, level_to_open: number) {
