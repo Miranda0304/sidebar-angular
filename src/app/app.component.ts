@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { InfobarService } from "./services/inforbar_visible/visible.service";
+import { ContextualAreaService } from "./services/contextual_area_visible/contextual-area.service"
 
 @Component({
   selector: 'app-root',
@@ -10,14 +10,12 @@ import { InfobarService } from "./services/inforbar_visible/visible.service";
 export class AppComponent {
   globalSearcher: string;
   visibleMenu = true
-  isVisibleInfobar = false;
+  isVisibleContextualArea = false;
 
-  constructor(private _serviceInfobar: InfobarService) {
-
-    this._serviceInfobar.readStatusInfobar.subscribe((data) => {
-      this.isVisibleInfobar = data;
+  constructor(private _serviceContextualArea: ContextualAreaService) {
+    this._serviceContextualArea.readStatusContextualArea.subscribe((data) => {
+      this.isVisibleContextualArea = data;
     });
-
   }
 
   collapse_all() {

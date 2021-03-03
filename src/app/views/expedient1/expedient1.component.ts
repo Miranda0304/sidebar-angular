@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
-import { form_expedient1 } from "../../forms-json/form-expedient1";
-import { InfobarService } from "../../services/inforbar_visible/visible.service";
+import { form_expedient1 } from "../../forms-json/form-expedient1";;
 import { ObjectsService } from "../../services/objects_methods/objects.service";
 
 @Component({
@@ -15,8 +14,7 @@ export class Expedient1Component implements OnInit {
   myForm: FormGroup;
   lstValidators = {};
 
-  constructor(private _serviceInfobar: InfobarService, private _serviceObjects: ObjectsService, private fb: FormBuilder) {
-    this._serviceInfobar.isVisible(false);
+  constructor(private _serviceObjects: ObjectsService, private fb: FormBuilder) {
     this.lstForms = form_expedient1;
   }
 

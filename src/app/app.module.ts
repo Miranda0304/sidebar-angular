@@ -22,7 +22,7 @@ import { SidebarComponent } from './shared/sidebar/sidebar.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
 //Services
-import { InfobarService } from "./services/inforbar_visible/visible.service";
+import { ContextualAreaService } from "./services/contextual_area_visible/contextual-area.service";
 import { ObjectsService } from "./services/objects_methods/objects.service";
 
 @NgModule({
@@ -52,7 +52,7 @@ import { ObjectsService } from "./services/objects_methods/objects.service";
     ReactiveFormsModule
   ],
   providers: [
-    InfobarService,
+    ContextualAreaService,
     ObjectsService
   ],
   bootstrap: [AppComponent]

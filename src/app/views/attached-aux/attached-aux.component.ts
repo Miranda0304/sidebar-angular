@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { InfobarService } from "../../services/inforbar_visible/visible.service";
-
 @Component({
   selector: 'app-attached-aux',
   templateUrl: './attached-aux.component.html',
@@ -8,8 +6,7 @@ import { InfobarService } from "../../services/inforbar_visible/visible.service"
 })
 export class AttachedAuxComponent implements OnInit {
 
-  constructor(private _serviceInfobar: InfobarService) { 
-    this._serviceInfobar.isVisible(true);
+  constructor() { 
   }
 
   ngOnInit(): void {
