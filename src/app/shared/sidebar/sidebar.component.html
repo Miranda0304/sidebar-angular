@@ -1,10 +1,10 @@
 <!-- First Level -->
-<div [className]="lstVisible[0].isVisible? 'col-md-auto style-col redux' : 'col-md-auto style-col'">
+<div [className]="lstVisible[0].isCollapse? 'col-md-auto style-col redux' : 'col-md-auto style-col'">
   <div class="my-2 title-menu"></div>
   <hr>
   <div>
     <ul class="list-group">
-      <li *ngFor="let menu of list_menu_level_01|filter:searcherText" title="{{menu.title}}" routerLinkActive="active">
+      <li *ngFor="let menu of list_menus[1]|filter:searcherText" title="{{menu.title}}" routerLinkActive="active">
         <a (click)="openSubMenu(menu.id, 2)" [routerLink]="[menu.path]">
           <span class="{{menu.icon}}"></span>
           <label>{{menu.title}}</label>
@@ -15,13 +15,13 @@
 </div>
 
 <!-- Second Level -->
-<div [className]="lstVisible[1].isVisible ? 'col-md-auto style-col redux' : 'col-md-auto style-col'"
-  *ngIf="lstVisible[0].isVisible == true">
+<div [className]="lstVisible[1].isCollapse? 'col-md-auto style-col redux' : 'col-md-auto style-col'"
+  *ngIf="lstVisible[1].isVisible == true">
   <div class="my-2 title-menu"></div>
   <hr>
   <div>
     <ul class="list-group">
-      <li *ngFor="let menu of list_menu_level_02|filter:searcherText" title="{{menu.title}}" routerLinkActive="active">
+      <li *ngFor="let menu of list_menus[2]|filter:searcherText" title="{{menu.title}}" routerLinkActive="active">
         <a (click)="openSubMenu(menu.id, 3)" [routerLink]="[menu.path]">
           <span class="{{menu.icon}}"></span>
           <label>{{menu.title}}</label>
@@ -32,13 +32,13 @@
 </div>
 
 <!-- Third Level -->
-<div [className]="lstVisible[2].isVisible ? 'col-md-auto style-col redux' : 'col-md-auto style-col'"
-  *ngIf="lstVisible[1].isVisible == true">
+<div [className]="lstVisible[2].isCollapse ? 'col-md-auto style-col redux' : 'col-md-auto style-col'"
+  *ngIf="lstVisible[2].isVisible == true">
   <div class="my-2 title-menu"></div>
   <hr>
   <div>
     <ul class="list-group">
-      <li *ngFor="let menu of list_menu_level_03|filter:searcherText" title="{{menu.title}}" routerLinkActive="active">
+      <li *ngFor="let menu of list_menus[3]|filter:searcherText" title="{{menu.title}}" routerLinkActive="active">
         <a (click)="openSubMenu(menu.id, 4)" [routerLink]="[menu.path]">
           <span class="{{menu.icon}}"></span>
           <label>{{menu.title}}</label>
@@ -49,13 +49,13 @@
 </div>
 
 <!-- Fourth Level -->
-<div [className]="lstVisible[3].isVisible ? 'col-md-auto style-col redux' : 'col-md-auto style-col'"
-  *ngIf="lstVisible[2].isVisible == true">
+<div [className]="lstVisible[3].isCollapse ? 'col-md-auto style-col redux' : 'col-md-auto style-col'"
+  *ngIf="lstVisible[3].isVisible == true">
   <div class="my-2 title-menu"></div>
   <hr>
   <div>
     <ul class="list-group">
-      <li *ngFor="let menu of list_menu_level_04|filter:searcherText" title="{{menu.title}}" routerLinkActive="active">
+      <li *ngFor="let menu of list_menus[4]|filter:searcherText" title="{{menu.title}}" routerLinkActive="active">
         <a (click)="openSubMenu(menu.id, 5)" [routerLink]="[menu.path]">
           <span class="{{menu.icon}}"></span>
           <label>{{menu.title}}</label>
@@ -66,13 +66,13 @@
 </div>
 
 <!-- Fifth Level -->
-<div [className]="lstVisible[4].isVisible ? 'col-md-auto style-col redux' : 'col-md-auto style-col'"
-  *ngIf="lstVisible[3].isVisible == true">
+<div [className]="lstVisible[4].isCollapse ? 'col-md-auto style-col redux' : 'col-md-auto style-col'"
+  *ngIf="lstVisible[4].isVisible == true">
   <div class="my-2 title-menu"></div>
   <hr>
   <div>
     <ul class="list-group">
-      <li *ngFor="let menu of list_menu_level_05|filter:searcherText" title="{{menu.title}}" routerLinkActive="active">
+      <li *ngFor="let menu of list_menus[5]|filter:searcherText" title="{{menu.title}}" routerLinkActive="active">
         <a (click)="openSubMenu(menu.id, 6)" [routerLink]="[menu.path]">
           <span class="{{menu.icon}}"></span>
           <label>{{menu.title}}</label>
@@ -83,14 +83,32 @@
 </div>
 
 <!-- Sixth Level -->
-<div [className]="lstVisible[5].isVisible ? 'col-md-auto style-col redux' : 'col-md-auto style-col'"
-  *ngIf="lstVisible[4].isVisible == true">
+<div [className]="lstVisible[5].isCollapse ? 'col-md-auto style-col redux' : 'col-md-auto style-col'"
+  *ngIf="lstVisible[5].isVisible == true">
   <div class="my-2 title-menu"></div>
   <hr>
   <div>
     <ul class="list-group">
-      <li *ngFor="let menu of list_menu_level_06|filter:searcherText" title="{{menu.title}}" routerLinkActive="active">
+      <li *ngFor="let menu of list_menus[6]|filter:searcherText" title="{{menu.title}}" routerLinkActive="active">
         <a (click)="openSubMenu(menu.id, 7)" [routerLink]="[menu.path]">
+          <span class="{{menu.icon}}"></span>
+          <label>{{menu.title}}</label>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+
+<!-- Seven Level -->
+<div [className]="lstVisible[6].isCollapse ? 'col-md-auto style-col redux' : 'col-md-auto style-col'"
+  *ngIf="lstVisible[6].isVisible == true">
+  <div class="my-2 title-menu"></div>
+  <hr>
+  <div>
+    <ul class="list-group">
+      <li *ngFor="let menu of list_menus[7]|filter:searcherText" title="{{menu.title}}" routerLinkActive="active">
+        <a (click)="openSubMenu(menu.id, 8)" [routerLink]="[menu.path]">
           <span class="{{menu.icon}}"></span>
           <label>{{menu.title}}</label>
         </a>

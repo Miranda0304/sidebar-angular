@@ -1,5 +1,6 @@
 .component-container {
   height: 94vh;
+  overflow: auto;
   // white-space: nowrap;
 }
 
@@ -12,7 +13,9 @@
 }
 
 .work-area-container {
-  overflow: auto;
+  min-width: 30%;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 #btn_collaps_all {

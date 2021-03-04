@@ -10,7 +10,7 @@
         <ng-container *ngSwitchCase="form.field_type === 'text'">
           <label *ngIf="form.have_label == true">{{form.label_title}}</label>
           <input type="text" class="{{form.field_class}}" id="{{form.field_id}}" placeholder="{{form.placeholder_name}}"
-            autocomplete="{{form.autocomplete}}" formControlName="{{form.formControl}}"
+            autocomplete="{{form.autocomplete}}" formControlName="{{form.formControl}}" maxlength="10"
             (keypress)="keyme(form.formControl)">
           <div *ngIf="myError.invalid && myError.touched" class="validation-error">
             <div class="text-danger" *ngIf="myError.errors.required">{{form.label_title}} es requerido.</div>
@@ -23,7 +23,7 @@
         <ng-container *ngSwitchCase="form.field_type === 'number'">
           <label *ngIf="form.have_label == true">{{form.label_title}}</label>
           <input type="number" class="{{form.field_class}}" id="{{form.field_id}}"
-            placeholder="{{form.placeholder_name}}">
+            placeholder="{{form.placeholder_name}}" min="0" max="10">
         </ng-container>
 
         <!-- Textarea -->
