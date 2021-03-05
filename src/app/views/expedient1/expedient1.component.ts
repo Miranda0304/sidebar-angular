@@ -11,8 +11,10 @@ import { ObjectsService } from "../../services/objects_methods/objects.service";
 export class Expedient1Component implements OnInit {
 
   lstForms = [];
-  myForm: FormGroup;
+  formExpedient1: FormGroup;
   lstValidators = {};
+  fielControl: any;
+  formControlName = ""
 
   constructor(private _serviceObjects: ObjectsService, private fb: FormBuilder) {
     this.lstForms = form_expedient1;
@@ -20,7 +22,7 @@ export class Expedient1Component implements OnInit {
 
   ngOnInit(): void {
     this.myValidators();
-    this.myError = [];
+    this.fielControl = [];
   }
 
   myValidators() {
@@ -35,13 +37,12 @@ export class Expedient1Component implements OnInit {
       this.lstValidators[element.formControl].push(array_validators);
     });
 
-    this.myForm = this.fb.group(this.lstValidators); //{ FormControl_1: ['', [validacion_1, validacion 2, validacion_3] ]}
+    this.formExpedient1 = this.fb.group(this.lstValidators); //{ FormControl_1: ['', [validacion_1, validacion 2, validacion_3] ]}
   }
 
-  myError: any;
-  keyme(name: string) {
-    // console.log(name);
-    // console.log(this.myForm);
-    this.myError = this.myForm.controls[name];
+  validate(name: string) {
+    this.formControlName = name;
+    this.fielControl = this.formExpedient1.controls[name];
   }
+
 }

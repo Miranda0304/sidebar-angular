@@ -1,5 +1,5 @@
 <h1>Form</h1>
-<form [formGroup]="myForm">
+<form [formGroup]="formExpedient1">
   <div class="row">
     <!-- nf for -->
     <div class="form-group {{form.size_col}}" *ngFor="let form of lstForms">
@@ -10,27 +10,60 @@
         <ng-container *ngSwitchCase="form.field_type === 'text'">
           <label *ngIf="form.have_label == true">{{form.label_title}}</label>
           <input type="text" class="{{form.field_class}}" id="{{form.field_id}}" placeholder="{{form.placeholder_name}}"
-            autocomplete="{{form.autocomplete}}" formControlName="{{form.formControl}}" maxlength="10"
-            (keypress)="keyme(form.formControl)">
-          <div *ngIf="myError.invalid && myError.touched" class="validation-error">
-            <div class="text-danger" *ngIf="myError.errors.required">{{form.label_title}} es requerido.</div>
-            <div class="text-danger" *ngIf="myError.errors.minlength">Input 1 debe tener almenos 3 letras.</div>
-            <div class="text-danger" *ngIf="myError.errors.maxlength">Input 1 maximo 10.</div>
+            autocomplete="{{form.autocomplete}}" formControlName="{{form.formControl}}" minlength="{{form.minLength}}"
+            maxlength="{{form.maxLength}}" (keypress)="validate(form.formControl)" (click)="validate(form.formControl)">
+
+          <div *ngIf="formControlName == form.formControl">
+            <div *ngIf="fielControl.invalid && fielControl.touched" class="validation-error">
+              <div class="text-danger" *ngIf="fielControl.errors.required">{{form.label_title}} es requerido.</div>
+              <div class="text-danger" *ngIf="fielControl.errors.minlength">{{form.label_title}} debe tener almenos
+                {{form.minLength}} letras.</div>
+              <div class="text-danger" *ngIf="fielControl.errors.maxlength">{{form.label_title}} maximo
+                {{form.maxLength}}.
+              </div>
+            </div>
           </div>
+
+
         </ng-container>
 
         <!-- Numeric -->
         <ng-container *ngSwitchCase="form.field_type === 'number'">
           <label *ngIf="form.have_label == true">{{form.label_title}}</label>
           <input type="number" class="{{form.field_class}}" id="{{form.field_id}}"
-            placeholder="{{form.placeholder_name}}" min="0" max="10">
+            placeholder="{{form.placeholder_name}}" formControlName="{{form.formControl}}" min="{{form.minLength}}"
+            max="{{form.maxLength}}" (keypress)="validate(form.formControl)" (click)="validate(form.formControl)">
+
+          <div *ngIf="formControlName == form.formControl">
+            <div *ngIf="fielControl.invalid && fielControl.touched" class="validation-error">
+              <div class="text-danger" *ngIf="fielControl.errors.required">{{form.label_title}} es requerido.</div>
+              <div class="text-danger" *ngIf="fielControl.errors.minlength">{{form.label_title}} debe tener almenos
+                {{form.minLength}} letras.</div>
+              <div class="text-danger" *ngIf="fielControl.errors.maxlength">{{form.label_title}} maximo
+                {{form.maxLength}}.
+              </div>
+            </div>
+          </div>
         </ng-container>
 
         <!-- Textarea -->
         <ng-container *ngSwitchCase="form.field_type === 'textarea'">
           <label *ngIf="form.have_label == true">{{form.label_title}}</label>
-          <textarea class="{{form.field_class}}" id="{{form.field_id}}"
-            placeholder="{{form.placeholder_name}}"></textarea>
+          <textarea class="{{form.field_class}}" id="{{form.field_id}}" placeholder="{{form.placeholder_name}}"
+            formControlName="{{form.formControl}}" minlength="{{form.minLength}}" maxlength="{{form.maxLength}}"
+            (keypress)="validate(form.formControl)" (click)="validate(form.formControl)"></textarea>
+
+          <div *ngIf="formControlName == form.formControl">
+            <div *ngIf="fielControl.invalid && fielControl.touched" class="validation-error">
+              <div class="text-danger" *ngIf="fielControl.errors.required">{{form.label_title}} es requerido.</div>
+              <div class="text-danger" *ngIf="fielControl.errors.minlength">{{form.label_title}} debe tener almenos
+                {{form.minLength}} letras.</div>
+              <div class="text-danger" *ngIf="fielControl.errors.maxlength">{{form.label_title}} maximo
+                {{form.maxLength}}.
+              </div>
+            </div>
+          </div>
+
         </ng-container>
 
         <!-- Checkbox -->
