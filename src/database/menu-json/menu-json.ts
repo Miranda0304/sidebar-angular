@@ -57,6 +57,56 @@ export const menu_json = {
                           path: 'expedient10',
                           collapse: false,
                           contextual_area: false,
+                          sub_menu: [
+                            {
+                              id: "id_expedient_menu_06_01",
+                              icon: "fa fa-book",
+                              title: "Expedient 10°°",
+                              path: 'expedient10',
+                              collapse: false,
+                              contextual_area: false,
+                              sub_menu: [
+                                {
+                                  id: "id_expedient_menu_06_01",
+                                  icon: "fa fa-book",
+                                  title: "Expedient 10°°",
+                                  path: 'expedient10',
+                                  collapse: false,
+                                  contextual_area: false,
+                                  sub_menu: [
+                                    {
+                                      id: "id_expedient_menu_06_01",
+                                      icon: "fa fa-book",
+                                      title: "Expedient 10°°",
+                                      path: 'expedient10',
+                                      collapse: false,
+                                      contextual_area: false,
+                                      sub_menu: [
+                                        {
+                                          id: "id_expedient_menu_06_01",
+                                          icon: "fa fa-book",
+                                          title: "Expedient 10°°",
+                                          path: 'expedient10',
+                                          collapse: false,
+                                          contextual_area: false,
+                                          sub_menu: [
+                                            {
+                                              id: "id_expedient_menu_06_01",
+                                              icon: "fa fa-book",
+                                              title: "Expedient 10°°",
+                                              path: 'expedient10',
+                                              collapse: false,
+                                              contextual_area: false,
+                                            }
+                                          ]
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ]
                     }

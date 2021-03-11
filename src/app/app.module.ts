@@ -24,6 +24,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 //Services
 import { ContextualAreaService } from "./services/contextual_area_visible/contextual-area.service";
 import { ObjectsService } from "./services/objects_methods/objects.service";
+import { TableComponent } from './views/table/table.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { ObjectsService } from "./services/objects_methods/objects.service";
     AttachedAuxComponent,
     InformationAuxComponent,
     Expedient1Component,
-    SidebarComponent
+    SidebarComponent,
+    TableComponent
   ],
   imports: [
     BrowserModule,

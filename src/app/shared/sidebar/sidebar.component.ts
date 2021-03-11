@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { menu_json } from '../../menu-json/menu-json';
+import { menu_json } from '../../../database/menu-json/menu-json';
 import { ObjectsService } from "../../services/objects_methods/objects.service";
 import { ContextualAreaService } from "../../services/contextual_area_visible/contextual-area.service";
 
@@ -23,6 +23,8 @@ export class SidebarComponent implements OnInit {
     7: [],
     8: [],
     9: [],
+    10: [],
+    11: []
   };
 
   contextual_area: boolean;
@@ -37,10 +39,18 @@ export class SidebarComponent implements OnInit {
     { level: 6, isVisible: false, isCollapse: false },
     { level: 7, isVisible: false, isCollapse: false },
     { level: 8, isVisible: false, isCollapse: false },
+    { level: 9, isVisible: false, isCollapse: false },
+    { level: 10, isVisible: false, isCollapse: false },
+    { level: 11, isVisible: false, isCollapse: false },
   ]
+
+  data_proof: any;
+  lst_menu_proof = [];
+  lst_visible_proof = [];
 
   constructor(private _serviceObjects: ObjectsService, private _serviceContextualArea: ContextualAreaService) {
     this.list_menus[1] = menu_json.data;
+
     localStorage.getItem('CONTEXTUAL_AREA') == 'true' || localStorage.getItem('CONTEXTUAL_AREA') == '1' ? this.contextual_area = true : this.contextual_area = false;
     this._serviceContextualArea.isVisible(this.contextual_area);
   }

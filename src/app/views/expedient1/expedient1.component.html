@@ -1,108 +1,125 @@
 <h1>Form</h1>
 <form [formGroup]="formExpedient1">
-  <div class="row">
-    <!-- nf for -->
-    <div class="form-group {{form.size_col}}" *ngFor="let form of lstForms">
+  <fieldset>
+    <div class="row">
+      <!-- nf for -->
+      <div
+        [className]="form.field_type != 'legend' ? 'form-group '+ form.size_col : form.size_col"
+        *ngFor="let form of lstForms">
 
-      <ng-container [ngSwitch]="lstForms.length > 0">
+        <ng-container [ngSwitch]="lstForms.length > 0">
 
-        <!-- Text -->
-        <ng-container *ngSwitchCase="form.field_type === 'text'">
-          <label *ngIf="form.have_label == true">{{form.label_title}}</label>
-          <input type="text" class="{{form.field_class}}" id="{{form.field_id}}" placeholder="{{form.placeholder_name}}"
-            autocomplete="{{form.autocomplete}}" formControlName="{{form.formControl}}" minlength="{{form.minLength}}"
-            maxlength="{{form.maxLength}}" (keypress)="validate(form.formControl)" (click)="validate(form.formControl)">
+          <!-- Legend -->
+          <ng-container *ngSwitchCase="form.field_type == 'legend'">
+            <legend *ngIf="form.have_label == true" class="{{form.field_class}}">{{form.label_title}}</legend>
+            <hr>
+          </ng-container>
 
-          <div *ngIf="formControlName == form.formControl">
-            <div *ngIf="fielControl.invalid && fielControl.touched" class="validation-error">
-              <div class="text-danger" *ngIf="fielControl.errors.required">{{form.label_title}} es requerido.</div>
-              <div class="text-danger" *ngIf="fielControl.errors.minlength">{{form.label_title}} debe tener almenos
-                {{form.minLength}} letras.</div>
-              <div class="text-danger" *ngIf="fielControl.errors.maxlength">{{form.label_title}} maximo
-                {{form.maxLength}}.
+          <!-- Text -->
+          <ng-container *ngSwitchCase="form.field_type === 'text'">
+            <label *ngIf="form.have_label == true">{{form.label_title}}</label>
+            <input type="text" class="{{form.field_class}}" id="{{form.field_id}}"
+              placeholder="{{form.placeholder_name}}" autocomplete="{{form.autocomplete}}" formControlName="{{form.id}}"
+              minlength="{{form.min_length}}" maxlength="{{form.max_length}}" (keypress)="validate(form.id)"
+              (click)="validate(form.id)">
+
+            <div *ngIf="formControlName == form.id">
+              <div *ngIf="fieldControl.invalid && fieldControl.touched" class="validation-error">
+                <div class="text-danger" *ngIf="fieldControl.errors.required">{{form.label_title}} es requerido.</div>
+                <div class="text-danger" *ngIf="fieldControl.errors.minlength">{{form.label_title}} debe tener almenos
+                  {{form.min_length}} letras.</div>
+                <div class="text-danger" *ngIf="fieldControl.errors.max_length">{{form.label_title}} maximo
+                  {{form.max_length}}.
+                </div>
               </div>
             </div>
-          </div>
+          </ng-container>
 
+          <!-- Numeric -->
+          <ng-container *ngSwitchCase="form.field_type === 'number'">
+            <label *ngIf="form.have_label == true">{{form.label_title}}</label>
+            <input type="number" class="{{form.field_class}}" id="{{form.field_id}}"
+              placeholder="{{form.placeholder_name}}" formControlName="{{form.id}}" min="{{form.min_length}}"
+              max="{{form.max_length}}" (keypress)="validate(form.id)" (click)="validate(form.id)">
 
-        </ng-container>
-
-        <!-- Numeric -->
-        <ng-container *ngSwitchCase="form.field_type === 'number'">
-          <label *ngIf="form.have_label == true">{{form.label_title}}</label>
-          <input type="number" class="{{form.field_class}}" id="{{form.field_id}}"
-            placeholder="{{form.placeholder_name}}" formControlName="{{form.formControl}}" min="{{form.minLength}}"
-            max="{{form.maxLength}}" (keypress)="validate(form.formControl)" (click)="validate(form.formControl)">
-
-          <div *ngIf="formControlName == form.formControl">
-            <div *ngIf="fielControl.invalid && fielControl.touched" class="validation-error">
-              <div class="text-danger" *ngIf="fielControl.errors.required">{{form.label_title}} es requerido.</div>
-              <div class="text-danger" *ngIf="fielControl.errors.minlength">{{form.label_title}} debe tener almenos
-                {{form.minLength}} letras.</div>
-              <div class="text-danger" *ngIf="fielControl.errors.maxlength">{{form.label_title}} maximo
-                {{form.maxLength}}.
+            <div *ngIf="formControlName == form.id">
+              <div *ngIf="fieldControl.invalid && fieldControl.touched" class="validation-error">
+                <div class="text-danger" *ngIf="fieldControl.errors.required">{{form.label_title}} es requerido.</div>
+                <div class="text-danger" *ngIf="fieldControl.errors.minlength">{{form.label_title}} debe tener almenos
+                  {{form.min_length}} letras.</div>
+                <div class="text-danger" *ngIf="fieldControl.errors.max_length">{{form.label_title}} maximo
+                  {{form.max_length}}.
+                </div>
               </div>
             </div>
-          </div>
-        </ng-container>
+          </ng-container>
 
-        <!-- Textarea -->
-        <ng-container *ngSwitchCase="form.field_type === 'textarea'">
-          <label *ngIf="form.have_label == true">{{form.label_title}}</label>
-          <textarea class="{{form.field_class}}" id="{{form.field_id}}" placeholder="{{form.placeholder_name}}"
-            formControlName="{{form.formControl}}" minlength="{{form.minLength}}" maxlength="{{form.maxLength}}"
-            (keypress)="validate(form.formControl)" (click)="validate(form.formControl)"></textarea>
+          <!-- Textarea -->
+          <ng-container *ngSwitchCase="form.field_type === 'textarea'">
+            <label *ngIf="form.have_label == true">{{form.label_title}}</label>
+            <textarea class="{{form.field_class}}" id="{{form.field_id}}" placeholder="{{form.placeholder_name}}"
+              formControlName="{{form.id}}" minlength="{{form.min_length}}" maxlength="{{form.max_length}}"
+              (keypress)="validate(form.id)" (click)="validate(form.id)"></textarea>
 
-          <div *ngIf="formControlName == form.formControl">
-            <div *ngIf="fielControl.invalid && fielControl.touched" class="validation-error">
-              <div class="text-danger" *ngIf="fielControl.errors.required">{{form.label_title}} es requerido.</div>
-              <div class="text-danger" *ngIf="fielControl.errors.minlength">{{form.label_title}} debe tener almenos
-                {{form.minLength}} letras.</div>
-              <div class="text-danger" *ngIf="fielControl.errors.maxlength">{{form.label_title}} maximo
-                {{form.maxLength}}.
+            <div *ngIf="formControlName == form.id">
+              <div *ngIf="fieldControl.invalid && fieldControl.touched" class="validation-error">
+                <div class="text-danger" *ngIf="fieldControl.errors.required">{{form.label_title}} es requerido.</div>
+                <div class="text-danger" *ngIf="fieldControl.errors.minlength">{{form.label_title}} debe tener almenos
+                  {{form.min_length}} letras.</div>
+                <div class="text-danger" *ngIf="fieldControl.errors.max_length">{{form.label_title}} maximo
+                  {{form.max_length}}.
+                </div>
               </div>
             </div>
-          </div>
+
+          </ng-container>
+
+          <!-- Checkbox -->
+          <ng-container *ngSwitchCase="form.field_type === 'checkbox'">
+            <div class="form-check">
+              <label class="form-check-label">
+                <input type="checkbox" class="{{form.field_class}}" id="{{form.field_id}}"
+                  name="{{form.placeholder_name}}" formControlName="{{form.id}}" (keypress)="validate(form.id)"
+                  (click)="validate(form.id)">
+                {{form.label_title}}
+              </label>
+            </div>
+
+            <div *ngIf="formControlName == form.id">
+              <div *ngIf="fieldControl.invalid && fieldControl.touched" class="validation-error">
+                <div class="text-danger" *ngIf="fieldControl.errors.required">{{form.label_title}} es requerido.</div>
+              </div>
+            </div>
+          </ng-container>
+
+          <!-- Radiobutton -->
+          <ng-container *ngSwitchCase="form.field_type === 'radiobutton'">
+            <div class="form-check">
+              <label class="form-check-label">
+                <input type="radio" class="{{form.field_class}}" id="{{form.field_id}}"
+                  placeholder="{{form.placeholder_name}}" name="{{form.placeholder_name}}">
+                {{form.label_title}}
+              </label>
+            </div>
+          </ng-container>
+
+          <!-- Button -->
+          <ng-container *ngSwitchCase="form.field_type === 'button'">
+            <button class="{{form.field_class}}"><label
+                *ngIf="form.have_label == true">{{form.label_title}}</label></button>
+          </ng-container>
+
+          <!-- Line hr -->
+          <ng-container *ngSwitchCase="form.field_type === 'hr'">
+            <label *ngIf="form.have_label == true">{{form.label_title}}</label>
+            <hr>
+          </ng-container>
 
         </ng-container>
 
-        <!-- Checkbox -->
-        <ng-container *ngSwitchCase="form.field_type === 'checkbox'">
-          <div class="form-check">
-            <label class="form-check-label">
-              <input type="checkbox" class="{{form.field_class}}" id="{{form.field_id}}"
-                name="{{form.placeholder_name}}">
-              {{form.label_title}}
-            </label>
-          </div>
-        </ng-container>
 
-        <!-- Radiobutton -->
-        <ng-container *ngSwitchCase="form.field_type === 'radiobutton'">
-          <div class="form-check">
-            <label class="form-check-label">
-              <input type="radio" class="{{form.field_class}}" id="{{form.field_id}}"
-                placeholder="{{form.placeholder_name}}" name="{{form.placeholder_name}}">
-              {{form.label_title}}
-            </label>
-          </div>
-        </ng-container>
-
-        <!-- Button -->
-        <ng-container *ngSwitchCase="form.field_type === 'button'">
-          <button class="{{form.field_class}}"><label
-              *ngIf="form.have_label == true">{{form.label_title}}</label></button>
-        </ng-container>
-
-        <!-- Line hr -->
-        <ng-container *ngSwitchCase="form.field_type === 'hr'">
-          <label *ngIf="form.have_label == true">{{form.label_title}}</label>
-          <hr>
-        </ng-container>
-
-      </ng-container>
-
-
+      </div>
     </div>
-  </div>
+  </fieldset>
+
 </form>

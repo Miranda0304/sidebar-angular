@@ -5,7 +5,7 @@
   <div>
     <ul class="list-group">
       <li *ngFor="let menu of list_menus[1]|filter:searcherText" title="{{menu.title}}" routerLinkActive="active">
-        <a (click)="openSubMenu(menu.id, 2)" [routerLink]="[menu.path]">
+        <a draggable="false" (click)="openSubMenu(menu.id, 2)" [routerLink]="[menu.path]">
           <span class="{{menu.icon}}"></span>
           <label>{{menu.title}}</label>
         </a>
@@ -98,7 +98,6 @@
     </ul>
   </div>
 </div>
-
 
 <!-- Seven Level -->
 <div [className]="lstVisible[6].isCollapse ? 'col-md-auto style-col redux' : 'col-md-auto style-col'"

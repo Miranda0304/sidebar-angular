@@ -1,5 +1,5 @@
 <!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light" style="width: 100vw;">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
     <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="search" placeholder="Buscar" [(ngModel)]="globalSearcher"
@@ -16,7 +16,9 @@
   </app-sidebar>
 
   <!-- Button Collapse -->
-  <button class=" btn btn-info fa fa-outdent" id="btn_collaps_all" (click)="collapse_all()" aria-hidden="true"></button>
+  <button class="btn btn-outline-info" id="btn_collaps_all" (click)="collapse_all()" >
+    <li class="fa fa-outdent"></li>
+  </button>
 
   <!-- Views container -->
   <div class="col col-xs-auto my-3 mx-1 work-area-container">

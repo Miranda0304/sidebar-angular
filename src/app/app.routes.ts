@@ -9,6 +9,7 @@ import { UsersAuxComponent } from './views/users-aux/users-aux.component';
 import { AttachedAuxComponent } from './views/attached-aux/attached-aux.component';
 import { InformationAuxComponent } from './views/information-aux/information-aux.component';
 import { Expedient1Component } from './views/expedient1/expedient1.component';
+import { TableComponent } from './views/table/table.component';
 
 
 const APP_ROUTES: Routes = [
@@ -29,7 +30,7 @@ const APP_ROUTES: Routes = [
     {path: 'expedient12', component: ExpedientComponent},
     {path: 'expedient13', component: ExpedientAuxComponent},
     
-    {path: 'users', component: UsersComponent},
+    {path: 'users', component: TableComponent},
     {path: 'users1', component: UsersAuxComponent},
     {path: 'users2', component: UsersComponent},
     {path: 'users3', component: UsersAuxComponent},
