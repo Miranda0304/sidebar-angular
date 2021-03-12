@@ -1,13 +1,22 @@
+//Angular
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { CommonModule } from "@angular/common";
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
-import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HomeComponent } from './views/home/home.component'
+import { ReactiveFormsModule } from '@angular/forms';
+
+//Routes
 import { APP_ROUTING } from './app.routes';
+import { AppRoutingModule } from './app-routing.module';
+
+//Dependecies
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { DataTablesModule } from "angular-datatables";
+
+//Views
+import { AppComponent } from './app.component';
+import { HomeComponent } from './views/home/home.component'
 import { ExpedientComponent } from './views/expedient/expedient.component';
 import { InfobarComponent } from './shared/infobar/infobar.component';
 import { UsersComponent } from './views/users/users.component';
@@ -19,7 +28,6 @@ import { AttachedAuxComponent } from './views/attached-aux/attached-aux.componen
 import { InformationAuxComponent } from './views/information-aux/information-aux.component';
 import { Expedient1Component } from './views/expedient1/expedient1.component';
 import { SidebarComponent } from './shared/sidebar/sidebar.component';
-import { ReactiveFormsModule } from '@angular/forms';
 
 //Services
 import { ContextualAreaService } from "./services/contextual_area_visible/contextual-area.service";
@@ -51,7 +59,8 @@ import { TableComponent } from './views/table/table.component';
     CommonModule,
     Ng2SearchPipeModule,
     BrowserAnimationsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    DataTablesModule
   ],
   providers: [
     ContextualAreaService,

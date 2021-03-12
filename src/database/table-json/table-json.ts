@@ -8,11 +8,11 @@ export const table_json = {
             theme_header: 'thead-dark',
             header: [
                 {
-                    title: 'Name',
-                    width: 1
+                    title: 'Full Name',
+                    width: null
                 },
                 {
-                    title: 'Last Name',
+                    title: 'User',
                     width: null
                 },
                 {
@@ -25,16 +25,16 @@ export const table_json = {
                 }
             ],
             tr: [
-                {                    
+                {
                     theme_tr: 'table-primary',
                     td: [
                         {
-                            information: 'Luis',
+                            information: 'Luis Arteaga',
                             width: null,
                             height: null
                         },
                         {
-                            information: 'Arteaga',
+                            information: 'LUISACS',
                             width: null,
                             height: null
                         },
@@ -54,12 +54,12 @@ export const table_json = {
                     theme_tr: 'table-success',
                     td: [
                         {
-                            information: 'Remberto',
+                            information: 'Remberto Machuca',
                             width: null,
                             height: null
                         },
                         {
-                            information: 'Machuca',
+                            information: 'REMBERITO',
                             width: null,
                             height: null
                         },
@@ -74,8 +74,633 @@ export const table_json = {
                             height: null
                         }
                     ]
-                }
+                },
+                {
+                    theme_tr: 'table-danger',
+                    td: [
+                        {
+                            information: 'Flor Perez',
+                            width: null,
+                            height: null
+                        },
+                        {
+                            information: 'FLOWER',
+                            width: null,
+                            height: null
+                        },
+                        {
+                            information: '20',
+                            width: null,
+                            height: null
+                        },
+                        {
+                            information: 'Admin',
+                            width: null,
+                            height: null
+                        }
+                    ]
+                },
+                {
+                    theme_tr: 'table-primary',
+                    td: [
+                        {
+                            information: 'Luis Arteaga',
+                            width: null,
+                            height: null
+                        },
+                        {
+                            information: 'LUISACS',
+                            width: null,
+                            height: null
+                        },
+                        {
+                            information: '50',
+                            width: null,
+                            height: null
+                        },
+                        {
+                            information: 'Admin',
+                            width: null,
+                            height: null
+                        }
+                    ]
+                },
+                {
+                    theme_tr: 'table-success',
+                    td: [
+                        {
+                            information: 'Remberto Machuca',
+                            width: null,
+                            height: null
+                        },
+                        {
+                            information: 'REMBERITO',
+                            width: null,
+                            height: null
+                        },
+                        {
+                            information: '18',
+                            width: null,
+                            height: null
+                        },
+                        {
+                            information: 'Guess',
+                            width: null,
+                            height: null
+                        }
+                    ]
+                },
+                {
+                    theme_tr: 'table-danger',
+                    td: [
+                        {
+                            information: 'Flor Perez',
+                            width: null,
+                            height: null
+                        },
+                        {
+                            information: 'FLOWER',
+                            width: null,
+                            height: null
+                        },
+                        {
+                            information: '20',
+                            width: null,
+                            height: null
+                        },
+                        {
+                            information: 'Admin',
+                            width: null,
+                            height: null
+                        }
+                    ]
+                },
+                {
+                    theme_tr: 'table-primary',
+                    td: [
+                        {
+                            information: 'Luis Arteaga',
+                            width: null,
+                            height: null
+                        },
+                        {
+                            information: 'LUISACS',
+                            width: null,
+                            height: null
+                        },
+                        {
+                            information: '50',
+                            width: null,
+                            height: null
+                        },
+                        {
+                            information: 'Admin',
+                            width: null,
+                            height: null
+                        }
+                    ]
+                },
+                {
+                    theme_tr: 'table-success',
+                    td: [
+                        {
+                            information: 'Remberto Machuca',
+                            width: null,
+                            height: null
+                        },
+                        {
+                            information: 'REMBERITO',
+                            width: null,
+                            height: null
+                        },
+                        {
+                            information: '18',
+                            width: null,
+                            height: null
+                        },
+                        {
+                            information: 'Guess',
+                            width: null,
+                            height: null
+                        }
+                    ]
+                },
+                {
+                    theme_tr: 'table-danger',
+                    td: [
+                        {
+                            information: 'Flor Perez',
+                            width: null,
+                            height: null
+                        },
+                        {
+                            information: 'FLOWER',
+                            width: null,
+                            height: null
+                        },
+                        {
+                            information: '20',
+                            width: null,
+                            height: null
+                        },
+                        {
+                            information: 'Admin',
+                            width: null,
+                            height: null
+                        }
+                    ]
+                },
+                {
+                    theme_tr: 'table-primary',
+                    td: [
+                        {
+                            information: 'Luis Arteaga',
+                            width: null,
+                            height: null
+                        },
+                        {
+                            information: 'LUISACS',
+                            width: null,
+                            height: null
+                        },
+                        {
+                            information: '50',
+                            width: null,
+                            height: null
+                        },
+                        {
+                            information: 'Admin',
+                            width: null,
+                            height: null
+                        }
+                    ]
+                },
+                {
+                    theme_tr: 'table-success',
+                    td: [
+                        {
+                            information: 'Remberto Machuca',
+                            width: null,
+                            height: null
+                        },
+                        {
+                            information: 'REMBERITO',
+                            width: null,
+                            height: null
+                        },
+                        {
+                            information: '18',
+                            width: null,
+                            height: null
+                        },
+                        {
+                            information: 'Guess',
+                            width: null,
+                            height: null
+                        }
+                    ]
+                },
+                {
+                    theme_tr: 'table-danger',
+                    td: [
+                        {
+                            information: 'Flor Perez',
+                            width: null,
+                            height: null
+                        },
+                        {
+                            information: 'FLOWER',
+                            width: null,
+                            height: null
+                        },
+                        {
+                            information: '20',
+                            width: null,
+                            height: null
+                        },
+                        {
+                            information: 'Admin',
+                            width: null,
+                            height: null
+                        }
+                    ]
+                },
+                {
+                    theme_tr: 'table-primary',
+                    td: [
+                        {
+                            information: 'Luis Arteaga',
+                            width: null,
+                            height: null
+                        },
+                        {
+                            information: 'LUISACS',
+                            width: null,
+                            height: null
+                        },
+                        {
+                            information: '50',
+                            width: null,
+                            height: null
+                        },
+                        {
+                            information: 'Admin',
+                            width: null,
+                            height: null
+                        }
+                    ]
+                },
+                {
+                    theme_tr: 'table-success',
+                    td: [
+                        {
+                            information: 'Remberto Machuca',
+                            width: null,
+                            height: null
+                        },
+                        {
+                            information: 'REMBERITO',
+                            width: null,
+                            height: null
+                        },
+                        {
+                            information: '18',
+                            width: null,
+                            height: null
+                        },
+                        {
+                            information: 'Guess',
+                            width: null,
+                            height: null
+                        }
+                    ]
+                },
+                {
+                    theme_tr: 'table-danger',
+                    td: [
+                        {
+                            information: 'Flor Perez',
+                            width: null,
+                            height: null
+                        },
+                        {
+                            information: 'FLOWER',
+                            width: null,
+                            height: null
+                        },
+                        {
+                            information: '20',
+                            width: null,
+                            height: null
+                        },
+                        {
+                            information: 'Admin',
+                            width: null,
+                            height: null
+                        }
+                    ]
+                },
+                {
+                    theme_tr: 'table-primary',
+                    td: [
+                        {
+                            information: 'Luis Arteaga',
+                            width: null,
+                            height: null
+                        },
+                        {
+                            information: 'LUISACS',
+                            width: null,
+                            height: null
+                        },
+                        {
+                            information: '50',
+                            width: null,
+                            height: null
+                        },
+                        {
+                            information: 'Admin',
+                            width: null,
+                            height: null
+                        }
+                    ]
+                },
+                {
+                    theme_tr: 'table-success',
+                    td: [
+                        {
+                            information: 'Remberto Machuca',
+                            width: null,
+                            height: null
+                        },
+                        {
+                            information: 'REMBERITO',
+                            width: null,
+                            height: null
+                        },
+                        {
+                            information: '18',
+                            width: null,
+                            height: null
+                        },
+                        {
+                            information: 'Guess',
+                            width: null,
+                            height: null
+                        }
+                    ]
+                },
+                {
+                    theme_tr: 'table-danger',
+                    td: [
+                        {
+                            information: 'Flor Perez',
+                            width: null,
+                            height: null
+                        },
+                        {
+                            information: 'FLOWER',
+                            width: null,
+                            height: null
+                        },
+                        {
+                            information: '20',
+                            width: null,
+                            height: null
+                        },
+                        {
+                            information: 'Admin',
+                            width: null,
+                            height: null
+                        }
+                    ]
+                },
+                {
+                    theme_tr: 'table-primary',
+                    td: [
+                        {
+                            information: 'Luis Arteaga',
+                            width: null,
+                            height: null
+                        },
+                        {
+                            information: 'LUISACS',
+                            width: null,
+                            height: null
+                        },
+                        {
+                            information: '50',
+                            width: null,
+                            height: null
+                        },
+                        {
+                            information: 'Admin',
+                            width: null,
+                            height: null
+                        }
+                    ]
+                },
+                {
+                    theme_tr: 'table-success',
+                    td: [
+                        {
+                            information: 'Remberto Machuca',
+                            width: null,
+                            height: null
+                        },
+                        {
+                            information: 'REMBERITO',
+                            width: null,
+                            height: null
+                        },
+                        {
+                            information: '18',
+                            width: null,
+                            height: null
+                        },
+                        {
+                            information: 'Guess',
+                            width: null,
+                            height: null
+                        }
+                    ]
+                },
+                {
+                    theme_tr: 'table-danger',
+                    td: [
+                        {
+                            information: 'Flor Perez',
+                            width: null,
+                            height: null
+                        },
+                        {
+                            information: 'FLOWER',
+                            width: null,
+                            height: null
+                        },
+                        {
+                            information: '20',
+                            width: null,
+                            height: null
+                        },
+                        {
+                            information: 'Admin',
+                            width: null,
+                            height: null
+                        }
+                    ]
+                },
+                {
+                    theme_tr: 'table-primary',
+                    td: [
+                        {
+                            information: 'Luis Arteaga',
+                            width: null,
+                            height: null
+                        },
+                        {
+                            information: 'LUISACS',
+                            width: null,
+                            height: null
+                        },
+                        {
+                            information: '50',
+                            width: null,
+                            height: null
+                        },
+                        {
+                            information: 'Admin',
+                            width: null,
+                            height: null
+                        }
+                    ]
+                },
+                {
+                    theme_tr: 'table-success',
+                    td: [
+                        {
+                            information: 'Remberto Machuca',
+                            width: null,
+                            height: null
+                        },
+                        {
+                            information: 'REMBERITO',
+                            width: null,
+                            height: null
+                        },
+                        {
+                            information: '18',
+                            width: null,
+                            height: null
+                        },
+                        {
+                            information: 'Guess',
+                            width: null,
+                            height: null
+                        }
+                    ]
+                },
+                {
+                    theme_tr: 'table-danger',
+                    td: [
+                        {
+                            information: 'Flor Perez',
+                            width: null,
+                            height: null
+                        },
+                        {
+                            information: 'FLOWER',
+                            width: null,
+                            height: null
+                        },
+                        {
+                            information: '20',
+                            width: null,
+                            height: null
+                        },
+                        {
+                            information: 'Admin',
+                            width: null,
+                            height: null
+                        }
+                    ]
+                },
+                {
+                    theme_tr: 'table-primary',
+                    td: [
+                        {
+                            information: 'Luis Arteaga',
+                            width: null,
+                            height: null
+                        },
+                        {
+                            information: 'LUISACS',
+                            width: null,
+                            height: null
+                        },
+                        {
+                            information: '50',
+                            width: null,
+                            height: null
+                        },
+                        {
+                            information: 'Admin',
+                            width: null,
+                            height: null
+                        }
+                    ]
+                },
+                {
+                    theme_tr: 'table-success',
+                    td: [
+                        {
+                            information: 'Remberto Machuca',
+                            width: null,
+                            height: null
+                        },
+                        {
+                            information: 'REMBERITO',
+                            width: null,
+                            height: null
+                        },
+                        {
+                            information: '18',
+                            width: null,
+                            height: null
+                        },
+                        {
+                            information: 'Guess',
+                            width: null,
+                            height: null
+                        }
+                    ]
+                },
+                {
+                    theme_tr: 'table-danger',
+                    td: [
+                        {
+                            information: 'Flor Perez',
+                            width: null,
+                            height: null
+                        },
+                        {
+                            information: 'FLOWER',
+                            width: null,
+                            height: null
+                        },
+                        {
+                            information: '20',
+                            width: null,
+                            height: null
+                        },
+                        {
+                            information: 'Admin',
+                            width: null,
+                            height: null
+                        }
+                    ]
+                },
             ]
-        }
+        },
     ]
 }
