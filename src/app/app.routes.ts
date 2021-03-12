@@ -10,6 +10,7 @@ import { AttachedAuxComponent } from './views/attached-aux/attached-aux.componen
 import { InformationAuxComponent } from './views/information-aux/information-aux.component';
 import { Expedient1Component } from './views/expedient1/expedient1.component';
 import { TableComponent } from './views/table/table.component';
+import { Table2Component } from './views/table2/table2.component';
 
 
 const APP_ROUTES: Routes = [
@@ -40,7 +41,7 @@ const APP_ROUTES: Routes = [
     {path: 'users7', component: UsersAuxComponent},
     {path: 'users8', component: UsersComponent},
 
-    {path: 'attached', component: AttachedComponent},
+    {path: 'attached', component: Table2Component},
     {path: 'attached1', component: AttachedAuxComponent},
     {path: 'attached2', component: AttachedComponent},
     {path: 'attached3', component: AttachedAuxComponent},

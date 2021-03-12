@@ -1,27 +1,28 @@
 export const table_json = {
     data: [
+        ///////////////Table 1
         {
             id: '1',
-            id_view: "2",
+            id_view: "view_user_1",
             text_align: null,
             theme_table: 'table', //table table-dark, table-hover, table-sm
             theme_header: 'thead-dark',
             header: [
                 {
                     title: 'Full Name',
-                    width: null
+                    //width: null
                 },
                 {
                     title: 'User',
-                    width: null
+                    //width: null
                 },
                 {
                     title: 'Age',
-                    width: null
+                    //width: null
                 },
                 {
                     title: 'Rol',
-                    width: null
+                    //width: null
                 }
             ],
             tr: [
@@ -695,6 +696,570 @@ export const table_json = {
                         },
                         {
                             information: 'Admin',
+                            width: null,
+                            height: null
+                        }
+                    ]
+                },
+            ]
+        },
+        ///////////////Table 2
+        {
+            id: '1',
+            id_view: "view_attached_1",
+            text_align: null,
+            theme_table: 'table', //table table-dark, table-hover, table-sm
+            theme_header: 'thead-dark',
+            header: [
+                {
+                    title: 'File Name',
+                    //width: null
+                },
+                {
+                    title: 'Type',
+                    //width: null
+                },
+                {
+                    title: 'User upload',
+                    //width: null
+                }
+            ],
+            tr: [
+                {
+                    theme_tr: null,
+                    td: [
+                        {
+                            information: 'Training',
+                            width: null,
+                            height: null
+                        },
+                        {
+                            information: 'PDF',
+                            width: null,
+                            height: null
+                        },
+                        {
+                            information: 'FLOWER',
+                            width: null,
+                            height: null
+                        }
+                    ]
+                },
+                {
+                    theme_tr: null,
+                    td: [
+                        {
+                            information: 'Presentation 1',
+                            width: null,
+                            height: null
+                        },
+                        {
+                            information: 'PPT',
+                            width: null,
+                            height: null
+                        },
+                        {
+                            information: 'REMBERITO',
+                            width: null,
+                            height: null
+                        }
+                    ]
+                },
+                {
+                    theme_tr: null,
+                    td: [
+                        {
+                            information: 'Nav JSON',
+                            width: null,
+                            height: null
+                        },
+                        {
+                            information: 'XSC',
+                            width: null,
+                            height: null
+                        },
+                        {
+                            information: 'LUISACS',
+                            width: null,
+                            height: null
+                        }
+                    ]
+                },
+                {
+                    theme_tr: null,
+                    td: [
+                        {
+                            information: 'Training',
+                            width: null,
+                            height: null
+                        },
+                        {
+                            information: 'PDF',
+                            width: null,
+                            height: null
+                        },
+                        {
+                            information: 'FLOWER',
+                            width: null,
+                            height: null
+                        }
+                    ]
+                },
+                {
+                    theme_tr: null,
+                    td: [
+                        {
+                            information: 'Presentation 1',
+                            width: null,
+                            height: null
+                        },
+                        {
+                            information: 'PPT',
+                            width: null,
+                            height: null
+                        },
+                        {
+                            information: 'REMBERITO',
+                            width: null,
+                            height: null
+                        }
+                    ]
+                },
+                {
+                    theme_tr: null,
+                    td: [
+                        {
+                            information: 'Nav JSON',
+                            width: null,
+                            height: null
+                        },
+                        {
+                            information: 'XSC',
+                            width: null,
+                            height: null
+                        },
+                        {
+                            information: 'LUISACS',
+                            width: null,
+                            height: null
+                        }
+                    ]
+                },
+                {
+                    theme_tr: null,
+                    td: [
+                        {
+                            information: 'Training',
+                            width: null,
+                            height: null
+                        },
+                        {
+                            information: 'PDF',
+                            width: null,
+                            height: null
+                        },
+                        {
+                            information: 'FLOWER',
+                            width: null,
+                            height: null
+                        }
+                    ]
+                },
+                {
+                    theme_tr: null,
+                    td: [
+                        {
+                            information: 'Presentation 1',
+                            width: null,
+                            height: null
+                        },
+                        {
+                            information: 'PPT',
+                            width: null,
+                            height: null
+                        },
+                        {
+                            information: 'REMBERITO',
+                            width: null,
+                            height: null
+                        }
+                    ]
+                },
+                {
+                    theme_tr: null,
+                    td: [
+                        {
+                            information: 'Nav JSON',
+                            width: null,
+                            height: null
+                        },
+                        {
+                            information: 'XSC',
+                            width: null,
+                            height: null
+                        },
+                        {
+                            information: 'LUISACS',
+                            width: null,
+                            height: null
+                        }
+                    ]
+                },
+                {
+                    theme_tr: null,
+                    td: [
+                        {
+                            information: 'Training',
+                            width: null,
+                            height: null
+                        },
+                        {
+                            information: 'PDF',
+                            width: null,
+                            height: null
+                        },
+                        {
+                            information: 'FLOWER',
+                            width: null,
+                            height: null
+                        }
+                    ]
+                },
+                {
+                    theme_tr: null,
+                    td: [
+                        {
+                            information: 'Presentation 1',
+                            width: null,
+                            height: null
+                        },
+                        {
+                            information: 'PPT',
+                            width: null,
+                            height: null
+                        },
+                        {
+                            information: 'REMBERITO',
+                            width: null,
+                            height: null
+                        }
+                    ]
+                },
+                {
+                    theme_tr: null,
+                    td: [
+                        {
+                            information: 'Nav JSON',
+                            width: null,
+                            height: null
+                        },
+                        {
+                            information: 'XSC',
+                            width: null,
+                            height: null
+                        },
+                        {
+                            information: 'LUISACS',
+                            width: null,
+                            height: null
+                        }
+                    ]
+                },
+                {
+                    theme_tr: null,
+                    td: [
+                        {
+                            information: 'Training',
+                            width: null,
+                            height: null
+                        },
+                        {
+                            information: 'PDF',
+                            width: null,
+                            height: null
+                        },
+                        {
+                            information: 'FLOWER',
+                            width: null,
+                            height: null
+                        }
+                    ]
+                },
+                {
+                    theme_tr: null,
+                    td: [
+                        {
+                            information: 'Presentation 1',
+                            width: null,
+                            height: null
+                        },
+                        {
+                            information: 'PPT',
+                            width: null,
+                            height: null
+                        },
+                        {
+                            information: 'REMBERITO',
+                            width: null,
+                            height: null
+                        }
+                    ]
+                },
+                {
+                    theme_tr: null,
+                    td: [
+                        {
+                            information: 'Nav JSON',
+                            width: null,
+                            height: null
+                        },
+                        {
+                            information: 'XSC',
+                            width: null,
+                            height: null
+                        },
+                        {
+                            information: 'LUISACS',
+                            width: null,
+                            height: null
+                        }
+                    ]
+                },
+                {
+                    theme_tr: null,
+                    td: [
+                        {
+                            information: 'Training',
+                            width: null,
+                            height: null
+                        },
+                        {
+                            information: 'PDF',
+                            width: null,
+                            height: null
+                        },
+                        {
+                            information: 'FLOWER',
+                            width: null,
+                            height: null
+                        }
+                    ]
+                },
+                {
+                    theme_tr: null,
+                    td: [
+                        {
+                            information: 'Presentation 1',
+                            width: null,
+                            height: null
+                        },
+                        {
+                            information: 'PPT',
+                            width: null,
+                            height: null
+                        },
+                        {
+                            information: 'REMBERITO',
+                            width: null,
+                            height: null
+                        }
+                    ]
+                },
+                {
+                    theme_tr: null,
+                    td: [
+                        {
+                            information: 'Nav JSON',
+                            width: null,
+                            height: null
+                        },
+                        {
+                            information: 'XSC',
+                            width: null,
+                            height: null
+                        },
+                        {
+                            information: 'LUISACS',
+                            width: null,
+                            height: null
+                        }
+                    ]
+                },
+                {
+                    theme_tr: null,
+                    td: [
+                        {
+                            information: 'Training',
+                            width: null,
+                            height: null
+                        },
+                        {
+                            information: 'PDF',
+                            width: null,
+                            height: null
+                        },
+                        {
+                            information: 'FLOWER',
+                            width: null,
+                            height: null
+                        }
+                    ]
+                },
+                {
+                    theme_tr: null,
+                    td: [
+                        {
+                            information: 'Presentation 1',
+                            width: null,
+                            height: null
+                        },
+                        {
+                            information: 'PPT',
+                            width: null,
+                            height: null
+                        },
+                        {
+                            information: 'REMBERITO',
+                            width: null,
+                            height: null
+                        }
+                    ]
+                },
+                {
+                    theme_tr: null,
+                    td: [
+                        {
+                            information: 'Nav JSON',
+                            width: null,
+                            height: null
+                        },
+                        {
+                            information: 'XSC',
+                            width: null,
+                            height: null
+                        },
+                        {
+                            information: 'LUISACS',
+                            width: null,
+                            height: null
+                        }
+                    ]
+                },
+                {
+                    theme_tr: null,
+                    td: [
+                        {
+                            information: 'Training',
+                            width: null,
+                            height: null
+                        },
+                        {
+                            information: 'PDF',
+                            width: null,
+                            height: null
+                        },
+                        {
+                            information: 'FLOWER',
+                            width: null,
+                            height: null
+                        }
+                    ]
+                },
+                {
+                    theme_tr: null,
+                    td: [
+                        {
+                            information: 'Presentation 1',
+                            width: null,
+                            height: null
+                        },
+                        {
+                            information: 'PPT',
+                            width: null,
+                            height: null
+                        },
+                        {
+                            information: 'REMBERITO',
+                            width: null,
+                            height: null
+                        }
+                    ]
+                },
+                {
+                    theme_tr: null,
+                    td: [
+                        {
+                            information: 'Nav JSON',
+                            width: null,
+                            height: null
+                        },
+                        {
+                            information: 'XSC',
+                            width: null,
+                            height: null
+                        },
+                        {
+                            information: 'LUISACS',
+                            width: null,
+                            height: null
+                        }
+                    ]
+                },
+                {
+                    theme_tr: null,
+                    td: [
+                        {
+                            information: 'Training',
+                            width: null,
+                            height: null
+                        },
+                        {
+                            information: 'PDF',
+                            width: null,
+                            height: null
+                        },
+                        {
+                            information: 'FLOWER',
+                            width: null,
+                            height: null
+                        }
+                    ]
+                },
+                {
+                    theme_tr: null,
+                    td: [
+                        {
+                            information: 'Presentation 1',
+                            width: null,
+                            height: null
+                        },
+                        {
+                            information: 'PPT',
+                            width: null,
+                            height: null
+                        },
+                        {
+                            information: 'REMBERITO',
+                            width: null,
+                            height: null
+                        }
+                    ]
+                },
+                {
+                    theme_tr: null,
+                    td: [
+                        {
+                            information: 'Nav JSON',
+                            width: null,
+                            height: null
+                        },
+                        {
+                            information: 'XSC',
+                            width: null,
+                            height: null
+                        },
+                        {
+                            information: 'LUISACS',
                             width: null,
                             height: null
                         }

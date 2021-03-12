@@ -33,6 +33,7 @@ import { SidebarComponent } from './shared/sidebar/sidebar.component';
 import { ContextualAreaService } from "./services/contextual_area_visible/contextual-area.service";
 import { ObjectsService } from "./services/objects_methods/objects.service";
 import { TableComponent } from './views/table/table.component';
+import { Table2Component } from './views/table2/table2.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { TableComponent } from './views/table/table.component';
     InformationAuxComponent,
     Expedient1Component,
     SidebarComponent,
-    TableComponent
+    TableComponent,
+    Table2Component
   ],
   imports: [
     BrowserModule,

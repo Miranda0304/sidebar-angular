@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { table_json } from "src/database/table-json/table-json";
+import { table_json } from 'src/database/table-json/table-json';
+
 @Component({
-  selector: 'app-table',
-  templateUrl: './table.component.html',
-  styleUrls: ['./table.component.scss']
+  selector: 'app-table2',
+  templateUrl: './table2.component.html',
+  styleUrls: ['./table2.component.scss']
 })
-export class TableComponent implements OnInit {
+export class Table2Component implements OnInit {
+
 
   lst_tables: Object;
   dtOptions: DataTables.Settings = {};
@@ -36,7 +38,7 @@ export class TableComponent implements OnInit {
 
 
   constructor() {
-    this.lst_tables = table_json.data.filter(x => x.id_view == "view_user_1");
+    this.lst_tables = table_json.data.filter(x => x.id_view == "view_attached_1");
   }
 
   ngOnInit(): void {
@@ -44,10 +46,9 @@ export class TableComponent implements OnInit {
     this.dtOptions = {
       pagingType: 'full_numbers',
       language: this.datatable_language,
-      ordering: false,
-      //columnDefs: [{ orderable: false, targets: [3] }]
+      ordering: false
     };
+
   }
-
-
+  
 }
