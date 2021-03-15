@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { menu_json } from '../../../database/menu-json/menu-json';
 import { ObjectsService } from "../../services/objects_methods/objects.service";
 import { ContextualAreaService } from "../../services/contextual_area_visible/contextual-area.service";
-
+import { IxchelV2Service } from "../../services/API_Ixchelv2/ixchel_v2";
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
@@ -27,7 +27,7 @@ export class SidebarComponent implements OnInit {
     11: []
   };
 
-  contextual_area: boolean;
+  contextual_area: any;
 
   //Visibility of level
   lstVisible = [
@@ -44,14 +44,21 @@ export class SidebarComponent implements OnInit {
     { level: 11, isVisible: false, isCollapse: false },
   ]
 
-  data_proof: any;
-  lst_menu_proof = [];
-  lst_visible_proof = [];
+  isLocal = true;
 
-  constructor(private _serviceObjects: ObjectsService, private _serviceContextualArea: ContextualAreaService) {
+  constructor(private _serviceObjects: ObjectsService, private _serviceContextualArea: ContextualAreaService, private _ixchelV2Service: IxchelV2Service) {
+
     this.list_menus[1] = menu_json.data;
 
-    localStorage.getItem('CONTEXTUAL_AREA') == 'true' || localStorage.getItem('CONTEXTUAL_AREA') == '1' ? this.contextual_area = true : this.contextual_area = false;
+    // this._ixchelV2Service.getNavList().then((result) => {
+    //   this.list_menus[1] = result;
+    // }).catch((err) => {
+    //   console.log(err);
+    // });
+
+
+    localStorage.getItem('CONTEXTUAL_AREA') != 'null' ? this.contextual_area = true : this.contextual_area = false;
+
     this._serviceContextualArea.isVisible(this.contextual_area);
   }
 
@@ -59,10 +66,9 @@ export class SidebarComponent implements OnInit {
   }
 
   openSubMenu(menu_id: number, level_to_open: number) {
+    this.list_menus[level_to_open] = this.list_menus[level_to_open - 1].filter(x => x.id == menu_id).map(x => x.submenu)[0]
 
-    this.list_menus[level_to_open] = this.list_menus[level_to_open - 1].filter(x => x.id == menu_id).map(x => x.sub_menu)[0]
-
-    this.list_menus[level_to_open] != undefined ?
+    this.list_menus[level_to_open].length > 0 ?
       this.lstVisible.map(x => x.level <= level_to_open ? x.isVisible = true : x.isVisible = false) : this.lstVisible.map(x => x.level < level_to_open ? x.isVisible = true : x.isVisible = false);
 
     let collapse = this.list_menus[level_to_open - 1].filter(x => x.id == menu_id)[0].collapse;
@@ -79,7 +85,19 @@ export class SidebarComponent implements OnInit {
     //Contextual Area
     this.contextual_area = lst.filter(x => x.id == menu_id)[0].contextual_area
     this._serviceContextualArea.isVisible(this.contextual_area);
-    localStorage.setItem("CONTEXTUAL_AREA", this.contextual_area.toString());
+    localStorage.setItem("CONTEXTUAL_AREA", this.contextual_area);
   }
 
+  changeList() {
+
+    if (this.isLocal) {
+      this._ixchelV2Service.getNavList().then((result) => {
+        this.list_menus[1] = result;
+      }).catch((err) => {
+        console.log(err);
+      });
+    } else {
+      this.list_menus[1] = menu_json.data;
+    }
+  }
 }

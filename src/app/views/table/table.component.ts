@@ -7,8 +7,10 @@ import { table_json } from "src/database/table-json/table-json";
 })
 export class TableComponent implements OnInit {
 
-  lst_tables: Object;
+  lst_tables = [];
   dtOptions: DataTables.Settings = {};
+  //dtOptions = [{ 0: DataTables.Settings }];
+
   datatable_language = {
     "emptyTable": "Sin registros.",
     "info": "Mostrando _START_ a _END_ de _TOTAL_ entradas",
@@ -26,25 +28,19 @@ export class TableComponent implements OnInit {
       "last": "Ultimo",
       "next": "Siguiente",
       "previous": "Anterior"
-    },
-    "aria": {
-      "sortAscending": ": activate to sort column ascending",
-      "sortDescending": ": activate to sort column descending"
     }
   };
-
-
 
   constructor() {
     this.lst_tables = table_json.data.filter(x => x.id_view == "view_user_1");
   }
 
   ngOnInit(): void {
-
     this.dtOptions = {
       pagingType: 'full_numbers',
       language: this.datatable_language,
-      ordering: false,
+      order: [],
+      deferRender: true,
       //columnDefs: [{ orderable: false, targets: [3] }]
     };
   }

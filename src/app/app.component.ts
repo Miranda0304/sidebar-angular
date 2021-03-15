@@ -16,10 +16,14 @@ export class AppComponent {
     this._serviceContextualArea.readStatusContextualArea.subscribe((data) => {
       this.isVisibleContextualArea = data;
     });
+
+    localStorage.getItem('VISIBLE_MENU') == 'true' ? this.visibleMenu = true : this.visibleMenu = false;
+
   }
 
   collapse_all() {
     this.visibleMenu = !this.visibleMenu;
+    localStorage.setItem("VISIBLE_MENU", this.visibleMenu.toString())
     setTimeout(() => {
       window.scroll(10000, 0);
     }, 1);

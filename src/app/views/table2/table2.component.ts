@@ -35,20 +35,17 @@ export class Table2Component implements OnInit {
     }
   };
 
-
-
   constructor() {
     this.lst_tables = table_json.data.filter(x => x.id_view == "view_attached_1");
   }
 
   ngOnInit(): void {
-
     this.dtOptions = {
       pagingType: 'full_numbers',
       language: this.datatable_language,
-      ordering: false
+      order: [],
+      deferRender: true,
     };
-
   }
-  
+
 }

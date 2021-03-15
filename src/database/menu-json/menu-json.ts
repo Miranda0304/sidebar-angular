@@ -7,17 +7,18 @@ export const menu_json = {
       title: "Home°°",
       path: 'home',
       collapse: false,
-      contextual_area: true
+      contextual_area: true,
+      submenu: []
     },
     //###################### SECOND MENU //######################
     {
       id: "id_expedient_menu_02",
       icon: "fa fa-book",
       title: "Expedient",
-      path: 'expedient',
+      path: 'contacts',
       collapse: false,
       contextual_area: false,
-      sub_menu: [
+      submenu: [
         {
           id: "id_expedient_menu_02_01",
           icon: "fa fa-book",
@@ -25,7 +26,7 @@ export const menu_json = {
           path: 'expedient1',
           collapse: false,
           contextual_area: false,
-          sub_menu: [
+          submenu: [
             {
               id: "id_expedient_menu_03_01",
               icon: "fa fa-book",
@@ -33,7 +34,7 @@ export const menu_json = {
               path: 'expedient4',
               collapse: false,
               contextual_area: true,
-              sub_menu: [
+              submenu: [
                 {
                   id: "id_expedient_menu_04_01",
                   icon: "fa fa-book",
@@ -41,7 +42,7 @@ export const menu_json = {
                   path: 'expedient6',
                   collapse: false,
                   contextual_area: false,
-                  sub_menu: [
+                  submenu: [
                     {
                       id: "id_expedient_menu_05_01",
                       icon: "fa fa-book",
@@ -49,7 +50,7 @@ export const menu_json = {
                       path: 'expedient9',
                       collapse: false,
                       contextual_area: true,
-                      sub_menu: [
+                      submenu: [
                         {
                           id: "id_expedient_menu_06_01",
                           icon: "fa fa-book",
@@ -57,7 +58,7 @@ export const menu_json = {
                           path: 'expedient10',
                           collapse: false,
                           contextual_area: false,
-                          sub_menu: [
+                          submenu: [
                             {
                               id: "id_expedient_menu_06_01",
                               icon: "fa fa-book",
@@ -65,7 +66,7 @@ export const menu_json = {
                               path: 'expedient10',
                               collapse: false,
                               contextual_area: false,
-                              sub_menu: [
+                              submenu: [
                                 {
                                   id: "id_expedient_menu_06_01",
                                   icon: "fa fa-book",
@@ -73,7 +74,7 @@ export const menu_json = {
                                   path: 'expedient10',
                                   collapse: false,
                                   contextual_area: false,
-                                  sub_menu: [
+                                  submenu: [
                                     {
                                       id: "id_expedient_menu_06_01",
                                       icon: "fa fa-book",
@@ -81,7 +82,7 @@ export const menu_json = {
                                       path: 'expedient10',
                                       collapse: false,
                                       contextual_area: false,
-                                      sub_menu: [
+                                      submenu: [
                                         {
                                           id: "id_expedient_menu_06_01",
                                           icon: "fa fa-book",
@@ -89,7 +90,7 @@ export const menu_json = {
                                           path: 'expedient10',
                                           collapse: false,
                                           contextual_area: false,
-                                          sub_menu: [
+                                          submenu: [
                                             {
                                               id: "id_expedient_menu_06_01",
                                               icon: "fa fa-book",
@@ -97,6 +98,7 @@ export const menu_json = {
                                               path: 'expedient10',
                                               collapse: false,
                                               contextual_area: false,
+                                              submenu: []
                                             }
                                           ]
                                         }
@@ -119,6 +121,7 @@ export const menu_json = {
                   path: 'expedient7',
                   collapse: false,
                   contextual_area: true,
+                  submenu: []
                 }
               ]
             },
@@ -129,7 +132,7 @@ export const menu_json = {
               path: 'expedient5',
               collapse: false,
               contextual_area: false,
-              sub_menu: [
+              submenu: [
                 {
                   id: "id_expedient_menu_04_01",
                   icon: "fa fa-book",
@@ -137,6 +140,7 @@ export const menu_json = {
                   path: 'expedient8',
                   collapse: false,
                   contextual_area: true,
+                  submenu: []
                 },
                 {
                   id: "id_expedient_menu_04_02",
@@ -145,6 +149,7 @@ export const menu_json = {
                   path: 'expedient11',
                   collapse: false,
                   contextual_area: true,
+                  submenu: []
                 }
               ]
             }
@@ -157,7 +162,7 @@ export const menu_json = {
           path: 'expedient2',
           collapse: false,
           contextual_area: false,
-          sub_menu: [
+          submenu: [
             {
               id: "id_expedient_menu_03_01",
               icon: "fa fa-book",
@@ -165,6 +170,7 @@ export const menu_json = {
               path: 'expedient12',
               collapse: false,
               contextual_area: true,
+              submenu: []
             },
             {
               id: "id_expedient_menu_03_02",
@@ -173,6 +179,7 @@ export const menu_json = {
               path: 'expedient13',
               collapse: false,
               contextual_area: false,
+              submenu: []
             }
           ]
         },
@@ -183,6 +190,7 @@ export const menu_json = {
           path: 'expedient3',
           collapse: false,
           contextual_area: true,
+          submenu: []
         }
       ],
     },
@@ -191,10 +199,10 @@ export const menu_json = {
       id: "id_user_menu_01",
       icon: "fa fa-user-circle-o",
       title: "Users",
-      path: 'users',
+      path: 'appt',
       collapse: false,
       contextual_area: true,
-      sub_menu: [
+      submenu: [
         {
           id: "id_user_menu_02_01",
           icon: "fa fa-user-circle-o",
@@ -202,7 +210,7 @@ export const menu_json = {
           path: 'users1',
           collapse: false,
           contextual_area: false,
-          sub_menu: [
+          submenu: [
             {
               id: "id_user_menu_03_01",
               icon: "fa fa-user-circle-o",
@@ -210,7 +218,7 @@ export const menu_json = {
               path: 'users4',
               collapse: false,
               contextual_area: true,
-              sub_menu: [
+              submenu: [
                 {
                   id: "id_user_menu_04_01",
                   icon: "fa fa-user-circle-o",
@@ -218,7 +226,7 @@ export const menu_json = {
                   path: 'users6',
                   collapse: false,
                   contextual_area: false,
-                  sub_menu: [
+                  submenu: [
                     {
                       id: "id_user_menu_05_01",
                       icon: "fa fa-user-circle-o",
@@ -226,7 +234,7 @@ export const menu_json = {
                       path: 'users7',
                       collapse: false,
                       contextual_area: true,
-                      sub_menu: [
+                      submenu: [
                         {
                           id: "id_user_menu_06_01",
                           icon: "fa fa-user-circle-o",
@@ -234,6 +242,7 @@ export const menu_json = {
                           path: 'users8',
                           collapse: false,
                           contextual_area: false,
+                          submenu: []
                         }
                       ]
                     }
@@ -248,6 +257,7 @@ export const menu_json = {
               path: 'users5',
               collapse: false,
               contextual_area: true,
+              submenu: []
             }
           ]
         },
@@ -258,7 +268,7 @@ export const menu_json = {
           path: 'users2',
           collapse: false,
           contextual_area: false,
-          sub_menu: [
+          submenu: [
             {
               id: "id_user_menu_03_01",
               icon: "fa fa-user-circle-o",
@@ -266,6 +276,7 @@ export const menu_json = {
               path: 'expedient12',
               collapse: false,
               contextual_area: true,
+              submenu: []
             },
             {
               id: "id_user_menu_03_02",
@@ -274,6 +285,7 @@ export const menu_json = {
               path: 'expedient13',
               collapse: false,
               contextual_area: false,
+              submenu: []
             }
           ]
         },
@@ -284,6 +296,7 @@ export const menu_json = {
           path: 'users3',
           collapse: false,
           contextual_area: true,
+          submenu: []
         }
       ],
     },
@@ -292,10 +305,10 @@ export const menu_json = {
       id: "id_attached_menu_01",
       icon: "fa fa-paperclip",
       title: "Attached",
-      path: 'attached',
+      path: 'pos',
       collapse: false,
       contextual_area: false,
-      sub_menu: [
+      submenu: [
         {
           id: "id_attached_menu_02_01",
           icon: "fa fa-paperclip",
@@ -303,7 +316,7 @@ export const menu_json = {
           path: 'attached1',
           collapse: false,
           contextual_area: true,
-          sub_menu: [
+          submenu: [
             {
               id: "id_attached_menu_03_01",
               icon: "fa fa-paperclip",
@@ -311,7 +324,7 @@ export const menu_json = {
               path: 'attached3',
               collapse: false,
               contextual_area: false,
-              sub_menu: [
+              submenu: [
                 {
                   id: "id_attached_menu_04_01",
                   icon: "fa fa-paperclip",
@@ -319,6 +332,7 @@ export const menu_json = {
                   path: 'attached4',
                   collapse: false,
                   contextual_area: true,
+                  submenu: []
                 }
               ]
             }
@@ -331,6 +345,7 @@ export const menu_json = {
           path: 'attached2',
           collapse: false,
           contextual_area: false,
+          submenu: []
         }
       ]
     },
@@ -339,10 +354,10 @@ export const menu_json = {
       id: "id_information_menu_01",
       icon: "fa fa-info-circle",
       title: "Information",
-      path: 'information',
+      path: 'epm',
       collapse: false,
       contextual_area: true,
-      sub_menu: [
+      submenu: [
         {
           id: "id_information_menu_02_01",
           icon: "fa fa-info-circle",
@@ -358,7 +373,7 @@ export const menu_json = {
           path: 'information2',
           collapse: false,
           contextual_area: true,
-          sub_menu: [
+          submenu: [
             {
               id: "id_information_menu_03_01",
               icon: "fa fa-info-circle",
@@ -366,7 +381,7 @@ export const menu_json = {
               path: 'information3',
               collapse: false,
               contextual_area: false,
-              sub_menu: [
+              submenu: [
                 {
                   id: "id_information_menu_05_01",
                   icon: "fa fa-info-circle",
@@ -374,6 +389,7 @@ export const menu_json = {
                   path: 'information5',
                   collapse: false,
                   contextual_area: true,
+                  submenu: []
                 }
               ]
             },
@@ -384,6 +400,7 @@ export const menu_json = {
               path: 'information4',
               collapse: false,
               contextual_area: false,
+              submenu: []
             }
           ]
         }

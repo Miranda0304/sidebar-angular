@@ -5,6 +5,7 @@ import { CommonModule } from "@angular/common";
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 //Routes
 import { APP_ROUTING } from './app.routes';
@@ -28,12 +29,14 @@ import { AttachedAuxComponent } from './views/attached-aux/attached-aux.componen
 import { InformationAuxComponent } from './views/information-aux/information-aux.component';
 import { Expedient1Component } from './views/expedient1/expedient1.component';
 import { SidebarComponent } from './shared/sidebar/sidebar.component';
+import { TableComponent } from './views/table/table.component';
+import { Table2Component } from './views/table2/table2.component';
+
 
 //Services
 import { ContextualAreaService } from "./services/contextual_area_visible/contextual-area.service";
 import { ObjectsService } from "./services/objects_methods/objects.service";
-import { TableComponent } from './views/table/table.component';
-import { Table2Component } from './views/table2/table2.component';
+import { IxchelV2Service } from "src/app/services/API_Ixchelv2/ixchel_v2";
 
 @NgModule({
   declarations: [
@@ -62,11 +65,13 @@ import { Table2Component } from './views/table2/table2.component';
     Ng2SearchPipeModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
-    DataTablesModule
+    DataTablesModule,
+    HttpClientModule
   ],
   providers: [
     ContextualAreaService,
-    ObjectsService
+    ObjectsService,
+    IxchelV2Service
   ],
   bootstrap: [AppComponent]
 })

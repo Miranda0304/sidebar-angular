@@ -1,6 +1,11 @@
 <!-- First Level -->
 <div [className]="lstVisible[0].isCollapse? 'col-md-auto style-col redux' : 'col-md-auto style-col'">
-  <div class="my-2 title-menu"></div>
+  <div class="my-2 title-menu">
+    <div class="custom-control custom-switch">
+      <input type="checkbox" class="custom-control-input" id="customSwitch1" [(ngModel)]="isLocal" (click)="changeList()">
+      <label class="custom-control-label" for="customSwitch1"></label>
+    </div>
+  </div>
   <hr>
   <div>
     <ul class="list-group">
