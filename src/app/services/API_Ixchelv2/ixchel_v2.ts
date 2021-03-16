@@ -18,7 +18,7 @@ export class IxchelV2Service {
         const body = { "action": "get_nav", "sessionID": "80564228-592e-4948-8837-070dd35627b9", "data": {} };
 
         let data = await this._http.post(URL, body, { headers }).pipe(map((response: any) => { return response })).toPromise();
-
+        console.log(data);
         return data.data
     }
 

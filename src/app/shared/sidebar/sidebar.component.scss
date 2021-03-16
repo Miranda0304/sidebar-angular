@@ -35,11 +35,19 @@ li a {
 li a label {
   width: 9vw;
   cursor: pointer;
+  text-align: left;
+  text-indent: 10px;
+}
+
+//badge
+li a label span {
+  position: relative;
+  float: right;
 }
 
 //Style for minimize the menu in icons.
 .redux {
-  width: 4rem !important;
+  width: 5rem !important;
 
   ul {
     line-height: 3;
@@ -51,5 +59,11 @@ li a label {
 
   li a label {
     display: none;
+  }
+
+  #badgeMenu {
+    font-size: 15px;
+    position: relative;
+    // float: right;
   }
 }
