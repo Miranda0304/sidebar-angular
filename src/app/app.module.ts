@@ -19,7 +19,7 @@ import { DataTablesModule } from "angular-datatables";
 import { AppComponent } from './app.component';
 import { HomeComponent } from './views/home/home.component'
 import { ExpedientComponent } from './views/expedient/expedient.component';
-import { InfobarComponent } from './shared/infobar/infobar.component';
+import { ContextualAreaComponent } from './shared/contextual_area/contextual-area.component';
 import { UsersComponent } from './views/users/users.component';
 import { AttachedComponent } from './views/attached/attached.component';
 import { InformationComponent } from './views/information/information.component';
@@ -28,7 +28,7 @@ import { UsersAuxComponent } from './views/users-aux/users-aux.component';
 import { AttachedAuxComponent } from './views/attached-aux/attached-aux.component';
 import { InformationAuxComponent } from './views/information-aux/information-aux.component';
 import { Expedient1Component } from './views/expedient1/expedient1.component';
-import { SidebarComponent } from './shared/sidebar/sidebar.component';
+import { MenuComponent } from './shared/menu/menu.component';
 import { TableComponent } from './views/table/table.component';
 import { Table2Component } from './views/table2/table2.component';
 
@@ -36,14 +36,15 @@ import { Table2Component } from './views/table2/table2.component';
 //Services
 import { ContextualAreaService } from "./services/contextual_area_visible/contextual-area.service";
 import { ObjectsService } from "./services/objects_methods/objects.service";
-import { IxchelV2Service } from "src/app/services/API_Ixchelv2/ixchel_v2";
+import { IxchelV2Service } from "src/app/services/API_Ixchelv2/ixchel_v2.service";
 
 @NgModule({
   declarations: [
     AppComponent,
+    MenuComponent,
+    ContextualAreaComponent,
     HomeComponent,
     ExpedientComponent,
-    InfobarComponent,
     UsersComponent,
     AttachedComponent,
     InformationComponent,
@@ -52,7 +53,7 @@ import { IxchelV2Service } from "src/app/services/API_Ixchelv2/ixchel_v2";
     AttachedAuxComponent,
     InformationAuxComponent,
     Expedient1Component,
-    SidebarComponent,
+   
     TableComponent,
     Table2Component
   ],

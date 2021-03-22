@@ -11,9 +11,9 @@
 <div class="d-flex component-container">
 
   <!-- Views Sidebar menu -->
-  <app-sidebar [searcherText]="globalSearcher"
+  <app-menu [searcherText]="globalSearcher"
     [ngClass]="visibleMenu ? 'col col-md-auto sidebar-container' : 'col col-md-auto sidebar-container sidebar-hide'">
-  </app-sidebar>
+  </app-menu>
 
   <!-- Button Collapse -->
   <button class="btn btn-outline-info" id="btn_collaps_all" (click)="collapse_all()" >
@@ -25,8 +25,8 @@
     <router-outlet></router-outlet>
   </div>
 
-  <!-- View infobar -->
-  <app-infobar class="col-md-2 offset-md-12 infobar-container" *ngIf="isVisibleContextualArea == true">
-  </app-infobar>
+  <!-- View contextual-area -->
+  <app-contextual-area class="col-md-2 offset-md-12 infobar-container" *ngIf="isVisibleContextualArea == true">
+  </app-contextual-area>
 
 </div>

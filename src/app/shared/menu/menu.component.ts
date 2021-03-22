@@ -2,18 +2,18 @@ import { Component, Input, OnInit } from '@angular/core';
 import { menu_json } from '../../../database/menu-json/menu-json';
 import { ObjectsService } from "../../services/objects_methods/objects.service";
 import { ContextualAreaService } from "../../services/contextual_area_visible/contextual-area.service";
-import { IxchelV2Service } from "../../services/API_Ixchelv2/ixchel_v2";
+import { IxchelV2Service } from "../../services/API_Ixchelv2/ixchel_v2.service";
 @Component({
-  selector: 'app-sidebar',
-  templateUrl: './sidebar.component.html',
-  styleUrls: ['./sidebar.component.scss']
+  selector: 'app-menu',
+  templateUrl: './menu.component.html',
+  styleUrls: ['./menu.component.scss']
 })
-export class SidebarComponent implements OnInit {
+export class MenuComponent implements OnInit {
 
   //Searcher
   @Input() searcherText = "";
 
-  list_menus = {
+  list_menus = <any>{
     1: [],
     2: [],
     3: [],
@@ -51,11 +51,11 @@ export class SidebarComponent implements OnInit {
     this.list_menus[1] = menu_json.data;
 
     // this._ixchelV2Service.getNavList().then((result) => {
+    //   console.log(result);
     //   this.list_menus[1] = result;
     // }).catch((err) => {
     //   console.log(err);
     // });
-
 
     localStorage.getItem('CONTEXTUAL_AREA') != 'null' ? this.contextual_area = true : this.contextual_area = false;
 
@@ -82,14 +82,12 @@ export class SidebarComponent implements OnInit {
   }
 
   saveContextualArea(menu_id: number, lst = []) {
-    //Contextual Area
     this.contextual_area = lst.filter(x => x.id == menu_id)[0].contextual_area
     this._serviceContextualArea.isVisible(this.contextual_area);
     localStorage.setItem("CONTEXTUAL_AREA", this.contextual_area);
   }
 
   changeList() {
-
     if (this.isLocal) {
       this._ixchelV2Service.getNavList().then((result) => {
         this.list_menus[1] = result;
@@ -100,4 +98,6 @@ export class SidebarComponent implements OnInit {
       this.list_menus[1] = menu_json.data;
     }
   }
+
+  
 }

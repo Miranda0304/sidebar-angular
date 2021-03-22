@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { IxchelV2Service } from "../../services/API_Ixchelv2/ixchel_v2";
+import { IxchelV2Service } from "../../services/API_Ixchelv2/ixchel_v2.service";
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -7,14 +7,10 @@ import { IxchelV2Service } from "../../services/API_Ixchelv2/ixchel_v2";
 })
 export class HomeComponent implements OnInit {
 
-  fileToUpload: File = null;
-
-
   constructor(private _ixchelV2Service: IxchelV2Service) {
   }
 
   ngOnInit(): void {
-
   }
 
   name_model = "";
@@ -25,10 +21,6 @@ export class HomeComponent implements OnInit {
     }).catch((err) => {
       console.warn(err.message);
     });
-  }
-
-  handleFileInput(files: FileList) {
-    this.fileToUpload = files.item(0);
   }
 
 }
