@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
-import { form_expedient1 } from "../../../database/forms-json/form-expedient1";;
-import { ObjectsService } from "../../services/objects_methods/objects.service";
+import { form_json } from "../../../database/forms-json/form-json";;
+import { views_json } from "../../../database/views-json/view-json";
 
 @Component({
   selector: 'app-expedient1',
@@ -9,25 +9,40 @@ import { ObjectsService } from "../../services/objects_methods/objects.service";
   styleUrls: ['./expedient1.component.scss']
 })
 export class Expedient1Component implements OnInit {
-
-  lstForms = [];
+  name_component = "view_expedient_0"
+  lst_forms = [];
+  
   formExpedient1: FormGroup;
   lstValidators = {};
   fieldControl: any;
-  formControlName = ""
+  formControlName = "";
 
-  constructor(private _serviceObjects: ObjectsService, private fb: FormBuilder) {
-    this.lstForms = form_expedient1.data;
+  constructor(private fb: FormBuilder) {
+    this.loadForms();
   }
 
   ngOnInit(): void {
     this.myValidators();
+
+    //Se inicializa el arreglo que contendra los errores
     this.fieldControl = [];
+  }
+
+  loadForms() {
+    let lst_view = views_json.data.filter(x => x.id_view == this.name_component).map(x => x.forms)[0];
+
+    if (lst_view != undefined) {
+      this.lst_forms = form_json.data.filter((form) => lst_view.includes(form.form_id));
+      //this.lst_forms = form_json.data;
+    }
+    
+   console.log(form_json.data);
+
   }
 
   myValidators() {
 
-    this.lstForms.forEach(element => {
+    this.lst_forms.forEach(element => {
       const array_validators = [];
       this.lstValidators[element.id] = [];
       this.lstValidators[element.id].push('');

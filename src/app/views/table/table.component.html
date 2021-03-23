@@ -9,7 +9,7 @@
   </thead>
   <tbody>
     <tr *ngFor="let tr of table.tr" [className]="tr.theme_tr">
-      <td *ngFor="let td of tr.td " [attr.rowspan]="td.height" [attr.colspan]="td.width">{{td.information}}</td>
+      <td *ngFor="let td of tr.td ">{{td.information}}</td>
     </tr>
   </tbody>
 </table>

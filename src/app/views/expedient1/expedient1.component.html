@@ -5,9 +5,9 @@
       <!-- nf for -->
       <div
         [className]="form.field_type != 'legend' ? 'form-group '+ form.size_col : form.size_col"
-        *ngFor="let form of lstForms">
+        *ngFor="let form of lst_forms">
 
-        <ng-container [ngSwitch]="lstForms.length > 0">
+        <ng-container [ngSwitch]="lst_forms.length > 0">
 
           <!-- Legend -->
           <ng-container *ngSwitchCase="form.field_type == 'legend'">

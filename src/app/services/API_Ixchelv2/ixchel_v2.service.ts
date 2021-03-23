@@ -34,5 +34,4 @@ export class IxchelV2Service {
         return data.data
     }
 
-
 }

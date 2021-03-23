@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { table_json } from 'src/database/table-json/table-json';
+import { views_json } from "../../../database/views-json/view-json";
+import { table_json } from "src/database/table-json/tables-json";
 
 @Component({
   selector: 'app-table2',
@@ -8,7 +9,7 @@ import { table_json } from 'src/database/table-json/table-json';
 })
 export class Table2Component implements OnInit {
 
-
+  name_component = "view_attached_0";
   lst_tables: Object;
   dtOptions: DataTables.Settings = {};
   datatable_language = {
@@ -36,7 +37,7 @@ export class Table2Component implements OnInit {
   };
 
   constructor() {
-    this.lst_tables = table_json.data.filter(x => x.id_view == "view_attached_1");
+    this.loadTables();
   }
 
   ngOnInit(): void {
@@ -46,6 +47,13 @@ export class Table2Component implements OnInit {
       order: [],
       deferRender: true,
     };
+  }
+
+  loadTables() {
+    let lst_view = views_json.data.filter(x => x.id_view == this.name_component).map(x => x.tables)[0];
+    if (lst_view != undefined) {
+      this.lst_tables = table_json.data.filter((table) => lst_view.includes(table.id));
+    }
   }
 
 }

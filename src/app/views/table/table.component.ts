@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { table_json } from "src/database/table-json/table-json";
+import { views_json } from "../../../database/views-json/view-json";
+import { table_json } from "src/database/table-json/tables-json";
 @Component({
   selector: 'app-table',
   templateUrl: './table.component.html',
@@ -7,6 +8,7 @@ import { table_json } from "src/database/table-json/table-json";
 })
 export class TableComponent implements OnInit {
 
+  name_component = "view_users_0"
   lst_tables = [];
   dtOptions: DataTables.Settings = {};
   //dtOptions = [{ 0: DataTables.Settings }];
@@ -32,7 +34,7 @@ export class TableComponent implements OnInit {
   };
 
   constructor() {
-    this.lst_tables = table_json.data.filter(x => x.id_view == "view_user_1");
+    this.loadTables();
   }
 
   ngOnInit(): void {
@@ -43,6 +45,14 @@ export class TableComponent implements OnInit {
       deferRender: true,
       //columnDefs: [{ orderable: false, targets: [3] }]
     };
+  }
+
+
+  loadTables() {
+    let lst_view = views_json.data.filter(x => x.id_view == this.name_component).map(x => x.tables)[0];
+    if (lst_view != undefined) {
+      this.lst_tables = table_json.data.filter((table) => lst_view.includes(table.id));
+    }
   }
 
 
