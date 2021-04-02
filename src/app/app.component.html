@@ -10,7 +10,7 @@
 
 <div class="d-flex component-container">
 
-  <!-- Views Sidebar menu -->
+  <!-- Views menu area -->
   <app-menu [searcherText]="globalSearcher"
     [ngClass]="visibleMenu ? 'col col-md-auto sidebar-container' : 'col col-md-auto sidebar-container sidebar-hide'">
   </app-menu>
@@ -20,7 +20,7 @@
     <li class="fa fa-outdent"></li>
   </button>
 
-  <!-- Views container -->
+  <!-- Views work area -->
   <div class="col col-xs-auto my-3 mx-1 work-area-container">
     <router-outlet></router-outlet>
   </div>

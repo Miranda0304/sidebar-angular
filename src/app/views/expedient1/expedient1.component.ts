@@ -11,7 +11,7 @@ import { views_json } from "../../../database/views-json/view-json";
 export class Expedient1Component implements OnInit {
   name_component = "view_expedient_0"
   lst_forms = [];
-  
+
   formExpedient1: FormGroup;
   lstValidators = {};
   fieldControl: any;
@@ -33,11 +33,7 @@ export class Expedient1Component implements OnInit {
 
     if (lst_view != undefined) {
       this.lst_forms = form_json.data.filter((form) => lst_view.includes(form.form_id));
-      //this.lst_forms = form_json.data;
     }
-    
-   console.log(form_json.data);
-
   }
 
   myValidators() {

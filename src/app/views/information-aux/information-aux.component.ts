@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+
 @Component({
   selector: 'app-information-aux',
   templateUrl: './information-aux.component.html',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InformationAuxComponent implements OnInit {
 
+  pdfSource =  "https://vadimdez.github.io/ng2-pdf-viewer/assets/pdf-test.pdf";
+  
   constructor() { 
   }
 

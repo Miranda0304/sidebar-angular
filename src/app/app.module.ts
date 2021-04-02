@@ -14,6 +14,7 @@ import { AppRoutingModule } from './app-routing.module';
 //Dependecies
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { DataTablesModule } from "angular-datatables";
+import { PdfViewerModule } from 'ng2-pdf-viewer';
 
 //Views
 import { AppComponent } from './app.component';
@@ -53,7 +54,7 @@ import { IxchelV2Service } from "src/app/services/API_Ixchelv2/ixchel_v2.service
     AttachedAuxComponent,
     InformationAuxComponent,
     Expedient1Component,
-   
+
     TableComponent,
     Table2Component
   ],
@@ -67,7 +68,8 @@ import { IxchelV2Service } from "src/app/services/API_Ixchelv2/ixchel_v2.service
     BrowserAnimationsModule,
     ReactiveFormsModule,
     DataTablesModule,
-    HttpClientModule
+    HttpClientModule,
+    PdfViewerModule
   ],
   providers: [
     ContextualAreaService,

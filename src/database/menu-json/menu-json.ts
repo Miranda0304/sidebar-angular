@@ -479,6 +479,7 @@ export const menu_json = {
           ordinal: 1,
           collapse: false,
           contextual_area: false,
+          submenu: []
         },
         {
           id: "id_information_menu_02_02",

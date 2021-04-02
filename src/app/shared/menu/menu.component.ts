@@ -46,10 +46,11 @@ export class MenuComponent implements OnInit {
 
   isLocal = true;
 
-  constructor(private _serviceObjects: ObjectsService, private _serviceContextualArea: ContextualAreaService, private _ixchelV2Service: IxchelV2Service) {
-
+  constructor(private _serviceContextualArea: ContextualAreaService, private _ixchelV2Service: IxchelV2Service) {
+;
     this.list_menus[1] = menu_json.data;
 
+    
     // this._ixchelV2Service.getNavList().then((result) => {
     //   console.log(result);
     //   this.list_menus[1] = result;
@@ -57,7 +58,7 @@ export class MenuComponent implements OnInit {
     //   console.log(err);
     // });
 
-    localStorage.getItem('CONTEXTUAL_AREA') != 'null' ? this.contextual_area = true : this.contextual_area = false;
+    localStorage.getItem('CONTEXTUAL_AREA') == 'true' ? this.contextual_area = true : this.contextual_area = false;
 
     this._serviceContextualArea.isVisible(this.contextual_area);
   }
