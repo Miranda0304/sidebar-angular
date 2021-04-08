@@ -18,19 +18,19 @@
 
 /* Background container */
 .style-col::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 5px grey; 
+  box-shadow: inset 0 0 5px grey;
   border-radius: 10px;
 }
- 
+
 /* Handle */
 .style-col::-webkit-scrollbar-thumb {
-  background: gray; 
+  background: gray;
   border-radius: 10px;
 }
 
 /* Handle on hover */
 .style-col::-webkit-scrollbar-thumb:hover {
-  background: #17a2b8; 
+  background: #17a2b8;
 }
 
 .active {
@@ -52,19 +52,19 @@ li a {
   text-decoration: none;
 }
 
-#icon-menu-container{
-  width: 20%; 
+#icon-menu-container {
+  width: 20%;
   float: left;
 }
 
-#label-menu-container{
-  width: 60%; 
+#label-menu-container {
+  width: 60%;
   float: left;
   white-space: break-spaces;
 }
 
-#badge-menu-container{
-  width: 20%; 
+#badge-menu-container {
+  width: 20%;
   float: left;
 }
 
@@ -87,7 +87,7 @@ li a label span {
   }
 
   ul li span {
-    font-size: 30px;
+    font-size: 25px;
   }
 
   li a label {
@@ -95,7 +95,7 @@ li a label span {
   }
 
   #badgeMenu {
-    font-size: 15px;
+    font-size: 12px;
     position: relative;
     // float: right;
   }

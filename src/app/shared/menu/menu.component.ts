@@ -49,9 +49,9 @@ export class MenuComponent implements OnInit {
   ngOnInit(): void {
     //Insert all submenus.
     this.number_turns.forEach(element => {
-      this.lstVisible.push({ level: element , isVisible: false, isCollapse: false })
+      this.lstVisible.push({ level: element, isVisible: false, isCollapse: false })
     });
-    this.lstVisible.push({ level: this.number_turns.length + 1 , isVisible: false, isCollapse: false })
+    this.lstVisible.push({ level: this.number_turns.length + 1, isVisible: false, isCollapse: false })
   }
 
   openSubMenu(menu_id: number, level_to_open: number) {
