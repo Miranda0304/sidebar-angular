@@ -83,7 +83,7 @@ export const menu_json = {
                             {
                               id: "id_expedient_menu_06_01",
                               icon: "fa fa-book",
-                              title: "Expedient 10°°",
+                              title: "Expedient 20°°",
                               path: 'expedient10',
                               badge: '5',
                               badgeClass: 'badge badge-info',
@@ -94,7 +94,7 @@ export const menu_json = {
                                 {
                                   id: "id_expedient_menu_06_01",
                                   icon: "fa fa-book",
-                                  title: "Expedient 10°°",
+                                  title: "Expedient 30°°",
                                   path: 'expedient10',
                                   badge: '5',
                                   badgeClass: 'badge badge-info',
@@ -105,7 +105,7 @@ export const menu_json = {
                                     {
                                       id: "id_expedient_menu_06_01",
                                       icon: "fa fa-book",
-                                      title: "Expedient 10°°",
+                                      title: "Expedient 40°°",
                                       path: 'expedient10',
                                       badge: '5',
                                       badgeClass: 'badge badge-info',
@@ -116,7 +116,7 @@ export const menu_json = {
                                         {
                                           id: "id_expedient_menu_06_01",
                                           icon: "fa fa-book",
-                                          title: "Expedient 10°°",
+                                          title: "Expedient 50°°",
                                           path: 'expedient10',
                                           badge: '5',
                                           badgeClass: 'badge badge-info',
@@ -127,7 +127,7 @@ export const menu_json = {
                                             {
                                               id: "id_expedient_menu_06_01",
                                               icon: "fa fa-book",
-                                              title: "Expedient 10°°",
+                                              title: "Expedient 60°°",
                                               path: 'expedient10',
                                               badge: '5',
                                               badgeClass: 'badge badge-info',

@@ -1,32 +1,34 @@
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Buscar" [(ngModel)]="globalSearcher"
-        aria-label="Search">
-    </form>
+<div id="global-container">
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light" style="height: 5%;">
+    <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Buscar" [(ngModel)]="globalSearcher"
+          aria-label="Search">
+      </form>
+    </div>
+  </nav>
+
+  <div class="d-flex component-container">
+
+    <!-- Views menu area -->
+    <app-menu [searcherText]="globalSearcher"
+      [ngClass]="visibleMenu ? 'col col-md-auto sidebar-container' : 'col col-md-auto sidebar-container sidebar-hide'">
+    </app-menu>
+
+    <!-- Button Collapse -->
+    <button class="btn btn-outline-info" id="btn_collaps_all" (click)="collapse_all()">
+      <li class="fa fa-outdent"></li>
+    </button>
+
+    <!-- Views work area -->
+    <div class="col col-xs-auto my-3 mx-1 work-area-container">
+      <router-outlet></router-outlet>
+    </div>
+
+    <!-- View contextual-area -->
+    <app-contextual-area class="col-md-2 offset-md-12 infobar-container" *ngIf="isVisibleContextualArea == true">
+    </app-contextual-area>
+
   </div>
-</nav>
-
-<div class="d-flex component-container">
-
-  <!-- Views menu area -->
-  <app-menu [searcherText]="globalSearcher"
-    [ngClass]="visibleMenu ? 'col col-md-auto sidebar-container' : 'col col-md-auto sidebar-container sidebar-hide'">
-  </app-menu>
-
-  <!-- Button Collapse -->
-  <button class="btn btn-outline-info" id="btn_collaps_all" (click)="collapse_all()" >
-    <li class="fa fa-outdent"></li>
-  </button>
-
-  <!-- Views work area -->
-  <div class="col col-xs-auto my-3 mx-1 work-area-container">
-    <router-outlet></router-outlet>
-  </div>
-
-  <!-- View contextual-area -->
-  <app-contextual-area class="col-md-2 offset-md-12 infobar-container" *ngIf="isVisibleContextualArea == true">
-  </app-contextual-area>
-
 </div>

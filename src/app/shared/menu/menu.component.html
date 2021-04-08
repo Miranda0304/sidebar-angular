@@ -1,26 +1,28 @@
 <!-- First Level -->
-<div [className]="lstVisible[1].isCollapse? 'col-md-auto style-col redux' : 'col-md-auto style-col'">
-  <div class="my-2 title-menu">
-    <div class="custom-control custom-switch">
-      <input type="checkbox" class="custom-control-input" id="customSwitch1" [(ngModel)]="isLocal"
-        (click)="changeList()">
-      <label class="custom-control-label" for="customSwitch1"></label>
+<div>
+  <div [className]="lstVisible[1].isCollapse? 'col-md-auto style-col redux' : 'col-md-auto style-col'">
+    <div class="my-2 title-menu">
+      <div class="custom-control custom-switch">
+        <input type="checkbox" class="custom-control-input" id="customSwitch1" [(ngModel)]="isLocal"
+          (click)="changeList()">
+        <label class="custom-control-label" for="customSwitch1"></label>
+      </div>
+    </div>
+    <hr>
+    <div>
+      <ul class="list-group">
+        <li *ngFor="let menu of list_menus[1]|filter:searcherText" title="{{menu.title}}" routerLinkActive="active">
+          <a draggable="false" (click)="openSubMenu(menu.id, 2)" [routerLink]="[menu.path]">
+            <div id="icon-menu-container"><span class="{{menu.icon}}"></span></div>
+            <div id="label-menu-container"><label>{{menu.title}}</label></div>
+            <div id="badge-menu-container"><span id="badgeMenu" [className]="menu.badgeClass">{{menu.badge}}</span>
+            </div>
+          </a>
+        </li>
+      </ul>
     </div>
   </div>
-  <hr>
-  <div>
-    <ul class="list-group">
-      <li *ngFor="let menu of list_menus[1]|filter:searcherText" title="{{menu.title}}" routerLinkActive="active">
-        <a draggable="false" (click)="openSubMenu(menu.id, 2)" [routerLink]="[menu.path]">
-          <div id="icon-menu-container"><span class="{{menu.icon}}"></span></div>
-          <div id="label-menu-container"><label>{{menu.title}}</label></div>
-          <div id="badge-menu-container"><span id="badgeMenu" [className]="menu.badgeClass">{{menu.badge}}</span></div>
-        </a>
-      </li>
-    </ul>
-  </div>
 </div>
-
 
 <div *ngFor="let turn of number_turns">
   <div [className]="lstVisible[turn + 1].isCollapse? 'col-md-auto style-col redux' : 'col-md-auto style-col'"
