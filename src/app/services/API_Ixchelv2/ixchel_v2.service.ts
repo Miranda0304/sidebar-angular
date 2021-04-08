@@ -8,8 +8,9 @@ const URL_IXCHEL = 'http://rs02.arteaga.mx:3000/rpc/api';
 @Injectable({ providedIn: 'root' })
 
 export class IxchelV2Service {
+    HttpClient: any;
 
-  constructor(private _http: HttpClient) {}
+    constructor(private _http: HttpClient) { }
 
     public async getNavList(): Promise<Observable<any>> {
         const headers = { 'Prefer': 'params=single-object', 'Content-Type': 'application/json' };

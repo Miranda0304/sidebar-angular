@@ -1,17 +1,38 @@
 .style-col {
+  width: 16.66667vw;
+  height: 100%;
   overflow: auto;
   overflow-x: hidden;
   background-color: white;
   border: 1px solid #dddd;
   list-style-type: none;
   margin: 0;
-  padding: 10px;
-  text-align: center;
+  padding: 20px;
+  text-align: left;
 }
 
-hr{
-  width: 15.5vw;
+/* width */
+.style-col::-webkit-scrollbar {
+  width: 7px;
 }
+
+/* Background container */
+.style-col::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey; 
+  border-radius: 10px;
+}
+ 
+/* Handle */
+.style-col::-webkit-scrollbar-thumb {
+  background: gray; 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+.style-col::-webkit-scrollbar-thumb:hover {
+  background: #17a2b8; 
+}
+
 .active {
   background-color: rgb(238, 234, 234);
   border-radius: 10px;
@@ -26,17 +47,29 @@ ul {
 }
 
 li a {
-  font-size: 18px;
+  font-size: 1vw;
   color: black;
-  // text-align: left;
   text-decoration: none;
 }
 
+#icon-menu-container{
+  width: 20%; 
+  float: left;
+}
+
+#label-menu-container{
+  width: 60%; 
+  float: left;
+  white-space: break-spaces;
+}
+
+#badge-menu-container{
+  width: 20%; 
+  float: left;
+}
+
 li a label {
-  width: 9vw;
   cursor: pointer;
-  text-align: left;
-  text-indent: 10px;
 }
 
 //badge

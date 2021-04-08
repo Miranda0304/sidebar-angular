@@ -1,5 +1,5 @@
 <!-- First Level -->
-<div [className]="lstVisible[0].isCollapse? 'col-md-auto style-col redux' : 'col-md-auto style-col'">
+<div [className]="lstVisible[1].isCollapse? 'col-md-auto style-col redux' : 'col-md-auto style-col'">
   <div class="my-2 title-menu">
     <div class="custom-control custom-switch">
       <input type="checkbox" class="custom-control-input" id="customSwitch1" [(ngModel)]="isLocal"
@@ -12,17 +12,41 @@
     <ul class="list-group">
       <li *ngFor="let menu of list_menus[1]|filter:searcherText" title="{{menu.title}}" routerLinkActive="active">
         <a draggable="false" (click)="openSubMenu(menu.id, 2)" [routerLink]="[menu.path]">
-          <span class="{{menu.icon}}"></span>
-          <label>{{menu.title}}</label>
-          <span id="badgeMenu" [className]="menu.badgeClass">{{menu.badge}}</span>
+          <div id="icon-menu-container"><span class="{{menu.icon}}"></span></div>
+          <div id="label-menu-container"><label>{{menu.title}}</label></div>
+          <div id="badge-menu-container"><span id="badgeMenu" [className]="menu.badgeClass">{{menu.badge}}</span></div>
         </a>
       </li>
     </ul>
   </div>
 </div>
 
+
+<div *ngFor="let turn of number_turns">
+  <div [className]="lstVisible[turn + 1].isCollapse? 'col-md-auto style-col redux' : 'col-md-auto style-col'"
+    *ngIf="lstVisible[turn + 1].isVisible == true">
+    <div class="my-2 title-menu">
+    </div>
+    <hr>
+    <div>
+      <ul class="list-group">
+        <li *ngFor="let menu of list_menus[turn + 1]|filter:searcherText" title="{{menu.title}}"
+          routerLinkActive="active">
+          <a draggable="false" (click)="openSubMenu(menu.id, turn + 2)" [routerLink]="[menu.path]">
+            <div id="icon-menu-container"><span class="{{menu.icon}}"></span></div>
+            <div id="label-menu-container"><label>{{menu.title}}</label></div>
+            <div id="badge-menu-container"><span id="badgeMenu" [className]="menu.badgeClass">{{menu.badge}}</span>
+            </div>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
 <!-- Second Level -->
-<div [className]="lstVisible[1].isCollapse? 'col-md-auto style-col redux' : 'col-md-auto style-col'"
+<!-- <div [className]="lstVisible[1].isCollapse? 'col-md-auto style-col redux' : 'col-md-auto style-col'"
   *ngIf="lstVisible[1].isVisible == true">
   <div class="my-2 title-menu"></div>
   <hr>
@@ -30,17 +54,17 @@
     <ul class="list-group">
       <li *ngFor="let menu of list_menus[2]|filter:searcherText" title="{{menu.title}}" routerLinkActive="active">
         <a (click)="openSubMenu(menu.id, 3)" [routerLink]="[menu.path]">
-          <span class="{{menu.icon}}"></span>
-          <label>{{menu.title}}</label>
-          <span id="badgeMenu" [className]="menu.badgeClass">{{menu.badge}}</span>
+          <div id="icon-menu-container"><span class="{{menu.icon}}"></span></div>
+          <div id="label-menu-container"><label>{{menu.title}}</label></div>
+          <div id="badge-menu-container"><span id="badgeMenu" [className]="menu.badgeClass">{{menu.badge}}</span></div>
         </a>
       </li>
     </ul>
   </div>
-</div>
+</div> -->
 
 <!-- Third Level -->
-<div [className]="lstVisible[2].isCollapse ? 'col-md-auto style-col redux' : 'col-md-auto style-col'"
+<!-- <div [className]="lstVisible[2].isCollapse ? 'col-md-auto style-col redux' : 'col-md-auto style-col'"
   *ngIf="lstVisible[2].isVisible == true">
   <div class="my-2 title-menu"></div>
   <hr>
@@ -48,17 +72,17 @@
     <ul class="list-group">
       <li *ngFor="let menu of list_menus[3]|filter:searcherText" title="{{menu.title}}" routerLinkActive="active">
         <a (click)="openSubMenu(menu.id, 4)" [routerLink]="[menu.path]">
-          <span class="{{menu.icon}}"></span>
-          <label>{{menu.title}}</label>
-          <span id="badgeMenu" [className]="menu.badgeClass">{{menu.badge}}</span>
+          <div id="icon-menu-container"><span class="{{menu.icon}}"></span></div>
+          <div id="label-menu-container"><label>{{menu.title}}</label></div>
+          <div id="badge-menu-container"><span id="badgeMenu" [className]="menu.badgeClass">{{menu.badge}}</span></div>
         </a>
       </li>
     </ul>
   </div>
-</div>
+</div> -->
 
 <!-- Fourth Level -->
-<div [className]="lstVisible[3].isCollapse ? 'col-md-auto style-col redux' : 'col-md-auto style-col'"
+<!-- <div [className]="lstVisible[3].isCollapse ? 'col-md-auto style-col redux' : 'col-md-auto style-col'"
   *ngIf="lstVisible[3].isVisible == true">
   <div class="my-2 title-menu"></div>
   <hr>
@@ -66,17 +90,17 @@
     <ul class="list-group">
       <li *ngFor="let menu of list_menus[4]|filter:searcherText" title="{{menu.title}}" routerLinkActive="active">
         <a (click)="openSubMenu(menu.id, 5)" [routerLink]="[menu.path]">
-          <span class="{{menu.icon}}"></span>
-          <label>{{menu.title}}</label>
-          <span id="badgeMenu" [className]="menu.badgeClass">{{menu.badge}}</span>
+          <div id="icon-menu-container"><span class="{{menu.icon}}"></span></div>
+          <div id="label-menu-container"><label>{{menu.title}}</label></div>
+          <div id="badge-menu-container"><span id="badgeMenu" [className]="menu.badgeClass">{{menu.badge}}</span></div>
         </a>
       </li>
     </ul>
   </div>
-</div>
+</div> -->
 
 <!-- Fifth Level -->
-<div [className]="lstVisible[4].isCollapse ? 'col-md-auto style-col redux' : 'col-md-auto style-col'"
+<!-- <div [className]="lstVisible[4].isCollapse ? 'col-md-auto style-col redux' : 'col-md-auto style-col'"
   *ngIf="lstVisible[4].isVisible == true">
   <div class="my-2 title-menu"></div>
   <hr>
@@ -84,17 +108,17 @@
     <ul class="list-group">
       <li *ngFor="let menu of list_menus[5]|filter:searcherText" title="{{menu.title}}" routerLinkActive="active">
         <a (click)="openSubMenu(menu.id, 6)" [routerLink]="[menu.path]">
-          <span class="{{menu.icon}}"></span>
-          <label>{{menu.title}}</label>
-          <span id="badgeMenu" [className]="menu.badgeClass">{{menu.badge}}</span>
+          <div id="icon-menu-container"><span class="{{menu.icon}}"></span></div>
+          <div id="label-menu-container"><label>{{menu.title}}</label></div>
+          <div id="badge-menu-container"><span id="badgeMenu" [className]="menu.badgeClass">{{menu.badge}}</span></div>
         </a>
       </li>
     </ul>
   </div>
-</div>
+</div> -->
 
 <!-- Sixth Level -->
-<div [className]="lstVisible[5].isCollapse ? 'col-md-auto style-col redux' : 'col-md-auto style-col'"
+<!-- <div [className]="lstVisible[5].isCollapse ? 'col-md-auto style-col redux' : 'col-md-auto style-col'"
   *ngIf="lstVisible[5].isVisible == true">
   <div class="my-2 title-menu"></div>
   <hr>
@@ -102,17 +126,17 @@
     <ul class="list-group">
       <li *ngFor="let menu of list_menus[6]|filter:searcherText" title="{{menu.title}}" routerLinkActive="active">
         <a (click)="openSubMenu(menu.id, 7)" [routerLink]="[menu.path]">
-          <span class="{{menu.icon}}"></span>
-          <label>{{menu.title}}</label>
-          <span id="badgeMenu" [className]="menu.badgeClass">{{menu.badge}}</span>
+          <div id="icon-menu-container"><span class="{{menu.icon}}"></span></div>
+          <div id="label-menu-container"><label>{{menu.title}}</label></div>
+          <div id="badge-menu-container"><span id="badgeMenu" [className]="menu.badgeClass">{{menu.badge}}</span></div>
         </a>
       </li>
     </ul>
   </div>
-</div>
+</div> -->
 
 <!-- Seven Level -->
-<div [className]="lstVisible[6].isCollapse ? 'col-md-auto style-col redux' : 'col-md-auto style-col'"
+<!-- <div [className]="lstVisible[6].isCollapse ? 'col-md-auto style-col redux' : 'col-md-auto style-col'"
   *ngIf="lstVisible[6].isVisible == true">
   <div class="my-2 title-menu"></div>
   <hr>
@@ -120,11 +144,11 @@
     <ul class="list-group">
       <li *ngFor="let menu of list_menus[7]|filter:searcherText" title="{{menu.title}}" routerLinkActive="active">
         <a (click)="openSubMenu(menu.id, 8)" [routerLink]="[menu.path]">
-          <span class="{{menu.icon}}"></span>
-          <label>{{menu.title}}</label>
-          <span id="badgeMenu" [className]="menu.badgeClass">{{menu.badge}}</span>
+          <div id="icon-menu-container"><span class="{{menu.icon}}"></span></div>
+          <div id="label-menu-container"><label>{{menu.title}}</label></div>
+          <div id="badge-menu-container"><span id="badgeMenu" [className]="menu.badgeClass">{{menu.badge}}</span></div>
         </a>
       </li>
     </ul>
   </div>
-</div>
+</div> -->

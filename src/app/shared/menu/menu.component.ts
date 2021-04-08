@@ -3,6 +3,7 @@ import { menu_json } from '../../../database/menu-json/menu-json';
 import { ObjectsService } from "../../services/objects_methods/objects.service";
 import { ContextualAreaService } from "../../services/contextual_area_visible/contextual-area.service";
 import { IxchelV2Service } from "../../services/API_Ixchelv2/ixchel_v2.service";
+
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
@@ -13,44 +14,26 @@ export class MenuComponent implements OnInit {
   //Searcher
   @Input() searcherText = "";
 
-  list_menus = <any>{
-    1: [],
-    2: [],
-    3: [],
-    4: [],
-    5: [],
-    6: [],
-    7: [],
-    8: [],
-    9: [],
-    10: [],
-    11: []
-  };
+  //Contains of number of turns.
+  number_turns = Array.from(Array(20).keys()).slice(1);
 
+  //Stores the data of each menu.
+  list_menus = {};
+
+  //Show or not the contextual area
   contextual_area: any;
 
-  //Visibility of level
+  //Visibility of each menu
   lstVisible = [
-    { level: 1, isVisible: false, isCollapse: false },
-    { level: 2, isVisible: false, isCollapse: false },
-    { level: 3, isVisible: false, isCollapse: false },
-    { level: 4, isVisible: false, isCollapse: false },
-    { level: 5, isVisible: false, isCollapse: false },
-    { level: 6, isVisible: false, isCollapse: false },
-    { level: 7, isVisible: false, isCollapse: false },
-    { level: 8, isVisible: false, isCollapse: false },
-    { level: 9, isVisible: false, isCollapse: false },
-    { level: 10, isVisible: false, isCollapse: false },
-    { level: 11, isVisible: false, isCollapse: false },
+    new VisibleMenu()
   ]
 
   isLocal = true;
 
   constructor(private _serviceContextualArea: ContextualAreaService, private _ixchelV2Service: IxchelV2Service) {
-;
+
     this.list_menus[1] = menu_json.data;
 
-    
     // this._ixchelV2Service.getNavList().then((result) => {
     //   console.log(result);
     //   this.list_menus[1] = result;
@@ -64,6 +47,11 @@ export class MenuComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    //Insert all submenus.
+    this.number_turns.forEach(element => {
+      this.lstVisible.push({ level: element , isVisible: false, isCollapse: false })
+    });
+    this.lstVisible.push({ level: this.number_turns.length + 1 , isVisible: false, isCollapse: false })
   }
 
   openSubMenu(menu_id: number, level_to_open: number) {
@@ -100,5 +88,11 @@ export class MenuComponent implements OnInit {
     }
   }
 
-  
+
+}
+
+export class VisibleMenu {
+  level: number;
+  isVisible: boolean;
+  isCollapse: boolean;
 }

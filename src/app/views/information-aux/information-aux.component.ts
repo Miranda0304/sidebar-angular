@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InformationAuxComponent implements OnInit {
 
-  pdfSource =  "https://vadimdez.github.io/ng2-pdf-viewer/assets/pdf-test.pdf";
-  
-  constructor() { 
+  pdfSrc = "https://vadimdez.github.io/ng2-pdf-viewer/assets/pdf-test.pdf";
+
+  // pdfSrc = {
+  //   url: "https://vadimdez.github.io/ng2-pdf-viewer/assets/pdf-test.pdf",
+  //   withCredentials: false
+  // };
+
+
+  constructor() {
   }
 
   ngOnInit(): void {

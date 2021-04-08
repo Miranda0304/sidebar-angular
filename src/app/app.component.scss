@@ -10,7 +10,7 @@
   padding: 0px;
   white-space: nowrap;
   display: inline-flex;
-  max-width: 1000% !important;
+  max-width: 10000% !important;
 }
 
 .work-area-container {
@@ -20,7 +20,9 @@
 }
 
 #btn_collaps_all {
-  height: 5%;
+  min-height: 7%;
+  height: 7%;
+  max-height: 7%;
   font-size: 12px;
 }
 
