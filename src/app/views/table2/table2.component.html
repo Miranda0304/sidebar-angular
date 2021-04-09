@@ -1,15 +1,1 @@
-<h3>Dynamic Table 2</h3>
-
-<table datatable [dtOptions]="dtOptions" class="{{table.theme_table}}" *ngFor="let table of lst_tables"
-  [ngStyle]="{'text-align': table.text_align}">
-  <thead class="{{table.theme_header}}">
-    <tr>
-      <th scope="col" *ngFor="let head of table.header">{{head.title}}</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let tr of table.tr" [className]="tr.theme_tr">
-      <td *ngFor="let td of tr.td " [attr.rowspan]="td.height" [attr.colspan]="td.width">{{td.information}}</td>
-    </tr>
-  </tbody>
-</table>
+<app-tables [partial_name_component]="name_component"></app-tables>

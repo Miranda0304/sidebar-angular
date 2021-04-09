@@ -4,7 +4,7 @@ export const tables_json = {
         {
             id: 'table_user',
             order: 1,
-            title: 'Usuarios',
+            title: 'Tabla de Usuarios',
             text_align: null,
             theme_table: 'table', //table table-dark, table-hover, table-sm
             theme_header: 'thead-dark',
@@ -488,7 +488,7 @@ export const tables_json = {
         {
             id: 'table_attached',
             order: 2,
-            title: 'Adjuntos',
+            title: 'Tabla de Adjuntos',
             text_align: null,
             theme_table: 'table', //table table-dark, table-hover, table-sm
             theme_header: 'thead-dark',

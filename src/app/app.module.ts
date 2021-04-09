@@ -38,6 +38,7 @@ import { Table2Component } from './views/table2/table2.component';
 import { ContextualAreaService } from "./services/contextual_area_visible/contextual-area.service";
 import { ObjectsService } from "./services/objects_methods/objects.service";
 import { IxchelV2Service } from "src/app/services/API_Ixchelv2/ixchel_v2.service";
+import { TablesComponent } from './shared/tables/tables.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import { IxchelV2Service } from "src/app/services/API_Ixchelv2/ixchel_v2.service
     Expedient1Component,
 
     TableComponent,
-    Table2Component
+    Table2Component,
+    TablesComponent
   ],
   imports: [
     BrowserModule,
