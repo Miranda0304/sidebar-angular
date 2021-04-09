@@ -22,7 +22,7 @@ export const menu_json = {
       badge: '1050',
       badgeClass: 'badge badge-light',
       ordinal: 1,
-      collapse: true,
+      collapse: false,
       contextual_area: false,
       submenu: [
         {

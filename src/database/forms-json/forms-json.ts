@@ -1,4 +1,4 @@
-export const form_json = {
+export const forms_json = {
     data: [
         {
             id: '0', form_id: 'form_user', size_col: 'col-md-12', have_label: true, label_title: 'Datos Personales', field_type: 'legend', field_id: null, field_class: "text-left",

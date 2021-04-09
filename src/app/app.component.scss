@@ -7,15 +7,15 @@
   width: 100%;
 }
 
-.sidebar-container {
+.menu-sidebar-container {
   padding: 0px;
-  white-space: nowrap;
+  // white-space: nowrap;
   display: inline-flex;
   max-width: 10000% !important;
 }
 
 .work-area-container {
-  min-width: 50%;
+  min-width: 46%;
   overflow-y: auto;
   overflow-x: hidden;
 }

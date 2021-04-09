@@ -1,8 +1,10 @@
-export const table_json = {
+export const tables_json = {
     data: [
         ///////////////Table 1
         {
             id: 'table_user',
+            order: 1,
+            title: 'Usuarios',
             text_align: null,
             theme_table: 'table', //table table-dark, table-hover, table-sm
             theme_header: 'thead-dark',
@@ -485,6 +487,8 @@ export const table_json = {
         ///////////////Table 2
         {
             id: 'table_attached',
+            order: 2,
+            title: 'Adjuntos',
             text_align: null,
             theme_table: 'table', //table table-dark, table-hover, table-sm
             theme_header: 'thead-dark',

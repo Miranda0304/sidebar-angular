@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { views_json } from "../../../database/views-json/view-json";
-import { table_json } from "src/database/table-json/tables-json";
+import { tables_json } from "src/database/table-json/tables-json";
 
 @Component({
   selector: 'app-table2',
@@ -52,7 +52,7 @@ export class Table2Component implements OnInit {
   loadTables() {
     let lst_view = views_json.data.filter(x => x.id_view == this.name_component).map(x => x.tables)[0];
     if (lst_view != undefined) {
-      this.lst_tables = table_json.data.filter((table) => lst_view.includes(table.id));
+      this.lst_tables = tables_json.data.filter((table) => lst_view.includes(table.id)).sort((a, b) => a.order - b.order);
     }
   }
 
