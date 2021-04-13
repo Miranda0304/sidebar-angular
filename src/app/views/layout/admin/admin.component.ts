@@ -37,9 +37,13 @@ export class AdminComponent implements OnInit {
     }, 1);
   }
 
-  logout(){
-    this._ixchelV2Service.logout();
-    this.router.navigateByUrl('/login)');
+  logout() {
+    this._ixchelV2Service.logout().then((result) => {
+      this.router.navigateByUrl('/login)');
+    }).catch((err) => {
+
+    });
+
   }
 
 }

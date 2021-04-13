@@ -10,6 +10,7 @@ import { APP_ROUTING } from './app.routes';
 import { AppRoutingModule } from './app-routing.module';
 
 //Dependecies
+import { ToastModule } from 'ng-uikit-pro-standard';
 
 //Services
 import { IxchelV2Service } from "src/app/services/API_Ixchelv2/ixchel_v2.service";
@@ -35,7 +36,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ReactiveFormsModule,
     CommonModule,
     HttpClientModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ToastModule.forRoot()
   ],
   providers: [
     IxchelV2Service,

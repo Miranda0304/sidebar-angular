@@ -2,8 +2,7 @@ import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from "rxjs";
 import { catchError, map } from 'rxjs/operators';
-import { login_json } from "src/database/login-json/login-json";
-
+import { ToastService } from 'ng-uikit-pro-standard';
 
 const URL_IXCHEL = 'http://rs02.arteaga.mx:3000/rpc/api';
 
@@ -13,42 +12,53 @@ export class IxchelV2Service {
 
     userToken: string;
 
-    constructor(private _http: HttpClient) {
+    constructor(private _http: HttpClient, private toast: ToastService) {
         this.readToken();
     }
 
     public async login(user: any) {
-
+        // "user": "admin", "password": "d3698036132b78ae31c3f03d377758d8"
         const headers = { 'Prefer': 'params=single-object', 'Content-Type': 'application/json' };
-        //const body = { "action": "login", "data": { "user": "admin", "password": "d3698036132b78ae31c3f03d377758d8" } };
         const body = { "action": "login", "data": { "user": user.username, "password": user.password } };
 
         let data = await this._http.post(URL_IXCHEL, body, { headers }).pipe(map((response: any) => { return response })).toPromise();
-        //Save user token
-        console.log(data);
-        this.saveToken(data.data[0].id)
+
+        if (data.message == 'OK') {
+            setTimeout(
+                () => this.toast.success("Bienvenido", '', { opacity: 1 })
+            );
+        } else {
+            setTimeout(
+                () => this.toast.warning(data.message, '', { opacity: 1 })
+            );
+        }
+
+        this.saveUserData(data, user.password);
 
         return data;
     }
 
     public async logout() {
-        // const headers = { 'Prefer': 'params=single-object', 'Content-Type': 'application/json' };
+        let username = localStorage.getItem('user');
+        let password = localStorage.getItem('password');
 
-        // const body = { "action": "logout", "data": { "user": "admin", "password": "d3698036132b78ae31c3f03d377758d8" } };
-
-        // let data = await this._http.post(URL_IXCHEL, body, { headers }).pipe(map((response: any) => { return response })).toPromise();
-        console.log("### Logout ###");
-        // console.log(data);
-        // return data.data
+        const headers = { 'Prefer': 'params=single-object', 'Content-Type': 'application/json' };
+        const body = { "action": "logout", "data": { "user": username, "password": password } };
 
         localStorage.removeItem('token');
+        localStorage.removeItem('user');
+        localStorage.removeItem('password');
 
-        return login_json
+        let data = await this._http.post(URL_IXCHEL, body, { headers }).pipe(map((response: any) => { return response })).toPromise();
+
+        return data;
     }
 
-    private saveToken(id_token: string) {
-        this.userToken = id_token;
-        localStorage.setItem('token', id_token);
+    private saveUserData(user: any, password: string) {
+        this.userToken = user.data[0].id;
+        localStorage.setItem('token', user.data[0].id);
+        localStorage.setItem('user', user.data[0].name);
+        localStorage.setItem('password', password);
 
         let expireDate = new Date();
         expireDate.setSeconds(3600);
