@@ -12,6 +12,8 @@ import { ToastService } from 'ng-uikit-pro-standard';
 
 export class LoginComponent implements OnInit {
 
+  isVisibleLoading = true;
+
   user: UserModel = new UserModel();
   rememberme = false;
 
@@ -27,6 +29,10 @@ export class LoginComponent implements OnInit {
       this.user.username = localStorage.getItem('username');
       this.rememberme = true;
     }
+
+    setTimeout(() => {
+      this.isVisibleLoading = false;
+    }, 1000);
   }
 
 

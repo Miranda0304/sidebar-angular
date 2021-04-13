@@ -1,3 +1,8 @@
+<div *ngIf="isVisibleLoading" #splashScreen class="kt-splash-screen">
+  <span>Cargando...</span>
+  <img src="./assets/images/login/umaru.png" alt="Logo">
+</div>
+
 <div class="container">
   <div class="card">
     <div class="card-header">
@@ -7,7 +12,7 @@
       <h5 class="card-title">Special title treatment</h5>
       <!-- no borrar ngSubmit -->
       <!-- Mantener los ngModel de cada input y checkbox -->
-      <form (ngSubmit)="login(f)" #f="ngForm"> 
+      <form (ngSubmit)="login(f)" #f="ngForm">
         <div class="form-group">
           <label for="exampleInputEmail1">Usuario</label>
           <input [(ngModel)]="user.username" name="username" type="text" class="form-control" required>
