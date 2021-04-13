@@ -1,8 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { menu_json } from '../../../database/menu-json/menu-json';
-import { ObjectsService } from "../../services/objects_methods/objects.service";
-import { ContextualAreaService } from "../../services/contextual_area_visible/contextual-area.service";
-import { IxchelV2Service } from "../../services/API_Ixchelv2/ixchel_v2.service";
+import { menu_json } from '../../../../database/menu-json/menu-json';
+import { ContextualAreaService } from "../../../services/Contextual_area_visible/contextual-area.service";
+import { IxchelV2Service } from "../../../services/API_Ixchelv2/ixchel_v2.service";
 
 @Component({
   selector: 'app-menu',
@@ -80,6 +79,7 @@ export class MenuComponent implements OnInit {
     if (this.isLocal) {
       this._ixchelV2Service.getNavList().then((result) => {
         this.list_menus[1] = result;
+        console.log(result);
       }).catch((err) => {
         console.log(err);
       });

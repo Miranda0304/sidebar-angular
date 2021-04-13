@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { views_json } from "../../../database/views-json/view-json";
+import { views_json } from "../../../../database/views-json/view-json";
 import { tables_json } from "src/database/table-json/tables-json";
 
 @Component({

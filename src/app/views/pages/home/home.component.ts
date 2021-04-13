@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { IxchelV2Service } from "../../services/API_Ixchelv2/ixchel_v2.service";
+import { IxchelV2Service } from "../../../services/API_Ixchelv2/ixchel_v2.service";
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -38,7 +38,7 @@ export class HomeComponent implements OnInit {
     setTimeout(() => ctrl.abort(), 5000);
 
     try {
-      let r = await fetch('/upload/image',
+      let r = await fetch('api.com',
         { method: "POST", body: formData, signal: ctrl.signal });
       console.log('HTTP response code:', r.status);
     } catch (e) {

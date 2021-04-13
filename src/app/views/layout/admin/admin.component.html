@@ -1,0 +1,49 @@
+<div id="global-container">
+  <!-- Navbar -->
+
+
+  <nav class="navbar navbar-light bg-light" style="height: 5%;">
+    <div class="dropdown">
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+        aria-haspopup="true" aria-expanded="false">
+        Usuario
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item" href="#"><i class="fa fa-user-circle-o mx-2" aria-hidden="true"></i>Perfil</a>
+        <a class="dropdown-item" href="#"><i class="fa fa-cog mx-2" aria-hidden="true"></i>Configuración</a>
+        <hr>
+        <a (click)="logout()" class="dropdown-item" href="#"><i class="fa fa-sign-out mx-2"
+            aria-hidden="true"></i>Salir</a>
+      </div>
+    </div>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Buscar" [(ngModel)]="globalSearcher"
+        aria-label="Search">
+    </form>
+
+
+  </nav>
+
+  <div class="d-flex component-container">
+
+    <!-- Views menu area -->
+    <app-menu [searcherText]="globalSearcher"
+      [ngClass]="visibleMenu ? 'col col-md-auto menu-sidebar-container' : 'col col-md-auto sidebar-container sidebar-hide'">
+    </app-menu>
+
+    <!-- Button Collapse -->
+    <button class="btn btn-outline-info" id="btn_collaps_all" (click)="collapse_all()">
+      <li class="fa fa-outdent"></li>
+    </button>
+
+    <!-- Views work area -->
+    <div class="col col-xs-auto my-3 mx-1 work-area-container">
+      <router-outlet></router-outlet>
+    </div>
+
+    <!-- View contextual-area -->
+    <app-contextual-area class="col-md-2 offset-md-12 infobar-container" *ngIf="isVisibleContextualArea == true">
+    </app-contextual-area>
+
+  </div>
+</div>

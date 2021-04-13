@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
-import { forms_json } from "../../../database/forms-json/forms-json";
-import { views_json } from "../../../database/views-json/view-json";
+import { forms_json } from "../../../../database/forms-json/forms-json";
+import { views_json } from "../../../../database/views-json/view-json";
 
 @Component({
   selector: 'app-expedient1',

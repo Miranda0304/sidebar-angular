@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="card">
+    <div class="card-header">
+      Inicio de sesión
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Special title treatment</h5>
+      <!-- no borrar ngSubmit -->
+      <!-- Mantener los ngModel de cada input y checkbox -->
+      <form (ngSubmit)="login(f)" #f="ngForm"> 
+        <div class="form-group">
+          <label for="exampleInputEmail1">Usuario</label>
+          <input [(ngModel)]="user.username" name="username" type="text" class="form-control" required>
+          <!-- no borrar los span y mantener el mismo name en el input-->
+          <span *ngIf="f.submitted && f.controls['username'].errors" class="text-danger animated faddeIn">El Usuario es
+            obligatiorio</span>
+          <small id="emailHelp" class="form-text text-muted">We'll never share your user name with anyone else.</small>
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Contraseña</label>
+          <input [(ngModel)]="user.password" name="pasword" type="password" class="form-control" required>
+          <!-- no borrar los span y mantener el mismo name en el input-->
+          <span *ngIf="f.submitted && f.controls['pasword'].errors" class="text-danger animated faddeIn">La Contraseña
+            es obligatoria</span>
+        </div>
+        <div class="form-group form-check">
+          <input [(ngModel)]="rememberme" type="checkbox" class="form-check-input">
+          <label class="form-check-label" for="exampleCheck1">Recordarme</label>
+          <small id="emailHelp" class="form-text text-muted">( si esta es una computadora privada )</small>
+        </div>
+        <button type="submit" class="btn btn-primary">Entrar</button>
+      </form>
+    </div>
+  </div>
+
+</div>

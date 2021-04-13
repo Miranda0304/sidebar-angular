@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ContextualAreaService } from "./services/contextual_area_visible/contextual-area.service"
+import { ContextualAreaService } from "./services/Contextual_area_visible/contextual-area.service"
 
 @Component({
   selector: 'app-root',

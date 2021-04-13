@@ -9,7 +9,7 @@ export const views_json = {
         {
             id_view: "view_expedient_0",
             forms:['form_user', 'form_address', 'form_others'],
-            tables: ['table_user','table_attached'],
+            tables: ['',''],
             contextual_area: ''
         },
         {
