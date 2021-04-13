@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
   constructor(private _ixchelV2Service: IxchelV2Service,
     private router: Router, private toast: ToastService) {
     if (this._ixchelV2Service.isAuthenticated()) {
-      this.router.navigateByUrl('admin/home');
+      this.router.navigateByUrl('administrador/home');
     }
   }
 
@@ -47,7 +47,7 @@ export class LoginComponent implements OnInit {
 
     this._ixchelV2Service.login(this.user).then((result) => {
 
-      this.router.navigateByUrl('admin/home');
+      this.router.navigateByUrl('administrador/home');
     }).catch((err) => {
 
     });

@@ -67,7 +67,7 @@ export class IxchelV2Service {
 
     readToken() {
         if (localStorage.getItem('token')) {
-            this.userToken = localStorage.getItem('token')
+            this.userToken = localStorage.getItem('token');
         } else {
             this.userToken = "";
         }
@@ -94,8 +94,8 @@ export class IxchelV2Service {
 
     public async getNavList(): Promise<Observable<any>> {
         const headers = { 'Prefer': 'params=single-object', 'Content-Type': 'application/json' };
-        //sessionID se reemplazara por el id generado por la respuesta del login.
-        const body = { "action": "get_nav", "sessionID": "a8cf6785-8680-4daf-8000-8ccf1d885cff", "data": {} };
+
+        const body = { "action": "get_nav", "sessionID": this.userToken, "data": {} };
 
         let data = await this._http.post(URL_IXCHEL, body, { headers }).pipe(map((response: any) => { return response })).toPromise();
         console.log("### GetNav ###");
@@ -105,8 +105,8 @@ export class IxchelV2Service {
 
     public async getData(name_model: string) {
         const headers = { 'Prefer': 'params=single-object', 'Content-Type': 'application/json' };
-        //sessionID se reemplazara por el id generado por la respuesta del login.
-        const body = { "action": "get_data", "sessionID": "a8cf6785-8680-4daf-8000-8ccf1d885cff", "data": { "model": name_model } };
+
+        const body = { "action": "get_data", "sessionID": this.userToken, "data": { "model": name_model } };
 
         let data = await this._http.post(URL_IXCHEL, body, { headers }).pipe(map((response: any) => { return response })).toPromise();
         console.log("### GetData ###");

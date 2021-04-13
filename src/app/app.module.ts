@@ -19,14 +19,12 @@ import { ContextualAreaService } from "src/app/services/Contextual_area_visible/
 //Components Views
 import { AppComponent } from './app.component';
 import { LoginComponent } from './views/login/login.component';
-import { GuessComponent } from './views/layout/guess/guess.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
-    GuessComponent
+    LoginComponent
   ],
   imports: [
     BrowserModule,
