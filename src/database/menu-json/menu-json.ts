@@ -8,7 +8,7 @@ export const menu_json = {
       path: 'home',
       badge: '10',
       badgeClass: 'badge badge-secondary',
-      ordinal: 1,
+      ordinal: 0,
       collapse: false,
       contextual_area: true,
       submenu: []
@@ -262,7 +262,7 @@ export const menu_json = {
       path: 'appt',
       badge: '5',
       badgeClass: 'badge badge-primary',
-      ordinal: 1,
+      ordinal: 2,
       collapse: false,
       contextual_area: true,
       submenu: [
@@ -401,7 +401,7 @@ export const menu_json = {
       path: 'pos',
       badge: '5',
       badgeClass: 'badge badge-dark',
-      ordinal: 1,
+      ordinal: 3,
       collapse: false,
       contextual_area: false,
       submenu: [
@@ -465,7 +465,7 @@ export const menu_json = {
       path: 'epm',
       badge: '115',
       badgeClass: 'badge badge-danger',
-      ordinal: 1,
+      ordinal: 4,
       collapse: false,
       contextual_area: true,
       submenu: [
@@ -541,7 +541,7 @@ export const menu_json = {
       path: 'homeFalse',
       badge: null,
       badgeClass: null,
-      ordinal: 1,
+      ordinal: 10,
       collapse: false,
       contextual_area: true,
       submenu: []
@@ -554,7 +554,7 @@ export const menu_json = {
       path: 'homeFalse',
       badge: null,
       badgeClass: null,
-      ordinal: 1,
+      ordinal: 10,
       collapse: false,
       contextual_area: true,
       submenu: []
@@ -567,7 +567,7 @@ export const menu_json = {
       path: 'homeFalse',
       badge: null,
       badgeClass: null,
-      ordinal: 1,
+      ordinal: 10,
       collapse: false,
       contextual_area: true,
       submenu: []
@@ -580,7 +580,7 @@ export const menu_json = {
       path: 'homeFalse',
       badge: null,
       badgeClass: null,
-      ordinal: 1,
+      ordinal: 10,
       collapse: false,
       contextual_area: true,
       submenu: []
@@ -592,7 +592,7 @@ export const menu_json = {
       path: 'homeFalse',
       badge: null,
       badgeClass: null,
-      ordinal: 1,
+      ordinal: 10,
       collapse: false,
       contextual_area: true,
       submenu: []
@@ -604,7 +604,7 @@ export const menu_json = {
       path: 'homeFalse',
       badge: null,
       badgeClass: null,
-      ordinal: 1,
+      ordinal: 10,
       collapse: false,
       contextual_area: true,
       submenu: []
@@ -616,7 +616,7 @@ export const menu_json = {
       path: 'homeFalse',
       badge: null,
       badgeClass: null,
-      ordinal: 1,
+      ordinal: 10,
       collapse: false,
       contextual_area: true,
       submenu: []
@@ -628,7 +628,7 @@ export const menu_json = {
       path: 'homeFalse',
       badge: null,
       badgeClass: null,
-      ordinal: 1,
+      ordinal: 10,
       collapse: false,
       contextual_area: true,
       submenu: []
@@ -640,7 +640,7 @@ export const menu_json = {
       path: 'homeFalse',
       badge: null,
       badgeClass: null,
-      ordinal: 1,
+      ordinal: 10,
       collapse: false,
       contextual_area: true,
       submenu: []
@@ -652,7 +652,7 @@ export const menu_json = {
       path: 'homeFalse',
       badge: null,
       badgeClass: null,
-      ordinal: 1,
+      ordinal: 10,
       collapse: false,
       contextual_area: true,
       submenu: []
@@ -664,7 +664,7 @@ export const menu_json = {
       path: 'homeFalse',
       badge: null,
       badgeClass: null,
-      ordinal: 1,
+      ordinal: 10,
       collapse: false,
       contextual_area: true,
       submenu: []

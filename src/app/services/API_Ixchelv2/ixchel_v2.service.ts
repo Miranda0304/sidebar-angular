@@ -60,6 +60,7 @@ export class IxchelV2Service {
         localStorage.setItem('user', user.data[0].name);
         localStorage.setItem('password', password);
 
+        //Date of expiration
         let expireDate = new Date();
         expireDate.setSeconds(3600);
         localStorage.setItem('expireAt', expireDate.getTime().toString());
@@ -92,14 +93,13 @@ export class IxchelV2Service {
         }
     }
 
-    public async getNavList(): Promise<Observable<any>> {
+    public async getNavList(){
         const headers = { 'Prefer': 'params=single-object', 'Content-Type': 'application/json' };
 
         const body = { "action": "get_nav", "sessionID": this.userToken, "data": {} };
 
         let data = await this._http.post(URL_IXCHEL, body, { headers }).pipe(map((response: any) => { return response })).toPromise();
-        console.log("### GetNav ###");
-        console.log(data);
+
         return data.data
     }
 

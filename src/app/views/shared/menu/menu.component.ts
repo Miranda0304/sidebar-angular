@@ -31,11 +31,11 @@ export class MenuComponent implements OnInit {
 
   constructor(private _serviceContextualArea: ContextualAreaService, private _ixchelV2Service: IxchelV2Service) {
 
-    this.list_menus[1] = menu_json.data;
+    this.list_menus[1] = menu_json.data.sort((a, b) => a.ordinal - b.ordinal);
 
     // this._ixchelV2Service.getNavList().then((result) => {
     //   console.log(result);
-    //   this.list_menus[1] = result;
+    //   this.list_menus[1] = result.sort((a, b) => a.ordinal - b.ordinal);
     // }).catch((err) => {
     //   console.log(err);
     // });
@@ -79,7 +79,6 @@ export class MenuComponent implements OnInit {
     if (this.isLocal) {
       this._ixchelV2Service.getNavList().then((result) => {
         this.list_menus[1] = result;
-        console.log(result);
       }).catch((err) => {
         console.log(err);
       });
