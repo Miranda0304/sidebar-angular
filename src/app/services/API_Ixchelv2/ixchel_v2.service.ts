@@ -25,7 +25,7 @@ export class IxchelV2Service {
 
         if (data.message == 'OK') {
             setTimeout(
-                () => this.toast.success("Bienvenido", '', { opacity: 1 })
+                () => this.toast.success(`Bienvenido ${user.username}`, '', { opacity: 1 })
             );
         } else {
             setTimeout(
@@ -62,7 +62,7 @@ export class IxchelV2Service {
 
         //Date of expiration
         let expireDate = new Date();
-        expireDate.setSeconds(1800);
+        expireDate.setSeconds(7200); //3600 una hora.
         localStorage.setItem('expireAt', expireDate.getTime().toString());
     }
 
