@@ -1,13 +1,19 @@
 <!-- Navbar -->
 <nav class="navbar bg-light">
-  
+
+  <form class="form-inline my-2 my-lg-0">
+    <input class="form-control mr-sm-2" type="search" placeholder="Buscar" [(ngModel)]="globalSearcher"
+      aria-label="Search">
+  </form>
 
   <div class="dropdown">
+    <img src="https://comunidad.fan/web/uploads/froala/c03a3656888c98bf9e2ec00fef63059ff3d541cb.jpg" 
+    alt="" width="40px" height="35px" style="border-radius: 10px;">
     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
       aria-haspopup="true" aria-expanded="false">
       Usuario
     </button>
-    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton" style="border: 1px solid black;">
       <a class="dropdown-item" href="#"><i class="fa fa-user-circle-o mx-2" aria-hidden="true"></i>Perfil</a>
       <a class="dropdown-item" href="#"><i class="fa fa-cog mx-2" aria-hidden="true"></i>Configuración</a>
       <hr>
@@ -15,11 +21,7 @@
           aria-hidden="true"></i>Salir</a>
     </div>
   </div>
-  
-  <form class="form-inline my-2 my-lg-0">
-    <input class="form-control mr-sm-2" type="search" placeholder="Buscar" [(ngModel)]="globalSearcher"
-      aria-label="Search">
-  </form>
+
 </nav>
 
 <div id="global-container">

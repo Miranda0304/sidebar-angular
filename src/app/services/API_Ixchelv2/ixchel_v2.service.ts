@@ -62,7 +62,7 @@ export class IxchelV2Service {
 
         //Date of expiration
         let expireDate = new Date();
-        expireDate.setSeconds(3600);
+        expireDate.setSeconds(1800);
         localStorage.setItem('expireAt', expireDate.getTime().toString());
     }
 
@@ -93,7 +93,7 @@ export class IxchelV2Service {
         }
     }
 
-    public async getNavList(){
+    public async getNavList() {
         const headers = { 'Prefer': 'params=single-object', 'Content-Type': 'application/json' };
 
         const body = { "action": "get_nav", "sessionID": this.userToken, "data": {} };

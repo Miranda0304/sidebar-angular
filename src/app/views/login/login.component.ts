@@ -39,18 +39,21 @@ export class LoginComponent implements OnInit {
   login(form: NgForm) {
     if (form.invalid) { return };
 
+    this._ixchelV2Service.login(this.user).then((result) => {
+      this.remember();
+      this.router.navigateByUrl('administrador/home');
+    }).catch((err) => {
+
+    });
+
+  }
+
+  remember() {
     if (this.rememberme) {
       localStorage.setItem('username', this.user.username);
     } else {
       localStorage.removeItem('username');
     }
-
-    this._ixchelV2Service.login(this.user).then((result) => {
-
-      this.router.navigateByUrl('administrador/home');
-    }).catch((err) => {
-
-    });
   }
 
 }
