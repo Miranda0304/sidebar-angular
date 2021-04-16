@@ -1,77 +1,59 @@
 <h1>Dynamic Form</h1>
 
-<form [formGroup]="formExpedient1">
+<!-- <form (ngSubmit)="clickme(f)" #f="ngForm"> -->
+<form #f="ngForm">
   <fieldset>
     <div class="row">
       <!-- nf for -->
-      <div
-        [className]="form.field_type != 'legend' ? 'form-group '+ form.size_col : form.size_col"
+      <div [className]="form.field_type != 'legend' ? 'form-group col-md-' + form.colspan : 'col-md-'+form.colspan "
         *ngFor="let form of lst_forms">
 
         <ng-container [ngSwitch]="lst_forms.length > 0">
 
           <!-- Legend -->
           <ng-container *ngSwitchCase="form.field_type == 'legend'">
-            <legend *ngIf="form.have_label == true" class="{{form.field_class}}">{{form.label_title}}</legend>
+            <legend *ngIf="form.label_require == true" class="{{form.field_class}}">{{form.field_title}}</legend>
             <hr>
           </ng-container>
 
           <!-- Text -->
           <ng-container *ngSwitchCase="form.field_type === 'text'">
-            <label *ngIf="form.have_label == true">{{form.label_title}}</label>
-            <input type="text" class="{{form.field_class}}" id="{{form.field_id}}"
-              placeholder="{{form.placeholder_name}}" autocomplete="{{form.autocomplete}}" formControlName="{{form.id}}"
-              minlength="{{form.min_length}}" maxlength="{{form.max_length}}" (keypress)="validate(form.id)"
-              (click)="validate(form.id)">
+            <label *ngIf="form.label_require == true">{{form.field_title}}</label>
+            <input [(ngModel)]="user[form.field_name]" name="{{form.field_name}}" type="text"
+              class="{{form.field_class}}" id="{{form.id}}" placeholder="{{form.field_placeholder}}"
+              autocomplete="{{form.autocomplete}}" minlength="{{form.text_len_min}}" maxlength="{{form.text_len_max}}"
+              [required]="form.required" (focusout)="clickme(f, form.field_name)">
 
-            <div *ngIf="formControlName == form.id">
-              <div *ngIf="fieldControl.invalid && fieldControl.touched" class="validation-error">
-                <div class="text-danger" *ngIf="fieldControl.errors.required">{{form.label_title}} es requerido.</div>
-                <div class="text-danger" *ngIf="fieldControl.errors.minlength">{{form.label_title}} debe tener almenos
-                  {{form.min_length}} letras.</div>
-                <div class="text-danger" *ngIf="fieldControl.errors.max_length">{{form.label_title}} maximo
-                  {{form.max_length}}.
-                </div>
+            <div *ngIf="f.controls[form.field_name]?.invalid && 
+            (f.controls[form.field_name].dirty || f.controls[form.field_name].touched)"
+              class="alert alert-danger animated fadeIn fast">
+
+              <div *ngIf="f.controls[form.field_name].errors?.required">
+                {{form.field_title}} es requerido.
               </div>
+
+              <div *ngIf="f.controls[form.field_name].errors?.minlength">
+                {{form.field_title}} debe tener minimo {{form.text_len_min}} letras.
+              </div>
+
             </div>
+
           </ng-container>
 
           <!-- Numeric -->
           <ng-container *ngSwitchCase="form.field_type === 'number'">
-            <label *ngIf="form.have_label == true">{{form.label_title}}</label>
-            <input type="number" class="{{form.field_class}}" id="{{form.field_id}}"
-              placeholder="{{form.placeholder_name}}" formControlName="{{form.id}}" min="{{form.min_length}}"
-              max="{{form.max_length}}" (keypress)="validate(form.id)" (click)="validate(form.id)">
+            <label *ngIf="form.label_require == true">{{form.field_title}}</label>
+            <input type="number" class="{{form.field_class}}" id="{{form.id}}" placeholder="{{form.field_placeholder}}"
+              min="{{form.text_len_min}}" max="{{form.text_len_max}}">
 
-            <div *ngIf="formControlName == form.id">
-              <div *ngIf="fieldControl.invalid && fieldControl.touched" class="validation-error">
-                <div class="text-danger" *ngIf="fieldControl.errors.required">{{form.label_title}} es requerido.</div>
-                <div class="text-danger" *ngIf="fieldControl.errors.minlength">{{form.label_title}} debe tener almenos
-                  {{form.min_length}} letras.</div>
-                <div class="text-danger" *ngIf="fieldControl.errors.max_length">{{form.label_title}} maximo
-                  {{form.max_length}}.
-                </div>
-              </div>
-            </div>
           </ng-container>
 
           <!-- Textarea -->
           <ng-container *ngSwitchCase="form.field_type === 'textarea'">
-            <label *ngIf="form.have_label == true">{{form.label_title}}</label>
-            <textarea class="{{form.field_class}}" id="{{form.field_id}}" placeholder="{{form.placeholder_name}}"
-              formControlName="{{form.id}}" minlength="{{form.min_length}}" maxlength="{{form.max_length}}"
-              (keypress)="validate(form.id)" (click)="validate(form.id)"></textarea>
-
-            <div *ngIf="formControlName == form.id">
-              <div *ngIf="fieldControl.invalid && fieldControl.touched" class="validation-error">
-                <div class="text-danger" *ngIf="fieldControl.errors.required">{{form.label_title}} es requerido.</div>
-                <div class="text-danger" *ngIf="fieldControl.errors.minlength">{{form.label_title}} debe tener almenos
-                  {{form.min_length}} letras.</div>
-                <div class="text-danger" *ngIf="fieldControl.errors.max_length">{{form.label_title}} maximo
-                  {{form.max_length}}.
-                </div>
-              </div>
-            </div>
+            <label *ngIf="form.label_require == true">{{form.field_title}}</label>
+            <textarea name="{{form.field_name}}" class="{{form.field_class}}" id="{{form.id}}"
+              placeholder="{{form.field_placeholder}}" [attr.minlength]="form.text_len_min"
+              [attr.maxlength]="form.text_len_max"></textarea>
 
           </ng-container>
 
@@ -80,17 +62,12 @@
             <div class="form-check">
               <label class="form-check-label">
                 <input type="checkbox" class="{{form.field_class}}" id="{{form.field_id}}"
-                  name="{{form.placeholder_name}}" formControlName="{{form.id}}" (keypress)="validate(form.id)"
-                  (click)="validate(form.id)">
-                {{form.label_title}}
+                  name="{{form.field_placeholder}}">
+                {{form.field_title}}
               </label>
             </div>
 
-            <div *ngIf="formControlName == form.id">
-              <div *ngIf="fieldControl.invalid && fieldControl.touched" class="validation-error">
-                <div class="text-danger" *ngIf="fieldControl.errors.required">{{form.label_title}} es requerido.</div>
-              </div>
-            </div>
+
           </ng-container>
 
           <!-- Radiobutton -->
@@ -98,8 +75,8 @@
             <div class="form-check">
               <label class="form-check-label">
                 <input type="radio" class="{{form.field_class}}" id="{{form.field_id}}"
-                  placeholder="{{form.placeholder_name}}" name="{{form.placeholder_name}}">
-                {{form.label_title}}
+                  placeholder="{{form.field_placeholder}}" name="{{form.field_placeholder}}">
+                {{form.field_title}}
               </label>
             </div>
           </ng-container>
@@ -107,12 +84,12 @@
           <!-- Button -->
           <ng-container *ngSwitchCase="form.field_type === 'button'">
             <button class="{{form.field_class}}"><label
-                *ngIf="form.have_label == true">{{form.label_title}}</label></button>
+                *ngIf="form.label_require == true">{{form.field_title}}</label></button>
           </ng-container>
 
           <!-- Line hr -->
           <ng-container *ngSwitchCase="form.field_type === 'hr'">
-            <label *ngIf="form.have_label == true">{{form.label_title}}</label>
+            <label *ngIf="form.label_require == true">{{form.field_title}}</label>
             <hr>
           </ng-container>
 
@@ -122,7 +99,7 @@
       </div>
     </div>
   </fieldset>
-
+  <button class="btn btn-primary">Press me</button>
 </form>
 
 

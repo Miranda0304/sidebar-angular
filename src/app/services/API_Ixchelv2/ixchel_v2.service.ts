@@ -1,8 +1,8 @@
 import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from "rxjs";
 import { catchError, map } from 'rxjs/operators';
 import { ToastService } from 'ng-uikit-pro-standard';
+import { Md5 } from 'ts-md5/dist/md5';
 
 const URL_IXCHEL = 'http://rs02.arteaga.mx:3000/rpc/api';
 
@@ -12,25 +12,26 @@ export class IxchelV2Service {
 
     userToken: string;
 
+
     constructor(private _http: HttpClient, private toast: ToastService) {
         this.readToken();
     }
 
     public async login(user: any) {
-        // "user": "admin", "password": "d3698036132b78ae31c3f03d377758d8"
-        const headers = { 'Prefer': 'params=single-object', 'Content-Type': 'application/json' };
-        const body = { "action": "login", "data": { "user": user.username, "password": user.password } };
+        // "user": "admin", "password": "d3698036132b78ae31c3f03d377758d8" // adminnew
+        const encrypt_password = new Md5().appendStr(user.password).end();
 
-        let data = await this._http.post(URL_IXCHEL, body, { headers }).pipe(map((response: any) => { return response })).toPromise();
+        const headers = { 'Prefer': 'params=single-object', 'Content-Type': 'application/json' };
+        const body = { "action": "login", "data": { "user": user.username, "password": encrypt_password } };
+
+        let data = await this._http.post(URL_IXCHEL, body, { headers }).pipe(map((response: any) => {
+            return response;
+        })).toPromise();
 
         if (data.message == 'OK') {
-            setTimeout(
-                () => this.toast.success(`Bienvenido ${user.username}`, '', { opacity: 1 })
-            );
+            this.toast.success(`Bienvenido ${user.username}`, '', { opacity: 1, timeOut: 2000, positionClass: 'md-toast-top-center' });
         } else {
-            setTimeout(
-                () => this.toast.warning(data.message, '', { opacity: 1 })
-            );
+            this.toast.warning(data.message, '', { opacity: 1, timeOut: 2000, positionClass: 'md-toast-top-center' });
         }
 
         this.saveUserData(data, user.password);
@@ -40,16 +41,21 @@ export class IxchelV2Service {
 
     public async logout() {
         let username = localStorage.getItem('user');
-        let password = localStorage.getItem('password');
+        const encrypt_password = new Md5().appendStr(localStorage.getItem('password')).end();
 
         const headers = { 'Prefer': 'params=single-object', 'Content-Type': 'application/json' };
-        const body = { "action": "logout", "data": { "user": username, "password": password } };
+        const body = { "action": "logout", "data": { "user": username, "password": encrypt_password } };
 
-        localStorage.removeItem('token');
-        localStorage.removeItem('user');
-        localStorage.removeItem('password');
+        let data = await this._http.post(URL_IXCHEL, body, { headers }).pipe(map((response: any) => {
+            if (response.message == 'OK') {
+                localStorage.removeItem('token');
+                localStorage.removeItem('user');
+                localStorage.removeItem('password');
+                window.location.reload();
+            }
+            return response
 
-        let data = await this._http.post(URL_IXCHEL, body, { headers }).pipe(map((response: any) => { return response })).toPromise();
+        })).toPromise();
 
         return data;
     }
@@ -62,7 +68,7 @@ export class IxchelV2Service {
 
         //Date of expiration
         let expireDate = new Date();
-        expireDate.setSeconds(7200); //3600 una hora.
+        expireDate.setSeconds(3600 * 8); //3600 una hora.
         localStorage.setItem('expireAt', expireDate.getTime().toString());
     }
 
@@ -95,7 +101,6 @@ export class IxchelV2Service {
 
     public async getNavList() {
         const headers = { 'Prefer': 'params=single-object', 'Content-Type': 'application/json' };
-
         const body = { "action": "get_nav", "sessionID": this.userToken, "data": {} };
 
         let data = await this._http.post(URL_IXCHEL, body, { headers }).pipe(map((response: any) => { return response })).toPromise();
@@ -107,11 +112,11 @@ export class IxchelV2Service {
         const headers = { 'Prefer': 'params=single-object', 'Content-Type': 'application/json' };
 
         const body = { "action": "get_data", "sessionID": this.userToken, "data": { "model": name_model } };
-
+        
         let data = await this._http.post(URL_IXCHEL, body, { headers }).pipe(map((response: any) => { return response })).toPromise();
-        console.log("### GetData ###");
-        console.log(`Model: ${name_model}`);
-        console.log(data);
+        // console.log("### GetData ###");
+        // console.log(`Model: ${name_model}`);
+        // console.log(data);
         return data.data
     }
 

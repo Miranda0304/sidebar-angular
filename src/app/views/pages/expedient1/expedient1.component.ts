@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from "@angular/forms";
+import { NgForm } from "@angular/forms";
 import { forms_json } from "../../../../database/forms-json/forms-json";
 import { views_json } from "../../../../database/views-json/view-json";
+import { IxchelV2Service } from "src/app/services/API_Ixchelv2/ixchel_v2.service";
 
 @Component({
   selector: 'app-expedient1',
@@ -10,51 +11,43 @@ import { views_json } from "../../../../database/views-json/view-json";
 })
 export class Expedient1Component implements OnInit {
   name_component = "view_expedient_0"
+  user = {}
+  lst_forms = []; s
 
-  lst_forms = [];
+  constructor(private _ixchelV2Service: IxchelV2Service) {
 
-  formExpedient1: FormGroup;
-  lstValidators = {};
-  fieldControl: any;
-  formControlName = "";
-
-  constructor(private fb: FormBuilder) {
-    this.loadForms();
   }
 
   ngOnInit(): void {
-    this.myValidators();
-
-    //Se inicializa el arreglo que contendra los errores
-    this.fieldControl = [];
+    this.loadForms();
   }
 
-  loadForms() {
+  async loadForms() {
     let lst_view = views_json.data.filter(x => x.id_view == this.name_component).map(x => x.forms)[0];
 
-    if (lst_view != undefined) {
-      this.lst_forms = forms_json.data.filter((form) => lst_view.includes(form.form_id));
-    }
-  }
+    await this._ixchelV2Service.getData('sys_form_fields').then((result) => {
+      this.lst_forms = forms_json.data.filter((form) => lst_view.includes(form.form_name));
+      //this.lst_forms = result.filter((form) => lst_view.includes(form.form_name));
 
-  myValidators() {
+      this.lst_forms.forEach(element => {
+        this.user[element.field_name] = "";
+      });
 
-    this.lst_forms.forEach(element => {
-      const array_validators = [];
-      this.lstValidators[element.id] = [];
-      this.lstValidators[element.id].push('');
-      element.is_require === true ? array_validators.push(Validators.required) : null;
-      array_validators.push(Validators.minLength(element.min_length));
-      array_validators.push(Validators.maxLength(element.max_length));
-      this.lstValidators[element.id].push(array_validators);
+      console.log(this.user);
+      console.log(this.lst_forms);
+
+    }).catch((err) => {
+
     });
 
-    this.formExpedient1 = this.fb.group(this.lstValidators); //{ FormControl_1: ['', [validacion_1, validacion 2, validacion_3] ]}
+    return this.lst_forms
   }
 
-  validate(name: string) {
-    this.formControlName = name;
-    this.fieldControl = this.formExpedient1.controls[name];
+  clickme(form: NgForm, field_name: string) {
+    //if (form.invalid) { return };
+    if (form.controls[field_name].invalid) { return };
+    console.log(`Is correct the ${field_name}?`);
+    console.log(!form.controls[field_name].invalid);
   }
 
 }
