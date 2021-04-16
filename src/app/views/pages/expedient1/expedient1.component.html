@@ -25,7 +25,7 @@
               [required]="form.required" (focusout)="clickme(f, form.field_name)">
 
             <div *ngIf="f.controls[form.field_name]?.invalid && 
-            (f.controls[form.field_name].dirty || f.controls[form.field_name].touched)"
+            (f.controls[form.field_name]?.dirty || f.controls[form.field_name]?.touched)"
               class="alert alert-danger animated fadeIn fast">
 
               <div *ngIf="f.controls[form.field_name].errors?.required">
@@ -43,8 +43,24 @@
           <!-- Numeric -->
           <ng-container *ngSwitchCase="form.field_type === 'number'">
             <label *ngIf="form.label_require == true">{{form.field_title}}</label>
-            <input type="number" class="{{form.field_class}}" id="{{form.id}}" placeholder="{{form.field_placeholder}}"
-              min="{{form.text_len_min}}" max="{{form.text_len_max}}">
+            <input [(ngModel)]="user[form.field_name]" name="{{form.field_name}}" type="number"
+              class="{{form.field_class}}" id="{{form.id}}" placeholder="{{form.field_placeholder}}"
+              min="{{form.text_len_min}}" max="{{form.text_len_max}}" [required]="form.required"
+              (focusout)="clickme(f, form.field_name)">
+
+            <div *ngIf="f.controls[form.field_name]?.invalid && 
+              (f.controls[form.field_name]?.dirty || f.controls[form.field_name]?.touched)"
+              class="alert alert-danger animated fadeIn fast">
+
+              <div *ngIf="f.controls[form.field_name].errors?.required">
+                {{form.field_title}} es requerido.
+              </div>
+
+              <div *ngIf="f.controls[form.field_name].errors?.minlength">
+                {{form.field_title}} debe tener minimo {{form.text_len_min}} letras.
+              </div>
+
+            </div>
 
           </ng-container>
 
