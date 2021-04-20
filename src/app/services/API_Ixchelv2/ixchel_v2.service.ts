@@ -105,19 +105,24 @@ export class IxchelV2Service {
 
         let data = await this._http.post(URL_IXCHEL, body, { headers }).pipe(map((response: any) => { return response })).toPromise();
 
-        return data.data
+        if (data.data.length > 0 && data.message == "OK") {
+            return data.data
+        }
     }
 
     public async getData(name_model: string) {
         const headers = { 'Prefer': 'params=single-object', 'Content-Type': 'application/json' };
 
         const body = { "action": "get_data", "sessionID": this.userToken, "data": { "model": name_model } };
-        
+
         let data = await this._http.post(URL_IXCHEL, body, { headers }).pipe(map((response: any) => { return response })).toPromise();
         // console.log("### GetData ###");
         // console.log(`Model: ${name_model}`);
         // console.log(data);
-        return data.data
+        if (data.data.length > 0 && data.message == "OK") {
+            return data.data
+        }
+
     }
 
 }

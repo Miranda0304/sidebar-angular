@@ -6,7 +6,8 @@
     <div class="row">
       <!-- nf for -->
       <div [className]="form.field_type != 'legend' ? 'form-group col-md-' + form.colspan : 'col-md-'+form.colspan "
-        *ngFor="let form of lst_forms">
+        *ngFor="let form of lst_forms"
+        [ngStyle]="{'margin': form.field_y + 'px' + ' ' +form.field_x + 'px' ,  'position': 'relative' }">
 
         <ng-container [ngSwitch]="lst_forms.length > 0">
 
@@ -19,7 +20,7 @@
           <!-- Text -->
           <ng-container *ngSwitchCase="form.field_type === 'text'">
             <label *ngIf="form.label_require == true">{{form.field_title}}</label>
-            <input [(ngModel)]="user[form.field_name]" name="{{form.field_name}}" type="text"
+            <input [(ngModel)]="lst_data_form[form.field_name]" name="{{form.field_name}}" type="text"
               class="{{form.field_class}}" id="{{form.id}}" placeholder="{{form.field_placeholder}}"
               autocomplete="{{form.autocomplete}}" minlength="{{form.text_len_min}}" maxlength="{{form.text_len_max}}"
               [required]="form.required" (focusout)="clickme(f, form.field_name)">
@@ -43,7 +44,7 @@
           <!-- Numeric -->
           <ng-container *ngSwitchCase="form.field_type === 'number'">
             <label *ngIf="form.label_require == true">{{form.field_title}}</label>
-            <input [(ngModel)]="user[form.field_name]" name="{{form.field_name}}" type="number"
+            <input [(ngModel)]="lst_data_form[form.field_name]" name="{{form.field_name}}" type="number"
               class="{{form.field_class}}" id="{{form.id}}" placeholder="{{form.field_placeholder}}"
               min="{{form.text_len_min}}" max="{{form.text_len_max}}" [required]="form.required"
               (focusout)="clickme(f, form.field_name)">
@@ -67,18 +68,33 @@
           <!-- Textarea -->
           <ng-container *ngSwitchCase="form.field_type === 'textarea'">
             <label *ngIf="form.label_require == true">{{form.field_title}}</label>
-            <textarea name="{{form.field_name}}" class="{{form.field_class}}" id="{{form.id}}"
-              placeholder="{{form.field_placeholder}}" [attr.minlength]="form.text_len_min"
-              [attr.maxlength]="form.text_len_max"></textarea>
+            <textarea [(ngModel)]="lst_data_form[form.field_name]" name="{{form.field_name}}"
+              class="{{form.field_class}}" id="{{form.id}}" placeholder="{{form.field_placeholder}}"
+              minlength="{{form.text_len_min}}" maxlength="{{form.text_len_max}}" [required]="form.required"
+              (focusout)="clickme(f, form.field_name)"></textarea>
 
+
+            <div *ngIf="f.controls[form.field_name]?.invalid && 
+            (f.controls[form.field_name]?.dirty || f.controls[form.field_name]?.touched)"
+              class="alert alert-danger animated fadeIn fast">
+
+              <div *ngIf="f.controls[form.field_name].errors?.required">
+                {{form.field_title}} es requerido.
+              </div>
+
+              <div *ngIf="f.controls[form.field_name].errors?.minlength">
+                {{form.field_title}} debe tener minimo {{form.text_len_min}} letras.
+              </div>
+
+            </div>
           </ng-container>
 
           <!-- Checkbox -->
           <ng-container *ngSwitchCase="form.field_type === 'checkbox'">
             <div class="form-check">
               <label class="form-check-label">
-                <input type="checkbox" class="{{form.field_class}}" id="{{form.field_id}}"
-                  name="{{form.field_placeholder}}">
+                <input [(ngModel)]="lst_data_form[form.field_name]" name="{{form.field_name}}" type="checkbox"
+                  class="{{form.field_class}}" id="{{form.field_id}}" (change)="clickme(f, form.field_name)">
                 {{form.field_title}}
               </label>
             </div>
@@ -89,11 +105,10 @@
           <!-- Radiobutton -->
           <ng-container *ngSwitchCase="form.field_type === 'radiobutton'">
             <div class="form-check">
-              <label class="form-check-label">
-                <input type="radio" class="{{form.field_class}}" id="{{form.field_id}}"
-                  placeholder="{{form.field_placeholder}}" name="{{form.field_placeholder}}">
-                {{form.field_title}}
-              </label>
+              <input id="{{form.field_id}}" type="radio" class="{{form.field_class}}" value="{{form.field_placeholder}}"
+                [(ngModel)]="lst_data_form[form.field_name]" name="{{form.field_name}}"
+                (change)="clickme(f, form.field_name)">
+              <label class="form-check-label" for="{{form.field_id}}">{{form.field_title}}</label>
             </div>
           </ng-container>
 
@@ -111,11 +126,10 @@
 
         </ng-container>
 
-
       </div>
     </div>
   </fieldset>
-  <button class="btn btn-primary">Press me</button>
+
 </form>
 
 

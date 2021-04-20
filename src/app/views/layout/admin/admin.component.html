@@ -2,7 +2,7 @@
 <nav class="navbar bg-light">
 
   <form class="form-inline my-2 my-lg-0">
-    <input class="form-control mr-sm-2" type="search" placeholder="Buscar" [(ngModel)]="globalSearcher"
+    <input class="form-control mr-sm-2" id="globalSearcher" type="search" placeholder="Buscar" [(ngModel)]="globalSearcher"
       aria-label="Search">
   </form>
 
@@ -24,12 +24,10 @@
 
 </nav>
 
-<div id="global-container">
   <div class="d-flex component-container">
-
     <!-- Views menu area -->
     <app-menu [searcherText]="globalSearcher"
-      [ngClass]="visibleMenu ? 'col col-md-auto menu-sidebar-container' : 'col col-md-auto sidebar-container sidebar-hide'">
+      [ngClass]="visibleMenu ? 'menu-sidebar-container' : 'sidebar-container sidebar-hide'">
     </app-menu>
 
     <!-- Button Collapse -->
@@ -47,4 +45,3 @@
     </app-contextual-area>
 
   </div>
-</div>

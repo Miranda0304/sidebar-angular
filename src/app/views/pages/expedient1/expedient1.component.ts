@@ -11,8 +11,8 @@ import { IxchelV2Service } from "src/app/services/API_Ixchelv2/ixchel_v2.service
 })
 export class Expedient1Component implements OnInit {
   name_component = "view_expedient_0"
-  user = {}
-  lst_forms = []; s
+  lst_data_form = {}
+  lst_forms = [];
 
   constructor(private _ixchelV2Service: IxchelV2Service) {
 
@@ -26,14 +26,13 @@ export class Expedient1Component implements OnInit {
     let lst_view = views_json.data.filter(x => x.id_view == this.name_component).map(x => x.forms)[0];
 
     await this._ixchelV2Service.getData('sys_form_fields').then((result) => {
-      this.lst_forms = forms_json.data.filter((form) => lst_view.includes(form.form_name));
-      //this.lst_forms = result.filter((form) => lst_view.includes(form.form_name));
+      this.lst_forms = forms_json.data.filter((form) => lst_view.includes(form.form_name)).sort((a, b) => a.ordinal - b.ordinal);
+      //this.lst_forms = result.filter((form) => lst_view.includes(form.form_name)).sort((a, b) => a.ordinal - b.ordinal);;
 
       this.lst_forms.forEach(element => {
-        this.user[element.field_name] = "";
+        this.lst_data_form[element.field_name] = "";
       });
 
-      console.log(this.user);
       console.log(this.lst_forms);
 
     }).catch((err) => {
@@ -48,6 +47,7 @@ export class Expedient1Component implements OnInit {
     if (form.controls[field_name].invalid) { return };
     console.log(`Is correct the ${field_name}?`);
     console.log(!form.controls[field_name].invalid);
+    console.log(`Saving "${this.lst_data_form[field_name]}"...`);
   }
 
 }

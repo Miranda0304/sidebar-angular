@@ -47,7 +47,8 @@ ul {
 }
 
 li a {
-  font-size: 1vw;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 16px;
   color: black;
   text-decoration: none;
 }
@@ -97,6 +98,29 @@ li a label span {
   #badgeMenu {
     font-size: 12px;
     position: relative;
-    // float: right;
+  }
+}
+
+@media only screen and (max-width: 850px) {
+  .style-col {
+    width: 4.5rem !important;
+  }
+
+  ul {
+    line-height: 3;
+  }
+
+  ul li span {
+    font-size: 25px;
+  }
+
+  //badge
+  li a label {
+    display: none;
+  }
+
+  #badgeMenu {
+    font-size: 12px;
+    position: relative;
   }
 }
