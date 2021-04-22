@@ -13,13 +13,13 @@
 
           <!-- Legend -->
           <ng-container *ngSwitchCase="form.field_type == 'legend'">
-            <legend *ngIf="form.label_require == true" class="{{form.field_class}}">{{form.field_title}}</legend>
+            <legend *ngIf="form.label_required == true" class="{{form.field_class}}">{{form.field_title}}</legend>
             <hr>
           </ng-container>
 
           <!-- Text -->
           <ng-container *ngSwitchCase="form.field_type === 'text'">
-            <label *ngIf="form.label_require == true">{{form.field_title}}</label>
+            <label *ngIf="form.label_required == true">{{form.field_title}}</label>
             <input [(ngModel)]="lst_data_form[form.field_name]" name="{{form.field_name}}" type="text"
               class="{{form.field_class}}" id="{{form.id}}" placeholder="{{form.field_placeholder}}"
               autocomplete="{{form.autocomplete}}" minlength="{{form.text_len_min}}" maxlength="{{form.text_len_max}}"
@@ -43,7 +43,7 @@
 
           <!-- Numeric -->
           <ng-container *ngSwitchCase="form.field_type === 'number'">
-            <label *ngIf="form.label_require == true">{{form.field_title}}</label>
+            <label *ngIf="form.label_required == true">{{form.field_title}}</label>
             <input [(ngModel)]="lst_data_form[form.field_name]" name="{{form.field_name}}" type="number"
               class="{{form.field_class}}" id="{{form.id}}" placeholder="{{form.field_placeholder}}"
               min="{{form.text_len_min}}" max="{{form.text_len_max}}" [required]="form.required"
@@ -67,7 +67,7 @@
 
           <!-- Textarea -->
           <ng-container *ngSwitchCase="form.field_type === 'textarea'">
-            <label *ngIf="form.label_require == true">{{form.field_title}}</label>
+            <label *ngIf="form.label_required == true">{{form.field_title}}</label>
             <textarea [(ngModel)]="lst_data_form[form.field_name]" name="{{form.field_name}}"
               class="{{form.field_class}}" id="{{form.id}}" placeholder="{{form.field_placeholder}}"
               minlength="{{form.text_len_min}}" maxlength="{{form.text_len_max}}" [required]="form.required"
@@ -115,12 +115,12 @@
           <!-- Button -->
           <ng-container *ngSwitchCase="form.field_type === 'button'">
             <button class="{{form.field_class}}"><label
-                *ngIf="form.label_require == true">{{form.field_title}}</label></button>
+                *ngIf="form.label_required == true">{{form.field_title}}</label></button>
           </ng-container>
 
           <!-- Line hr -->
           <ng-container *ngSwitchCase="form.field_type === 'hr'">
-            <label *ngIf="form.label_require == true">{{form.field_title}}</label>
+            <label *ngIf="form.label_required == true">{{form.field_title}}</label>
             <hr>
           </ng-container>
 

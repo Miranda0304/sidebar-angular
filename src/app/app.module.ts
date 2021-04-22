@@ -20,11 +20,19 @@ import { ContextualAreaService } from "src/app/services/Contextual_area_visible/
 import { AppComponent } from './app.component';
 import { LoginComponent } from './views/login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SolutionComponent } from './views/pages/guess/solution/solution.component';
+import { ResourceComponent } from './views/pages/guess/resource/resource.component';
+import { ContactComponent } from './views/pages/guess/contact/contact.component';
+import { HomeComponent } from './views/pages/doctor/home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    SolutionComponent,
+    ResourceComponent,
+    ContactComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

@@ -1,7 +1,7 @@
 <div class="jumbotron" style="background-color: white;">
   <h1 class="display-4">
     <!-- <img src="http://www.arteaga.mx/wp-content/uploads/2015/06/Logo-Arteaga-Cropped1.png" id="logo_home"> -->
-    HOME!
+    Inicio Doctor!
   </h1>
   <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured
     content or information.</p>
@@ -10,18 +10,9 @@
 
   <hr>
 
-  <div class="input-group">
-    <input type="search" name="" [(ngModel)]="name_model" class="form-control" placeholder="Buscar Modelo"
-      aria-describedby="helpId">
-    <button class="btn btn-outline-success" (click)="searchData()">Buscar</button>
+  <div class="col-md-12" align="right">
+    <button (click)="logout()" class="btn btn-danger"><i class="fa fa-sign-out mx-2"
+        aria-hidden="true"></i>Salir</button>
   </div>
-
-  <hr>
-
-  <div class="form-group">
-    <label for="file">Choose File</label>
-    <input type="file" id="image-file" (change)="handleFileInput($event.target.files)">
-  </div>
-
 
 </div>

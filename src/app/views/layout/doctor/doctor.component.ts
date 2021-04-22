@@ -1,29 +1,23 @@
 import { Component, OnInit } from '@angular/core';
 import { ContextualAreaService } from "src/app/services/Contextual_area_visible/contextual-area.service"
-import { IxchelV2Service } from "src/app/services/API_Ixchelv2/ixchel_v2.service"
-import { Router } from '@angular/router';
+
 @Component({
-  selector: 'app-guess',
-  templateUrl: './guess.component.html',
-  styleUrls: ['./guess.component.scss']
+  selector: 'app-doctor',
+  templateUrl: './doctor.component.html',
+  styleUrls: ['./doctor.component.scss']
 })
-export class GuessComponent implements OnInit {
+export class DoctorComponent implements OnInit {
   globalSearcher: string;
-  visibleMenu = true
+  visibleMenu = true;
   isVisibleContextualArea = false;
-  constructor(private _serviceContextualArea: ContextualAreaService,
-    private _ixchelV2Service: IxchelV2Service,
-    private router: Router) {
+
+  constructor(private _serviceContextualArea: ContextualAreaService,) {
     this._serviceContextualArea.readStatusContextualArea.subscribe((data) => {
       this.isVisibleContextualArea = data;
     });
-
-    localStorage.getItem('VISIBLE_MENU') == 'true' ? this.visibleMenu = true : this.visibleMenu = false;
-
   }
 
   ngOnInit(): void {
-
   }
 
   collapse_all() {
@@ -33,5 +27,4 @@ export class GuessComponent implements OnInit {
       window.scroll(10000, 0);
     }, 1);
   }
-
 }

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from "@angular/forms";
-import { forms_json } from "../../../../database/forms-json/forms-json";
-import { views_json } from "../../../../database/views-json/view-json";
+import { forms_json } from "src/database/forms-json/forms-json";
+import { views_json } from "src/database/views-json/view-json";
 import { IxchelV2Service } from "src/app/services/API_Ixchelv2/ixchel_v2.service";
 
 @Component({

@@ -1,0 +1,69 @@
+
+  .component-container {
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    width: 100%;
+  }
+  
+  .menu-sidebar-container {
+    display: inline-flex;
+    max-width: 10000% !important;
+  }
+  
+  .work-area-container {
+    min-width: 46%;
+    width: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+  
+  #btn_collaps_all {
+    min-height: 7%;
+    height: 7%;
+    max-height: 7%;
+    font-size: 12px;
+  }
+  
+  .sidebar-hide {
+    display: none;
+  }
+  
+  .infobar-container {
+    height: 100%;
+    overflow: auto;
+    background-color: white;
+    border: 1px solid #dddd;
+  }
+  
+  @media only screen and (max-width: 850px) {
+    .navbar {
+      position: fixed;
+      top: -8px;
+      z-index: 100;
+      width: 100%;
+      height: 55px;
+  
+      #globalSearcher {
+        height: 6%;
+        width: 100%;
+      }
+  
+      .form-inline {
+        width: 50%;
+      }
+    }// End navbar
+  
+    .component-container {
+      overflow-y: hidden;
+      padding-top: 47px !important;
+    } //End component container
+  
+  }
+  
+  @media only screen and (max-width: 990px) {
+    .component-container {
+      padding-top: 70px;
+    }
+  }
+  

@@ -3,18 +3,18 @@ import { Routes, RouterModule } from '@angular/router';
 
 //Views Component
 import { AdminComponent } from './admin.component';
-import { AttachedAuxComponent } from '../../pages/attached-aux/attached-aux.component';
-import { AttachedComponent } from '../../pages/attached/attached.component';
-import { ExpedientAuxComponent } from '../../pages/expedient-aux/expedient-aux.component';
-import { ExpedientComponent } from '../../pages/expedient/expedient.component';
-import { Expedient1Component } from '../../pages/expedient1/expedient1.component';
-import { HomeComponent } from '../../pages/home/home.component';
-import { InformationAuxComponent } from '../../pages/information-aux/information-aux.component';
-import { InformationComponent } from '../../pages/information/information.component';
-import { TableComponent } from '../../pages/table/table.component';
-import { Table2Component } from '../../pages/table2/table2.component';
-import { UsersAuxComponent } from '../../pages/users-aux/users-aux.component';
-import { UsersComponent } from '../../pages/users/users.component';
+import { AttachedAuxComponent } from '../../pages/admin/attached-aux/attached-aux.component';
+import { AttachedComponent } from '../../pages/admin/attached/attached.component';
+import { ExpedientAuxComponent } from '../../pages/admin/expedient-aux/expedient-aux.component';
+import { ExpedientComponent } from '../../pages/admin/expedient/expedient.component';
+import { Expedient1Component } from '../../pages/admin/expedient1/expedient1.component';
+import { HomeComponent } from '../../pages/admin/home/home.component';
+import { InformationAuxComponent } from '../../pages/admin/information-aux/information-aux.component';
+import { InformationComponent } from '../../pages/admin/information/information.component';
+import { TableComponent } from '../../pages/admin/table/table.component';
+import { Table2Component } from '../../pages/admin/table2/table2.component';
+import { UsersAuxComponent } from '../../pages/admin/users-aux/users-aux.component';
+import { UsersComponent } from '../../pages/admin/users/users.component';
 
 
 const routes: Routes = [
@@ -60,9 +60,10 @@ const routes: Routes = [
             { path: 'information3', component: InformationAuxComponent },
             { path: 'information4', component: InformationComponent },
             { path: 'information5', component: InformationAuxComponent },
+
+            { path: '**', pathMatch: 'full', redirectTo: 'home' }
         ]
-    },
-    { path: '**', pathMatch: 'full', redirectTo: 'home' }
+    }
 ];
 
 @NgModule({

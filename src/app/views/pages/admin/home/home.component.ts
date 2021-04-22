@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { IxchelV2Service } from "../../../services/API_Ixchelv2/ixchel_v2.service";
+import { IxchelV2Service } from "src/app/services/API_Ixchelv2/ixchel_v2.service";
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',

@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { catchError, map } from 'rxjs/operators';
 import { ToastService } from 'ng-uikit-pro-standard';
 import { Md5 } from 'ts-md5/dist/md5';
+import { login_json } from 'src/database/login-json/login-json';
 
 const URL_IXCHEL = 'http://rs02.arteaga.mx:3000/rpc/api';
 
@@ -28,6 +29,10 @@ export class IxchelV2Service {
             return response;
         })).toPromise();
 
+        //let data = login_json;
+
+        console.log(data);
+
         if (data.message == 'OK') {
             this.toast.success(`Bienvenido ${user.username}`, '', { opacity: 1, timeOut: 2000, positionClass: 'md-toast-top-center' });
         } else {
@@ -51,6 +56,7 @@ export class IxchelV2Service {
                 localStorage.removeItem('token');
                 localStorage.removeItem('user');
                 localStorage.removeItem('password');
+                localStorage.removeItem('rol');
                 window.location.reload();
             }
             return response
@@ -65,6 +71,7 @@ export class IxchelV2Service {
         localStorage.setItem('token', user.data[0].id);
         localStorage.setItem('user', user.data[0].name);
         localStorage.setItem('password', password);
+        localStorage.setItem('rol', user.data[0].rol);
 
         //Date of expiration
         let expireDate = new Date();
@@ -83,13 +90,13 @@ export class IxchelV2Service {
     }
 
     isAuthenticated(): boolean {
+
         if (this.userToken == "") {
             return false;
         }
 
         const expireAt = Number(localStorage.getItem('expireAt'));
         const actualDate = new Date();
-
         actualDate.setTime(expireAt);
 
         if (actualDate > new Date()) {

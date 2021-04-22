@@ -19,9 +19,12 @@ export class LoginComponent implements OnInit {
 
   constructor(private _ixchelV2Service: IxchelV2Service,
     private router: Router, private toast: ToastService) {
+
+    //Redirección segun el rol
     if (this._ixchelV2Service.isAuthenticated()) {
-      this.router.navigateByUrl('administrador/home');
+      this.redirectionRoutes();
     }
+
   }
 
   ngOnInit(): void {
@@ -41,11 +44,20 @@ export class LoginComponent implements OnInit {
 
     this._ixchelV2Service.login(this.user).then((result) => {
       this.remember();
-      this.router.navigateByUrl('administrador/home');
+      this.redirectionRoutes();
     }).catch((err) => {
 
     });
 
+  }
+
+  redirectionRoutes() {
+    if (localStorage.getItem('rol') == 'admin') {
+      this.router.navigateByUrl('administrador');
+    }
+    if (localStorage.getItem('rol') == 'doctor') {
+      this.router.navigateByUrl('doctor');
+    }
   }
 
   remember() {
