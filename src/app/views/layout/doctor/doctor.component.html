@@ -1,11 +1,11 @@
-<div class="d-flex component-container">
+<div class="d-flex component-container" style="background-color: #484f50;">
     <!-- Views menu area -->
-    <app-menu [searcherText]="globalSearcher"
+    <app-menu [searcherText]="globalSearcher" style="background-color: gray !important;"
       [ngClass]="visibleMenu ? 'menu-sidebar-container animated fadeIn' : 'sidebar-container sidebar-hide'">
     </app-menu>
   
     <!-- Button Collapse -->
-    <button class="btn btn-outline-info" id="btn_collaps_all" (click)="collapse_all()">
+    <button class="btn btn-outline-dark" id="btn_collaps_all" (click)="collapse_all()">
       <li class="fa fa-outdent"></li>
     </button>
   
@@ -15,8 +15,8 @@
     </div>
   
     <!-- View contextual-area -->
-    <app-contextual-area class="col-md-2 offset-md-12 infobar-container" *ngIf="isVisibleContextualArea == true">
-    </app-contextual-area>
+    <!-- <app-contextual-area class="col-md-2 offset-md-12 infobar-container" *ngIf="isVisibleContextualArea == true">
+    </app-contextual-area> -->
 
   </div>
   

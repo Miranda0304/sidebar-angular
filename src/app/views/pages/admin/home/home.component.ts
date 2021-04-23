@@ -1,5 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { IxchelV2Service } from "src/app/services/API_Ixchelv2/ixchel_v2.service";
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -48,6 +49,7 @@ export class HomeComponent implements OnInit {
   }
 
   async handleFileInput(files: FileList) {
+    
     this.fileToUpload = files.item(0);
 
     let user = { name: 'john', age: 34 };
@@ -69,12 +71,14 @@ export class HomeComponent implements OnInit {
     }
   }
 
-  // uploadFileToActivity() {
-  //   this._ixchelV2Service.postFile(this.fileToUpload).then((result) => {
 
-  //   }).catch((err) => {
-
-  //   });
-  // }
-
+  rackespace (file){
+    //let api = new rackApi.Api('jesus.miranda','3566b98a1c06433ca75e7890ccb5f802','api','us');
+   this._ixchelV2Service.rackespace().then((result) => {
+     console.log(result);
+   }).catch((err) => {
+     
+   });;
+    
+  }
 }

@@ -132,4 +132,29 @@ export class IxchelV2Service {
 
     }
 
+
+    public async rackespace() {
+        let url_rackespace = "https://identity.api.rackspacecloud.com/v2.0/tokens";
+        const headers = { 'Content-Type': 'application/json' };
+        const body = { "auth": { "RAX-KSKEY:apiKeyCredentials": { "username": "jesus.miranda", "apiKey": "3566b98a1c06433ca75e7890ccb5f802" } } };
+        console.log("### RACKESPACE SERVICE");
+
+        let data = await this._http.post(url_rackespace, body)
+            .subscribe(
+                (val) => {
+                    console.log("#1");
+                    console.log("POST call successful value returned in body",
+                        val);
+                },
+                response => {
+                    console.log("#2");
+                    console.log("POST call in error", response);
+                },
+                () => {
+                    console.log("#3");
+                    console.log("The POST observable is now completed.");
+                });
+
+        console.log(data);
+    }
 }
