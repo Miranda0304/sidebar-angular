@@ -17,28 +17,20 @@ import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { AdminComponent } from './admin.component';
 import { MenuModule } from '../../../views/shared/menu/menu.module';
 import { ContextualAreaModule } from '../../../views/shared/contextual_area/contextual-area.module';
-import { ContextualAreaComponent } from '../../../views/shared/contextual_area/contextual-area.component';
 
 //Services
 import { ContextualAreaService } from "src/app/services/Contextual_area_visible/contextual-area.service";
 import { IxchelV2Service } from "src/app/services/API_Ixchelv2/ixchel_v2.service";
+import { AuthenticationService } from "src/app/services/Authentication/authentication.service";
+import { RackspaceService } from "src/app/services/Rackspace/rackspace.service";
 
 //Components Views
 import { HomeComponent } from '../../../views/pages/admin/home/home.component';
-import { ExpedientComponent } from '../../../views/pages/admin/expedient/expedient.component';
-import { UsersComponent } from '../../../views/pages/admin/users/users.component';
-import { AttachedComponent } from '../../pages/admin/attached/attached.component';
-import { InformationComponent } from '../../../views/pages/admin/information/information.component';
-import { ExpedientAuxComponent } from '../../../views/pages/admin/expedient-aux/expedient-aux.component';
-import { UsersAuxComponent } from '../../../views/pages/admin/users-aux/users-aux.component';
-import { AttachedAuxComponent } from '../../../views/pages/admin/attached-aux/attached-aux.component';
-import { InformationAuxComponent } from '../../../views/pages/admin/information-aux/information-aux.component';
-import { Expedient1Component } from '../../../views/pages/admin/expedient1/expedient1.component';
+import { DocumentComponent } from '../../pages/admin/document/document.component';
+import { ContactComponent } from '../../pages/admin/contact/contact.component';
 import { TablesComponent } from 'src/app/views/shared/tables/tables.component';
 import { TableComponent } from '../../../views/pages/admin/table/table.component';
 import { Table2Component } from '../../../views/pages/admin/table2/table2.component';
-
-
 
 
 @NgModule({
@@ -57,22 +49,17 @@ import { Table2Component } from '../../../views/pages/admin/table2/table2.compon
     declarations: [
         AdminComponent,
         HomeComponent,
-        ExpedientComponent,
-        UsersComponent,
-        AttachedComponent,
-        InformationComponent,
-        ExpedientAuxComponent,
-        UsersAuxComponent,
-        AttachedAuxComponent,
-        InformationAuxComponent,
-        Expedient1Component,
+        DocumentComponent,
+        ContactComponent,
         TablesComponent,
         TableComponent,
         Table2Component
     ],
     providers: [
         ContextualAreaService,
-        IxchelV2Service
+        IxchelV2Service,
+        RackspaceService,
+        AuthenticationService
     ],
 })
 export class AdminModule { }

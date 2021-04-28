@@ -4,7 +4,7 @@ export const menu_json = {
     {
       id: "id_home_menu_01",
       icon: "fa fa-home",
-      title: "Home°°",
+      title: "Inicio°°",
       path: 'home',
       badge: '10',
       badgeClass: 'badge badge-secondary',
@@ -17,7 +17,7 @@ export const menu_json = {
     {
       id: "id_expedient_menu_02",
       icon: "fa fa-book",
-      title: "Expedient",
+      title: "Contactos",
       path: 'contacts',
       badge: '1050',
       badgeClass: 'badge badge-light',
@@ -258,7 +258,7 @@ export const menu_json = {
     {
       id: "id_user_menu_01",
       icon: "fa fa-user-circle-o",
-      title: "Users",
+      title: "Ventas",
       path: 'appt',
       badge: '5',
       badgeClass: 'badge badge-primary',
@@ -397,7 +397,7 @@ export const menu_json = {
     {
       id: "id_attached_menu_01",
       icon: "fa fa-paperclip",
-      title: "Attached",
+      title: "Expediente",
       path: 'pos',
       badge: '5',
       badgeClass: 'badge badge-dark',
@@ -461,8 +461,8 @@ export const menu_json = {
     {
       id: "id_information_menu_01",
       icon: "fa fa-info-circle",
-      title: "Information",
-      path: 'epm',
+      title: "Documentos",
+      path: 'dms',
       badge: '115',
       badgeClass: 'badge badge-danger',
       ordinal: 4,
@@ -532,154 +532,6 @@ export const menu_json = {
           ]
         }
       ]
-    },
-
-    {
-      id: "id_home_menu_01",
-      icon: "fa fa-bar-chart",
-      title: "Home°°",
-      path: 'homeFalse',
-      badge: null,
-      badgeClass: null,
-      ordinal: 10,
-      collapse: false,
-      contextual_area: true,
-      submenu: []
-    },
-
-    {
-      id: "id_home_menu_01",
-      icon: "fa fa-bar-chart",
-      title: "Home°°",
-      path: 'homeFalse',
-      badge: null,
-      badgeClass: null,
-      ordinal: 10,
-      collapse: false,
-      contextual_area: true,
-      submenu: []
-    },
-
-    {
-      id: "id_home_menu_01",
-      icon: "fa fa-bar-chart",
-      title: "Home°°",
-      path: 'homeFalse',
-      badge: null,
-      badgeClass: null,
-      ordinal: 10,
-      collapse: false,
-      contextual_area: true,
-      submenu: []
-    },
-
-    {
-      id: "id_home_menu_01",
-      icon: "fa fa-bar-chart",
-      title: "Home°°",
-      path: 'homeFalse',
-      badge: null,
-      badgeClass: null,
-      ordinal: 10,
-      collapse: false,
-      contextual_area: true,
-      submenu: []
-    },
-    {
-      id: "id_home_menu_01",
-      icon: "fa fa-bar-chart",
-      title: "Home°°",
-      path: 'homeFalse',
-      badge: null,
-      badgeClass: null,
-      ordinal: 10,
-      collapse: false,
-      contextual_area: true,
-      submenu: []
-    },
-    {
-      id: "id_home_menu_01",
-      icon: "fa fa-bar-chart",
-      title: "Home°°",
-      path: 'homeFalse',
-      badge: null,
-      badgeClass: null,
-      ordinal: 10,
-      collapse: false,
-      contextual_area: true,
-      submenu: []
-    },
-    {
-      id: "id_home_menu_01",
-      icon: "fa fa-bar-chart",
-      title: "Home°°",
-      path: 'homeFalse',
-      badge: null,
-      badgeClass: null,
-      ordinal: 10,
-      collapse: false,
-      contextual_area: true,
-      submenu: []
-    },
-    {
-      id: "id_home_menu_01",
-      icon: "fa fa-bar-chart",
-      title: "Home°°",
-      path: 'homeFalse',
-      badge: null,
-      badgeClass: null,
-      ordinal: 10,
-      collapse: false,
-      contextual_area: true,
-      submenu: []
-    },
-    {
-      id: "id_home_menu_01",
-      icon: "fa fa-bar-chart",
-      title: "Home°°",
-      path: 'homeFalse',
-      badge: null,
-      badgeClass: null,
-      ordinal: 10,
-      collapse: false,
-      contextual_area: true,
-      submenu: []
-    },
-    {
-      id: "id_home_menu_01",
-      icon: "fa fa-bar-chart",
-      title: "Home°°",
-      path: 'homeFalse',
-      badge: null,
-      badgeClass: null,
-      ordinal: 10,
-      collapse: false,
-      contextual_area: true,
-      submenu: []
-    },
-    {
-      id: "id_home_menu_01",
-      icon: "fa fa-bar-chart",
-      title: "Home°°",
-      path: 'homeFalse',
-      badge: null,
-      badgeClass: null,
-      ordinal: 10,
-      collapse: false,
-      contextual_area: true,
-      submenu: []
-    },
-    {
-      id: "id_home_menu_01",
-      icon: "fa fa-bar-chart",
-      title: "Home°°",
-      path: 'homeFalse',
-      badge: null,
-      badgeClass: null,
-      ordinal: 1,
-      collapse: false,
-      contextual_area: true,
-      submenu: []
-    },
+    }
   ]
 }

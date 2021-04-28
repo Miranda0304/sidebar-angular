@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ContextualAreaService } from "src/app/services/Contextual_area_visible/contextual-area.service"
-import { IxchelV2Service } from "src/app/services/API_Ixchelv2/ixchel_v2.service"
+import { AuthenticationService } from "src/app/services/Authentication/authentication.service"
 import { Router } from '@angular/router';
 
 @Component({
@@ -15,7 +15,7 @@ export class AdminComponent implements OnInit {
   isVisibleContextualArea = false;
 
   constructor(private _serviceContextualArea: ContextualAreaService,
-    private _ixchelV2Service: IxchelV2Service,
+    private _authenticationService: AuthenticationService,
     private router: Router) {
     this._serviceContextualArea.readStatusContextualArea.subscribe((data) => {
       this.isVisibleContextualArea = data;
@@ -38,11 +38,7 @@ export class AdminComponent implements OnInit {
   }
 
   async logout() {
-    await this._ixchelV2Service.logout().then((result) => {
-
-    }).catch((err) => {
-
-    });
+    await this._authenticationService.logout();
   }
 
 }

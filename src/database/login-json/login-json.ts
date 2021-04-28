@@ -5,7 +5,7 @@ export const login_json = {
             "id": "f686d45a-c49b-43be-bfee-27b65b5936f2",
             "img": "/assets/img/profile-pic-l.jpg",
             "name": "admin",
-            "rol": "admin",
+            "role": "admin",
             "active": true,
             "user_id": "a8cf6785-8680-4daf-8000-8ccf1d885cff",
             "person_id": null,

@@ -1,5 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { IxchelV2Service } from "src/app/services/API_Ixchelv2/ixchel_v2.service";
+import { RackspaceService } from "src/app/services/Rackspace/rackspace.service";
 
 @Component({
   selector: 'app-home',
@@ -10,7 +11,7 @@ export class HomeComponent implements OnInit {
   fileToUpload: File = null;
 
 
-  constructor(private _ixchelV2Service: IxchelV2Service) {
+  constructor(private _ixchelV2Service: IxchelV2Service, private _rackspaceService: RackspaceService) {
   }
 
   ngOnInit(): void {
@@ -49,7 +50,7 @@ export class HomeComponent implements OnInit {
   }
 
   async handleFileInput(files: FileList) {
-    
+
     this.fileToUpload = files.item(0);
 
     let user = { name: 'john', age: 34 };
@@ -72,13 +73,11 @@ export class HomeComponent implements OnInit {
   }
 
 
-  rackespace (file){
+  rackespace(file) {
     //let api = new rackApi.Api('jesus.miranda','3566b98a1c06433ca75e7890ccb5f802','api','us');
-   this._ixchelV2Service.rackespace().then((result) => {
-     console.log(result);
-   }).catch((err) => {
-     
-   });;
-    
+    this._rackspaceService.rackespace().then((result) => {
+      // console.log(result);
+    });
   }
+  
 }

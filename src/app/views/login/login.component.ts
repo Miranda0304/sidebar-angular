@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import { IxchelV2Service } from "src/app/services/API_Ixchelv2/ixchel_v2.service";
+import { AuthenticationService } from "src/app/services/Authentication/authentication.service";
+import { RackspaceService } from "src/app/services/Rackspace/rackspace.service";
 import { ToastService } from 'ng-uikit-pro-standard';
 
 @Component({
@@ -16,12 +17,13 @@ export class LoginComponent implements OnInit {
 
   user: UserModel = new UserModel();
   rememberme = false;
+  current_year = new Date().getFullYear();
 
-  constructor(private _ixchelV2Service: IxchelV2Service,
+  constructor(private _authenticationService: AuthenticationService,
     private router: Router, private toast: ToastService) {
 
     //Redirección segun el rol
-    if (this._ixchelV2Service.isAuthenticated()) {
+    if (this._authenticationService.isAuthenticated()) {
       this.redirectionRoutes();
     }
 
@@ -42,13 +44,10 @@ export class LoginComponent implements OnInit {
   login(form: NgForm) {
     if (form.invalid) { return };
 
-    this._ixchelV2Service.login(this.user).then((result) => {
+    this._authenticationService.login(this.user).then((result) => {
       this.remember();
       this.redirectionRoutes();
-    }).catch((err) => {
-
     });
-
   }
 
   redirectionRoutes() {

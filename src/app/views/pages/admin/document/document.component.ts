@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-information-aux',
-  templateUrl: './information-aux.component.html',
-  styleUrls: ['./information-aux.component.scss']
+  selector: 'app-document',
+  templateUrl: './document.component.html',
+  styleUrls: ['./document.component.scss']
 })
-export class InformationAuxComponent implements OnInit {
+export class DocumentComponent implements OnInit {
 
   pdfSrc = "https://vadimdez.github.io/ng2-pdf-viewer/assets/pdf-test.pdf";
 

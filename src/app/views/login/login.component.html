@@ -3,31 +3,23 @@
   <img src="./assets/images/login/umaru.png" alt="Logo">
 </div>
 
-<div class="container">
-  <div class="card">
-    <div class="card-header">
-      
-      <div class="col-md-12">
-        <label for="">Inicio de sesión</label>
-      </div>
 
-      <div class="col-md-12" align="right">
-        <a class="btn btn-info" [routerLink]="['/invitado']">Información</a>
-      </div>
+<div class=" container">
 
-    </div>
-    <div class="card-body">
-      <h5 class="card-title">Ixchel v2</h5>
-      <!-- no borrar ngSubmit -->
-      <!-- Mantener los ngModel de cada input y checkbox -->
-      <form (ngSubmit)="login(f)" #f="ngForm">
+  <form class="form-signin" (ngSubmit)="login(f)" #f="ngForm">
+    <div class="card">
+      <div class="card-header text-center">
+        <img src="http://www.arteaga.mx/wp-content/uploads/2015/06/Logo-Arteaga-Cropped1.png" id="logo_home" width="100"
+          height="80" style="border-radius: 15px;">
+        <h4 class="h3 mb-3 font-weight-normal">Iniciar Sesión</h4>
+      </div>
+      <div class="card-body">
         <div class="form-group">
           <label for="exampleInputEmail1">Usuario</label>
           <input [(ngModel)]="user.username" name="username" type="text" class="form-control" required>
           <!-- no borrar los span y mantener el mismo name en el input-->
           <span *ngIf="f.submitted && f.controls['username'].errors" class="text-danger animated faddeIn">El Usuario es
             obligatiorio</span>
-          <small id="emailHelp" class="form-text text-muted">We'll never share your user name with anyone else.</small>
         </div>
         <div class="form-group">
           <label for="exampleInputPassword1">Contraseña</label>
@@ -37,13 +29,21 @@
             es obligatoria</span>
         </div>
         <div class="form-group form-check">
-          <input [(ngModel)]="rememberme" type="checkbox" class="form-check-input">
-          <label class="form-check-label" for="exampleCheck1">Recordarme</label>
+          <input [(ngModel)]="rememberme" id="check_rememberme" type="checkbox" class="form-check-input">
+          <label class="form-check-label" for="check_rememberme">Recordarme</label>
           <small id="emailHelp" class="form-text text-muted">( si esta es una computadora privada )</small>
+          <div class="col-md-12" align="right">
+            <a class="btn btn-info" [routerLink]="['/invitado']">Información</a>
+          </div>
+
         </div>
-        <button type="submit" class="btn btn-primary">Entrar</button>
-      </form>
+      </div>
+      <div class="card-footer text-center">
+        <button type="submit" class="btn btn-primary btn-lg btn-block">Entrar</button>
+        <h6 class="mt-5  text-muted">©Arteaga Consulting Services</h6>
+        <small class="mt-5  text-muted">2016 - {{current_year}}</small>
+      </div>
     </div>
-  </div>
+  </form>
 
 </div>

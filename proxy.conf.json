@@ -1,0 +1,20 @@
+{
+  "/v2.0": {
+    "target": "https://identity.api.rackspacecloud.com",
+    "secure": true,
+    "logLevel": "debug",
+    "changeOrigin": true
+  },
+  "/v2": {
+    "target": "https://dfw.servers.api.rackspacecloud.com",
+    "secure": true,
+    "logLevel": "debug",
+    "changeOrigin": true
+  },
+  "/v21": {
+    "target": "https://dfw.images.api.rackspacecloud.com",
+    "secure": true,
+    "logLevel": "debug",
+    "changeOrigin": true
+  }
+}

@@ -14,11 +14,7 @@ export class HomeComponent implements OnInit {
   }
 
   async logout() {
-    await this._ixchelV2Service.logout().then((result) => {
-
-    }).catch((err) => {
-
-    });
+   
   }
 
 }

@@ -27,18 +27,14 @@ export class MenuComponent implements OnInit {
     new VisibleMenu()
   ]
 
-  isLocal = true;
 
   constructor(private _serviceContextualArea: ContextualAreaService, private _ixchelV2Service: IxchelV2Service) {
 
-    this.list_menus[1] = menu_json.data.sort((a, b) => a.ordinal - b.ordinal);
-
-    // this._ixchelV2Service.getNavList().then((result) => {
-    //   console.log(result);
-    //   this.list_menus[1] = result.sort((a, b) => a.ordinal - b.ordinal);
-    // }).catch((err) => {
-    //   console.log(err);
-    // });
+    this._ixchelV2Service.getNavList().then((result) => {
+      this.list_menus[1] = result.sort((a, b) => a.ordinal - b.ordinal);
+    }).catch((err) => {
+      console.log(err);
+    });
 
     localStorage.getItem('CONTEXTUAL_AREA') == 'true' ? this.contextual_area = true : this.contextual_area = false;
 
@@ -74,19 +70,6 @@ export class MenuComponent implements OnInit {
     this._serviceContextualArea.isVisible(this.contextual_area);
     localStorage.setItem("CONTEXTUAL_AREA", this.contextual_area);
   }
-
-  changeList() {
-    if (this.isLocal) {
-      this._ixchelV2Service.getNavList().then((result) => {
-        this.list_menus[1] = result;
-      }).catch((err) => {
-        console.log(err);
-      });
-    } else {
-      this.list_menus[1] = menu_json.data;
-    }
-  }
-
 
 }
 
