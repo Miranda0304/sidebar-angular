@@ -19,6 +19,7 @@
   </div>
 </div>
 
+<!-- Next Levels -->
 <div *ngFor="let turn of number_turns">
   <div [className]="lstVisible[turn + 1].isCollapse? 'col-md-auto style-col redux' : 'col-md-auto style-col'"
     *ngIf="lstVisible[turn + 1].isVisible == true">

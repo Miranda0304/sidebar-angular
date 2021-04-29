@@ -25,7 +25,7 @@ export class ContactComponent implements OnInit {
   async loadForms() {
     let lst_view = views_json.data.filter(x => x.id_view == this.name_component).map(x => x.forms)[0];
 
-    await this._ixchelV2Service.getData('sys_form_fields').then((result) => {
+    await this._ixchelV2Service.getForm('vw_sys_fields', 'person').then((result) => {
       //this.lst_forms = forms_json.data.filter((form) => lst_view.includes(form.form_name)).sort((a, b) => a.ordinal - b.ordinal);
       this.lst_forms = result.filter((form) => lst_view.includes(form.form_name)).sort((a, b) => a.ordinal - b.ordinal);;
 

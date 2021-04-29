@@ -31,16 +31,16 @@ export class IxchelV2Service {
         return data;
     }
 
-    public async getData(name_model: string) {
+    public async getData(model_name: string) {
         this.readToken();
-        if (name_model == "") return;
+        if (model_name == "") return;
 
         const headers = { 'Prefer': 'params=single-object', 'Content-Type': 'application/json' };
-        const body = { "action": "get_data", "sessionID": this.user_token, "data": { "model": name_model } };
+        const body = { "action": "get_data", "sessionID": this.user_token, "data": { "model": model_name } };
 
         let data = await this._http.post(URL_IXCHEL, body, { headers }).toPromise().then((result: any) => {
             console.log("### GetData ###");
-            console.log(`Model: ${name_model}`, result);
+            console.log(`Model: ${model_name}`, result);
 
             if (result.data.length > 0 && result.message == "OK") {
                 return result.data
@@ -52,16 +52,37 @@ export class IxchelV2Service {
         return data;
     }
 
-    public async upsert(name_model: string, obj_data: {}) {
+    public async getForm(model_name: string, form_name?: string) {
         this.readToken();
-        if (name_model == "") return;
+        if (model_name == "") return;
 
         const headers = { 'Prefer': 'params=single-object', 'Content-Type': 'application/json' };
-        const body = { "action": "upsert", "sessionID": this.user_token, "data": { "model": name_model } };
+        const body = { "action": "get_data", "sessionID": this.user_token, "data": { "model": model_name, "form_name": form_name } };
+
+        let data = await this._http.post(URL_IXCHEL, body, { headers }).toPromise().then((result: any) => {
+            console.log("### GetData ###");
+            console.log(`Model: ${model_name}`, result);
+
+            if (result.data.length > 0 && result.message == "OK") {
+                return result.data
+            }
+        }).catch((err) => {
+            this.toast.error(err.message, '', { opacity: 1, timeOut: 3000, positionClass: 'md-toast-top-center' });
+        });
+
+        return data;
+    }
+
+    public async upsert(model_name: string, obj_data: {}) {
+        this.readToken();
+        if (model_name == "") return;
+
+        const headers = { 'Prefer': 'params=single-object', 'Content-Type': 'application/json' };
+        const body = { "action": "upsert", "sessionID": this.user_token, "data": { "model": model_name } };
 
         // let data = await this._http.post(URL_IXCHEL, body, { headers }).toPromise().then((result: any) => {
         //     console.log("### GetData ###");
-        //     console.log(`Model: ${name_model}`, result);
+        //     console.log(`Model: ${model_name}`, result);
 
         //     if (result.data.length > 0 && result.message == "OK") {
         //         return result.data

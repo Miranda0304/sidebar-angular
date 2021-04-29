@@ -1,8 +1,9 @@
+<br>
 <div *ngIf="lst_tables.length > 0 ">
   <h2>Dynamic Tables View Partial</h2>
-
   <div *ngFor="let table of lst_tables" class="my-4">
     <h3>{{table.title}}</h3>
+    <br>
     <table datatable [dtOptions]="dtOptions" class="{{table.theme_table}}" [ngStyle]="{'text-align': table.text_align}">
       <thead class="{{table.theme_header}}">
         <tr>
@@ -15,5 +16,7 @@
         </tr>
       </tbody>
     </table>
+    <br><br><br>
   </div>
 </div>
+

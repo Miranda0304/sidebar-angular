@@ -8,7 +8,7 @@ export const views_json = {
         },
         {
             id_view: "view_contact",
-            forms: ['form_user', 'form_address', 'form_others'],
+            forms: ['person','form_user', 'form_address', 'form_others'],
             tables: ['table_attached'],
             contextual_area: ''
         },

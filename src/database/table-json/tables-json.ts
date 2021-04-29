@@ -6,8 +6,8 @@ export const tables_json = {
             order: 1,
             title: 'Tabla de Usuarios',
             text_align: null,
-            theme_table: 'table', //table table-dark, table-hover, table-sm
-            theme_header: 'thead-dark',
+            theme_table: 'table table-sm', //table table-dark, table-hover, table-sm
+            theme_header: '',
             header: [
                 {
                     title: 'Full Name'
@@ -24,7 +24,6 @@ export const tables_json = {
             ],
             tr: [
                 {
-                    theme_tr: 'table-primary',
                     td: [
                         {
                             information: 'Luis Arteaga'
@@ -41,7 +40,6 @@ export const tables_json = {
                     ]
                 },
                 {
-                    theme_tr: 'table-success',
                     td: [
                         {
                             information: 'Remberto Machuca'
@@ -58,7 +56,6 @@ export const tables_json = {
                     ]
                 },
                 {
-                    theme_tr: 'table-danger',
                     td: [
                         {
                             information: 'Flor Perez'
@@ -75,7 +72,6 @@ export const tables_json = {
                     ]
                 },
                 {
-                    theme_tr: 'table-primary',
                     td: [
                         {
                             information: 'Luis Arteaga'
@@ -92,7 +88,6 @@ export const tables_json = {
                     ]
                 },
                 {
-                    theme_tr: 'table-success',
                     td: [
                         {
                             information: 'Remberto Machuca'
@@ -109,7 +104,6 @@ export const tables_json = {
                     ]
                 },
                 {
-                    theme_tr: 'table-danger',
                     td: [
                         {
                             information: 'Flor Perez'
@@ -126,7 +120,6 @@ export const tables_json = {
                     ]
                 },
                 {
-                    theme_tr: 'table-primary',
                     td: [
                         {
                             information: 'Luis Arteaga'
@@ -143,7 +136,6 @@ export const tables_json = {
                     ]
                 },
                 {
-                    theme_tr: 'table-success',
                     td: [
                         {
                             information: 'Remberto Machuca'
@@ -160,7 +152,6 @@ export const tables_json = {
                     ]
                 },
                 {
-                    theme_tr: 'table-danger',
                     td: [
                         {
                             information: 'Flor Perez'
@@ -177,7 +168,6 @@ export const tables_json = {
                     ]
                 },
                 {
-                    theme_tr: 'table-primary',
                     td: [
                         {
                             information: 'Luis Arteaga'
@@ -194,7 +184,6 @@ export const tables_json = {
                     ]
                 },
                 {
-                    theme_tr: 'table-success',
                     td: [
                         {
                             information: 'Remberto Machuca'
@@ -211,7 +200,6 @@ export const tables_json = {
                     ]
                 },
                 {
-                    theme_tr: 'table-danger',
                     td: [
                         {
                             information: 'Flor Perez'
@@ -228,7 +216,6 @@ export const tables_json = {
                     ]
                 },
                 {
-                    theme_tr: 'table-primary',
                     td: [
                         {
                             information: 'Luis Arteaga'
@@ -245,7 +232,6 @@ export const tables_json = {
                     ]
                 },
                 {
-                    theme_tr: 'table-success',
                     td: [
                         {
                             information: 'Remberto Machuca'
@@ -262,7 +248,6 @@ export const tables_json = {
                     ]
                 },
                 {
-                    theme_tr: 'table-danger',
                     td: [
                         {
                             information: 'Flor Perez'
@@ -279,7 +264,6 @@ export const tables_json = {
                     ]
                 },
                 {
-                    theme_tr: 'table-primary',
                     td: [
                         {
                             information: 'Luis Arteaga'
@@ -296,7 +280,6 @@ export const tables_json = {
                     ]
                 },
                 {
-                    theme_tr: 'table-success',
                     td: [
                         {
                             information: 'Remberto Machuca'
@@ -313,7 +296,6 @@ export const tables_json = {
                     ]
                 },
                 {
-                    theme_tr: 'table-danger',
                     td: [
                         {
                             information: 'Flor Perez'
@@ -330,7 +312,6 @@ export const tables_json = {
                     ]
                 },
                 {
-                    theme_tr: 'table-primary',
                     td: [
                         {
                             information: 'Luis Arteaga'
@@ -347,7 +328,6 @@ export const tables_json = {
                     ]
                 },
                 {
-                    theme_tr: 'table-success',
                     td: [
                         {
                             information: 'Remberto Machuca'
@@ -364,7 +344,6 @@ export const tables_json = {
                     ]
                 },
                 {
-                    theme_tr: 'table-danger',
                     td: [
                         {
                             information: 'Flor Perez'
@@ -381,7 +360,6 @@ export const tables_json = {
                     ]
                 },
                 {
-                    theme_tr: 'table-primary',
                     td: [
                         {
                             information: 'Luis Arteaga'
@@ -398,7 +376,6 @@ export const tables_json = {
                     ]
                 },
                 {
-                    theme_tr: 'table-success',
                     td: [
                         {
                             information: 'Remberto Machuca'
@@ -415,7 +392,6 @@ export const tables_json = {
                     ]
                 },
                 {
-                    theme_tr: 'table-danger',
                     td: [
                         {
                             information: 'Flor Perez'
@@ -432,7 +408,6 @@ export const tables_json = {
                     ]
                 },
                 {
-                    theme_tr: 'table-primary',
                     td: [
                         {
                             information: 'Luis Arteaga'
@@ -449,7 +424,6 @@ export const tables_json = {
                     ]
                 },
                 {
-                    theme_tr: 'table-success',
                     td: [
                         {
                             information: 'Remberto Machuca'
@@ -466,7 +440,6 @@ export const tables_json = {
                     ]
                 },
                 {
-                    theme_tr: 'table-danger',
                     td: [
                         {
                             information: 'Flor Perez'
@@ -490,8 +463,8 @@ export const tables_json = {
             order: 2,
             title: 'Tabla de Adjuntos',
             text_align: null,
-            theme_table: 'table', //table table-dark, table-hover, table-sm
-            theme_header: 'thead-dark',
+            theme_table: 'table table-sm', //table table-dark, table-hover, table-sm
+            theme_header: '',
             header: [
                 {
                     title: 'File Name',
@@ -508,7 +481,6 @@ export const tables_json = {
             ],
             tr: [
                 {
-                    theme_tr: null,
                     td: [
                         {
                             information: 'Training'
@@ -522,7 +494,6 @@ export const tables_json = {
                     ]
                 },
                 {
-                    theme_tr: null,
                     td: [
                         {
                             information: 'Presentation 1'
@@ -536,7 +507,6 @@ export const tables_json = {
                     ]
                 },
                 {
-                    theme_tr: null,
                     td: [
                         {
                             information: 'Nav JSON'
@@ -550,7 +520,6 @@ export const tables_json = {
                     ]
                 },
                 {
-                    theme_tr: null,
                     td: [
                         {
                             information: 'Training'
@@ -564,7 +533,6 @@ export const tables_json = {
                     ]
                 },
                 {
-                    theme_tr: null,
                     td: [
                         {
                             information: 'Presentation 1'
@@ -578,7 +546,6 @@ export const tables_json = {
                     ]
                 },
                 {
-                    theme_tr: null,
                     td: [
                         {
                             information: 'Nav JSON'
@@ -592,7 +559,6 @@ export const tables_json = {
                     ]
                 },
                 {
-                    theme_tr: null,
                     td: [
                         {
                             information: 'Training'
@@ -606,7 +572,6 @@ export const tables_json = {
                     ]
                 },
                 {
-                    theme_tr: null,
                     td: [
                         {
                             information: 'Presentation 1'
@@ -620,7 +585,6 @@ export const tables_json = {
                     ]
                 },
                 {
-                    theme_tr: null,
                     td: [
                         {
                             information: 'Nav JSON'
@@ -634,7 +598,6 @@ export const tables_json = {
                     ]
                 },
                 {
-                    theme_tr: null,
                     td: [
                         {
                             information: 'Training'
@@ -648,7 +611,6 @@ export const tables_json = {
                     ]
                 },
                 {
-                    theme_tr: null,
                     td: [
                         {
                             information: 'Presentation 1'
@@ -662,7 +624,6 @@ export const tables_json = {
                     ]
                 },
                 {
-                    theme_tr: null,
                     td: [
                         {
                             information: 'Nav JSON'
@@ -676,7 +637,6 @@ export const tables_json = {
                     ]
                 },
                 {
-                    theme_tr: null,
                     td: [
                         {
                             information: 'Training'
@@ -690,7 +650,6 @@ export const tables_json = {
                     ]
                 },
                 {
-                    theme_tr: null,
                     td: [
                         {
                             information: 'Presentation 1'
@@ -704,7 +663,6 @@ export const tables_json = {
                     ]
                 },
                 {
-                    theme_tr: null,
                     td: [
                         {
                             information: 'Nav JSON'
@@ -718,7 +676,6 @@ export const tables_json = {
                     ]
                 },
                 {
-                    theme_tr: null,
                     td: [
                         {
                             information: 'Training'
@@ -732,7 +689,6 @@ export const tables_json = {
                     ]
                 },
                 {
-                    theme_tr: null,
                     td: [
                         {
                             information: 'Presentation 1'
@@ -746,7 +702,6 @@ export const tables_json = {
                     ]
                 },
                 {
-                    theme_tr: null,
                     td: [
                         {
                             information: 'Nav JSON'
@@ -760,7 +715,6 @@ export const tables_json = {
                     ]
                 },
                 {
-                    theme_tr: null,
                     td: [
                         {
                             information: 'Training'
@@ -774,7 +728,6 @@ export const tables_json = {
                     ]
                 },
                 {
-                    theme_tr: null,
                     td: [
                         {
                             information: 'Presentation 1'
@@ -788,7 +741,6 @@ export const tables_json = {
                     ]
                 },
                 {
-                    theme_tr: null,
                     td: [
                         {
                             information: 'Nav JSON'
@@ -802,7 +754,6 @@ export const tables_json = {
                     ]
                 },
                 {
-                    theme_tr: null,
                     td: [
                         {
                             information: 'Training'
@@ -816,7 +767,6 @@ export const tables_json = {
                     ]
                 },
                 {
-                    theme_tr: null,
                     td: [
                         {
                             information: 'Presentation 1'
@@ -830,7 +780,6 @@ export const tables_json = {
                     ]
                 },
                 {
-                    theme_tr: null,
                     td: [
                         {
                             information: 'Nav JSON'
@@ -844,7 +793,6 @@ export const tables_json = {
                     ]
                 },
                 {
-                    theme_tr: null,
                     td: [
                         {
                             information: 'Training'
@@ -858,7 +806,6 @@ export const tables_json = {
                     ]
                 },
                 {
-                    theme_tr: null,
                     td: [
                         {
                             information: 'Presentation 1'
@@ -872,7 +819,6 @@ export const tables_json = {
                     ]
                 },
                 {
-                    theme_tr: null,
                     td: [
                         {
                             information: 'Nav JSON'

@@ -19,35 +19,37 @@
 /* Background container */
 .style-col::-webkit-scrollbar-track {
   box-shadow: inset 0 0 5px grey;
-  border-radius: 10px;
+  // border-radius: 10px;
 }
 
 /* Handle */
 .style-col::-webkit-scrollbar-thumb {
   background: gray;
-  border-radius: 10px;
+  // border-radius: 10px;
 }
 
 /* Handle on hover */
 .style-col::-webkit-scrollbar-thumb:hover {
-  background: #17a2b8;
+  background: #4fb0ff;
 }
 
 .active {
-  background-color: rgb(238, 234, 234);
-  border-radius: 10px;
+  background-color: #a0d2fc;
+  //background-color: rgb(234, 238, 237);;
+  // border-radius: 10px;
+}
+
+//Distance ul menu
+ul {
+  line-height: 3.5;
 }
 
 li {
+  border-top: 0.1px solid black;
   list-style: none;
 }
 
-ul {
-  line-height: 2.5;
-}
-
 li a {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 16px;
   color: black;
   text-decoration: none;

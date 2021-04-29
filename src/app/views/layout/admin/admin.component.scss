@@ -3,6 +3,7 @@
   top: 0;
   z-index: 100;
   width: 100%;
+  background-color: #4fb0ff !important;
 }
 
 .component-container {
@@ -18,18 +19,26 @@
   max-width: 10000% !important;
 }
 
+#btn_collaps_all {
+  width: 20px;
+  border-radius: 0px;
+  min-height: 30px;
+  height: 30px;
+  max-height: 30px;
+  font-size: 12px;
+
+  li{
+    position: relative;
+    right: 10px;
+  }
+
+}
+
 .work-area-container {
   min-width: 46%;
   width: 100%;
   overflow-y: auto;
   overflow-x: hidden;
-}
-
-#btn_collaps_all {
-  min-height: 7%;
-  height: 7%;
-  max-height: 7%;
-  font-size: 12px;
 }
 
 .sidebar-hide {
