@@ -31,16 +31,16 @@ export class IxchelV2Service {
         return data;
     }
 
-    public async getData(model_name: string) {
+    public async getData(model_name: string, data_id?: string) {
         this.readToken();
         if (model_name == "") return;
 
         const headers = { 'Prefer': 'params=single-object', 'Content-Type': 'application/json' };
-        const body = { "action": "get_data", "sessionID": this.user_token, "data": { "model": model_name } };
+        const body = { "action": "get_data", "sessionID": this.user_token, "data": { "model": model_name, "id": data_id } };
 
         let data = await this._http.post(URL_IXCHEL, body, { headers }).toPromise().then((result: any) => {
-            console.log("### GetData ###");
-            console.log(`Model: ${model_name}`, result);
+            // console.log("### GetData ###");
+            // console.log(`Model: ${model_name}`, result);
 
             if (result.data.length > 0 && result.message == "OK") {
                 return result.data
@@ -60,8 +60,8 @@ export class IxchelV2Service {
         const body = { "action": "get_data", "sessionID": this.user_token, "data": { "model": model_name, "form_name": form_name } };
 
         let data = await this._http.post(URL_IXCHEL, body, { headers }).toPromise().then((result: any) => {
-            console.log("### GetData ###");
-            console.log(`Model: ${model_name}`, result);
+            // console.log("### GetData ###");
+            // console.log(`Model: ${model_name}`, result);
 
             if (result.data.length > 0 && result.message == "OK") {
                 return result.data
@@ -73,25 +73,28 @@ export class IxchelV2Service {
         return data;
     }
 
-    public async upsert(model_name: string, obj_data: {}) {
+    public async upsert(model_name: string, obj_data: {}, id_data?: string) {
         this.readToken();
         if (model_name == "") return;
 
         const headers = { 'Prefer': 'params=single-object', 'Content-Type': 'application/json' };
-        const body = { "action": "upsert", "sessionID": this.user_token, "data": { "model": model_name } };
+        const body_data = obj_data;
 
-        // let data = await this._http.post(URL_IXCHEL, body, { headers }).toPromise().then((result: any) => {
-        //     console.log("### GetData ###");
-        //     console.log(`Model: ${model_name}`, result);
+        const body = { "action": "upsert", "sessionID": this.user_token, "data": body_data };
 
-        //     if (result.data.length > 0 && result.message == "OK") {
-        //         return result.data
-        //     }
-        // }).catch((err) => {
-        //     this.toast.error(err.message, '', { opacity: 1, timeOut: 3000, positionClass: 'md-toast-top-center' });
-        // });
+        console.log("Body upsert", body);
 
-        // return data;
+        let data = await this._http.post(URL_IXCHEL, body, { headers }).toPromise().then((result: any) => {
+            console.log("#######################", result);
+            if (result.message == "OK") {
+                return result.data
+            }
+        }).catch((err) => {
+            console.log(err);
+            this.toast.error(err.message, '', { opacity: 1, timeOut: 3000, positionClass: 'md-toast-top-center' });
+        });
+
+        return data;
 
     }
 
