@@ -73,72 +73,62 @@ export class TablesComponent implements OnInit {
     let lst_information = [];
     let lst_name_views = [];
 
-
     let lst_view = views_json.data.filter(x => x.id_view == this.partial_name_component).map(x => x.tables)[0];
     // console.log("lst_view", lst_view);
 
     await this._ixchelV2Service.getData("sys_table_tables").then(async (tables) => {
-      lst_tables = tables.filter((table) => lst_view.includes(table.table_name));
-      lst_name_views = lst_tables.map(x => x.view_name);
-      // console.log("sys_table_tables", tables);
+      if (tables != undefined) {
+        lst_tables = tables.filter((table) => lst_view.includes(table.table_name));
+        lst_name_views = lst_tables.map(x => x.view_name);
+        // console.log("sys_table_tables", tables);
 
-      await this._ixchelV2Service.getData("sys_table_fields").then(async (headers) => {
-        lst_headers = headers.filter((header) => lst_view.includes(header.table_name)).sort((a, b) => a.field_order - b.field_order);
-        //console.log("sys_table_fields", lst_headers);
+        await this._ixchelV2Service.getData("sys_table_fields").then(async (headers) => {
+          lst_headers = headers.filter((header) => lst_view.includes(header.table_name) && header.displayed == true).sort((a, b) => a.field_order - b.field_order);
+          // console.log("sys_table_fields", lst_headers);
 
-        lst_tables.forEach((table, index) => {
-          lst_tables[index].header = [];
-          // console.log(lst_tables[index]);
-          headers.forEach((header) => {
-            if (header.table_name == table.table_name) {
-              lst_tables[index].header.push(header)
-            }
-          });
-        });
-
-      });// END second getData
-
-      lst_information = lst_tables.map(x => x.header)[0].map(x => x.field_name);
-      console.log(lst_tables);
-
-
-      lst_name_views.forEach(async (view, index) => {
-        let information_rows = [];
-        //console.log(lst_tables[index].view_name == view);
-        if (lst_tables[index].view_name == view) {
-
-          await this._ixchelV2Service.getData(view).then(async (information) => {
-            // console.log("###",);
-            // console.log("vw_dm_persons", information);
-
-            information.forEach(element => {
-              information_rows.push(Object.keys(element)
-                .filter(key => lst_information.includes(key))
-                .reduce((obj, key) => {
-                  obj[key] = element[key];
-                  return obj;
-                }, {}));
-
+          lst_tables.forEach((table, index) => {
+            lst_tables[index].header = [];
+            // console.log(lst_tables[index]);
+            lst_headers.forEach((header) => {
+              if (header.table_name == table.table_name) {
+                lst_tables[index].header.push(header)
+              }
             });
+          });
+        });// END second getData
 
-            // console.log(information_rows);
-          });// END third getData
+        lst_information = lst_tables.map(x => x.header)[0].map(x => x.field_name);
+        // console.log(lst_tables);
 
-          lst_tables[index].information = information_rows;
-        }
-        console.log("Final", lst_tables);
+        lst_name_views.forEach(async (view, index) => {
+          let information_rows = [];
+          //console.log(lst_tables[index].view_name == view);
+          if (lst_tables[index].view_name == view) {
 
-        this.lst_tables = lst_tables;
-      });
+            await this._ixchelV2Service.getData(view).then(async (information) => {
+              // console.log("###",);
+              // console.log("vw_dm_persons", information);
+              information.forEach(element => {
+                information_rows.push(Object.keys(element)
+                  .filter(key => lst_information.includes(key))
+                  .reduce((obj, key) => {
+                    obj[key] = element[key];
+                    return obj;
+                  }, {}));
+              });
 
+              // console.log(information_rows);
+            });// END third getData
 
+            lst_tables[index].information = information_rows;
+          }
+          console.log("Final", lst_tables);
 
-
+          this.lst_tables = lst_tables;
+        });
+      }
     }); // END first getData
-
-
-
-
+    
   }// End loadTablesAPI
 
 

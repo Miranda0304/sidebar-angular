@@ -29,17 +29,8 @@ export class MenuComponent implements OnInit {
 
 
   constructor(private _serviceContextualArea: ContextualAreaService, private _ixchelV2Service: IxchelV2Service) {
-
-    //this.list_menus[1] = menu_json.data;
-    
-    this._ixchelV2Service.getNavList().then((result) => {
-      this.list_menus[1] = result.sort((a, b) => a.ordinal - b.ordinal);
-    }).catch((err) => {
-      console.log(err);
-    });
-
+    this.loadNavList();
     localStorage.getItem('CONTEXTUAL_AREA') == 'true' ? this.contextual_area = true : this.contextual_area = false;
-
     this._serviceContextualArea.isVisible(this.contextual_area);
   }
 
@@ -49,6 +40,15 @@ export class MenuComponent implements OnInit {
       this.lstVisible.push({ level: element, isVisible: false, isCollapse: false })
     });
     this.lstVisible.push({ level: this.number_turns.length + 1, isVisible: false, isCollapse: false });
+  }
+
+  loadNavList() {
+    //this.list_menus[1] = menu_json.data;
+    this._ixchelV2Service.getNavList().then((result) => {
+      if (result != undefined) {
+        this.list_menus[1] = result.sort((a, b) => a.ordinal - b.ordinal);
+      }
+    });
   }
 
   openSubMenu(menu_id: number, level_to_open: number) {
