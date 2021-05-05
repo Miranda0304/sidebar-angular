@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TableComponent implements OnInit {
 
-  name_component = "view_users_0"
+  name_component = "view_book_dates"
 
   constructor() { }
 

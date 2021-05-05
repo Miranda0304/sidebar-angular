@@ -1,22 +1,29 @@
 <br>
-<div *ngIf="lst_tables.length > 0 ">
+<div *ngIf="lst_tables.length > 0">
   <h2>Dynamic Tables View Partial</h2>
-  <div *ngFor="let table of lst_tables" class="my-4">
-    <h3>{{table.title}}</h3>
-    <br>
-    <table datatable [dtOptions]="dtOptions" class="{{table.theme_table}}" [ngStyle]="{'text-align': table.text_align}">
-      <thead class="{{table.theme_header}}">
-        <tr>
-          <th scope="col" *ngFor="let head of table.header">{{head.title}}</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let tr of table.tr" [className]="tr.theme_tr">
-          <td *ngFor="let td of tr.td ">{{td.information}}</td>
-        </tr>
-      </tbody>
-    </table>
+  <div *ngFor="let table of lst_tables" class="my-4" style="overflow-x: auto;">
+
+    <div *ngIf="table.active">
+      <h3>{{table.table_name}}</h3>
+      <br>
+      <div style="overflow-x: auto;">
+        <table datatable [dtOptions]="dtOptions" class="{{table.theme_table}}"
+          [ngStyle]="{'text-align': table.text_align}">
+          <thead class="{{table.theme_header}}">
+            <tr>
+              <th scope="col" *ngFor="let head of table.header">{{head.field_name}}</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let tr of table.information">
+              <td *ngFor="let head of table.header">{{tr[head.field_name]}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+
     <br><br><br>
   </div>
 </div>
-
