@@ -29,6 +29,7 @@ import { HomeComponent } from '../../../views/pages/admin/home/home.component';
 import { DocumentComponent } from '../../pages/admin/document/document.component';
 import { ContactComponent } from '../../pages/admin/contact/contact.component';
 import { TablesComponent } from 'src/app/views/shared/tables/tables.component';
+import { FormsComponent } from 'src/app/views/shared/forms/forms.component';
 import { TableComponent } from '../../../views/pages/admin/table/table.component';
 import { Table2Component } from '../../../views/pages/admin/table2/table2.component';
 
@@ -51,6 +52,7 @@ import { Table2Component } from '../../../views/pages/admin/table2/table2.compon
         HomeComponent,
         DocumentComponent,
         ContactComponent,
+        FormsComponent,
         TablesComponent,
         TableComponent,
         Table2Component

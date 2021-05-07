@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { views_json } from "../../../../database/views-json/view-json";
 import { tables_json } from "src/database/table-json/tables-json";
 import { IxchelV2Service } from "src/app/services/API_Ixchelv2/ixchel_v2.service";
+import { ThrowStmt } from '@angular/compiler';
 
 @Component({
   selector: 'app-tables',
@@ -14,7 +15,6 @@ export class TablesComponent implements OnInit {
 
   lst_tables = [];
   dtOptions: DataTables.Settings = {};
-
   datatable_language = {
     "emptyTable": "Sin registros.",
     "info": "Mostrando _START_ a _END_ de _TOTAL_ entradas",
@@ -38,33 +38,17 @@ export class TablesComponent implements OnInit {
   constructor(private _ixchelV2Service: IxchelV2Service) { }
 
   ngOnInit(): void {
-    //this.loadTables();
     this.loadTablesAPI();
   }
 
-  loadTables() {
-    this.dtOptions = {
-      pagingType: 'full_numbers',
-      language: this.datatable_language,
-      order: [],
-      deferRender: true,
-      //columnDefs: [{ orderable: false, targets: [3] }]
-    };
-
-    let lst_view = views_json.data.filter(x => x.id_view == this.partial_name_component).map(x => x.tables)[0];
-
-    if (lst_view != undefined) {
-      let lst_headers = tables_json.data.map((table) => table.header);
-      this.lst_tables = tables_json.data.filter((table) => lst_view.includes(table.table_name)).sort((a, b) => a.order - b.order);
-    }
-  }
-
   async loadTablesAPI() {
+
     this.dtOptions = {
       pagingType: 'full_numbers',
       language: this.datatable_language,
       order: [],
       deferRender: true,
+      lengthMenu: [10, 25, 50, 75, 100]
       //columnDefs: [{ orderable: false, targets: [3] }]
     };
 
@@ -74,41 +58,42 @@ export class TablesComponent implements OnInit {
     let lst_name_views = [];
 
     let lst_view = views_json.data.filter(x => x.id_view == this.partial_name_component).map(x => x.tables)[0];
-    // console.log("lst_view", lst_view);
 
-    await this._ixchelV2Service.getData("sys_table_tables").then(async (tables) => {
-      if (tables != undefined) {
-        lst_tables = tables.filter((table) => lst_view.includes(table.table_name));
-        lst_name_views = lst_tables.map(x => x.view_name);
-        // console.log("sys_table_tables", tables);
+    if (lst_view.length > 0) {
+      await this._ixchelV2Service.getData("sys_table_tables").then(async (tables) => {
+        if (tables != undefined) {
+          lst_tables = tables.filter((table) => lst_view.includes(table.table_name));
+          lst_name_views = lst_tables.map(x => x.view_name);
+          //console.log("sys_table_tables", tables);
 
-        await this._ixchelV2Service.getData("sys_table_fields").then(async (headers) => {
-          lst_headers = headers.filter((header) => lst_view.includes(header.table_name) && header.displayed == true).sort((a, b) => a.field_order - b.field_order);
-          // console.log("sys_table_fields", lst_headers);
+          await this._ixchelV2Service.getData("sys_table_fields").then(async (headers) => {
+            lst_headers = headers.filter((header) => lst_view.includes(header.table_name) && header.displayed == true).sort((a, b) => a.field_order - b.field_order);
+            // console.log("sys_table_fields", lst_headers);
 
-          lst_tables.forEach((table, index) => {
-            lst_tables[index].header = [];
-            // console.log(lst_tables[index]);
-            lst_headers.forEach((header) => {
-              if (header.table_name == table.table_name) {
-                lst_tables[index].header.push(header)
-              }
+            lst_tables.forEach((table, index) => {
+              lst_tables[index].header = [];
+              // console.log(lst_tables[index]);
+              lst_headers.forEach((header) => {
+                if (header.table_name == table.table_name) {
+                  lst_tables[index].header.push(header)
+                }
+              });
             });
-          });
-        });// END second getData
+          });// END second getData
 
-        lst_information = lst_tables.map(x => x.header)[0].map(x => x.field_name);
-        // console.log(lst_tables);
 
-        lst_name_views.forEach(async (view, index) => {
-          let information_rows = [];
-          //console.log(lst_tables[index].view_name == view);
-          if (lst_tables[index].view_name == view) {
 
+          lst_name_views.forEach(async (view, index) => {
+
+            //if (lst_tables[index].view_name == view) {
             await this._ixchelV2Service.getData(view).then(async (information) => {
-              // console.log("###",);
-              // console.log("vw_dm_persons", information);
-              information.forEach(element => {
+
+              lst_information = lst_tables.map(x => x.header)[index].map(x => x.field_name);
+              //console.log(lst_information);
+              let information_rows = [];
+
+              //console.log(view, information);
+              await information.forEach(element => {
                 information_rows.push(Object.keys(element)
                   .filter(key => lst_information.includes(key))
                   .reduce((obj, key) => {
@@ -118,18 +103,21 @@ export class TablesComponent implements OnInit {
               });
 
               // console.log(information_rows);
+              lst_tables[index].information = information_rows;
+
             });// END third getData
 
-            lst_tables[index].information = information_rows;
-          }
-          console.log("Final", lst_tables);
 
-          this.lst_tables = lst_tables;
-        });
-      }
-    }); // END first getData
-    
-  }// End loadTablesAPI
+            // }
+            // console.log("Final", lst_tables);
+            this.lst_tables = lst_tables;
+          });
+
+        }
+      }); // END first getData
+    }
+
+  }
 
 
 }

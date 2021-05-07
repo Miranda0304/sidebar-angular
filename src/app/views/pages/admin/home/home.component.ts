@@ -22,8 +22,6 @@ export class HomeComponent implements OnInit {
   searchData() {
     this._ixchelV2Service.getData(this.name_model).then((result) => {
       console.log(result);
-    }).catch((err) => {
-      console.warn(err.message);
     });
   }
 

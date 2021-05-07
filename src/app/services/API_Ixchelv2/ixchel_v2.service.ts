@@ -1,6 +1,6 @@
 import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { catchError, map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 import { ToastService } from 'ng-uikit-pro-standard';
 
 const URL_IXCHEL = 'http://rs02.arteaga.mx:3000/rpc/api';
@@ -39,16 +39,12 @@ export class IxchelV2Service {
         const body = { "action": "get_data", "sessionID": this.user_token, "data": { "model": model_name, "id": data_id } };
 
         let data = await this._http.post(URL_IXCHEL, body, { headers }).toPromise().then((result: any) => {
-            // console.log("### GetData ###");
-            // console.log(`Model: ${model_name}`, result);
-
             if (result.data.length > 0 && result.message == "OK") {
                 return result.data
             }
         }).catch((err) => {
             this.toast.error(err.message, '', { opacity: 1, timeOut: 3000, positionClass: 'md-toast-top-center' });
         });
-
         return data;
     }
 
@@ -60,9 +56,6 @@ export class IxchelV2Service {
         const body = { "action": "get_data", "sessionID": this.user_token, "data": { "model": model_name, "form_name": form_name } };
 
         let data = await this._http.post(URL_IXCHEL, body, { headers }).toPromise().then((result: any) => {
-            // console.log("### GetData ###");
-            // console.log(`Model: ${model_name}`, result);
-
             if (result.data.length > 0 && result.message == "OK") {
                 return result.data
             }
@@ -79,18 +72,13 @@ export class IxchelV2Service {
 
         const headers = { 'Prefer': 'params=single-object', 'Content-Type': 'application/json' };
         const body_data = obj_data;
-
         const body = { "action": "upsert", "sessionID": this.user_token, "data": body_data };
 
-        console.log("Body upsert", body);
-
         let data = await this._http.post(URL_IXCHEL, body, { headers }).toPromise().then((result: any) => {
-            console.log("#######################", result);
             if (result.message == "OK") {
                 return result.data
             }
         }).catch((err) => {
-            console.log(err);
             this.toast.error(err.message, '', { opacity: 1, timeOut: 3000, positionClass: 'md-toast-top-center' });
         });
 
@@ -108,3 +96,4 @@ export class IxchelV2Service {
     }
 
 }
+

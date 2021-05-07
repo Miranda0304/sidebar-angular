@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class Table2Component implements OnInit {
 
-  name_component = "view_attached_0";
+  name_component = "view_sales";
 
   constructor() { }
 
