@@ -54,9 +54,6 @@ export class LoginComponent implements OnInit {
     if (localStorage.getItem('rol') == 'admin') {
       this.router.navigateByUrl('administrador');
     }
-    if (localStorage.getItem('rol') == 'doctor') {
-      this.router.navigateByUrl('doctor');
-    }
   }
 
   remember() {

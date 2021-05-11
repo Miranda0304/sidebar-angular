@@ -23,7 +23,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SolutionComponent } from './views/pages/guess/solution/solution.component';
 import { ResourceComponent } from './views/pages/guess/resource/resource.component';
 import { ContactComponent } from './views/pages/guess/contact/contact.component';
-import { HomeComponent } from './views/pages/doctor/home/home.component';
 
 @NgModule({
   declarations: [
@@ -31,8 +30,7 @@ import { HomeComponent } from './views/pages/doctor/home/home.component';
     LoginComponent,
     SolutionComponent,
     ResourceComponent,
-    ContactComponent,
-    HomeComponent
+    ContactComponent
   ],
   imports: [
     BrowserModule,
