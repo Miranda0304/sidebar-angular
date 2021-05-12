@@ -6,7 +6,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Angular cli 10.2.2
 
-NodeJS v12.18.3
+NodeJS v14.15.5
 
 Npm v6.14.6
 

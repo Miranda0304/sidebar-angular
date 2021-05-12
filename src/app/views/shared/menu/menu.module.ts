@@ -15,7 +15,7 @@ import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { MenuComponent } from './menu.component';
 
 //Services
-import { ContextualAreaService } from "src/app/services/Contextual_area_visible/contextual-area.service";
+import { GlobalService } from "src/app/services/Global/global.service";
 import { IxchelV2Service } from "src/app/services/API_Ixchelv2/ixchel_v2.service";
 
 
@@ -40,7 +40,7 @@ import { IxchelV2Service } from "src/app/services/API_Ixchelv2/ixchel_v2.service
         RouterModule
     ],
     providers: [
-        ContextualAreaService,
+        GlobalService,
         IxchelV2Service
     ],
 })

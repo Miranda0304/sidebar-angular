@@ -1,0 +1,50 @@
+<!-- Navbar -->
+<nav class="navbar bg-light">
+
+  <form class="form-inline my-2 my-lg-0">
+    <input class="form-control mr-sm-2" id="globalSearcher" type="search" placeholder="Buscar"
+      [(ngModel)]="globalSearcher" aria-label="Search">
+  </form>
+
+  <div class="dropdown">
+    <img src="https://comunidad.fan/web/uploads/froala/c03a3656888c98bf9e2ec00fef63059ff3d541cb.jpg" alt="" width="40px"
+      height="35px">
+    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+      aria-haspopup="true" aria-expanded="false">
+      Usuario
+    </button>
+    <div class="dropdown-menu dropdown-menu-right animated fadeIn fast" aria-labelledby="dropdownMenuButton"
+      style="border: 1px solid black;">
+      <a class="dropdown-item" href="#"><i class="fa fa-user-circle-o mx-2" aria-hidden="true"></i>Perfil</a>
+      <a class="dropdown-item" href="#"><i class="fa fa-cog mx-2" aria-hidden="true"></i>Configuración</a>
+      <hr>
+      <a (click)="logout()" class="dropdown-item"><i class="fa fa-sign-out mx-2" aria-hidden="true"></i>Salir</a>
+    </div>
+  </div>
+
+</nav>
+
+<div class="d-flex component-container">
+  <!-- Views menu area -->
+  <app-menu [searcherText]="globalSearcher"
+    [ngClass]="visibleMenu ? 'menu-sidebar-container animated fadeIn' : 'sidebar-container sidebar-hide'">
+  </app-menu>
+
+  <!-- Button Collapse -->
+  <button class="btn btn-outline-primary" id="btn_collaps_all" (click)="collapse_all()">
+    <li class="fa fa-outdent"></li>
+  </button>
+
+  <!-- Views work area -->
+  <div class="col col-xs-auto my-3 mx-1 work-area-container">
+    <div style="background-color: white; padding: 10px 10px;">
+      <router-outlet></router-outlet>
+    </div>
+    
+  </div>
+
+  <!-- View contextual-area -->
+  <app-contextual-area class="col-md-2 offset-md-12 infobar-container" *ngIf="isVisibleContextualArea == true">
+  </app-contextual-area>
+
+</div>

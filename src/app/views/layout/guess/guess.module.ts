@@ -15,7 +15,7 @@ import { GuessRoutingModule } from './guess-routing.module';
 import { GuessComponent } from './guess.component';
 
 //Services
-import { ContextualAreaService } from "src/app/services/Contextual_area_visible/contextual-area.service";
+import { GlobalService } from "src/app/services/Global/global.service";
 
 
 //Components Views
@@ -33,7 +33,7 @@ import { ContextualAreaService } from "src/app/services/Contextual_area_visible/
         GuessComponent,
     ],
     providers: [
-        ContextualAreaService,
+        GlobalService,
     ],
 })
 export class GuessModule { }

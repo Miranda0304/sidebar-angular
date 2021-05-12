@@ -30,7 +30,6 @@ export class FormsComponent implements OnInit {
   ngAfterViewInit(): void {
     setTimeout(() => {
       this.loadForms();
-      console.log(this.lst_forms);
     }, 60);
     
   }

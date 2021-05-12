@@ -11,26 +11,7 @@ import { Table2Component } from '../../pages/admin/table2/table2.component';
 
 
 
-const routes: Routes = [
-    {
-        path: '',
-        component: AdminComponent,
-        children: [
-            { path: 'home', component: HomeComponent },
-
-            { path: 'contacts', component: ContactComponent },
-
-            { path: 'appt', component: TableComponent },
-
-            { path: 'pos', component: Table2Component },
-
-            { path: 'dms', component: DocumentComponent },
-
-
-            { path: '**', pathMatch: 'full', redirectTo: 'home' }
-        ]
-    }
-];
+const routes: Routes = [];
 
 @NgModule({
     imports: [RouterModule.forChild(routes)],

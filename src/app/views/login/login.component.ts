@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthenticationService } from "src/app/services/Authentication/authentication.service";
-import { RackspaceService } from "src/app/services/Rackspace/rackspace.service";
+import { GlobalService } from "src/app/services/Global/global.service"
 import { ToastService } from 'ng-uikit-pro-standard';
-
+import { IxchelV2Service } from 'src/app/services/API_Ixchelv2/ixchel_v2.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -19,8 +19,10 @@ export class LoginComponent implements OnInit {
   rememberme = false;
   current_year = new Date().getFullYear();
 
+
   constructor(private _authenticationService: AuthenticationService,
-    private router: Router, private toast: ToastService) {
+    private router: Router, private toast: ToastService,
+    private _ixchelV2Service: IxchelV2Service, private _globalServices: GlobalService,) {
 
     //Redirección segun el rol
     if (this._authenticationService.isAuthenticated()) {
@@ -45,14 +47,24 @@ export class LoginComponent implements OnInit {
     if (form.invalid) { return };
 
     this._authenticationService.login(this.user).then((result) => {
+      setTimeout(() => {
+        this._ixchelV2Service.getNavList().then((result) => {
+          if (result != undefined) {
+            this._globalServices.addRoutes(result);
+          }
+          this.redirectionRoutes();
+        }).catch((err) => {
+          console.log(err);
+        });
+      }, 10);
       this.remember();
-      this.redirectionRoutes();
+
     });
   }
 
   redirectionRoutes() {
     if (localStorage.getItem('rol') == 'admin') {
-      this.router.navigateByUrl('administrador');
+      this.router.navigateByUrl('main/home');
     }
   }
 

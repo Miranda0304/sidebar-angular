@@ -12,7 +12,7 @@ import { DataTablesModule } from "angular-datatables";
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 
 //Shared Components
-import { ContextualAreaComponent } from './contextual-area.component';
+import { FormsComponent } from './forms.component';
 
 //Services
 import { GlobalService } from "src/app/services/Global/global.service";
@@ -33,10 +33,10 @@ import { IxchelV2Service } from "src/app/services/API_Ixchelv2/ixchel_v2.service
         RouterModule
     ],
     declarations: [
-        ContextualAreaComponent,
+        FormsComponent,
     ],
     exports: [
-        ContextualAreaComponent,
+        FormsComponent,
         RouterModule
     ],
     providers: [
@@ -44,4 +44,4 @@ import { IxchelV2Service } from "src/app/services/API_Ixchelv2/ixchel_v2.service
         IxchelV2Service
     ],
 })
-export class ContextualAreaModule { }
+export class FormasModule { }

@@ -27,7 +27,6 @@ export class IxchelV2Service {
         }).catch((err) => {
             this.toast.error(err.message, 'Error al cargar los menus', { opacity: 1, timeOut: 3000, positionClass: 'md-toast-top-center' });
         });
-
         return data;
     }
 

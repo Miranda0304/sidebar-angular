@@ -2,7 +2,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { CommonModule } from "@angular/common";
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 //Routes
@@ -11,10 +12,21 @@ import { AppRoutingModule } from './app-routing.module';
 
 //Dependecies
 import { ToastModule } from 'ng-uikit-pro-standard';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { DataTablesModule } from "angular-datatables";
+import { PdfViewerModule } from 'ng2-pdf-viewer';
+
+//Shared Components
+import { MainComponent } from 'src/app/views/layout/main/main.component';
+import { MenuModule } from 'src/app/views/shared/menu/menu.module';
+import { ContextualAreaModule } from 'src/app/views/shared/contextual_area/contextual-area.module';
+
 
 //Services
+import { GlobalService } from "src/app/services/Global/global.service";
 import { IxchelV2Service } from "src/app/services/API_Ixchelv2/ixchel_v2.service";
-import { ContextualAreaService } from "src/app/services/Contextual_area_visible/contextual-area.service";
+import { AuthenticationService } from "src/app/services/Authentication/authentication.service";
+import { RackspaceService } from "src/app/services/Rackspace/rackspace.service";
 
 //Components Views
 import { AppComponent } from './app.component';
@@ -28,6 +40,7 @@ import { ContactComponent } from './views/pages/guess/contact/contact.component'
   declarations: [
     AppComponent,
     LoginComponent,
+    MainComponent,
     SolutionComponent,
     ResourceComponent,
     ContactComponent
@@ -36,16 +49,22 @@ import { ContactComponent } from './views/pages/guess/contact/contact.component'
     BrowserModule,
     AppRoutingModule,
     APP_ROUTING,
+    MenuModule,
+    ContextualAreaModule,
     FormsModule,
     ReactiveFormsModule,
     CommonModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    ToastModule.forRoot()
+    ToastModule.forRoot(),
+    Ng2SearchPipeModule,
+    DataTablesModule,
+    PdfViewerModule
   ],
   providers: [
     IxchelV2Service,
-    ContextualAreaService
+    GlobalService,
+    AuthenticationService
   ],
   bootstrap: [AppComponent]
 })

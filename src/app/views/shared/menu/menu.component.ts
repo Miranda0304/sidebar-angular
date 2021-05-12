@@ -1,7 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { menu_json } from '../../../../database/menu-json/menu-json';
-import { ContextualAreaService } from "../../../services/Contextual_area_visible/contextual-area.service";
+import { GlobalService } from "../../../services/Global/global.service";
 import { IxchelV2Service } from "../../../services/API_Ixchelv2/ixchel_v2.service";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-menu',
@@ -28,10 +29,11 @@ export class MenuComponent implements OnInit {
   ]
 
 
-  constructor(private _serviceContextualArea: ContextualAreaService, private _ixchelV2Service: IxchelV2Service) {
+  constructor(private _globalService: GlobalService, private _ixchelV2Service: IxchelV2Service, private router: Router) {
     this.loadNavList();
+    //console.log(this.router.config);
     localStorage.getItem('CONTEXTUAL_AREA') == 'true' ? this.contextual_area = true : this.contextual_area = false;
-    this._serviceContextualArea.isVisible(this.contextual_area);
+    this._globalService.sendEstatusContextualArea(this.contextual_area);
   }
 
   ngOnInit(): void {
@@ -52,6 +54,7 @@ export class MenuComponent implements OnInit {
   }
 
   openSubMenu(menu_id: number, level_to_open: number) {
+
     this.list_menus[level_to_open] = this.list_menus[level_to_open - 1].filter(x => x.id == menu_id).map(x => x.submenu)[0]
 
     this.list_menus[level_to_open].length > 0 ?
@@ -69,7 +72,7 @@ export class MenuComponent implements OnInit {
 
   saveContextualArea(menu_id: number, lst = []) {
     this.contextual_area = lst.filter(x => x.id == menu_id)[0].contextual_area
-    this._serviceContextualArea.isVisible(this.contextual_area);
+    this._globalService.sendEstatusContextualArea(this.contextual_area);
     localStorage.setItem("CONTEXTUAL_AREA", this.contextual_area);
   }
 

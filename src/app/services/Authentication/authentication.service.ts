@@ -1,6 +1,5 @@
 import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { catchError, map } from 'rxjs/operators';
 import { ToastService } from 'ng-uikit-pro-standard';
 import { Md5 } from 'ts-md5/dist/md5';
 

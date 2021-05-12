@@ -19,7 +19,7 @@ import { MenuModule } from '../../../views/shared/menu/menu.module';
 import { ContextualAreaModule } from '../../../views/shared/contextual_area/contextual-area.module';
 
 //Services
-import { ContextualAreaService } from "src/app/services/Contextual_area_visible/contextual-area.service";
+import { GlobalService } from "src/app/services/Global/global.service";
 import { IxchelV2Service } from "src/app/services/API_Ixchelv2/ixchel_v2.service";
 import { AuthenticationService } from "src/app/services/Authentication/authentication.service";
 import { RackspaceService } from "src/app/services/Rackspace/rackspace.service";
@@ -58,7 +58,7 @@ import { Table2Component } from '../../../views/pages/admin/table2/table2.compon
         Table2Component
     ],
     providers: [
-        ContextualAreaService,
+        GlobalService,
         IxchelV2Service,
         RackspaceService,
         AuthenticationService
