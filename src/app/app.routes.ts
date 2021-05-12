@@ -17,7 +17,6 @@ export const APP_ROUTES: Routes = [
       // { path: '**', pathMatch: 'full', redirectTo: 'home' }
     ], canActivate: [AuthGuard],
   },
-  { path: 'administrador', loadChildren: () => import('./views/layout/admin/admin.module').then(m => m.AdminModule), canActivate: [AuthGuard] },
   { path: 'invitado', loadChildren: () => import('./views/layout/guess/guess.module').then(m => m.GuessModule) },
   { path: '**', pathMatch: 'full', redirectTo: 'main/home' }
 ];

@@ -1,12 +1,8 @@
 //Angular
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common'; // ngClass
+import { FormsModule } from '@angular/forms'; // ngModel
 import { HttpClientModule } from '@angular/common/http';
-
-//Routes
-import { AdminRoutingModule } from './admin-routing.module';
 
 //Dependencies
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
@@ -14,9 +10,8 @@ import { DataTablesModule } from "angular-datatables";
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 
 //Shared Components
-import { AdminComponent } from './admin.component';
-import { MenuModule } from '../../../views/shared/menu/menu.module';
-import { ContextualAreaModule } from '../../../views/shared/contextual_area/contextual-area.module';
+import { MenuModule } from 'src/app/views/shared/menu/menu.module';
+import { ContextualAreaModule } from 'src/app/views/shared/contextual_area/contextual-area.module';
 
 //Services
 import { GlobalService } from "src/app/services/Global/global.service";
@@ -25,43 +20,42 @@ import { AuthenticationService } from "src/app/services/Authentication/authentic
 import { RackspaceService } from "src/app/services/Rackspace/rackspace.service";
 
 //Components Views
-import { HomeComponent } from '../../../views/pages/admin/home/home.component';
-import { DocumentComponent } from '../../pages/admin/document/document.component';
-import { ContactComponent } from '../../pages/admin/contact/contact.component';
+import { MainComponent } from './main.component';
+import { HomeComponent } from 'src/app/views/pages/admin/home/home.component';
+import { DocumentComponent } from 'src/app/views/pages/admin/document/document.component';
+import { ContactComponent } from 'src/app/views/pages/admin/contact/contact.component';
 import { TablesComponent } from 'src/app/views/shared/tables/tables.component';
 import { FormsComponent } from 'src/app/views/shared/forms/forms.component';
-import { TableComponent } from '../../../views/pages/admin/table/table.component';
-import { Table2Component } from '../../../views/pages/admin/table2/table2.component';
+import { TableComponent } from 'src/app/views/pages/admin/table/table.component';
+import { Table2Component } from 'src/app/views/pages/admin/table2/table2.component';
 
 
 @NgModule({
     imports: [
         CommonModule,
-        AdminRoutingModule,
         FormsModule,
-        ReactiveFormsModule,
         HttpClientModule,
+        MenuModule,
+        ContextualAreaModule,
         Ng2SearchPipeModule,
         DataTablesModule,
-        PdfViewerModule,
-        MenuModule,
-        ContextualAreaModule
+        PdfViewerModule
     ],
     declarations: [
-        AdminComponent,
+        MainComponent,
         HomeComponent,
-        DocumentComponent,
-        ContactComponent,
         FormsComponent,
         TablesComponent,
+        ContactComponent,
+        DocumentComponent,
         TableComponent,
         Table2Component
     ],
     providers: [
-        GlobalService,
+        AuthenticationService,
         IxchelV2Service,
-        RackspaceService,
-        AuthenticationService
+        GlobalService,
+        RackspaceService
     ],
 })
-export class AdminModule { }
+export class MainModule { }

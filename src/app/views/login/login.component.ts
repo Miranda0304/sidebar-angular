@@ -47,18 +47,15 @@ export class LoginComponent implements OnInit {
     if (form.invalid) { return };
 
     this._authenticationService.login(this.user).then((result) => {
-      setTimeout(() => {
-        this._ixchelV2Service.getNavList().then((result) => {
-          if (result != undefined) {
-            this._globalServices.addRoutes(result);
-          }
-          this.redirectionRoutes();
-        }).catch((err) => {
-          console.log(err);
-        });
-      }, 10);
+      this._ixchelV2Service.getNavList().then((result) => {
+        if (result != undefined) {
+          this._globalServices.addRoutes(result);
+        }
+        this.redirectionRoutes();
+      }).catch((err) => {
+        console.log(err);
+      });
       this.remember();
-
     });
   }
 

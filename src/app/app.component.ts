@@ -20,22 +20,19 @@ export class AppComponent {
   }
 
   ngAfterViewInit(): void {
-    setTimeout(() => {
-      if (this._authenticationService.isAuthenticated()) {
+    if (this._authenticationService.isAuthenticated()) {
+      this._ixchelV2Service.getNavList().then(async (result) => {
+        if (result != undefined) {
+          this._globalServices.addRoutes(result);
+        }
+        // console.log(this.router.url);
+        this.router.navigateByUrl(this.router.url);
 
-        this._ixchelV2Service.getNavList().then(async (result) => {
-          if (result != undefined) {
-            this._globalServices.addRoutes(result);
-          }
-          // console.log(this.router.url);
-          this.router.navigateByUrl(this.router.url);
+      }).catch((err) => {
+        console.log(err);
+      });
+    }
 
-        }).catch((err) => {
-          console.log(err);
-        });
-
-      }
-    }, 1);
   }
 
 
