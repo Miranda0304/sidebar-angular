@@ -22,10 +22,25 @@ export class IxchelV2Service {
 
         let data = await this._http.post(URL_IXCHEL, body, { headers }).toPromise().then((result: any) => {
             if (result.data.length > 0 && result.message == 'OK') {
-                return result.data;
+                return result.data.sort((a, b) => a.ordinal - b.ordinal);
             }
         }).catch((err) => {
             this.toast.error(err.message, 'Error al cargar los menus', { opacity: 1, timeOut: 3000, positionClass: 'md-toast-top-center' });
+        });
+        return data;
+    }
+
+    public async getNavigation() {
+        this.readToken();
+        const headers = { 'Prefer': 'params=single-object', 'Content-Type': 'application/json' };
+        const body = { "action": "get_data", "sessionID": this.user_token, "data": { "model": "sys_navigation" } };
+
+        let data = await this._http.post(URL_IXCHEL, body, { headers }).toPromise().then((result: any) => {
+            if (result.data.length > 0 && result.message == 'OK') {
+                return result.data.map(x => x.path);
+            }
+        }).catch((err) => {
+            this.toast.error(err.message, 'Error al cargar las rutas', { opacity: 1, timeOut: 3000, positionClass: 'md-toast-top-center' });
         });
         return data;
     }

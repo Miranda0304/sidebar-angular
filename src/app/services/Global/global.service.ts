@@ -18,8 +18,8 @@ export class GlobalService {
     }
 
 
-    addRoutes(lst) {
-        lst.map(x => x.path.replace(/^\/|\/$/g, '')).forEach(element => {
+    addRoutes(lst_routes) {
+        lst_routes.map(x => x.replace(/^\/|\/$/g, '')).forEach(element => {
             this.routes[1].children.push(
                 { path: element, component: HomeComponent },
             );
@@ -28,7 +28,7 @@ export class GlobalService {
             { path: '**', pathMatch: 'full', redirectTo: 'home' }
         );
 
-        console.log(this.routes);
+        // console.log(this.routes);
         this.router.resetConfig(this.routes);
     }
 

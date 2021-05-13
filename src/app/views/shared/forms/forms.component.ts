@@ -24,14 +24,13 @@ export class FormsComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadGetData("dm_persons", "c0004e4e-e76e-41ff-a117-79a60034ecce");
-  
+
   }
 
   ngAfterViewInit(): void {
     setTimeout(() => {
       this.loadForms();
-    }, 60);
-    
+    }, 100);
   }
 
   async loadForms() {

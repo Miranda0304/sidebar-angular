@@ -48,15 +48,24 @@ export class MenuComponent implements OnInit {
     //this.list_menus[1] = menu_json.data;
     this._ixchelV2Service.getNavList().then((result) => {
       if (result != undefined) {
-        this.list_menus[1] = result.sort((a, b) => a.ordinal - b.ordinal);
+        this.list_menus[1] = result;
       }
     });
   }
 
   openSubMenu(menu_id: number, level_to_open: number) {
 
-    this.list_menus[level_to_open] = this.list_menus[level_to_open - 1].filter(x => x.id == menu_id).map(x => x.submenu)[0]
+    this.loadNavList();
 
+    // Update menu previous witjh api's data.
+    if (this.list_menus[level_to_open - 2] != undefined) {
+      this.list_menus[level_to_open - 1] = this.list_menus[level_to_open - 2].filter( x => x.submenu.some( x => x.id == menu_id)).map(x => x.submenu)[0];
+    }
+
+    // Insert data to menu to open.
+    this.list_menus[level_to_open] = this.list_menus[level_to_open - 1].filter(x => x.id == menu_id).map(x => x.submenu)[0];
+
+    // Open other menu if there data.
     this.list_menus[level_to_open].length > 0 ?
       this.lstVisible.map(x => x.level <= level_to_open ? x.isVisible = true : x.isVisible = false) : this.lstVisible.map(x => x.level < level_to_open ? x.isVisible = true : x.isVisible = false);
 

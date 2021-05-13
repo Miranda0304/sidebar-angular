@@ -42,12 +42,11 @@ export class LoginComponent implements OnInit {
     }, 1000);
   }
 
-
   login(form: NgForm) {
     if (form.invalid) { return };
 
     this._authenticationService.login(this.user).then((result) => {
-      this._ixchelV2Service.getNavList().then((result) => {
+      this._ixchelV2Service.getNavigation().then((result) => {
         if (result != undefined) {
           this._globalServices.addRoutes(result);
         }
