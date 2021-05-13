@@ -1,4 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Router } from '@angular/router';
 import { IxchelV2Service } from "src/app/services/API_Ixchelv2/ixchel_v2.service";
 import { RackspaceService } from "src/app/services/Rackspace/rackspace.service";
 
@@ -9,9 +10,11 @@ import { RackspaceService } from "src/app/services/Rackspace/rackspace.service";
 })
 export class HomeComponent implements OnInit {
   fileToUpload: File = null;
+  name_component = "";
 
-
-  constructor(private _ixchelV2Service: IxchelV2Service, private _rackspaceService: RackspaceService) {
+  constructor(private _ixchelV2Service: IxchelV2Service, private _rackspaceService: RackspaceService, private router: Router) {
+    this.name_component = this.router.url;
+    console.log(this.router.url);
   }
 
   ngOnInit(): void {

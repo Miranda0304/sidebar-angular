@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 export class ContactComponent implements OnInit {
   name_component = "view_contact"
 
-  constructor( ) {
+  constructor() {
   }
 
   ngOnInit(): void {

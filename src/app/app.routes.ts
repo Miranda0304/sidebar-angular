@@ -13,7 +13,7 @@ export const APP_ROUTES: Routes = [
     component: MainComponent,
     children: [
       { path: 'home', component: HomeComponent },
-      { path: 'contacts', component: ContactComponent },
+      // { path: 'contacts', component: ContactComponent },
       // { path: '**', pathMatch: 'full', redirectTo: 'home' }
     ], canActivate: [AuthGuard],
   },

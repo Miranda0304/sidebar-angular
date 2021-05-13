@@ -34,20 +34,26 @@ export class FormsComponent implements OnInit {
   }
 
   async loadForms() {
-    let lst_view = views_json.data.filter(x => x.id_view == this.partial_name_component).map(x => x.forms)[0];
-    if (lst_view.length > 0) {
-      // ################################################# getData puede recibir el form directo getForm('vw_sys_fields', 'persons')
-      await this._ixchelV2Service.getForm('vw_sys_fields').then((result) => {
-        //this.lst_forms = forms_json.data.filter((form) => lst_view.includes(form.form_name)).sort((a, b) => a.ordinal - b.ordinal);
-        this.lst_forms = result.filter((form) => lst_view.includes(form.form_name)).sort((a, b) => a.ordinal - b.ordinal);
+    if (this.partial_name_component != "") {
+      let lst_view = views_json.data.filter(x => x.id_view == this.partial_name_component).map(x => x.forms)[0];
+      if (lst_view != undefined) {
+        if (lst_view.length > 0) {
+          // ################################################# getData puede recibir el form directo getForm('vw_sys_fields', 'persons')
+          await this._ixchelV2Service.getForm('vw_sys_fields').then((result) => {
+            //this.lst_forms = forms_json.data.filter((form) => lst_view.includes(form.form_name)).sort((a, b) => a.ordinal - b.ordinal);
+            this.lst_forms = result.filter((form) => lst_view.includes(form.form_name)).sort((a, b) => a.ordinal - b.ordinal);
 
-        this.lst_forms.forEach(element => {
-          this.lst_data_form[element.field_name] = this.lst_data[0][element.field_name];
-        });
-      }).catch((err) => {
-        console.log("loadForms", err);
-      });
+            this.lst_forms.forEach(element => {
+              this.lst_data_form[element.field_name] = this.lst_data[0][element.field_name];
+            });
+          }).catch((err) => {
+            console.log("loadForms", err);
+          });
+        }
+      }
+
     }
+
   }
 
   async loadGetData(model_name: string, data_id?: string) {

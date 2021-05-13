@@ -1,26 +1,26 @@
 export const views_json = {
     data: [
         {
-            id_view: "view_home",
+            id_view: "/main/home",
             forms: [],
             tables: [],
             contextual_area: ''
         },
         {
-            id_view: "view_contact",
+            id_view: "/main/contacts",
             forms: ['person',],
             tables: ['tpersons'],
             contextual_area: ''
         },
         {
-            id_view: "view_book_dates",
+            id_view: "/main/dms",
             forms: [],
             tables: ['tpersons', 'tclients'],
             contextual_area: ''
         },
         {
-            id_view: "view_sales",
-            forms: ['person','form_user'],
+            id_view: "/main/epm",
+            forms: ['person', 'form_user'],
             tables: ['tclients'],
             contextual_area: ''
         }
