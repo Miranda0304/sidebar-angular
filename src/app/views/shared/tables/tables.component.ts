@@ -57,22 +57,19 @@ export class TablesComponent implements OnInit {
       let lst_information = [];
       let lst_name_views = [];
 
-      let lst_view = views_json.data.filter(x => x.id_view == this.partial_name_component).map(x => x.tables)[0];
+      let lst_view = views_json.data.filter(x => x.path_view == this.partial_name_component).map(x => x.tables)[0];
 
       if (lst_view != undefined) {
         await this._ixchelV2Service.getData("sys_table_tables").then(async (tables) => {
           if (tables != undefined) {
             lst_tables = tables.filter((table) => lst_view.includes(table.table_name));
-            lst_name_views = lst_tables.map(x => x.view_name);
-            //console.log("sys_table_tables", tables);
+            lst_name_views = lst_tables.map(x => x.view_name);            
 
             await this._ixchelV2Service.getData("sys_table_fields").then(async (headers) => {
-              lst_headers = headers.filter((header) => lst_view.includes(header.table_name) && header.displayed == true).sort((a, b) => a.field_order - b.field_order);
-              // console.log("sys_table_fields", lst_headers);
+              lst_headers = headers.filter((header) => lst_view.includes(header.table_name) && header.displayed == true).sort((a, b) => a.field_order - b.field_order);              
 
               lst_tables.forEach((table, index) => {
-                lst_tables[index].header = [];
-                // console.log(lst_tables[index]);
+                lst_tables[index].header = [];                
                 lst_headers.forEach((header) => {
                   if (header.table_name == table.table_name) {
                     lst_tables[index].header.push(header)
@@ -82,17 +79,14 @@ export class TablesComponent implements OnInit {
             });// END second getData
 
 
-
             lst_name_views.forEach(async (view, index) => {
 
               //if (lst_tables[index].view_name == view) {
               await this._ixchelV2Service.getData(view).then(async (information) => {
 
-                lst_information = lst_tables.map(x => x.header)[index].map(x => x.field_name);
-                //console.log(lst_information);
+                lst_information = lst_tables.map(x => x.header)[index].map(x => x.field_name);                
                 let information_rows = [];
-
-                //console.log(view, information);
+                
                 await information.forEach(element => {
                   information_rows.push(Object.keys(element)
                     .filter(key => lst_information.includes(key))
@@ -101,15 +95,12 @@ export class TablesComponent implements OnInit {
                       return obj;
                     }, {}));
                 });
-
-                // console.log(information_rows);
+                
                 lst_tables[index].information = information_rows;
 
               });// END third getData
 
-
-              // }
-              // console.log("Final", lst_tables);
+              // }              
               this.lst_tables = lst_tables;
             });
 

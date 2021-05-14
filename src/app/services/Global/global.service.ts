@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
-import { HomeComponent } from 'src/app/views/pages/admin/home/home.component';
+import { HomeComponent } from 'src/app/views/pages/main/home/home.component';
 import { APP_ROUTES } from "src/app/app.routes";
 import { Router } from '@angular/router';
 @Injectable()

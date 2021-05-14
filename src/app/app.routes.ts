@@ -3,8 +3,7 @@ import { LoginComponent } from "./views/login/login.component";
 import { MainComponent } from "src/app/views/layout/main/main.component";
 //Guards
 import { AuthGuard } from "src/app/guards/auth.guard";
-import { HomeComponent } from 'src/app/views/pages/admin/home/home.component';
-import { ContactComponent } from 'src/app/views/pages/admin/contact/contact.component';
+import { HomeComponent } from 'src/app/views/pages/main/home/home.component';
 
 export const APP_ROUTES: Routes = [
   { path: 'login', component: LoginComponent },
@@ -13,7 +12,6 @@ export const APP_ROUTES: Routes = [
     component: MainComponent,
     children: [
       { path: 'home', component: HomeComponent },
-      // { path: 'contacts', component: ContactComponent },
       // { path: '**', pathMatch: 'full', redirectTo: 'home' }
     ], canActivate: [AuthGuard],
   },

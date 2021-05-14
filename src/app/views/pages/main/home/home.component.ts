@@ -13,8 +13,8 @@ export class HomeComponent implements OnInit {
   name_component = "";
 
   constructor(private _ixchelV2Service: IxchelV2Service, private _rackspaceService: RackspaceService, private router: Router) {
-    this.name_component = this.router.url;
-    console.log(this.router.url);
+    this.name_component = this.router.url.replace(/^\/|\/$/g, '');
+    console.log(this.name_component);
   }
 
   ngOnInit(): void {

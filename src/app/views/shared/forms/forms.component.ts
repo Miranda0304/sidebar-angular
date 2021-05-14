@@ -20,6 +20,7 @@ export class FormsComponent implements OnInit {
 
   constructor(private _ixchelV2Service: IxchelV2Service, private _changeDetector: ChangeDetectorRef,) {
     //this._changeDetector.detectChanges();
+    
   }
 
   ngOnInit(): void {
@@ -35,7 +36,7 @@ export class FormsComponent implements OnInit {
 
   async loadForms() {
     if (this.partial_name_component != "") {
-      let lst_view = views_json.data.filter(x => x.id_view == this.partial_name_component).map(x => x.forms)[0];
+      let lst_view = views_json.data.filter(x => x.path_view == this.partial_name_component).map(x => x.forms)[0];
       if (lst_view != undefined) {
         if (lst_view.length > 0) {
           // ################################################# getData puede recibir el form directo getForm('vw_sys_fields', 'persons')
@@ -46,6 +47,9 @@ export class FormsComponent implements OnInit {
             this.lst_forms.forEach(element => {
               this.lst_data_form[element.field_name] = this.lst_data[0][element.field_name];
             });
+
+            console.log(this.lst_forms);
+
           }).catch((err) => {
             console.log("loadForms", err);
           });

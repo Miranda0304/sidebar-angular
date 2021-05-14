@@ -21,13 +21,10 @@ import { RackspaceService } from "src/app/services/Rackspace/rackspace.service";
 
 //Components Views
 import { MainComponent } from './main.component';
-import { HomeComponent } from 'src/app/views/pages/admin/home/home.component';
-import { DocumentComponent } from 'src/app/views/pages/admin/document/document.component';
-import { ContactComponent } from 'src/app/views/pages/admin/contact/contact.component';
+import { HomeComponent } from 'src/app/views/pages/main/home/home.component';
+import { DocumentComponent } from 'src/app/views/pages/main/document/document.component';
 import { TablesComponent } from 'src/app/views/shared/tables/tables.component';
 import { FormsComponent } from 'src/app/views/shared/forms/forms.component';
-import { TableComponent } from 'src/app/views/pages/admin/table/table.component';
-import { Table2Component } from 'src/app/views/pages/admin/table2/table2.component';
 
 
 @NgModule({
@@ -46,10 +43,7 @@ import { Table2Component } from 'src/app/views/pages/admin/table2/table2.compone
         HomeComponent,
         FormsComponent,
         TablesComponent,
-        ContactComponent,
         DocumentComponent,
-        TableComponent,
-        Table2Component
     ],
     providers: [
         AuthenticationService,
