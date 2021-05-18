@@ -2,7 +2,6 @@ import { Component, OnInit, Input } from '@angular/core';
 import { views_json } from "../../../../database/views-json/view-json";
 import { tables_json } from "src/database/table-json/tables-json";
 import { IxchelV2Service } from "src/app/services/API_Ixchelv2/ixchel_v2.service";
-import { ThrowStmt } from '@angular/compiler';
 
 @Component({
   selector: 'app-tables',
@@ -11,7 +10,8 @@ import { ThrowStmt } from '@angular/compiler';
 })
 export class TablesComponent implements OnInit {
 
-  @Input() partial_name_component: string = "";
+  @Input() partial_name_path: string = "";
+  @Input() partial_name_table: string = "";
 
   lst_tables = [];
   dtOptions: DataTables.Settings = {};
@@ -42,51 +42,31 @@ export class TablesComponent implements OnInit {
   }
 
   async loadTablesAPI() {
-    if (this.partial_name_component != "") {
-      this.dtOptions = {
-        pagingType: 'full_numbers',
-        language: this.datatable_language,
-        order: [],
-        deferRender: true,
-        lengthMenu: [10, 25, 50, 75, 100]
-        //columnDefs: [{ orderable: false, targets: [3] }]
-      };
 
-      let lst_tables = [];
-      let lst_headers = [];
-      let lst_information = [];
-      let lst_name_views = [];
+    if (this.partial_name_path != "") {
+      if (this.partial_name_table != "") {
+        let name_view = "";
+        let lst_information = [];
 
-      let lst_view = views_json.data.filter(x => x.path_view == this.partial_name_component).map(x => x.tables)[0];
-
-      if (lst_view != undefined) {
-        await this._ixchelV2Service.getData("sys_table_tables").then(async (tables) => {
+        await this._ixchelV2Service.getTable("sys_table_tables", this.partial_name_table).then(async (tables) => {
           if (tables != undefined) {
-            lst_tables = tables.filter((table) => lst_view.includes(table.table_name));
-            lst_name_views = lst_tables.map(x => x.view_name);            
+            name_view = tables[0].view_name;
 
-            await this._ixchelV2Service.getData("sys_table_fields").then(async (headers) => {
-              lst_headers = headers.filter((header) => lst_view.includes(header.table_name) && header.displayed == true).sort((a, b) => a.field_order - b.field_order);              
-
-              lst_tables.forEach((table, index) => {
-                lst_tables[index].header = [];                
-                lst_headers.forEach((header) => {
-                  if (header.table_name == table.table_name) {
-                    lst_tables[index].header.push(header)
-                  }
+            await this._ixchelV2Service.getTable("sys_table_fields", this.partial_name_table).then(async (headers) => {
+              if (headers != undefined) {
+                headers = headers.filter((header) => header.displayed == true).sort((a, b) => a.field_order - b.field_order);
+                tables[0].header = [];
+                headers.forEach((header) => {
+                  tables[0].header.push(header)
                 });
-              });
+              }
             });// END second getData
 
-
-            lst_name_views.forEach(async (view, index) => {
-
-              //if (lst_tables[index].view_name == view) {
-              await this._ixchelV2Service.getData(view).then(async (information) => {
-
-                lst_information = lst_tables.map(x => x.header)[index].map(x => x.field_name);                
+            await this._ixchelV2Service.getTable(name_view).then(async (information) => {
+              if (information != undefined) {
                 let information_rows = [];
-                
+                lst_information = tables.map(x => x.header)[0].map(x => x.field_name);
+
                 await information.forEach(element => {
                   information_rows.push(Object.keys(element)
                     .filter(key => lst_information.includes(key))
@@ -95,18 +75,28 @@ export class TablesComponent implements OnInit {
                       return obj;
                     }, {}));
                 });
-                
-                lst_tables[index].information = information_rows;
 
-              });// END third getData
+                tables[0].information = information_rows;
+              }
+            });// END third getData
 
-              // }              
-              this.lst_tables = lst_tables;
-            });
+            this.lst_tables = tables;
 
           }
         }); // END first getData
+
       }
+
+
+      this.dtOptions = {
+        pagingType: 'full_numbers',
+        language: this.datatable_language,
+        order: [],
+        deferRender: true,
+        lengthChange: false,
+        lengthMenu: [10]
+        //columnDefs: [{ orderable: false, targets: [3] }]
+      };
 
     }
 

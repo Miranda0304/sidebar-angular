@@ -29,11 +29,11 @@ export class MenuComponent implements OnInit {
   ]
 
 
-  constructor(private _globalService: GlobalService, private _ixchelV2Service: IxchelV2Service, private router: Router) {
+  constructor(private _globalServices: GlobalService, private _ixchelV2Service: IxchelV2Service, private router: Router) {
     this.loadNavList();
     //console.log(this.router.config);
     localStorage.getItem('CONTEXTUAL_AREA') == 'true' ? this.contextual_area = true : this.contextual_area = false;
-    this._globalService.sendEstatusContextualArea(this.contextual_area);
+    this._globalServices.sendEstatusContextualArea(this.contextual_area);
   }
 
   ngOnInit(): void {
@@ -56,10 +56,13 @@ export class MenuComponent implements OnInit {
   openSubMenu(menu_id: number, level_to_open: number) {
 
     this.loadNavList();
+    // this._globalServices.addRoutes(this.list_menus[level_to_open - 1].filter(x => x.id == menu_id).map(x => x.path))
+    // console.log(this.list_menus[level_to_open - 1].filter(x => x.id == menu_id).map(x => x.path)[0]);
+    // console.log(this.router.config);
 
     // Update menu previous witjh api's data.
     if (this.list_menus[level_to_open - 2] != undefined) {
-      this.list_menus[level_to_open - 1] = this.list_menus[level_to_open - 2].filter( x => x.submenu.some( x => x.id == menu_id)).map(x => x.submenu)[0];
+      this.list_menus[level_to_open - 1] = this.list_menus[level_to_open - 2].filter(x => x.submenu.some(x => x.id == menu_id)).map(x => x.submenu)[0];
     }
 
     // Insert data to menu to open.
@@ -81,7 +84,7 @@ export class MenuComponent implements OnInit {
 
   saveContextualArea(menu_id: number, lst = []) {
     this.contextual_area = lst.filter(x => x.id == menu_id)[0].contextual_area
-    this._globalService.sendEstatusContextualArea(this.contextual_area);
+    this._globalServices.sendEstatusContextualArea(this.contextual_area);
     localStorage.setItem("CONTEXTUAL_AREA", this.contextual_area);
   }
 

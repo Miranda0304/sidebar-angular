@@ -1,6 +1,4 @@
 <div *ngIf="lst_forms.length > 0 ">
-  <h1>Dynamic Form</h1>
-
   <!-- <form (ngSubmit)="saveData(f)" #f="ngForm"> -->
   <form #f="ngForm">
     <fieldset>
@@ -157,16 +155,6 @@
     </fieldset>
 
   </form>
-
-  <ul *ngFor="let contact of lst_data; let i = index">
-    <li>{{i}}.
-      {{contact.first_name}} |
-      {{contact.middle_name}} |
-      {{contact.last_name_father}} |
-      {{contact.last_name_mother}} |
-      {{contact.date_of_birth == null ? "Sin dato" : contact.date_of_birth}} |
-      {{contact.modify_timestamp  | date :'short'}}
-    </li>
-  </ul>
-
+  
+  <br>
 </div>
