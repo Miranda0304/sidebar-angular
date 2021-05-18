@@ -45,47 +45,42 @@ export class TablesComponent implements OnInit {
 
     if (this.partial_name_path != "") {
       if (this.partial_name_table != "") {
-        let lst_tables = [];
-        let lst_headers = [];
-        let lst_information = [];
         let name_view = "";
+        let lst_information = [];
 
         await this._ixchelV2Service.getTable("sys_table_tables", this.partial_name_table).then(async (tables) => {
           if (tables != undefined) {
-            lst_tables = tables;
-            name_view = lst_tables[0].view_name;
+            name_view = tables[0].view_name;
 
             await this._ixchelV2Service.getTable("sys_table_fields", this.partial_name_table).then(async (headers) => {
-
-              lst_headers = headers.filter((header) => header.displayed == true).sort((a, b) => a.field_order - b.field_order);
-
-              lst_tables[0].header = [];
-
-              lst_headers.forEach((header) => {
-                lst_tables[0].header.push(header)
-              });
-
+              if (headers != undefined) {
+                headers = headers.filter((header) => header.displayed == true).sort((a, b) => a.field_order - b.field_order);
+                tables[0].header = [];
+                headers.forEach((header) => {
+                  tables[0].header.push(header)
+                });
+              }
             });// END second getData
 
-
             await this._ixchelV2Service.getTable(name_view).then(async (information) => {
-              let information_rows = [];
-              lst_information = lst_tables.map(x => x.header)[0].map(x => x.field_name);
+              if (information != undefined) {
+                let information_rows = [];
+                lst_information = tables.map(x => x.header)[0].map(x => x.field_name);
 
-              await information.forEach(element => {
-                information_rows.push(Object.keys(element)
-                  .filter(key => lst_information.includes(key))
-                  .reduce((obj, key) => {
-                    obj[key] = element[key];
-                    return obj;
-                  }, {}));
-              });
+                await information.forEach(element => {
+                  information_rows.push(Object.keys(element)
+                    .filter(key => lst_information.includes(key))
+                    .reduce((obj, key) => {
+                      obj[key] = element[key];
+                      return obj;
+                    }, {}));
+                });
 
-              lst_tables[0].information = information_rows;
-
+                tables[0].information = information_rows;
+              }
             });// END third getData
 
-            this.lst_tables = lst_tables;
+            this.lst_tables = tables;
 
           }
         }); // END first getData
