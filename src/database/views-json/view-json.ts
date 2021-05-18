@@ -29,7 +29,7 @@ export const views_json = {
                     ordinal: 4
                 },
             ],
-            contextual_area: ''
+            contextual_area: []
         },
         {
             path_view: 'contacts',
@@ -47,7 +47,7 @@ export const views_json = {
                     ordinal: 2
                 }
             ],
-            contextual_area: ''
+            contextual_area: []
         },
         {
             path_view: 'admin/users',
@@ -59,7 +59,7 @@ export const views_json = {
                     ordinal: 2
                 }
             ],
-            contextual_area: ''
+            contextual_area: []
         }
 
     ],
