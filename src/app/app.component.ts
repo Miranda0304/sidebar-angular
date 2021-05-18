@@ -17,30 +17,10 @@ export class AppComponent {
   constructor(private router: Router, private _globalServices: GlobalService,
     private _ixchelV2Service: IxchelV2Service, private _authenticationService: AuthenticationService) {
 
-
-
   }
 
-  // ngAfterViewInit(): void {
-  //   if (this._authenticationService.isAuthenticated()) {
-  //     this._ixchelV2Service.getNavList().then(async (result) => {
-  //       if (result != undefined) {
-  //         this._globalServices.addRoutes(result);
-  //       }
-  //       // console.log(this.router.url);
-  //       this.router.navigateByUrl(this.router.url);
-
-  //     }).catch((err) => {
-  //       console.log(err);
-  //     });
-  //   }
-
-  // }
-
   ngAfterViewInit(): void {
-
     if (this._authenticationService.isAuthenticated()) {
-
       this._ixchelV2Service.getNavigation().then((result) => {
         if (result != undefined) {
           this._globalServices.addRoutes(result);
@@ -50,7 +30,7 @@ export class AppComponent {
         console.log(err);
       });
     }
-
   }
+
 
 }

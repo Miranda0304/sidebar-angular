@@ -74,7 +74,25 @@ export class IxchelV2Service {
                 return result.data
             }
         }).catch((err) => {
-            this.toast.error(err.message, '', { opacity: 1, timeOut: 3000, positionClass: 'md-toast-top-center' });
+            this.toast.error(err.message, 'Forms', { opacity: 1, timeOut: 3000, positionClass: 'md-toast-top-center' });
+        });
+
+        return data;
+    }
+
+    public async getTable(model_name: string, table_name?: string) {
+        this.readToken();
+        if (model_name == "") return;
+
+        const headers = { 'Prefer': 'params=single-object', 'Content-Type': 'application/json' };
+        const body = { "action": "get_data", "sessionID": this.user_token, "data": { "model": model_name, "table_name": table_name } };
+
+        let data = await this._http.post(URL_IXCHEL, body, { headers }).toPromise().then((result: any) => {
+            if (result.data.length > 0 && result.message == "OK") {
+                return result.data
+            }
+        }).catch((err) => {
+            this.toast.error(err.message, 'Tables', { opacity: 1, timeOut: 3000, positionClass: 'md-toast-top-center' });
         });
 
         return data;

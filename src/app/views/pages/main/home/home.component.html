@@ -1,4 +1,4 @@
-<div class="jumbotron" style="background-color: white;">
+<div class="jumbotron">
   <h1 class="display-4">
     <!-- <img src="http://www.arteaga.mx/wp-content/uploads/2015/06/Logo-Arteaga-Cropped1.png" id="logo_home"> -->
     Inicio
@@ -26,5 +26,19 @@
 
 </div>
 
-<app-forms [partial_name_component]="name_component"></app-forms>
-<app-tables [partial_name_component]="name_component"></app-tables>
+
+<div *ngFor="let content of lst_content">
+  <ng-container [ngSwitch]="lst_content.length > 0">
+
+    <ng-container *ngSwitchCase="content.type === 'form'">
+      <app-forms [partial_name_path]="name_component" [partial_name_form]="content.name"></app-forms>
+    </ng-container>
+
+    <ng-container *ngSwitchCase="content.type === 'table'">
+      <app-tables [partial_name_path]="name_component" [partial_name_table]="content.name"></app-tables>
+    </ng-container>
+
+  </ng-container>
+</div>
+<!-- <app-tables [partial_name_component]="name_component"></app-tables>
+<app-forms [partial_name_component]="name_component"></app-forms>-->
