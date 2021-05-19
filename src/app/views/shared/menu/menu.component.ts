@@ -20,6 +20,8 @@ export class MenuComponent implements OnInit {
   //Stores the data of each menu.
   list_menus = {};
 
+  single_menu = {};
+
   //Show or not the contextual area
   contextual_area: any;
 
@@ -29,11 +31,13 @@ export class MenuComponent implements OnInit {
   ]
 
 
-  constructor(private _globalServices: GlobalService, private _ixchelV2Service: IxchelV2Service, private router: Router) {
+  constructor(private _globalService: GlobalService, private _ixchelV2Service: IxchelV2Service, private router: Router) {
     this.loadNavList();
     //console.log(this.router.config);
     localStorage.getItem('CONTEXTUAL_AREA') == 'true' ? this.contextual_area = true : this.contextual_area = false;
-    this._globalServices.sendEstatusContextualArea(this.contextual_area);
+
+    this._globalService.sendEstatusContextualArea(this.contextual_area);
+
   }
 
   ngOnInit(): void {
@@ -44,21 +48,35 @@ export class MenuComponent implements OnInit {
     this.lstVisible.push({ level: this.number_turns.length + 1, isVisible: false, isCollapse: false });
   }
 
-  loadNavList() {
-    //this.list_menus[1] = menu_json.data;
-    this._ixchelV2Service.getNavList().then((result) => {
-      if (result != undefined) {
-        this.list_menus[1] = result;
-      }
-    });
+
+  async loadNavList(menu_id?: string) {
+    if (menu_id == undefined) {
+      //this.list_menus[1] = menu_json.data;
+      await this._ixchelV2Service.getNavList().then((result) => {
+        if (result != undefined) {
+          this.list_menus[1] = result;
+        }
+      });
+    } else {
+      //this.list_menus[1] = menu_json.data;
+      await this._ixchelV2Service.getData("sys_navigation", menu_id).then((result) => {
+        this.single_menu = result[0];
+      });
+    }
+
   }
 
-  openSubMenu(menu_id: number, level_to_open: number) {
+  async openSubMenu(menu_id: string, level_to_open: number) {
+    await this.loadNavList();
+    // await this.loadNavList(menu_id);
 
-    this.loadNavList();
-    // this._globalServices.addRoutes(this.list_menus[level_to_open - 1].filter(x => x.id == menu_id).map(x => x.path))
-    // console.log(this.list_menus[level_to_open - 1].filter(x => x.id == menu_id).map(x => x.path)[0]);
-    // console.log(this.router.config);
+    // let final = { ...this.list_menus[level_to_open - 1].filter(x => x.id == menu_id)[0], ...this.single_menu }
+    // this.list_menus[level_to_open - 1].filter(x => x.id == menu_id).map(x => Object.assign({}, final));
+    // console.log(this.list_menus[level_to_open - 1].filter(x => x.id == menu_id));
+
+    setTimeout(() => {
+      this._globalService.sendTitleDynamicPage(this.list_menus[level_to_open - 1].filter(x => x.id == menu_id)[0].title);
+    }, 1);
 
     // Update menu previous witjh api's data.
     if (this.list_menus[level_to_open - 2] != undefined) {
@@ -82,9 +100,9 @@ export class MenuComponent implements OnInit {
     }, 1);
   }
 
-  saveContextualArea(menu_id: number, lst = []) {
+  saveContextualArea(menu_id: string, lst = []) {
     this.contextual_area = lst.filter(x => x.id == menu_id)[0].contextual_area
-    this._globalServices.sendEstatusContextualArea(this.contextual_area);
+    this._globalService.sendEstatusContextualArea(this.contextual_area);
     localStorage.setItem("CONTEXTUAL_AREA", this.contextual_area);
   }
 

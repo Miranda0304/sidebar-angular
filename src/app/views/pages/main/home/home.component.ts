@@ -1,28 +1,34 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { Router } from '@angular/router';
 import { IxchelV2Service } from "src/app/services/API_Ixchelv2/ixchel_v2.service";
 import { RackspaceService } from "src/app/services/Rackspace/rackspace.service";
 import { views_json } from "src/database/views-json/view-json";
-
+import { GlobalService } from "src/app/services/Global/global.service";
+import { Observable } from 'rxjs';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  fileToUpload: File = null;
+  title_page = "Inicio";
   name_component = "";
-  name_form = "";
   lst_content = [];
 
-  constructor(private _ixchelV2Service: IxchelV2Service, private _rackspaceService: RackspaceService, private router: Router) {
+  constructor(private _ixchelV2Service: IxchelV2Service, private _rackspaceService: RackspaceService,
+    private router: Router, private _globalService: GlobalService, private _changeDetector: ChangeDetectorRef) {
     this.name_component = this.router.url.replace(/^\/main\/|\/$/g, '');
-    // console.log(this.name_component);
-
   }
 
   ngOnInit(): void {
     this.load_views();
+  }
+
+  ngAfterViewInit(): void {
+    this._globalService.readTitlePage.subscribe((data) => {
+      this.title_page = data;
+      this._changeDetector.detectChanges();
+    });
   }
 
   async load_views() {
@@ -31,7 +37,6 @@ export class HomeComponent implements OnInit {
       //console.log("FILTER", this.lst_content);
     }
   }
-
 
 
 

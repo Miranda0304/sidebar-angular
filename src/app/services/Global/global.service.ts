@@ -17,8 +17,7 @@ export class GlobalService {
         this.isVisibleContextualArea.next(visible);
     }
 
-
-    addRoutes(lst_routes) {
+    public addRoutes(lst_routes) {
         lst_routes.map(x => x.replace(/^\/|\/$/g, '')).forEach(element => {
             this.routes[1].children.push(
                 { path: element, component: HomeComponent },
@@ -30,6 +29,14 @@ export class GlobalService {
 
         // console.log(this.routes);
         this.router.resetConfig(this.routes);
+    }
+
+    // For title dynamic page.
+    private titlePage = new Subject<string>();
+    readTitlePage = this.titlePage.asObservable();
+
+    public sendTitleDynamicPage(title_page: string) {
+        this.titlePage.next(title_page);
     }
 
 }

@@ -14,22 +14,27 @@ export class AppComponent {
 
   lst_routes = false;
 
-  constructor(private router: Router, private _globalServices: GlobalService,
+  constructor(private router: Router, private _globalService: GlobalService,
     private _ixchelV2Service: IxchelV2Service, private _authenticationService: AuthenticationService) {
-
+      this._globalService.sendTitleDynamicPage("Andrea Vargas Brito");
   }
 
   ngAfterViewInit(): void {
-    if (this._authenticationService.isAuthenticated()) {
-      this._ixchelV2Service.getNavigation().then((result) => {
-        if (result != undefined) {
-          this._globalServices.addRoutes(result);
-          this.router.navigateByUrl('main/home');
-        }
-      }).catch((err) => {
-        console.log(err);
-      });
+    // console.log(this.router);
+    // console.log(this.router.url == "/");
+    if (this.router.url == "/") {
+      if (this._authenticationService.isAuthenticated()) {
+        this._ixchelV2Service.getNavigation().then((result) => {
+          if (result != undefined) {
+            this._globalService.addRoutes(result);
+            this.router.navigateByUrl('main/home');
+          }
+        }).catch((err) => {
+          console.log(err);
+        });
+      }
     }
+    
   }
 
 

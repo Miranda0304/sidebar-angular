@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectorRef, Input } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { NgForm } from "@angular/forms";
 import { forms_json } from "src/database/forms-json/forms-json";
 import { views_json } from "src/database/views-json/view-json";
@@ -18,8 +18,8 @@ export class FormsComponent implements OnInit {
   lst_forms = [];
   lst_data = [];
 
-  constructor(private _ixchelV2Service: IxchelV2Service, private _changeDetector: ChangeDetectorRef,) {
-    //this._changeDetector.detectChanges();
+  constructor(private _ixchelV2Service: IxchelV2Service) {
+
   }
 
   ngOnInit(): void {

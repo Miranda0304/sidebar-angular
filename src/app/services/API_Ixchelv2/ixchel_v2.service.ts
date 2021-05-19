@@ -15,7 +15,7 @@ export class IxchelV2Service {
 
     }
 
-    public async getNavList() {
+    public async getNavList(menu_id?) {
         this.readToken();
         const headers = { 'Prefer': 'params=single-object', 'Content-Type': 'application/json' };
         const body = { "action": "get_nav", "sessionID": this.user_token, "data": {} };
