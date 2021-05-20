@@ -32,7 +32,7 @@ export class MenuComponent implements OnInit {
 
 
   constructor(private _globalService: GlobalService, private _ixchelV2Service: IxchelV2Service, private router: Router) {
-    this.loadNavList();
+
     //console.log(this.router.config);
     localStorage.getItem('CONTEXTUAL_AREA') == 'true' ? this.contextual_area = true : this.contextual_area = false;
 
@@ -41,13 +41,13 @@ export class MenuComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.loadNavList();
     //Insert all submenus.
     this.number_turns.forEach(element => {
       this.lstVisible.push({ level: element, isVisible: false, isCollapse: false })
     });
     this.lstVisible.push({ level: this.number_turns.length + 1, isVisible: false, isCollapse: false });
   }
-
 
   async loadNavList(menu_id?: string) {
     if (menu_id == undefined) {

@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
 
   constructor(private _authenticationService: AuthenticationService,
     private router: Router, private toast: ToastService,
-    private _ixchelV2Service: IxchelV2Service, private _globalServices: GlobalService,) {
+    private _ixchelV2Service: IxchelV2Service, private _globalService: GlobalService,) {
 
     //Redirección segun el rol
     if (this._authenticationService.isAuthenticated()) {
@@ -48,7 +48,7 @@ export class LoginComponent implements OnInit {
     this._authenticationService.login(this.user).then((result) => {
       this._ixchelV2Service.getNavigation().then((result) => {
         if (result != undefined) {
-          this._globalServices.addRoutes(result);
+          this._globalService.addRoutes(result);
         }
         this.redirectionRoutes();
       }).catch((err) => {

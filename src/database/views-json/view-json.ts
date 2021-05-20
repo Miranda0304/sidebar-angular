@@ -35,15 +35,15 @@ export const views_json = {
             path_view: 'contacts',
             content: [
                 {
-                    type: 'form',
+                    type: 'table',
                     id: 'f-1',
-                    name: 'person',
+                    name: 'tpersons',
                     ordinal: 1
                 },
                 {
-                    type: 'table',
+                    type: 'form',
                     id: 't-1',
-                    name: 'tpersons',
+                    name: 'person',
                     ordinal: 2
                 }
             ],

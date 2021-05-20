@@ -16,7 +16,7 @@ export class AppComponent {
 
   constructor(private router: Router, private _globalService: GlobalService,
     private _ixchelV2Service: IxchelV2Service, private _authenticationService: AuthenticationService) {
-      this._globalService.sendTitleDynamicPage("Andrea Vargas Brito");
+      
   }
 
   ngAfterViewInit(): void {
@@ -27,7 +27,7 @@ export class AppComponent {
         this._ixchelV2Service.getNavigation().then((result) => {
           if (result != undefined) {
             this._globalService.addRoutes(result);
-            this.router.navigateByUrl('main/home');
+            // this.router.navigateByUrl('main/home');
           }
         }).catch((err) => {
           console.log(err);

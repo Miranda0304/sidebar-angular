@@ -8,15 +8,12 @@ import { HomeComponent } from 'src/app/views/pages/main/home/home.component';
 export const APP_ROUTES: Routes = [
   { path: 'login', component: LoginComponent },
   {
-    path: 'main',
-    component: MainComponent,
-    children: [
-      { path: 'home', component: HomeComponent },
-      // { path: '**', pathMatch: 'full', redirectTo: 'home' }
-    ], canActivate: [AuthGuard],
+    path: 'main', component: MainComponent,
+    children: [{ path: 'home', component: HomeComponent }],
+    canActivate: [AuthGuard],
   },
   { path: 'invitado', loadChildren: () => import('./views/layout/guess/guess.module').then(m => m.GuessModule) },
-  { path: '**', pathMatch: 'full', redirectTo: 'main/home' }
+  { path: '**', pathMatch: 'full', redirectTo: 'login' }
 ];
 
 
