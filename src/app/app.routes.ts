@@ -13,7 +13,7 @@ export const APP_ROUTES: Routes = [
     canActivate: [AuthGuard],
   },
   { path: 'invitado', loadChildren: () => import('./views/layout/guess/guess.module').then(m => m.GuessModule) },
-  { path: '**', pathMatch: 'full', redirectTo: 'login' }
+  { path: '**', pathMatch: 'full', redirectTo: 'main/home' }
 ];
 
 

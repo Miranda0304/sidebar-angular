@@ -23,9 +23,9 @@ export class GlobalService {
                 { path: element, component: HomeComponent },
             );
         });
-        // this.routes[1].children.push(
-        //     { path: '**', pathMatch: 'full', redirectTo: 'home' }
-        // );
+        this.routes[1].children.push(
+            { path: '**', pathMatch: 'full', redirectTo: 'home' }
+        );
 
         // console.log(this.routes);
         this.router.resetConfig(this.routes);
