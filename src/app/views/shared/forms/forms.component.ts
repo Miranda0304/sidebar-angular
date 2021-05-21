@@ -38,7 +38,7 @@ export class FormsComponent implements OnInit {
     if (this.partial_name_path != "") {
       if (this.partial_name_form != "") {
         await this._ixchelV2Service.getForm('vw_sys_fields', this.partial_name_form).then((result) => {
-          console.log(result);
+          // console.log(result);
           //this.lst_forms = forms_json.data.filter((form) => lst_view.includes(form.form_name)).sort((a, b) => a.ordinal - b.ordinal);
           this.lst_forms = result.sort((a, b) => a.ordinal - b.ordinal);
           // this.lst_forms.forEach(element => {

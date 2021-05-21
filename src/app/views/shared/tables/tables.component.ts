@@ -48,17 +48,21 @@ export class TablesComponent implements OnInit {
 
         let name_view = "";
         let lst_information = [];
+        let configuration_columns = [];
+        let columnDefs = [];
         let pagination = 10;
 
         await this._ixchelV2Service.getTable("sys_table_tables", this.partial_name_table).then(async (tables) => {
           if (tables != undefined) {
-            // console.log(tables);
             pagination = tables[0].pagination;
             name_view = tables[0].view_name;
 
             await this._ixchelV2Service.getTable("sys_table_fields", this.partial_name_table).then(async (headers) => {
               if (headers != undefined) {
+
                 headers = headers.filter((header) => header.displayed == true).sort((a, b) => a.field_order - b.field_order);
+                configuration_columns = headers;
+
                 tables[0].header = [];
                 headers.forEach((header) => {
                   tables[0].header.push(header)
@@ -89,14 +93,18 @@ export class TablesComponent implements OnInit {
           }
         }); // END first getData
 
+        // Insert configuration of columns ( headers ).
+        configuration_columns.forEach((element, index) => {
+          columnDefs.push({ orderable: element.sortable, searchable: element.searchable, targets: [index] })
+        });
+
         this.dtOptions = {
-          pagingType: 'full_numbers',
-          language: this.datatable_language,
-          order: [],
-          deferRender: true,
-          lengthChange: false,
-          lengthMenu: [pagination]
-          //columnDefs: [{ orderable: false, targets: [3] }]
+          pagingType: 'full_numbers', // Type of pagination
+          language: this.datatable_language, // Translate table
+          deferRender: true, // Performance
+          lengthChange: false, // Show or hide number for show rows.
+          lengthMenu: [pagination], // Size of show rows
+          columnDefs: columnDefs // Configuration columns
         };
       } // End second if
     } // End first if
