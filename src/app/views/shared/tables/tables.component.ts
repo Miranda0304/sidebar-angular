@@ -45,11 +45,15 @@ export class TablesComponent implements OnInit {
 
     if (this.partial_name_path != "") {
       if (this.partial_name_table != "") {
+
         let name_view = "";
         let lst_information = [];
+        let pagination = 10;
 
         await this._ixchelV2Service.getTable("sys_table_tables", this.partial_name_table).then(async (tables) => {
           if (tables != undefined) {
+            // console.log(tables);
+            pagination = tables[0].pagination;
             name_view = tables[0].view_name;
 
             await this._ixchelV2Service.getTable("sys_table_fields", this.partial_name_table).then(async (headers) => {
@@ -85,20 +89,17 @@ export class TablesComponent implements OnInit {
           }
         }); // END first getData
 
-      }
-
-
-      this.dtOptions = {
-        pagingType: 'full_numbers',
-        language: this.datatable_language,
-        order: [],
-        deferRender: true,
-        lengthChange: false,
-        lengthMenu: [10]
-        //columnDefs: [{ orderable: false, targets: [3] }]
-      };
-
-    }
+        this.dtOptions = {
+          pagingType: 'full_numbers',
+          language: this.datatable_language,
+          order: [],
+          deferRender: true,
+          lengthChange: false,
+          lengthMenu: [pagination]
+          //columnDefs: [{ orderable: false, targets: [3] }]
+        };
+      } // End second if
+    } // End first if
 
   }
 

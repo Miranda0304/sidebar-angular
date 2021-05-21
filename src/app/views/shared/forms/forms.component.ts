@@ -17,13 +17,15 @@ export class FormsComponent implements OnInit {
   lst_data_form = {}
   lst_forms = [];
   lst_data = [];
+  id_data: string;
+  data_upsert = {};
 
   constructor(private _ixchelV2Service: IxchelV2Service) {
 
   }
 
   ngOnInit(): void {
-    this.loadGetData("dm_persons", "c0004e4e-e76e-41ff-a117-79a60034ecce");
+
   }
 
   ngAfterViewInit(): void {
@@ -36,17 +38,57 @@ export class FormsComponent implements OnInit {
     if (this.partial_name_path != "") {
       if (this.partial_name_form != "") {
         await this._ixchelV2Service.getForm('vw_sys_fields', this.partial_name_form).then((result) => {
+          console.log(result);
           //this.lst_forms = forms_json.data.filter((form) => lst_view.includes(form.form_name)).sort((a, b) => a.ordinal - b.ordinal);
           this.lst_forms = result.sort((a, b) => a.ordinal - b.ordinal);
-          this.lst_forms.forEach(element => {
-            this.lst_data_form[element.field_name] = this.lst_data[0][element.field_name];
-          });
+          // this.lst_forms.forEach(element => {
+          //   this.lst_data_form[element.field_name] = this.lst_data[0][element.field_name];
+          // });
 
         }).catch((err) => {
           console.log("loadForms", err);
         });
       }
     }
+  }
+
+
+
+  async upsert(model_name: string, fields: {}) {
+    if (model_name == "") return;
+
+    await this._ixchelV2Service.upsert(model_name, fields).then((result) => {
+      this.id_data = result[0].id;
+      this.data_upsert = result[0]
+    }).catch((err) => {
+      console.log("upsert", err);
+    });
+
+  }
+
+  saveData(form: NgForm, table_name: string, field_name: string) {
+    //if (form.invalid) { return };
+    if (form.controls[field_name].invalid) { return };
+
+    let data = {};
+
+    if (this.id_data != undefined) {
+      console.log("Editar");
+      data["id"] = this.id_data;
+      data["model"] = table_name;
+      data[field_name] = this.lst_data_form[field_name];
+    } else {
+      console.log("Crear");
+      data["model"] = table_name;
+      data[field_name] = this.lst_data_form[field_name];
+    }
+
+    this.upsert('dm_persons', data);
+  }
+
+  newData() {
+    this.lst_data_form = {};
+    this.id_data = undefined;
   }
 
   async loadGetData(model_name: string, data_id?: string) {
@@ -57,32 +99,5 @@ export class FormsComponent implements OnInit {
     });;
   }
 
-  async upsert(model_name: string, fields: {}) {
-    if (model_name == "") return;
-
-    const body_data = { "model_name": model_name };
-
-    await this._ixchelV2Service.upsert(model_name, fields).then((result) => {
-      this.loadGetData("dm_persons", "c0004e4e-e76e-41ff-a117-79a60034ecce");
-    }).catch((err) => {
-      console.log("upsert", err);
-    });
-
-  }
-
-  saveData(form: NgForm, field_name: string) {
-    //if (form.invalid) { return };
-    if (form.controls[field_name].invalid) { return };
-    console.log(`Is correct the ${field_name}?`);
-    console.log(!form.controls[field_name].invalid);
-    console.log(`Saving "${this.lst_data_form[field_name]}"...`);
-
-    let data = {};
-    data["id"] = "c0004e4e-e76e-41ff-a117-79a60034ecce";
-    data["model"] = "dm_persons";
-    data[field_name] = this.lst_data_form[field_name];
-
-    this.upsert('dm_persons', data);
-  }
 
 }

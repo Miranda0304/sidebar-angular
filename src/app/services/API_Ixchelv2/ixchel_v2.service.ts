@@ -104,7 +104,7 @@ export class IxchelV2Service {
     }
 
     // Create or edit data.
-    public async upsert(model_name: string, obj_data: {}, id_data?: string) {
+    public async upsert(model_name: string, obj_data: {}) {
         this.readToken();
         if (model_name == "") return;
 
