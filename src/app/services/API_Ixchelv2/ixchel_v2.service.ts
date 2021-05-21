@@ -26,7 +26,11 @@ export class IxchelV2Service {
                 return result.data.map(x => x.path);
             }
         }).catch((err) => {
-            this.toast.error(err.message, 'Error al cargar las rutas', { opacity: 1, timeOut: 3000, positionClass: 'md-toast-top-center' });
+            if (err.error.message == undefined) {
+                this.toast.error(err.message, '', { opacity: 1, timeOut: 3000, positionClass: 'md-toast-top-center' });
+            } else {
+                this.toast.error(err.error.message, '', { opacity: 1, timeOut: 3000, positionClass: 'md-toast-top-center' });
+            }
         });
         return data;
     }
@@ -42,7 +46,11 @@ export class IxchelV2Service {
                 return result.data.sort((a, b) => a.ordinal - b.ordinal);
             }
         }).catch((err) => {
-            this.toast.error(err.message, 'Error al cargar los menus', { opacity: 1, timeOut: 3000, positionClass: 'md-toast-top-center' });
+            if (err.error.message == undefined) {
+                this.toast.error(err.message, '', { opacity: 1, timeOut: 3000, positionClass: 'md-toast-top-center' });
+            } else {
+                this.toast.error(err.error.message, '', { opacity: 1, timeOut: 3000, positionClass: 'md-toast-top-center' });
+            }
         });
         return data;
     }
@@ -60,7 +68,11 @@ export class IxchelV2Service {
                 return result.data
             }
         }).catch((err) => {
-            this.toast.error(err.message, '', { opacity: 1, timeOut: 3000, positionClass: 'md-toast-top-center' });
+            if (err.error.message == undefined) {
+                this.toast.error(err.message, '', { opacity: 1, timeOut: 3000, positionClass: 'md-toast-top-center' });
+            } else {
+                this.toast.error(err.error.message, '', { opacity: 1, timeOut: 3000, positionClass: 'md-toast-top-center' });
+            }
         });
         return data;
     }
@@ -78,7 +90,11 @@ export class IxchelV2Service {
                 return result.data
             }
         }).catch((err) => {
-            this.toast.error(err.message, 'Forms', { opacity: 1, timeOut: 3000, positionClass: 'md-toast-top-center' });
+            if (err.error.message == undefined) {
+                this.toast.error(err.message, '', { opacity: 1, timeOut: 3000, positionClass: 'md-toast-top-center' });
+            } else {
+                this.toast.error(err.error.message, '', { opacity: 1, timeOut: 3000, positionClass: 'md-toast-top-center' });
+            }
         });
 
         return data;
@@ -97,7 +113,11 @@ export class IxchelV2Service {
                 return result.data
             }
         }).catch((err) => {
-            this.toast.error(err.message, 'Tables', { opacity: 1, timeOut: 3000, positionClass: 'md-toast-top-center' });
+            if (err.error.message == undefined) {
+                this.toast.error(err.message, '', { opacity: 1, timeOut: 3000, positionClass: 'md-toast-top-center' });
+            } else {
+                this.toast.error(err.error.message, '', { opacity: 1, timeOut: 3000, positionClass: 'md-toast-top-center' });
+            }
         });
 
         return data;
@@ -117,7 +137,11 @@ export class IxchelV2Service {
                 return result.data
             }
         }).catch((err) => {
-            this.toast.error(err.message, '', { opacity: 1, timeOut: 3000, positionClass: 'md-toast-top-center' });
+            if (err.error.message == undefined) {
+                this.toast.error(err.message, '', { opacity: 1, timeOut: 3000, positionClass: 'md-toast-top-center' });
+            } else {
+                this.toast.error(err.error.message, '', { opacity: 1, timeOut: 3000, positionClass: 'md-toast-top-center' });
+            }
         });
 
         return data;
@@ -135,7 +159,11 @@ export class IxchelV2Service {
                 return result.data.sort((a, b) => a.ordinal - b.ordinal);
             }
         }).catch((err) => {
-            this.toast.error(err.message, 'Error al cargar los menus', { opacity: 1, timeOut: 3000, positionClass: 'md-toast-top-center' });
+            if (err.error.message == undefined) {
+                this.toast.error(err.message, '', { opacity: 1, timeOut: 3000, positionClass: 'md-toast-top-center' });
+            } else {
+                this.toast.error(err.error.message, '', { opacity: 1, timeOut: 3000, positionClass: 'md-toast-top-center' });
+            }
         });
         return data;
     }
