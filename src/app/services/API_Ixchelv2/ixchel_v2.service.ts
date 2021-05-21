@@ -15,21 +15,7 @@ export class IxchelV2Service {
 
     }
 
-    public async getNavList(menu_id?) {
-        this.readToken();
-        const headers = { 'Prefer': 'params=single-object', 'Content-Type': 'application/json' };
-        const body = { "action": "get_nav", "sessionID": this.user_token, "data": {} };
-
-        let data = await this._http.post(URL_IXCHEL, body, { headers }).toPromise().then((result: any) => {
-            if (result.data.length > 0 && result.message == 'OK') {
-                return result.data.sort((a, b) => a.ordinal - b.ordinal);
-            }
-        }).catch((err) => {
-            this.toast.error(err.message, 'Error al cargar los menus', { opacity: 1, timeOut: 3000, positionClass: 'md-toast-top-center' });
-        });
-        return data;
-    }
-
+    // Get all routes or path.
     public async getNavigation() {
         this.readToken();
         const headers = { 'Prefer': 'params=single-object', 'Content-Type': 'application/json' };
@@ -45,6 +31,23 @@ export class IxchelV2Service {
         return data;
     }
 
+    // Get all menus of navigation.
+    public async getNavList() {
+        this.readToken();
+        const headers = { 'Prefer': 'params=single-object', 'Content-Type': 'application/json' };
+        const body = { "action": "get_nav", "sessionID": this.user_token, "data": {} };
+
+        let data = await this._http.post(URL_IXCHEL, body, { headers }).toPromise().then((result: any) => {
+            if (result.data.length > 0 && result.message == 'OK') {
+                return result.data.sort((a, b) => a.ordinal - b.ordinal);
+            }
+        }).catch((err) => {
+            this.toast.error(err.message, 'Error al cargar los menus', { opacity: 1, timeOut: 3000, positionClass: 'md-toast-top-center' });
+        });
+        return data;
+    }
+
+    // Get data 
     public async getData(model_name: string, data_id?: string) {
         this.readToken();
         if (model_name == "") return;
@@ -62,6 +65,7 @@ export class IxchelV2Service {
         return data;
     }
 
+    // Get field of forms.
     public async getForm(model_name: string, form_name?: string) {
         this.readToken();
         if (model_name == "") return;
@@ -80,6 +84,7 @@ export class IxchelV2Service {
         return data;
     }
 
+    // Get tables, headers and data of tables.
     public async getTable(model_name: string, table_name?: string) {
         this.readToken();
         if (model_name == "") return;
@@ -98,6 +103,7 @@ export class IxchelV2Service {
         return data;
     }
 
+    // Create or edit data.
     public async upsert(model_name: string, obj_data: {}, id_data?: string) {
         this.readToken();
         if (model_name == "") return;
@@ -116,6 +122,22 @@ export class IxchelV2Service {
 
         return data;
 
+    }
+
+    // Get forms and tables in a specific page or view.
+    public async getPageContent(path_view: string) {
+        this.readToken();
+        const headers = { 'Prefer': 'params=single-object', 'Content-Type': 'application/json' };
+        const body = { "action": "get_content_menu", "sessionID": this.user_token, "data": {} };
+
+        let data = await this._http.post(URL_IXCHEL, body, { headers }).toPromise().then((result: any) => {
+            if (result.data.length > 0 && result.message == 'OK') {
+                return result.data.sort((a, b) => a.ordinal - b.ordinal);
+            }
+        }).catch((err) => {
+            this.toast.error(err.message, 'Error al cargar los menus', { opacity: 1, timeOut: 3000, positionClass: 'md-toast-top-center' });
+        });
+        return data;
     }
 
     readToken() {

@@ -21,22 +21,26 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.load_views();
+
+    this.loadPageContent();
   }
 
   ngAfterViewInit(): void {
     this._globalService.readTitlePage.subscribe((title_menu) => {
       this.title_page = title_menu;
-     
+
     });
   }
 
-  async load_views() {
-    if (views_json.data.filter(x => x.path_view == this.name_component)[0] != undefined) {
-      this.lst_content = views_json.data.filter(x => x.path_view == this.name_component)[0].content.sort((a, b) => a.ordinal - b.ordinal);
-      //console.log("FILTER", this.lst_content);
-    }
+  async loadPageContent() {
+    await this._ixchelV2Service.getPageContent("").then((result) => {
+      //this.lst_content = views_json.data.filter(x => x.path_view == this.name_component)[0].content.sort((a, b) => a.ordinal - b.ordinal);
+      this.lst_content = result.filter(x => x.path_view == this.name_component)[0].content.sort((a, b) => a.ordinal - b.ordinal);
+    }).catch((err) => {
+      console.log(err);
+    });
   }
+
 
 
 
