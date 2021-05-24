@@ -37,16 +37,21 @@ export class MenuComponent implements OnInit {
     localStorage.getItem('CONTEXTUAL_AREA') == 'true' ? this.contextual_area = true : this.contextual_area = false;
 
     this._globalService.sendEstatusContextualArea(this.contextual_area);
-
   }
 
   ngOnInit(): void {
-    this.loadNavList();
+
+
     //Insert all submenus.
     this.number_turns.forEach(element => {
       this.lstVisible.push({ level: element, isVisible: false, isCollapse: false })
     });
     this.lstVisible.push({ level: this.number_turns.length + 1, isVisible: false, isCollapse: false });
+  }
+
+  ngAfterViewInit(): void {
+    this.loadNavList();
+
   }
 
   async loadNavList(menu_id?: string) {

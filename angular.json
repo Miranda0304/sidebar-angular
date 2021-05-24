@@ -19,9 +19,8 @@
           "options": {
             "allowedCommonJsDependencies": [
               "ng2-pdf-viewer",
-              "socket.io-client",
-              "socket.io-parser",
-              "debug"
+              "pdfjs-dist/es5/build/pdf",
+              "pdfjs-dist/es5/web/pdf_viewer"
             ],
             "showCircularDependencies": false,
             "outputPath": "dist/Sidebar",

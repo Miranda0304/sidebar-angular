@@ -8,8 +8,6 @@ import { Routes, RouterModule } from '@angular/router';
 
 //Dependencies
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
-import { DataTablesModule } from "angular-datatables";
-import { PdfViewerModule } from 'ng2-pdf-viewer';
 
 //Shared Components
 import { MenuComponent } from './menu.component';
@@ -28,8 +26,6 @@ import { IxchelV2Service } from "src/app/services/API_Ixchelv2/ixchel_v2.service
         ReactiveFormsModule,
         HttpClientModule,
         Ng2SearchPipeModule,
-        DataTablesModule,
-        PdfViewerModule,
         RouterModule
     ],
     declarations: [

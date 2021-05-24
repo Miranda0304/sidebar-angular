@@ -3,7 +3,6 @@ import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthenticationService } from "src/app/services/Authentication/authentication.service";
 import { GlobalService } from "src/app/services/Global/global.service"
-import { ToastService } from 'ng-uikit-pro-standard';
 import { IxchelV2Service } from 'src/app/services/API_Ixchelv2/ixchel_v2.service';
 @Component({
   selector: 'app-login',
@@ -21,8 +20,8 @@ export class LoginComponent implements OnInit {
 
 
   constructor(private _authenticationService: AuthenticationService,
-    private router: Router, private toast: ToastService,
-    private _ixchelV2Service: IxchelV2Service, private _globalService: GlobalService,) {
+    private router: Router, private _ixchelV2Service: IxchelV2Service,
+    private _globalService: GlobalService,) {
 
     //Redirección segun el rol
     if (this._authenticationService.isAuthenticated()) {
@@ -59,9 +58,7 @@ export class LoginComponent implements OnInit {
   }
 
   redirectionRoutes() {
-    if (localStorage.getItem('rol') == 'admin') {
-      this.router.navigateByUrl('main/home');
-    }
+    this.router.navigateByUrl('main/home');
   }
 
   remember() {
