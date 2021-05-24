@@ -16,8 +16,7 @@ export class AppComponent {
 
   constructor(private router: Router, private _globalService: GlobalService,
     private _ixchelV2Service: IxchelV2Service, private _authenticationService: AuthenticationService) {
-    this.loadRoutesPath()
-    console.log("##");;
+    this.loadRoutesPath();
   }
 
   ngAfterViewInit(): void {

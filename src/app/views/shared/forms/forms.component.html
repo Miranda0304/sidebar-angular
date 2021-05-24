@@ -1,16 +1,16 @@
-<div *ngIf="lst_forms.length > 0 ">
+<div *ngIf="lst_forms.length > 0">
   <!-- <form (ngSubmit)="saveData(f)" #f="ngForm"> -->
-  <form #f="ngForm">
-    <div class="col-md-12" align="left">
-      <button type="button" class="btn btn-primary" (click)="newData()">Nuevo</button>
-    </div>
+  <div class="col-md-12" align="left">
+    <button type="button" class="btn btn-primary" (click)="newData()">Nuevo</button>
+  </div>
 
+  <form #f="ngForm" class="container">
     <fieldset>
       <div class="row">
         <!-- ng for -->
         <div [className]="form.field_type != 'legend' ? 'form-group col-md-' + form.colspan : 'col-md-'+form.colspan "
           *ngFor="let form of lst_forms"
-          [ngStyle]="{'margin': form.field_y + 'px' + ' ' +form.field_x + 'px' ,  'position': 'relative' }">
+          [ngStyle]="{'margin': form.field_y + 'px' + ' ' +form.field_x + 'px' ,  'position': 'relative' , 'align-self':'flex-end'}">
 
           <ng-container [ngSwitch]="lst_forms.length > 0">
 
@@ -159,10 +159,11 @@
       </div>
     </fieldset>
 
-  </form>
 
-  <div>
-    {{ test_data_upsert | json }}
-  </div>
+    <div>
+      {{ test_data_upsert | json }}
+    </div>
+
+  </form>
   <br>
 </div>
