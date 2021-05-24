@@ -23,7 +23,9 @@ sudo npm install for install dependencies in linux
 npm start , for run proxy and server
 
 # Install
-npm install -g @angular/cli@10.2.2
+npm install -g @angular/cli@10.2.3
+
+npm install -g @angular/core@10.2.5
 
 ## Development server
 
