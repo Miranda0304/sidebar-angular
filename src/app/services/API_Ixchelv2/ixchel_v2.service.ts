@@ -124,9 +124,9 @@ export class IxchelV2Service {
     }
 
     // Create or edit data.
-    public async upsert(model_name: string, obj_data: {}) {
+    public async upsert(obj_data: {}) {
         this.readToken();
-        if (model_name == "") return;
+        if (Object.keys(obj_data).length == 0) return;
 
         const headers = { 'Prefer': 'params=single-object', 'Content-Type': 'application/json' };
         const body_data = obj_data;

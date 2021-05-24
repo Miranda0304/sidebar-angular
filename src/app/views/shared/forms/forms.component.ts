@@ -18,7 +18,7 @@ export class FormsComponent implements OnInit {
   lst_forms = [];
   lst_data = [];
   id_data: string;
-  data_upsert = {};
+  test_data_upsert = {};
 
   constructor(private _ixchelV2Service: IxchelV2Service) {
 
@@ -54,12 +54,13 @@ export class FormsComponent implements OnInit {
 
 
 
-  async upsert(model_name: string, fields: {}) {
-    if (model_name == "") return;
-
-    await this._ixchelV2Service.upsert(model_name, fields).then((result) => {
-      this.id_data = result[0].id;
-      this.data_upsert = result[0]
+  async upsert(fields: {}) {
+    if (Object.keys(fields).length == 0) return;
+    await this._ixchelV2Service.upsert(fields).then((result) => {
+      if (result != undefined) {
+        this.id_data = result[0].id;
+        this.test_data_upsert = result[0];
+      }
     }).catch((err) => {
       console.log("upsert", err);
     });
@@ -69,7 +70,6 @@ export class FormsComponent implements OnInit {
   saveData(form: NgForm, table_name: string, field_name: string) {
     //if (form.invalid) { return };
     if (form.controls[field_name].invalid) { return };
-
     let data = {};
 
     if (this.id_data != undefined) {
@@ -83,7 +83,7 @@ export class FormsComponent implements OnInit {
       data[field_name] = this.lst_data_form[field_name];
     }
 
-    this.upsert('dm_persons', data);
+    this.upsert(data);
   }
 
   newData() {

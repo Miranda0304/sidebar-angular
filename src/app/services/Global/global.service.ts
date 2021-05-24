@@ -36,7 +36,7 @@ export class GlobalService {
     readTitlePage = this.titlePage.asObservable();
 
     public sendTitleDynamicPage(title_page: string) {
-       return this.titlePage.next(title_page);   
+        return this.titlePage.next(title_page);
     }
 
 }
