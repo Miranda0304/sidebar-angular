@@ -4,7 +4,9 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 # Version Project 
 
-Angular cli 10.2.2
+Angular cli 10.2.3
+
+Angular core 10.2.5
 
 NodeJS v14.15.5
 
@@ -15,6 +17,10 @@ npm install for install dependencies
 ng serve
 ng serve -o 
 url: http://localhost:4200
+
+sudo npm install for install dependencies in linux
+
+npm start , for run proxy and server
 
 # Install
 npm install -g @angular/cli@10.2.2
