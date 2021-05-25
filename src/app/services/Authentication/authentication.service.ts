@@ -1,4 +1,4 @@
-import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ToastService } from 'ng-uikit-pro-standard';
 import { Md5 } from 'ts-md5/dist/md5';
@@ -26,6 +26,7 @@ export class AuthenticationService {
             if (result.message == 'OK') {
                 this.toast.success(`Bienvenido ${user.username}`, '', { opacity: 1, timeOut: 2000, positionClass: 'md-toast-top-center' });
                 this.saveUserData(result, user.password);
+                return result.data;
             } else {
                 this.toast.warning(result.message, '', { opacity: 1, timeOut: 2000, positionClass: 'md-toast-top-center' });
             }
@@ -34,7 +35,6 @@ export class AuthenticationService {
             this.toast.error(err.message, 'CONTACTE AL ADMINISTRADOR', { opacity: 1, timeOut: 3000, positionClass: 'md-toast-top-center' });
         });
 
-        
         return data;
     }
 

@@ -3,7 +3,6 @@
   <div [className]="lstVisible[1].isCollapse? 'col-md-auto style-col redux' : 'col-md-auto style-col'">
     <div class="my-2 title-menu">
     </div>
-    <hr>
     <div>
       <ul class="list-group">
         <li *ngFor="let menu of list_menus[1]|filter:searcherText" title="{{menu.title}}" routerLinkActive="active">
@@ -25,7 +24,6 @@
     *ngIf="lstVisible[turn + 1].isVisible == true">
     <div class="my-2 title-menu">
     </div>
-    <hr>
     <div>
       <ul class="list-group">
         <li *ngFor="let menu of list_menus[turn + 1]|filter:searcherText" title="{{menu.title}}"

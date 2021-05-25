@@ -17,6 +17,8 @@ export class LoginComponent implements OnInit {
   user: UserModel = new UserModel();
   rememberme = false;
   current_year = new Date().getFullYear();
+  showTextButton = true;
+  showSpinner = false;
 
 
   constructor(private _authenticationService: AuthenticationService,
@@ -42,17 +44,26 @@ export class LoginComponent implements OnInit {
   }
 
   login(form: NgForm) {
+
     if (form.invalid) { return };
+    this.showSpinner = true;
+    this.showTextButton = false;
 
     this._authenticationService.login(this.user).then((result) => {
-      this._ixchelV2Service.getNavigation().then((result) => {
-        if (result != undefined) {
-          this._globalService.addRoutes(result);
-        }
-        this.redirectionRoutes();
-      }).catch((err) => {
-        console.log(err);
-      });
+      if (result != undefined) {
+        this._ixchelV2Service.getNavigation().then((result) => {
+          if (result != undefined) {
+            this._globalService.addRoutes(result);
+            this.redirectionRoutes();
+          }
+        }).catch((err) => {
+          console.log(err);
+        });
+      } else {
+        this.showSpinner = false;
+        this.showTextButton = true;
+      }
+
       this.remember();
     });
   }

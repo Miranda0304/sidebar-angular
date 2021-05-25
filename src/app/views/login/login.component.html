@@ -39,7 +39,12 @@
         </div>
       </div>
       <div class="card-footer text-center">
-        <button type="submit" class="btn btn-dark btn-lg btn-block">Entrar</button>
+        <button type="submit" class="btn btn-dark btn-lg btn-block">
+          <span *ngIf="showTextButton">Entrar</span>
+          <div *ngIf="showSpinner" class="spinner-border text-light" role="status">
+            <span class="sr-only">Loading...</span>
+          </div>
+        </button>
         <h6 class="mt-5  text-muted">©Arteaga Consulting Services</h6>
         <small class="mt-5  text-muted">2016 - {{current_year}}</small>
       </div>
