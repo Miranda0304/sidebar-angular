@@ -2,9 +2,8 @@ import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { views_json } from "../../../../database/views-json/view-json";
 import { tables_json } from "src/database/table-json/tables-json";
 import { IxchelV2Service } from "src/app/services/API_Ixchelv2/ixchel_v2.service";
-
-import { Subject } from 'rxjs';
 import { DataTableDirective } from 'angular-datatables';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-tables',
@@ -17,6 +16,8 @@ export class TablesComponent implements OnInit {
   @Input() partial_name_table: string = "";
 
   lst_tables = [];
+  @ViewChild(DataTableDirective)
+  dtElement: DataTableDirective;
   dtOptions: DataTables.Settings = {};
   datatable_language = {
     "emptyTable": "Sin registros.",
@@ -45,10 +46,7 @@ export class TablesComponent implements OnInit {
   columnDefs = [];
   pagination = 10;
 
-  @ViewChild(DataTableDirective)
-  dtElement: DataTableDirective;
-  // The trigger needed to re-render the table
-  dtTrigger: Subject<any> = new Subject()
+  dtTrigger: Subject<TablesComponent> = new Subject();
 
   constructor(private _ixchelV2Service: IxchelV2Service) { }
 
@@ -58,8 +56,11 @@ export class TablesComponent implements OnInit {
 
   }
 
-  async loadTablesAPI() {
+  ngAfterViewInit(): void {
+    this.dtTrigger.next();
+  }
 
+  async loadTablesAPI() {
     if (this.partial_name_path != "") {
       if (this.partial_name_table != "") {
 
@@ -100,7 +101,6 @@ export class TablesComponent implements OnInit {
 
   // ##############################################
   async loadInformationRows(filter: string) {
-
     let information_rows = [];
     await this._ixchelV2Service.getTable(this.name_view, undefined, filter).then(async (information) => {
       if (information == undefined) {
@@ -140,22 +140,15 @@ export class TablesComponent implements OnInit {
       columnDefs: this.columnDefs, // Configuration columns
       stateSave: true
     };
-
     this.lst_tables = this.table;
   }
 
 
- 
+
   changeSearch(val: string) {
-    this.dtElement.dtInstance.then((dtInstance: DataTables.Api) => {
-      //dtInstance.destroy();
-      dtInstance.clear();
-      // Switch
-      this.loadInformationRows(val);
-      // Call the dtTrigger to rerender again
-      this.dtTrigger.next();
-      dtInstance.draw();
-    });
+
+    this.loadInformationRows(val);
+
 
   }
 

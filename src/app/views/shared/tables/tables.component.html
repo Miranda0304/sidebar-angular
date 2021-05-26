@@ -1,33 +1,33 @@
 <div *ngIf="lst_tables.length > 0">
+  <!-- First ngFor, contain table's data -->
   <div *ngFor="let table of lst_tables" class="my-4" style="overflow-x: auto;">
-
-
     <div *ngIf="table.active">
       <h3>{{table.table_title}}</h3>
-
-
       <div class="col-md-12 mx-0 my-1">
-        <input type="text" class="form.control" autocomplete="off" placeholder="Buscar"  (keyup)="changeSearch($event.target.value)">
+        <input type="search" class="form-control w-50" autocomplete="off" placeholder="Buscar"
+          (keyup)="changeSearch($event.target.value)">
       </div>
-
-
-
       <div style="overflow-x: auto;">
-        <table datatable [dtOptions]="dtOptions" class="{{table.theme_table}}"
-          [ngStyle]="{'text-align': table.text_align}">
+        <!-- Start table -->
+        <table class="{{table.theme_table}}" [ngStyle]="{'text-align': table.text_align}">
           <thead class="{{table.theme_header}}">
             <tr>
-              <th scope="col" *ngFor="let head of table.header">{{head.field_title}}</th>
+              <th scope="col" *ngFor="let head of table.header ">{{head.field_title}}</th>
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let tr of table.information">
-              <td *ngFor="let head of table.header">{{tr[head.field_name]}}</td>
+            <tr
+              *ngFor="let tr of table.information | paginate: { itemsPerPage: table.pagination, currentPage: p , id: table.table_name }">
+              <td *ngFor="let head of table.header ">{{tr[head.field_name]}}</td>
             </tr>
           </tbody>
         </table>
-      </div>
+        <!-- End table -->
+        <pagination-controls (pageChange)="p = $event" previousLabel="Anterior" nextLabel="Siguiente"
+          [id]="table.table_name" responsive="true">
+        </pagination-controls>
 
+      </div>
     </div>
 
     <br><br><br>
