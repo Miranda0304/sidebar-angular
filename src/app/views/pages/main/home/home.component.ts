@@ -43,8 +43,6 @@ export class HomeComponent implements OnInit {
 
 
 
-  
-
 
   name_model = "";
   searchData() {
