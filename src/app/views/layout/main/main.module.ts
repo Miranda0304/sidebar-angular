@@ -36,7 +36,7 @@ import { FormsComponent } from 'src/app/views/shared/forms/forms.component';
         ContextualAreaModule,
         Ng2SearchPipeModule,
         DataTablesModule,
-        PdfViewerModule
+        PdfViewerModule,
     ],
     declarations: [
         MainComponent,
