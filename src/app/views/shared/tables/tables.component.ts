@@ -100,12 +100,14 @@ export class TablesComponent implements OnInit {
   // ##############################################
   async loadInformationRows(filter: string) {
     let information_rows = [];
-    await this._ixchelV2Service.getTable(this.name_view, undefined, filter).then(async (information) => {
-      if (information == undefined) {
+
+    await this._ixchelV2Service.getSearcher(this.name_view, filter).then(async (information) => {
+
+      if (information == undefined || information == null) {
         information_rows = [];
       }
-      if (information != undefined) {
 
+      if (information != undefined) {
         this.lst_information = this.table.map(x => x.header)[0].map(x => x.field_name);
 
         await information.forEach(element => {
@@ -117,6 +119,9 @@ export class TablesComponent implements OnInit {
             }, {}));
         });
 
+        this.table[0].information = information_rows;
+
+      } else {
         this.table[0].information = information_rows;
       }
     });

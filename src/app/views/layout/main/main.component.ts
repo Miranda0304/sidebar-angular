@@ -27,7 +27,9 @@ export class MainComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
+    setTimeout(() => {
+      this.router.navigateByUrl('main/home');
+    }, 80);
   }
 
 

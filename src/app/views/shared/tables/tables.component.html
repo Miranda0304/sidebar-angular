@@ -4,7 +4,7 @@
     <div *ngIf="table.active">
       <h3>{{table.table_title}}</h3>
       <div class="col-md-12 mx-0 my-1">
-        <input type="search" class="form-control w-50" autocomplete="off" placeholder="Buscar"
+        <input type="search" class="form-control" id="searcher-table" autocomplete="off" placeholder="Buscar"
           (keyup)="searchRecords($event.target.value)">
       </div>
       <div style="overflow-x: auto;">
@@ -22,6 +22,9 @@
             </tr>
           </tbody>
         </table>
+        <div *ngIf="table.information.length == 0" class="col-md-12" align="center">
+          Sin Registros
+        </div>
         <!-- End table -->
         <pagination-controls (pageChange)="page_change = $event" previousLabel="Anterior" nextLabel="Siguiente"
           [id]="table.table_name" responsive="true">

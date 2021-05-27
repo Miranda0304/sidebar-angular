@@ -101,15 +101,12 @@ export class IxchelV2Service {
     }
 
     // Get tables, headers and data of tables.
-    // ##############################################
-    public async getTable(model_name: string, table_name?: string, filter?: string) {
+    public async getTable(model_name: string, table_name?: string) {
         this.readToken();
         if (model_name == "") return;
-        // ##############################################
-        filter == "" ? filter = undefined : filter = filter;
+
         const headers = { 'Prefer': 'params=single-object', 'Content-Type': 'application/json' };
-        // ##############################################
-        const body = { "action": "get_data", "sessionID": this.user_token, "data": { "model": model_name, "table_name": table_name, "first_name": filter } };
+        const body = { "action": "get_data", "sessionID": this.user_token, "data": { "model": model_name, "table_name": table_name} };
 
         let data = await this._http.post(URL_IXCHEL, body, { headers }).toPromise().then((result: any) => {
 
@@ -117,6 +114,30 @@ export class IxchelV2Service {
             if (result.message == "OK" && result.data != null) {
                 return result.data
             }
+        }).catch((err) => {
+            console.log(err);
+            if (err.error == undefined) {
+                this.toast.error(err.message, '', { opacity: 1, timeOut: 3000, positionClass: 'md-toast-top-center' });
+            } else {
+                this.toast.error(err.error.message, '', { opacity: 1, timeOut: 3000, positionClass: 'md-toast-top-center' });
+            }
+        });
+
+        return data;
+    }
+
+    public async getSearcher(model_name: string, search?: string) {
+        this.readToken();
+        if (model_name == "") return;
+
+        const headers = { 'Prefer': 'params=single-object', 'Content-Type': 'application/json' };
+        const body = { "action": "fib_get_model_search", "sessionID": this.user_token, "data": { "model": model_name, "search": search ,"limit": 10 } };
+
+        let data = await this._http.post(URL_IXCHEL, body, { headers }).toPromise().then((result: any) => {
+
+         
+                return result;
+            
         }).catch((err) => {
             console.log(err);
             if (err.error == undefined) {
