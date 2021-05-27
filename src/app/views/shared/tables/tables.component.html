@@ -5,7 +5,7 @@
       <h3>{{table.table_title}}</h3>
       <div class="col-md-12 mx-0 my-1">
         <input type="search" class="form-control w-50" autocomplete="off" placeholder="Buscar"
-          (keyup)="changeSearch($event.target.value)">
+          (keyup)="searchRecords($event.target.value)">
       </div>
       <div style="overflow-x: auto;">
         <!-- Start table -->
@@ -17,13 +17,13 @@
           </thead>
           <tbody>
             <tr
-              *ngFor="let tr of table.information | paginate: { itemsPerPage: table.pagination, currentPage: p , id: table.table_name }">
+              *ngFor="let tr of table.information | paginate: { itemsPerPage: table.pagination, currentPage: page_change , id: table.table_name }">
               <td *ngFor="let head of table.header ">{{tr[head.field_name]}}</td>
             </tr>
           </tbody>
         </table>
         <!-- End table -->
-        <pagination-controls (pageChange)="p = $event" previousLabel="Anterior" nextLabel="Siguiente"
+        <pagination-controls (pageChange)="page_change = $event" previousLabel="Anterior" nextLabel="Siguiente"
           [id]="table.table_name" responsive="true">
         </pagination-controls>
 

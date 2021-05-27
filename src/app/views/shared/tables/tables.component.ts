@@ -45,6 +45,7 @@ export class TablesComponent implements OnInit {
   configuration_columns = [];
   columnDefs = [];
   pagination = 10;
+  page_change: any;
 
   dtTrigger: Subject<TablesComponent> = new Subject();
 
@@ -56,9 +57,6 @@ export class TablesComponent implements OnInit {
 
   }
 
-  ngAfterViewInit(): void {
-    this.dtTrigger.next();
-  }
 
   async loadTablesAPI() {
     if (this.partial_name_path != "") {
@@ -121,8 +119,7 @@ export class TablesComponent implements OnInit {
 
         this.table[0].information = information_rows;
       }
-    });// END third getData
-
+    });
 
     // Insert configuration of columns ( headers ).
     this.configuration_columns.forEach((element, index) => {
@@ -140,16 +137,13 @@ export class TablesComponent implements OnInit {
       columnDefs: this.columnDefs, // Configuration columns
       stateSave: true
     };
+
     this.lst_tables = this.table;
   }
 
 
-
-  changeSearch(val: string) {
-
+  searchRecords(val: string) {
     this.loadInformationRows(val);
-
-
   }
 
 
