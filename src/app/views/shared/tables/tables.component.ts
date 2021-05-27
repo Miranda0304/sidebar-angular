@@ -45,7 +45,7 @@ export class TablesComponent implements OnInit {
   configuration_columns = [];
   columnDefs = [];
   pagination = 10;
-  page_change: any;
+  page_change: number;
 
   dtTrigger: Subject<TablesComponent> = new Subject();
 
@@ -149,6 +149,7 @@ export class TablesComponent implements OnInit {
 
   searchRecords(val: string) {
     this.loadInformationRows(val);
+    this.page_change = 1;
   }
 
 
