@@ -29,7 +29,6 @@ export class TablesComponent implements OnInit {
 
 
   constructor(private _ixchelV2Service: IxchelV2Service) {
-    //this.searchRecords = _.debounceTime(this.searchRecords, 1000)
 
   }
 
@@ -113,7 +112,7 @@ export class TablesComponent implements OnInit {
   }
 
 
-  searchRecords(val?: string) {
+  searchRecords() {
     this.userQuestionUpdate.pipe(
       debounceTime(500),
       distinctUntilChanged())
