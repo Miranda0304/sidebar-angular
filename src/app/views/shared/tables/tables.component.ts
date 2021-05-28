@@ -1,7 +1,11 @@
-import { Component, OnInit, Input, ViewChild } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { views_json } from "../../../../database/views-json/view-json";
 import { tables_json } from "src/database/table-json/tables-json";
 import { IxchelV2Service } from "src/app/services/API_Ixchelv2/ixchel_v2.service";
+import { debounceTime, map, distinctUntilChanged, filter } from "rxjs/operators";
+import { Subject } from 'rxjs';
+
+
 @Component({
   selector: 'app-tables',
   templateUrl: './tables.component.html',
@@ -12,24 +16,31 @@ export class TablesComponent implements OnInit {
   @Input() partial_name_path: string = "";
   @Input() partial_name_table: string = "";
 
+  userQuestionUpdate = new Subject<string>();
+
   lst_tables = [];
 
   name_view = "";
   lst_information = [];
-  table = [];  
+  table = [];
   columnDefs = [];
   pagination = 10;
   page_change: number;
 
 
-  constructor(private _ixchelV2Service: IxchelV2Service) { }
+  constructor(private _ixchelV2Service: IxchelV2Service) {
+    //this.searchRecords = _.debounceTime(this.searchRecords, 1000)
+
+  }
 
   ngOnInit(): void {
     this.loadTablesAPI();
 
 
   }
-
+  ngAfterViewInit() {
+    this.searchRecords();
+  }
 
   async loadTablesAPI() {
     if (this.partial_name_path != "") {
@@ -46,7 +57,7 @@ export class TablesComponent implements OnInit {
             await this._ixchelV2Service.getTable("sys_table_fields", this.partial_name_table).then(async (headers) => {
               if (headers != undefined) {
 
-                headers = headers.filter((header) => header.displayed == true).sort((a, b) => a.field_order - b.field_order);                
+                headers = headers.filter((header) => header.displayed == true).sort((a, b) => a.field_order - b.field_order);
 
                 this.table[0].header = [];
                 headers.forEach((header) => {
@@ -69,7 +80,6 @@ export class TablesComponent implements OnInit {
 
   }
 
-  // ##############################################
   async loadInformationRows(filter: string) {
     let information_rows = [];
 
@@ -103,9 +113,14 @@ export class TablesComponent implements OnInit {
   }
 
 
-  searchRecords(val: string) {
-    this.loadInformationRows(val);
-    this.page_change = 1;
+  searchRecords(val?: string) {
+    this.userQuestionUpdate.pipe(
+      debounceTime(500),
+      distinctUntilChanged())
+      .subscribe(value => {
+        this.loadInformationRows(value);
+        this.page_change = 1;
+      });
   }
 
 

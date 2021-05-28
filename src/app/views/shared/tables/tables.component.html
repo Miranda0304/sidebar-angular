@@ -4,8 +4,8 @@
     <div *ngIf="table.active">
       <h3>{{table.table_title}}</h3>
       <div class="col-md-12 mx-0 my-1">
-        <input type="search" class="form-control" id="searcher-table" autocomplete="off" placeholder="Buscar"
-          (keyup)="searchRecords($event.target.value)">
+        <input  type="search" class="form-control" id="searcher-table" autocomplete="off" placeholder="Buscar"
+          (keyup)="this.userQuestionUpdate.next($event.target.value)">
       </div>
       <div style="overflow-x: auto;">
         <!-- Start table -->
