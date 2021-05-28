@@ -11,8 +11,8 @@
     "logLevel": "debug",
     "changeOrigin": true
   },
-  "/v21": {
-    "target": "https://dfw.images.api.rackspacecloud.com",
+  "/v1": {
+    "target": "https://storage101.dfw1.clouddrive.com",
     "secure": true,
     "logLevel": "debug",
     "changeOrigin": true

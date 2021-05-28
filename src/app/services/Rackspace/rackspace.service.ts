@@ -1,4 +1,4 @@
-import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, map } from 'rxjs/operators';
 
@@ -16,16 +16,13 @@ export class RackspaceService {
         const headers = { 'Content-type': 'application/json' };
         const body = { "auth": { "RAX-KSKEY:apiKeyCredentials": { "username": "jesus.miranda", "apiKey": "3566b98a1c06433ca75e7890ccb5f802" } } };
 
-        console.log("### RACKESPACE SERVICE");
-
         let data = await this._http.post(url_rackespace, body, { headers }).toPromise().then((result: any) => {
+            console.log("### RACKESPACE SERVICE", result);
+
             let token = result.access.token.id;
             let account_number = result.access.token.tenant.id;
-            //https://dfw.servers.api.rackspacecloud.com/v2
-            //https://dfw.images.api.rackspacecloud.com/v2
-            let endpoint = "/v2/" + account_number + "/servers";
-            let auth_headers = { "X-Auth-Token": token };
-            console.log(result);
+            let endpoint = "/v1/" + account_number + "/proof/cube-rubik.png";
+            let auth_headers = { "X-Auth-Token": token, 'Content-Type': 'application/json' };
 
             this._http.get(endpoint, { headers: auth_headers }).toPromise().then((result: any) => {
                 console.log("SERVERS", result);

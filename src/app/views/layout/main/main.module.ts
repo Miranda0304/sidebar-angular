@@ -5,8 +5,7 @@ import { FormsModule } from '@angular/forms'; // ngModel
 import { HttpClientModule } from '@angular/common/http';
 
 //Dependencies
-import { Ng2SearchPipeModule } from 'ng2-search-filter';
-import { DataTablesModule } from "angular-datatables";
+import { Ng2SearchPipeModule } from 'ng2-search-filter';;
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { NgxPaginationModule } from 'ngx-pagination';
 
@@ -36,7 +35,6 @@ import { FormsComponent } from 'src/app/views/shared/forms/forms.component';
         MenuModule,
         ContextualAreaModule,
         Ng2SearchPipeModule,
-        DataTablesModule,
         PdfViewerModule,
         NgxPaginationModule
     ],

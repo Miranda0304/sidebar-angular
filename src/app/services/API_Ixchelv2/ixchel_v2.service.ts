@@ -109,8 +109,6 @@ export class IxchelV2Service {
         const body = { "action": "get_data", "sessionID": this.user_token, "data": { "model": model_name, "table_name": table_name} };
 
         let data = await this._http.post(URL_IXCHEL, body, { headers }).toPromise().then((result: any) => {
-
-            // ##############################################
             if (result.message == "OK" && result.data != null) {
                 return result.data
             }
